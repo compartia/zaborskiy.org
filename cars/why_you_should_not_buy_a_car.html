@@ -14,6 +14,7 @@
 <script src="assets/js/vendor/less.min.js"></script>
 
 
+
 <link
 	href='//fonts.googleapis.com/css?family=Istok+Web:400,700,400italic,700italic|Roboto:400,100,300,700,300italic&subset=latin,cyrillic-ext'
 	rel='stylesheet' type='text/css'>
@@ -46,31 +47,45 @@
 
 	<div class="page">
 		<div class="content">
-			<p class="lead">
-				“Машина — это удобно”. Нет. <small>это чушь которую придумали, чтобы выудить из тебя деньги и заставить
-					работать на машину. </small>Цифры — это удобно. Цифры ниже, мотай.
-			</p>
-			<ol class="simple-list">
-				<li>Ты не собьешь беременную старушку с коляской, и твои руки не будут в крови. Что особенно важно, ты не
-					сядешь в тюрьму и так сэкономишь время на свой инстаграмчик.</li>
-				<li>Ты сможешь читать почти 2 часа в день (не Чехова, конечно, а чатики и соцсети)</li>
-				<li>Ты можешь быть постоянно бухим, что совершенно легально, а местами — часть культуры.</li>
-				<li>Не нужно бояться угона и утренних соседей, которых нервировала твоя сигнализация.</li>
-				<li>Не нужно тратить время на получение прав, мед. справок, прохождение тех. осмотра, ТО, мойку, страховые
-					компании, суды с гибодыдэ, оплату штрафов, транспортных налогов, соскребание льда со стекол зимой, поиск парковки у
-					супермаркета.</li>
-				<li>Тебя не будут просить подвезти противные коллеги и дачнутые родственники-земледелы.</li>
-				<li>Можно не откладывать деньги каждый месяц, а … см. пункт 3.</li>
-				<li>В твоей жизни не будет этих кретинов, которые сигналят сзади, когда тебе прямо, а им смерть как хочется
-					направо .</li>
 
-				<li>Твой живот/ляжки/щеки не будут столь отвислыми, если ты вспомнишь велосипед/ролики/самокат/калланетику в
-					метро</li>
-			</ol>
+			<div class="text-content">
+
+				<p class="lead">«Машина — это удобно»</p>
+				<h1>Нет.</h1>
+				<p class="lead">
+					Цифры — это удобно. <br> <small>калькулятор расходов на машину</small><br>(Цифры ниже)
+				</p>
+				<p>Редкий словоблуд может понятно ответить, зачем покупать машину. Мы тоже не смогли, но мы подсчитали, сколько
+					стоит ее содержать - бензин, страховки и тому подобное. Если вы уже купили автомобиль, то продайте. Если ваш друг
+					собирается приобрести автомобиль, то отговорите его. Ниже — текстовое внушение для него (как бы от вашего лица). А
+					еще ниже — калькулятор расходов.</p>
+				<p>Вот N причин, по которым тебе не стоит покупать автомобиль, [друг мой].</p>
+				<ol class="simple-list">
+					<li>Ты можешь пребывать постоянно бухим, что совершенно легально, а в регионах — часть культуры.</li>
+					<li>Ты сможешь читать почти 2 часа в день (можно Чехова, а можно чатики и соцсети).</li>
+					<li>Зимой можно не соскребать лед со стекол.</li>
+
+					<li>Не нужно бояться угона и завистливых соседей, которые тоже хотят такую громкую сигнализацию.</li>
+
+					<li>Можно не тратить время на получение прав, мед. справок, прохождение тех. осмотра, ТО, мойку, страховые
+						компании, суды с гибодыдэ, оплату штрафов, транспортных налогов, поиск парковки у супермаркета, накачивание колес.</li>
+
+					<li>Тебя не будут просить подвезти противные коллеги и дачнутые родственники-земледелы.</li>
+					<li>Можно не откладывать деньги каждый месяц, а … см. пункт 1.</li>
+					<li>В твоей жизни не будет этих кретинов, которые сигналят сзади, когда тебе прямо, а им смерть как приспичило
+						направо.</li>
+
+					<li>Твои живот, ляжки и щеки не будут столь отвислыми, потому что тебя ждут калланетика в метро, велосипед,
+						ролики, самокат, пешие прогулки, лыжи, наконец.</li>
+					<li>Тебя оставят в покое сектанты гринписа и прочие эко-хиппи</li>
+					
+					<li>Ты не собьешь беременную дочку депутата на зебре, и твои руки не будут в крови. Что особенно важно, ты не
+						сядешь в тюрьму и как бы сэкономишь несколько лет.</li>
+						
+					<li>Теперь самое интересное. За {{years}} года ты сэкономишь порядка {{years*getTotal()|numberRu}} {{curr}}</li>
+				</ol>
+			</div>
 			<div>
-
-
-
 
 				<form class="form-horizontal cars">
 
@@ -87,8 +102,12 @@
 								<td><input ng-model="car.value" type="text" number-format class="input-lg form-control"
 									ng-model-options="{ debounce: 500 }"></td>
 							</tr>
+						</tbody>
+					</table>
 
+					<table class="table cars">
 
+						<tbody>
 							<tr>
 								<td class="headline">расходы</td>
 								<td class="headline">в среднем за год</td>
@@ -99,8 +118,8 @@
 								data-toggle="collapse" data-target="#annualReduction">
 								<td>авто теряет в стоимости</td>
 								<td><strong>{{annualReduction() | numberRu}}</strong> <span class="glyphicon glyphicon-cog"
-									aria-hidden="true"></span><br> =<small> ( {{car.value | numberRu}} -{{residualCost()| numberRu}} )
-										/ {{years}}</small></td>
+									aria-hidden="true"></span><br> =<small> ( {{car.value | numberRu}} - {{residualCost()| numberRu}}
+										) / {{years}}</small></td>
 								<td>{{annualReduction() * 3| numberRu}}</td>
 							</tr>
 
@@ -234,9 +253,9 @@
 							<tr ng-class="{open:loanCalcOpen}" ng-click="loanCalcOpen = !loanCalcOpen" class="openable"
 								data-toggle="collapse" data-target="#totalOverpayment">
 								<td>проценты по кредиту</td>
-								<td><strong>{{totalOverpayment(12*years)/years | numberRu}}</strong> <span
-									class="glyphicon glyphicon-cog" aria-hidden="true"></span></td>
-								<td>{{totalOverpayment(12*years) | numberRu}}</td>
+								<td><strong>{{totalOverpayment(12*years)/years | numberRu}}</strong> <span class="glyphicon glyphicon-cog"
+									aria-hidden="true"></span></td>
+								<td class="row-value">{{totalOverpayment(12*years) | numberRu}}</td>
 							</tr>
 
 							<tr>
@@ -252,8 +271,8 @@
 
 												<tr>
 													<td>сумма кредита</td>
-													<td>{{car.value-car.loan.firstPayment | numberRu}}<br>
-													<small>а вернуть нужно будет {{montlyPayment()*car.loan.years*12 | numberRu}}</small></td>
+													<td>{{car.value-car.loan.firstPayment | numberRu}}<br> <small>а вернуть нужно будет
+															{{montlyPayment()*car.loan.years*12 | numberRu}}</small></td>
 													<td></td>
 												</tr>
 												<tr>
@@ -290,9 +309,9 @@
 
 
 											</table>
-										</div>
-									</div>
-								</td>
+							</div>
+							</div>
+							</td>
 							</tr>
 
 
@@ -324,7 +343,7 @@
 			</div>
 		</div>
 	</div>
-	{{window.location.href + toURL()}}
+	<!-- {{window.location.href + toURL()}} -->
 	<button class="btn btn-link" ng-click="resetData()">вернуть фабричные настройки</button>
 
 </body>

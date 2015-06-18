@@ -1,3 +1,5 @@
+@import (css) "../assets/js/bower_components/bootstrap/dist/css/bootstrap.min.css";
+
 @nice-blue: desaturate(#2980B9,10%);
 @light-sea-green:#1ABC9C;
 @coral: #E87352;
@@ -9,12 +11,6 @@
 @headline-bg-color: desaturate(@punch, 10%); 
 @selected-row:lighten(desaturate(@light-sea-green, 50%),40%); 
  
-@selected-lesson-l: lighten(@turquoise-medium, 25%);
-@selected-lesson: desaturate(@selected-lesson-l, 40%); 
-@selected-lesson-hover: lighten(@selected-lesson, 8%);
-
-@selected-lesson-item-text: darken(@selected-lesson, 40%); 
-@selected-lesson-item-caption: darken(@selected-lesson, 60%); 
  
 @base-padding: 15px;
 @inter-panel-padding: 5px;
@@ -22,13 +18,13 @@
 @section-time-color: @nice-blue;
 @section-basic-color:@turquoise-medium;
 
+@shadow-color: rgba(0,0,0,0.46);
+
 @panel-bg: darken(rgb( 251,252,250),2%);
 @panel-bg-dimmed:desaturate( darken(@panel-bg, 4%), 10%);
 @bg-color: white;
 @panel-border-color: darken(@panel-bg, 8%); 
-
-@base-font-color: @selected-lesson-item-caption;
-
+ 
 @light-font-color: darken(@panel-bg-dimmed, 20%); 
 
 .roboto{
@@ -50,22 +46,7 @@ body{
     font-weight: 300;
     letter-spacing: .1em;
 }
-
-.section-basic .panel-body{
-    border-left: @side-border solid @section-basic-color!important;
-}
-
-.section-descr .panel-body{
-    border-left: @side-border solid @nice-blue!important;
-}
-
-.section-place .panel-body{
-    border-left: @side-border solid @light-sea-green!important;
-}
-
-.section-price .panel-body{
-    border-left: @side-border solid @punch!important;
-}
+ 
 
 
 
@@ -133,44 +114,11 @@ body{
     background: none;
 }
 
-
-
 .panel-body{
     padding: 15px!important;
     .grey-bg;
 }
 
-.edit-lessons-list .panel-body{
-    padding: 0!important;
-}
-
-.edit-lessons-list .list-group-item{
-    margin: 0;
-    background: none;
-}
-
-.edit-lessons-list{
-    margin: 0;
-} 
-.edit-lessons-list .list-group{
-    padding: 0;
-}
- 
-
-.edit-lessons-list .active  {
-   background-color: @selected-lesson!important;
-    .with-noise;
-}
-
-.lesson-edit-block{
-    background-color: @selected-lesson!important;
-    padding: @base-padding;
-    .with-noise;
-}
-
-.lesson-edit-block .panel-body{
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
-}
 
 /* ==== */
 
@@ -179,46 +127,8 @@ body{
     cursor: pointer;
 }
 
-.list-group-item-wrap:hover {
-   background-color: @selected-lesson-hover;
-}
-
-.list-group-item address{
-    .roboto;
-    font-style: normal !important;
-	font-weight: 300 !important;
-    margin: 0;
-    padding: 0;
-    color:@selected-lesson-item-text;
-}
-
-.list-group-item address img{
-    height: 1em;
-    width: auto;
-    margin: 2px;
-    float: left;
-}
-
-.list-group-item time{
-    .nice-caption;
-    font-size: 14px;
-    color:@selected-lesson-item-caption;
-}
-
-.list-group-item h3{
-    .roboto;
-    font-style: normal !important;
-	font-weight: 400 !important;
-	font-size: 18px;
-    margin: 0;
-    padding: 0;
-    color:@selected-lesson-item-caption;
-}
-
-.list-group-item h3 .index{
-    color:@selected-lesson-item-text;
-    font-weight: 300 !important;
-}
+ 
+ 
 /*  = === = = = */
 .list-group-item{
     padding: 0!important;
@@ -235,78 +145,12 @@ body{
     padding: @base-padding;
     display: table-cell;
     /*border-bottom: 1px solid @panel-border-color;*/
-}
-.list-group-item .date-wrap{
-    .roboto;
-    color:@selected-lesson-item-text;
-    border-right: 2px solid @panel-border-color;
-    font-weight: 300 !important;
-    width: 25%;
-    vertical-align: middle;
-    text-align: center;
-    .list-group-item-cell
-}
+} 
+ 
 
-.list-group-item .text-wrap{
-    margin: 0;
-    .list-group-item-cell
-}
-.list-group-item .date-wrap h3{
-    font-size: 22px;
-    color: @section-time-color;
-}
-
-/*lesson-list-item*/
-.list-group-item .course-tools{
-    width: 10%;
-    float: none;
-    .list-group-item-cell
-}
-
-.course-time-info{
-    padding: 10px!important;
-    background: none;
-}
-
-.course-options, .course-time{
-    .grey-bg-transparent;   
-}
-
-.comments-list,
-.course-description .lead{
-    .roboto;
-}
-
-.comment-info time{
-    .nice-caption;
-    color:@selected-lesson-item-text;
-}
-
-.course-time-place-wrap{
-    display: table-row;
-}
-
-.course-info-head-block{
-   text-align: center;
-    vertical-align: middle;
-    min-height: 300px;
-}
-.course-info-head-block h1{
-    color: white;
-    .nice-caption;
-    margin: @base-padding;
-    font-size: 38px;
-    text-shadow: 7px 7px 14px fadeout(darken(@nice-blue, 20%), 10%);
-}
-
-.course-info-head-block-image{
-    
-}
-
-.image-fade-out-cover{
-    background-color: fadeout(darken(@nice-blue, 20%), 50%);
-    .with-noise;
-}
+ 
+  
+ 
 .row{
     margin: 0px!important;   
 }
@@ -473,17 +317,32 @@ b, strong{
 
 .table{
     margin-bottom: 0;
+    td{
+        margin-bottom: 0;
+    }
+    
+    td:nth-child(3){
+        padding-right: @base-padding!important;
+        min-width: 6em;
+    }
 }
  
+ 
+
 .subtable{
     background: none !important;
-}
-.subtable td{
-   background: none !important;
-    border-top-color: @selected-row!important;
-}
-.subtable tr:first-of-type td{
-    border-top:none!important;
+    
+    td{
+        background: none !important;
+        border-top-color: @selected-row!important;
+        padding-right: 1em!important;
+    }
+    
+    tr:first-of-type td{
+        border-top:none!important;
+    }
+    
+    
 }
 
 .subtable-container{
@@ -496,19 +355,19 @@ b, strong{
     background-color: @panel-bg-dimmed;
     
     padding: 10px;
-   -webkit-box-shadow: inset 0px 14px 27px -12px rgba(0,0,0,0.46);
-    -moz-box-shadow: inset 0px 14px 27px -12px rgba(0,0,0,0.46);
-    box-shadow: inset 0px 14px 27px -12px rgba(0,0,0,0.46);
- .with-noise;
+   -webkit-box-shadow: inset 0px 14px 27px -12px @shadow-color;
+    -moz-box-shadow: inset 0px 14px 27px -12px @shadow-color;
+    box-shadow: inset 0px 14px 27px -12px @shadow-color;
+    .with-noise;
 }
 
 .navbar{
-     -webkit-box-shadow: 0px 14px 27px -12px rgba(0,0,0,0.46);
-    -moz-box-shadow: 0px 14px 27px -12px rgba(0,0,0,0.46);
-    box-shadow: 0px 14px 27px -12px rgba(0,0,0,0.46);
+     -webkit-box-shadow: 0px 14px 27px -12px @shadow-color;
+    -moz-box-shadow: 0px 14px 27px -12px @shadow-color;
+    box-shadow: 0px 14px 27px -12px @shadow-color;
 }
 
-
+  
 
 ol.simple-list {
 	list-style-type: none;
@@ -530,8 +389,8 @@ ol.simple-list > li{
 ol.simple-list > li:before {
 	position: absolute;
 	top: 0;
-	left: -1em;
-	width: 1em;
+	left: -1.2em;
+	width: 1.2em;
 	
 	font-size: 2.5em;
 	line-height: 1;
@@ -547,4 +406,13 @@ ol.simple-list > li:before {
 
 .page{
     margin-top: 60px;
+}
+
+.text-content{
+    padding: @base-padding;
+}
+
+.lead small{
+    font-size: 60%;
+    .nice-caption; 
 }
