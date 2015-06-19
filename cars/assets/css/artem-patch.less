@@ -1,4 +1,6 @@
-@import (css) "../assets/js/bower_components/bootstrap/dist/css/bootstrap.min.css";
+//@import "../js/bower_components/bootstrap-material-design/less/material.less";
+
+@screen-sm-min: 700px;
 
 @nice-blue: desaturate(#2980B9,10%);
 @light-sea-green:#1ABC9C;
@@ -269,9 +271,9 @@ b, strong{
 
 .cars .form-control{
     width: 7em !important;
-    border: none;
+   /* border: none;
     background-color:white!important;
-    border-radius: 0.3em;
+    border-radius: 0.3em;*/
 }
 
 .cars td, .cars th{
@@ -415,4 +417,21 @@ ol.simple-list > li:before {
 .lead small{
     font-size: 60%;
     .nice-caption; 
+}
+
+   
+ 
+@media (max-width: 450px){
+   .container {
+        width: 100%;
+       margin: 0;
+       padding: 0;
+	} 
+}
+ 
+
+@media (min-width: @screen-sm-min) {
+ 	.container {
+        width: 550px;
+	}
 }

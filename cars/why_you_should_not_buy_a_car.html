@@ -46,7 +46,7 @@
 
 
 	<div class="page">
-		<div class="content">
+		<div class="container">
 
 			<div class="text-content">
 
@@ -82,7 +82,7 @@
 					<li>Ты не собьешь беременную дочку депутата на зебре, и твои руки не будут в крови. Что особенно важно, ты не
 						сядешь в тюрьму и как бы сэкономишь несколько лет.</li>
 						
-					<li>Теперь самое интересное. За {{years}} года ты сэкономишь порядка {{years*getTotal()|numberRu}} {{curr}}</li>
+					<li>Теперь самое интересное: <br>за {{years}} года ты сэкономишь порядка <strong style="white-space: nowrap;"> {{years*getTotal()|numberRu}} {{curr}} </strong> </li>
 				</ol>
 			</div>
 			<div>
@@ -341,10 +341,12 @@
 
 				</form>
 			</div>
+			<!-- {{window.location.href + toURL()}} -->
+	<button class="btn btn-sm btn-default" ng-click="resetData()">вернуть фабричные настройки</button>
 		</div>
+		
 	</div>
-	<!-- {{window.location.href + toURL()}} -->
-	<button class="btn btn-link" ng-click="resetData()">вернуть фабричные настройки</button>
+	
 
 </body>
 </html>
