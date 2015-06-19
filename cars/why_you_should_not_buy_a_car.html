@@ -2,6 +2,17 @@
 
 <html lang="ru" ng-app="cars">
 <head>
+<meta property="og:title" content="Отговори друга покупать машину" />
+<meta property="og:site_name" content="Kалькулятор расходов на автомобиль" />
+<meta property="og:url" content="http://car-owning-costs.herokuapp.com" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="article:author" content="https://www.facebook.com/zaborskiy" />
+<meta property="article:publisher" content="https://www.behance.net/zaborskiy" />
+
+<meta property="og:description"
+	content="Мало кто умеет считать деньги.  
+Мы подсчитали, сколько стоит содержать автомобиль - бензин, страховки и тому подобное. Цифры открывают глаза." />
+
 <meta name="google-site-verification" content="Xy-OmtxkjLq80CSWzB5KxClnjHVtUgSH084p5gULJf8" />
 <meta charset="utf-8">
 
@@ -9,27 +20,19 @@
 <meta name="description" content="Почему вам не следует приобретать автомобиль">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- <link rel="stylesheet" href="assets/css/styles_min.css"> -->
+
 <link rel="stylesheet" href="assets/js/bower_components/bootstrap/dist/css/bootstrap.min.css">
-<!-- <link rel="stylesheet/less" type="text/css" href="assets/css/artem-patch.less" />-->
- <!-- <script src="assets/js/vendor/less.min.js"></script> -->
- 
- <link rel="stylesheet"  href="assets/css/cars.css" />
+<link rel="stylesheet/less" type="text/css" href="assets/css/artem-patch.less" />
+<script src="assets/js/vendor/less.min.js"></script>
 
+<!-- <link rel="stylesheet"  href="assets/css/cars.css" /> -->
 
-
-<!-- <link
-	href='//fonts.googleapis.com/css?family=Istok+Web:400,700,400italic,700italic|Roboto:400,100,300,700,300italic&subset=latin,cyrillic-ext'
-	rel='stylesheet' type='text/css'> -->
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700&subset=latin,cyrillic-ext,cyrillic'
 	rel='stylesheet' type='text/css'>
 
 <script src="assets/js/bower_components/jquery/dist/jquery.min.js"></script>
-
 <script src="assets/js/bower_components/angular/angular.js"></script>
-
 <script src="assets/js/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
 <script src="assets/js/encoder.js"></script>
 <script src="assets/js/app.js"></script>
 
@@ -167,7 +170,7 @@
 									</div>
 								</td>
 							</tr>
-							
+
 							<tr ng-class="{open:loanCalcOpen}" ng-click="loanCalcOpen = !loanCalcOpen" class="openable"
 								data-toggle="collapse" data-target="#totalOverpayment">
 								<td>проценты по кредиту</td>
@@ -232,8 +235,8 @@
 									</div>
 								</td>
 							</tr>
-							
-							
+
+
 							<tr ng-class="{open:fuelCostOpen}" ng-click="fuelCostOpen = !fuelCostOpen" class="openable"
 								data-toggle="collapse" data-target="#fuelCost1">
 								<td>топливо</td>
@@ -306,7 +309,7 @@
 								<td>{{car.casco * years | numberRu}}</td>
 							</tr>
 
-							
+
 
 
 							<tr>
@@ -348,7 +351,7 @@
 							</tr>
 
 
-							
+
 
 
 							<tr>
@@ -379,19 +382,14 @@
 			</div>
 			<!-- {{window.location.href + toURL()}} -->
 			<button class="btn btn-sm btn-default" ng-click="resetData()">вернуть фабричные настройки</button>
-			
-			
-			
+
+
+
 			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Responsive square -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-4045044665065447"
-     data-ad-slot="7259746818"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+			<!-- Responsive square -->
+			<ins class="adsbygoogle" style="display: block" data-ad-client="ca-pub-4045044665065447" data-ad-slot="7259746818"
+				data-ad-format="auto"></ins>
+			<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 
 
@@ -399,7 +397,7 @@
 
 	</div>
 
-<script>
+	<script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
