@@ -303,6 +303,11 @@ b, strong{
         display:inherit;
     }
     
+    .btn{
+        border-radius: 0;
+        background: @headline-bg-color;
+    }
+    
     .form-control{
         width: 7em !important;
         border: none;
@@ -534,5 +539,50 @@ ol.simple-list > li:before {
 .footer{
     text-align: center;
     margin-bottom: 40px;
+    
+    .text-content{
+        margin-top: 0!important;
+        padding-top: 0!important;
+    }
 }
-.ads{}
+
+.headline{
+    h3{
+       font-weight: 600; 
+    }
+    
+    h2,h3,h4,h5{
+        color: @inverted-font-color;
+        
+        small{
+            display: inline-block;
+            width: 80px;
+            font-weight: 300;
+            color:@inverted-font-color-dimmed;
+             text-align: left!important;
+        }
+    }
+    
+  
+}
+
+.summary{
+    td:nth-child(2){
+       
+        padding-left: 0;
+//        text-align: left!important;
+
+    }
+}
+
+.dimmed{
+    .headline{
+        background-color:desaturate(darken(@headline-bg-color, 5%), 10%);  
+        h2,h3,h4,h5{
+            color: darken(@inverted-font-color, 10%);
+        }
+    }
+}
+.ads{ 
+    height: 100px;
+}

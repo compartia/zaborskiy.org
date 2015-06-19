@@ -23,11 +23,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="assets/js/bower_components/bootstrap/dist/css/bootstrap.min.css">
-<!--   <link rel="stylesheet/less" type="text/css" href="assets/css/artem-patch.less" />
-<script src="assets/js/vendor/less.min.js"></script> 
+<!-- <link rel="stylesheet/less" type="text/css" href="assets/css/artem-patch.less" />
+<script src="assets/js/vendor/less.min.js"></script>
  -->
- <link rel="stylesheet" href="assets/css/cars.css" />
- 
+ <link rel="stylesheet" href="assets/css/cars.css" />  
+
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700&subset=latin,cyrillic-ext,cyrillic'
 	rel='stylesheet' type='text/css'>
 
@@ -104,11 +104,7 @@
 				<form class="form-horizontal cars">
 
 
-
-
-
 					<table class="table cars">
-
 						<tbody>
 							<tr>
 								<td>цена машины</td>
@@ -352,21 +348,43 @@
 							</tr>
 
 
-
+							<!-- 
 
 
 							<tr>
-								<td class="headline" colspan="3"></td>
+								<td class="headline"> </td>
+								<td> </td>
+								<td class="headline"> </td>
+							</tr> -->
+
+							<tr class="summary">
+								<th class="headline">итого:</th>
+								<td class="headline" colspan="2">
+									<h3>
+										{{getTotal() | numberRu}} <small>{{curr}}/год</small>
+									</h3>
+									<h4>
+										{{getTotal()/12 | numberRu}} <small>{{curr}}/месяц</small>
+									</h4>
+									<h5>
+										{{getTotal()/(365) | numberRu}} <small>{{curr}}/день</small>
+									</h5>
+								</td>
+
 							</tr>
-							<tr>
 
-								<td class="headline" colspan="2"><h3>
-										{{getTotal() | numberRu}}{{curr}}/год <br> <small>= {{getTotal()/12 | numberRu}}{{curr}}/месяц</small> <small>=
-											{{getTotal()/(365) | numberRu}}{{curr}}/день</small><br> <small>= {{getTotal()/(365*24) |
-											numberRu}}{{curr}}/час</small><br> <small>= {{getTotal()/(365*24*60) | number:2}}{{curr}}/минуту</small><br>
-										<small>= {{getTotal()/(365*24*60*60)| number:2 }}{{curr}}/секунду</small><br>
-									</h3></td>
-								<td class="headline">{{getTotal()*years | numberRu}}{{curr}}</td>
+							<tr class="summary dimmed">
+								<th class="headline">
+									<button style="display: none" class="btn btn-sm btn-default" ng-click="resetData()">вернуть фабричные
+										настройки</button>
+								</th>
+								<td class="headline" colspan="2">
+
+									<h5>
+										{{getTotal()*years | numberRu}} <small>за 3 года</small>
+									</h5>
+								</td>
+
 							</tr>
 
 						</tbody>
@@ -375,32 +393,33 @@
 
 
 
-
-
-
-
 				</form>
 			</div>
 			<!-- {{window.location.href + toURL()}} -->
-			<button class="btn btn-sm btn-default" ng-click="resetData()">вернуть фабричные настройки</button>
-
-
-			<div class="ads" style="height: 100px">
-				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-				<!-- Responsive square -->
-				<ins class="adsbygoogle" style="display: block" data-ad-client="ca-pub-4045044665065447" data-ad-slot="7259746818"
-					data-ad-format="auto"></ins>
-				<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-			</div>
 			<div class="footer">
-			
-			<label>ссылка для друга:</label>
-			<input value="{{window.location.href + toURL()}}"  type="text" class="form-control">
-			
-				If you've found any errors or just want to improve the thing, fell free to contribute at <a
-					href="https://github.com/compartia/CarOwningCosts">GitHub CarOwningCosts <img
-					src="https://assets-cdn.github.com/images/modules/contact/heartocat.png" width="20px"></a>
+				<div class="text-content">
+
+					<label>ссылка для друга:</label> <input value="{{window.location.href + toURL()}}" type="text" class="form-control">
+
+
+				</div>
+
+
+				<div class="ads">
+					<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+					<!-- Responsive square -->
+					<ins class="adsbygoogle" style="display: block" data-ad-client="ca-pub-4045044665065447" data-ad-slot="7259746818"
+						data-ad-format="auto"></ins>
+					<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+				</div>
+
+				<div class="text-content">
+					If you've found any errors or just want to improve the thing, fell free to contribute at <a
+						href="https://github.com/compartia/CarOwningCosts">GitHub CarOwningCosts <img
+						src="https://assets-cdn.github.com/images/modules/contact/heartocat.png" width="20px"></a>
+				</div>
 			</div>
+			<!-- end of footer -->
 
 		</div>
 
