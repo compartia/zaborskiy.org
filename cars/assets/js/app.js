@@ -6,6 +6,7 @@ function makeDefaultCar() {
 	car.reduction = 35;
 
 	car.loan = {
+		use : true,
 		years : 4,
 		interrest : 19.5,
 		firstPayment : 300000
@@ -26,6 +27,11 @@ function makeDefaultCar() {
 		dailyDistance : 35
 	};
 
+	if (car.loan.use) {
+		car.loan.firstPayment = car.value * 0.3;
+	} else {
+		car.loan.firstPayment = car.value;
+	}
 	return car;
 }
 
