@@ -15,8 +15,10 @@
 
 
 
-<link
+<!-- <link
 	href='//fonts.googleapis.com/css?family=Istok+Web:400,700,400italic,700italic|Roboto:400,100,300,700,300italic&subset=latin,cyrillic-ext'
+	rel='stylesheet' type='text/css'> -->
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700&subset=latin,cyrillic-ext,cyrillic'
 	rel='stylesheet' type='text/css'>
 
 <script src="assets/js/bower_components/jquery/dist/jquery.min.js"></script>
@@ -37,7 +39,10 @@
 
 	<nav class="navbar navbar-cars navbar-fixed-top">
 		<div class="container">
-			{{getTotal() | numberRu}}{{curr}}/год
+			<div class="text-center">
+				<h3>{{getTotal() | numberRu}}</h3>
+				<small class="no-padding">{{curr}}/год</small>
+			</div>
 
 			<!--/.nav-collapse -->
 		</div>
@@ -53,7 +58,7 @@
 				<p class="lead">«Машина — это удобно»</p>
 				<h1>Нет.</h1>
 				<p class="lead">
-					Цифры — это удобно. <br> <small>калькулятор расходов на машину</small><br>(Цифры ниже)
+					Цифры — это удобно. <br> <small>калькулятор расходов на машину</small>
 				</p>
 				<p>Редкий словоблуд может понятно ответить, зачем покупать машину. Мы тоже не смогли, но мы подсчитали, сколько
 					стоит ее содержать - бензин, страховки и тому подобное. Если вы уже купили автомобиль, то продайте. Если ваш друг
@@ -78,11 +83,13 @@
 					<li>Твои живот, ляжки и щеки не будут столь отвислыми, потому что тебя ждут калланетика в метро, велосипед,
 						ролики, самокат, пешие прогулки, лыжи, наконец.</li>
 					<li>Тебя оставят в покое сектанты гринписа и прочие эко-хиппи</li>
-					
+
 					<li>Ты не собьешь беременную дочку депутата на зебре, и твои руки не будут в крови. Что особенно важно, ты не
 						сядешь в тюрьму и как бы сэкономишь несколько лет.</li>
-						
-					<li>Теперь самое интересное: <br>за {{years}} года ты сэкономишь порядка <strong style="white-space: nowrap;"> {{years*getTotal()|numberRu}} {{curr}} </strong> </li>
+
+					<li>Теперь самое интересное: <br>за {{years}} года ты сэкономишь порядка <strong
+						style="white-space: nowrap;"> {{years*getTotal()|numberRu}} {{curr}} </strong>
+					</li>
 				</ol>
 			</div>
 			<div>
@@ -109,17 +116,16 @@
 
 						<tbody>
 							<tr>
-								<td class="headline">расходы</td>
-								<td class="headline">в среднем за год</td>
-								<td class="headline">через 3 года</td>
+								<th>расходы</th>
+								<th>в среднем за год</th>
+								<th>через 3 года</th>
 							</tr>
 
 							<tr ng-class="{open:annualReductionOpen}" ng-click="annualReductionOpen=!annualReductionOpen" class="openable"
 								data-toggle="collapse" data-target="#annualReduction">
 								<td>авто теряет в стоимости</td>
 								<td><strong>{{annualReduction() | numberRu}}</strong> <span class="glyphicon glyphicon-cog"
-									aria-hidden="true"></span><br> =<small> ( {{car.value | numberRu}} - {{residualCost()| numberRu}}
-										) / {{years}}</small></td>
+									aria-hidden="true"></span></td>
 								<td>{{annualReduction() * 3| numberRu}}</td>
 							</tr>
 
@@ -130,20 +136,155 @@
 										<div class="subtable-wrap">
 											<table class="table cars subtable">
 												<tr>
-													<td>процент удешевления за 3 года</td>
+													<td>процент удешевления за 3 года<br> <small>20% - 50% в зависимости от марки авто</small></td>
 
 													<td><input ng-model="car.reduction" type="number" class="form-control"
 														ng-model-options="{ debounce: 200 }"></td>
 												</tr>
 												<tr>
-													<td>стоимость авто через 3 года</td>
+													<td>стоимость авто через 3 года <br> <small>без учета инфляции</small></td>
 
-													<td>{{residualCost() | numberRu}} <br> <small> = {{car.value | numberRu}} x
+													<td>{{residualCost() | numberRu}} <small><br> = {{car.value | numberRu}} x
 															(100%-{{car.reduction|numberRu}}%) </small></td>
+												</tr>
+
+												<tr>
+													<td>итого, потеря в стоимости за 3 года</td>
+													<td><strong>{{car.value - residualCost() | numberRu}} </strong></td>
+												</tr>
+
+												<tr>
+													<td>потеря в стоимости в среднем за год</td>
+													<td><strong>{{ (car.value - residualCost())/years | numberRu}} </strong> <small><br> =
+															{{car.value - residualCost() | numberRu}} / {{years}}</small></td>
 												</tr>
 											</table>
 										</div>
 										<!-- inner table wrap -->
+									</div>
+								</td>
+							</tr>
+							
+							<tr ng-class="{open:loanCalcOpen}" ng-click="loanCalcOpen = !loanCalcOpen" class="openable"
+								data-toggle="collapse" data-target="#totalOverpayment">
+								<td>проценты по кредиту</td>
+								<td><strong>{{totalOverpayment(12*years)/years | numberRu}}</strong> <span class="glyphicon glyphicon-cog"
+									aria-hidden="true"></span></td>
+								<td class="row-value">{{totalOverpayment(12*years) | numberRu}}</td>
+							</tr>
+
+							<tr>
+								<td colspan="3" class="subtable-container">
+									<div id="totalOverpayment" class="collapse">
+										<div class="subtable-wrap">
+											<table class="table cars subtable units-column">
+												<tr>
+													<td>первый взнос</td>
+													<td><input ng-model="car.loan.firstPayment" number-format type="text" class="form-control"></td>
+													<td>= {{ 100*(car.loan.firstPayment)/car.value | numberRu}}%</td>
+												</tr>
+
+												<tr>
+													<td>сумма кредита</td>
+													<td><strong>{{car.value-car.loan.firstPayment | numberRu}}</strong></td>
+													<td>а вернуть нужно будет <span style="white-space: nowrap;">
+															{{montlyPayment()*car.loan.years*12 | numberRu}}</span>
+													</td>
+												</tr>
+												<tr>
+													<td>кредитная ставка</td>
+													<td><input ng-model="car.loan.interrest" type="number" step="0.1" class="form-control"></td>
+													<td>% годовых</td>
+												</tr>
+												<tr>
+													<td>срок кредита (лет)</td>
+													<td><input ng-model="car.loan.years" type="number" class="form-control"></td>
+													<td>= {{car.loan.years*12}} месяцев</td>
+												</tr>
+
+												<tr>
+													<td>ежемесячный платеж</td>
+													<td><strong>{{montlyPayment() | numberRu}}</strong></td>
+													<td></td>
+												</tr>
+											</table>
+
+											<table class="table cars subtable">
+												<tr>
+													<th>год</th>
+													<th>cумма всех выплат</th>
+													<th>долг на конец года</th>
+													<th>переплата по процентам</th>
+												</tr>
+												<tr ng-repeat="yearData in loanYears track by yearData.yearNo">
+													<td>{{yearData.yearNo}}</td>
+													<td>{{yearData.paid| numberRu}}</td>
+													<td>{{yearData.balance| numberRu}}</td>
+													<td>{{totalOverpayment(12*yearData.yearNo)| numberRu}}</td>
+												</tr>
+
+
+											</table>
+										</div>
+									</div>
+								</td>
+							</tr>
+							
+							
+							<tr ng-class="{open:fuelCostOpen}" ng-click="fuelCostOpen = !fuelCostOpen" class="openable"
+								data-toggle="collapse" data-target="#fuelCost1">
+								<td>топливо</td>
+								<td><strong>{{annualFuelCost() | numberRu}}</strong> <span class="glyphicon glyphicon-cog"
+									aria-hidden="true"></span></td>
+								<td>{{annualFuelCost() * years | numberRu}}</td>
+							</tr>
+
+							<tr>
+								<td colspan="3" class="subtable-container">
+									<div id="fuelCost1" class="collapse">
+										<div class="subtable-wrap">
+											<table class="table cars subtable units-column">
+												<tr>
+													<td>цена бензина</td>
+													<td><input ng-model="car.fuel.price" type="number" class="form-control"></td>
+													<td>{{curr}}/литр</td>
+												</tr>
+
+												<tr>
+													<td>расход топлива<br> <small>фактический, а не заявленый</small></td>
+													<td><input ng-model="car.fuel.consumption" type="number" class="form-control"></td>
+													<td>литров/100 км</td>
+												</tr>
+
+												<tr>
+													<td>средний пробег в день <br>
+													<td><input ng-model="car.fuel.dailyDistance" type="number" class="form-control"></td>
+													<td>км</td>
+												</tr>
+												<tr>
+													<td>средний пробег в год</td>
+													<td>{{car.fuel.dailyDistance*365 | numberRu}}</td>
+													<td>км</td>
+												</tr>
+												<tr>
+													<td>средний расход в день</td>
+													<td>{{dailyConsumption() | number:1}}</td>
+													<td>л.</td>
+												</tr>
+												<tr>
+													<td>средний расход в год <span ng-show="dailyConsumption()*365>1000" class="easter"> <br>
+															тонна!
+													</span></td>
+													<td>{{dailyConsumption()*365 | numberRu}}</td>
+													<td>л.</td>
+												</tr>
+												<tr>
+													<td>траты на топливо за год</td>
+													<td><strong>{{annualFuelCost() | numberRu}}</strong></td>
+													<td>{{curr}}</td>
+												</tr>
+											</table>
+										</div>
 									</div>
 								</td>
 							</tr>
@@ -162,54 +303,7 @@
 								<td>{{car.casco * years | numberRu}}</td>
 							</tr>
 
-							<tr ng-class="{open:fuelCostOpen}" ng-click="fuelCostOpen = !fuelCostOpen" class="openable"
-								data-toggle="collapse" data-target="#fuelCost1">
-								<td>топливо</td>
-								<td><strong>{{annualFuelCost() | numberRu}}</strong> <span class="glyphicon glyphicon-cog"
-									aria-hidden="true"></span></td>
-								<td>{{annualFuelCost() * years | numberRu}}</td>
-							</tr>
-
-							<tr>
-								<td colspan="3" class="subtable-container">
-									<div id="fuelCost1" class="collapse">
-										<div class="subtable-wrap">
-											<table class="table cars subtable">
-												<tr>
-													<td>цена бензина <br> <small>руб/литр</small></td>
-													<td><input ng-model="car.fuel.price" type="number" class="form-control"></td>
-												</tr>
-
-												<tr>
-													<td>расход топлива<br> <small>литров/100 км</small></td>
-													<td><input ng-model="car.fuel.consumption" type="number" class="form-control"></td>
-												</tr>
-
-												<tr>
-													<td>средний пробег в день <br> <small>км</small></td>
-													<td><input ng-model="car.fuel.dailyDistance" type="number" class="form-control"></td>
-												</tr>
-												<tr>
-													<td>средний пробег в год</td>
-													<td>{{car.fuel.dailyDistance*365 | numberRu}}</td>
-												</tr>
-												<tr>
-													<td>литров в день</td>
-													<td>{{dailyConsumption() | numberRu}}</td>
-												</tr>
-												<tr>
-													<td>литров в год</td>
-													<td>{{dailyConsumption()*365 | numberRu}}</td>
-												</tr>
-												<tr>
-													<td>стоимость топлива за год</td>
-													<td>{{annualFuelCost() | numberRu}}</td>
-												</tr>
-											</table>
-										</div>
-									</div>
-								</td>
-							</tr>
+							
 
 
 							<tr>
@@ -237,7 +331,8 @@
 							</tr>
 
 							<tr>
-								<td>шины</td>
+								<td>шины <small><br>за три года придется сменить комплект резины. А скорее всего, даже два --
+										зимний и летний.</small></td>
 								<td><input ng-model="car.tyres" number-format type="text" class="form-control"></td>
 								<td>{{car.tyres * years | numberRu}}</td>
 							</tr>
@@ -250,77 +345,15 @@
 							</tr>
 
 
-							<tr ng-class="{open:loanCalcOpen}" ng-click="loanCalcOpen = !loanCalcOpen" class="openable"
-								data-toggle="collapse" data-target="#totalOverpayment">
-								<td>проценты по кредиту</td>
-								<td><strong>{{totalOverpayment(12*years)/years | numberRu}}</strong> <span class="glyphicon glyphicon-cog"
-									aria-hidden="true"></span></td>
-								<td class="row-value">{{totalOverpayment(12*years) | numberRu}}</td>
-							</tr>
-
-							<tr>
-								<td colspan="3" class="subtable-container">
-									<div id="totalOverpayment" class="collapse">
-										<div class="subtable-wrap">
-											<table class="table cars subtable">
-												<tr>
-													<td>первый взнос</td>
-													<td><input ng-model="car.loan.firstPayment" number-format type="text" class="form-control"></td>
-													<td>= {{ 100*(car.loan.firstPayment)/car.value | numberRu}}%</td>
-												</tr>
-
-												<tr>
-													<td>сумма кредита</td>
-													<td>{{car.value-car.loan.firstPayment | numberRu}}<br> <small>а вернуть нужно будет
-															{{montlyPayment()*car.loan.years*12 | numberRu}}</small></td>
-													<td></td>
-												</tr>
-												<tr>
-													<td>кредитная ставка <small>(% годовых)</small></td>
-													<td><input ng-model="car.loan.interrest" type="number" step="0.1" class="form-control"></td>
-													<td></td>
-												</tr>
-												<tr>
-													<td>срок кредита (лет)</td>
-													<td><input ng-model="car.loan.years" type="number" class="form-control"></td>
-													<td>= {{car.loan.years*12}} месяцев</td>
-												</tr>
-
-												<tr>
-													<td>ежемесячный платеж</td>
-													<td>{{montlyPayment() | numberRu}}</td>
-													<td></td>
-												</tr>
-											</table>
-
-											<table class="table cars subtable">
-												<tr>
-													<th>год</th>
-													<th>cумма всех выплат</th>
-													<th>долг на конец года</th>
-													<th>переплата по процентам</th>
-												</tr>
-												<tr ng-repeat="yearData in loanYears track by yearData.yearNo">
-													<td>{{yearData.yearNo}}</td>
-													<td>{{yearData.paid| numberRu}}</td>
-													<td>{{yearData.balance| numberRu}}</td>
-													<td>{{totalOverpayment(12*yearData.yearNo)| numberRu}}</td>
-												</tr>
-
-
-											</table>
-							</div>
-							</div>
-							</td>
-							</tr>
+							
 
 
 							<tr>
 								<td class="headline" colspan="3"></td>
 							</tr>
 							<tr>
-								<td class="headline">итого</td>
-								<td class="headline"><h3>
+
+								<td class="headline" colspan="2"><h3>
 										{{getTotal() | numberRu}}{{curr}}/год <br> <small>= {{getTotal()/12 | numberRu}}{{curr}}/месяц</small> <small>=
 											{{getTotal()/(365) | numberRu}}{{curr}}/день</small><br> <small>= {{getTotal()/(365*24) |
 											numberRu}}{{curr}}/час</small><br> <small>= {{getTotal()/(365*24*60) | number:2}}{{curr}}/минуту</small><br>
@@ -342,11 +375,11 @@
 				</form>
 			</div>
 			<!-- {{window.location.href + toURL()}} -->
-	<button class="btn btn-sm btn-default" ng-click="resetData()">вернуть фабричные настройки</button>
+			<button class="btn btn-sm btn-default" ng-click="resetData()">вернуть фабричные настройки</button>
 		</div>
-		
+
 	</div>
-	
+
 
 </body>
 </html>

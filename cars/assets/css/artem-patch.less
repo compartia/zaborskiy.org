@@ -8,11 +8,14 @@
 @turquoise-medium: #58C8C9;
 @punch: #E74C3C;
 @side-border: 10px;
-
+@input-corner-rad:0.3em;
 
 @headline-bg-color: desaturate(@punch, 10%); 
+@headline-bg-color-2: lighten(desaturate(@light-sea-green, 60%),10%); 
+
 @selected-row:lighten(desaturate(@light-sea-green, 50%),40%); 
- 
+
+
  
 @base-padding: 15px;
 @inter-panel-padding: 5px;
@@ -28,6 +31,11 @@
 @panel-border-color: darken(@panel-bg, 8%); 
  
 @light-font-color: darken(@panel-bg-dimmed, 20%); 
+
+@inverted-bg-color: desaturate(@punch, 10%); 
+@inverted-font-color: lighten(@inverted-bg-color,40%); 
+@inverted-font-color-dimmed: darken(@inverted-font-color, 20%); 
+ 
 
 .roboto{
     font-family: "Roboto" !important;
@@ -219,7 +227,6 @@ body{
  
 
 .nav-tabs>li, .btn, .dropdown-menu li{
-    
     .nice-caption;
 }
 
@@ -269,56 +276,61 @@ b, strong{
 	padding-left: @inter-panel-padding;
 }
 
-.cars .form-control{
-    width: 7em !important;
-   /* border: none;
-    background-color:white!important;
-    border-radius: 0.3em;*/
+ 
+.cars {
+    td, th{
+        text-align:right!important;
+        vertical-align: middle!important;
+        background-color:@panel-bg;
+        border-top-color: @panel-border-color!important;
+        .with-noise;
+    }
+    
+    input{
+        text-align:right!important;
+        display:inherit;
+    }
+    
+    .form-control{
+        width: 7em !important;
+        border: none;
+        background-color:white!important;
+        border-radius: @input-corner-rad;
+    }
+    
+    .headline{
+        color: white; 
+        font-weight: 400;
+        background-color:@headline-bg-color;
+        border: none;
+        .with-noise;
+    }
+    
+    .openable td{
+        background: @panel-bg-dimmed;
+        cursor: pointer;
+    }
+    
+    .open td{
+        background:@selected-row;
+    }
 }
 
-.cars td, .cars th{
-    text-align:right!important;
-    vertical-align: middle!important;
-    background-color:@panel-bg;
-    border-top-color: @panel-border-color!important;
-    .with-noise;
-}
-.cars input{
-    text-align:right!important;
-    display:inherit;
-}
 
-.cars .headline{
-    color: white; 
-    font-weight: 400;
-    background-color:@headline-bg-color;
-    border: none;
-    .with-noise;
-}
 
-.navbar-cars{
-    color: white; 
-    font-weight: 400;
-    background-color:@headline-bg-color;
-    border: none;
-    .with-noise;
-}
+
 .headline h3{
     padding:0;
     margin:0;
 }
 
-.cars .openable td{
-    background: @panel-bg-dimmed;
-    cursor: pointer;
-}
-
-.cars .open td{
-    background:@selected-row;
-}
-
 .table{
     margin-bottom: 0;
+    
+    tr:first-of-type td{
+        border-top:none!important;
+    }
+    
     td{
         margin-bottom: 0;
     }
@@ -326,6 +338,17 @@ b, strong{
     td:nth-child(3){
         padding-right: @base-padding!important;
         min-width: 6em;
+    }
+    
+    th{
+        .nice-caption;
+        font-size: 65%;
+        
+        color: @inverted-font-color;
+        font-weight: 400;
+        background-color:@headline-bg-color;
+        border: none;
+        .with-noise;
     }
 }
  
@@ -340,16 +363,27 @@ b, strong{
         padding-right: 1em!important;
     }
     
-    tr:first-of-type td{
-        border-top:none!important;
+    th{
+         background-color:@headline-bg-color-2;
     }
-    
     
 }
 
-.subtable-container{
+.units-column td:nth-child(3){
+    width: 4em;
+    padding-left: 0;
+    text-align: left!important;
+    font-size: 70%;
+}
+
+
+.no-padding{
     padding: 0!important;
     margin: 0!important;
+}
+
+.subtable-container{
+    .no-padding;
     border: none !important;
 }
 
@@ -362,11 +396,28 @@ b, strong{
     box-shadow: inset 0px 14px 27px -12px @shadow-color;
     .with-noise;
 }
-
-.navbar{
-     -webkit-box-shadow: 0px 14px 27px -12px @shadow-color;
+ 
+.navbar-cars{
+    color: @inverted-font-color; 
+    
+    background-color:@inverted-bg-color;
+    border: none;
+    .with-noise;
+    
+         -webkit-box-shadow: 0px 14px 27px -12px @shadow-color;
     -moz-box-shadow: 0px 14px 27px -12px @shadow-color;
     box-shadow: 0px 14px 27px -12px @shadow-color;
+ 
+    small{
+        color: @inverted-font-color-dimmed;
+    }
+
+    h3{
+        font-weight: 400;
+        line-height: 0.7;
+        margin-bottom: 0!important;
+        margin-top: 10px!important;
+    }
 }
 
   
@@ -435,3 +486,8 @@ ol.simple-list > li:before {
         width: 550px;
 	}
 }
+
+.easter{
+    color: @punch;
+}
+

@@ -7,7 +7,7 @@ function makeDefaultCar() {
 
 	car.loan = {
 		years : 4,
-		interrest : 19,
+		interrest : 19.5,
 		firstPayment : 300000
 	};
 
