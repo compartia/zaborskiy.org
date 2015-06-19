@@ -2,6 +2,7 @@
 
 <html lang="ru" ng-app="cars">
 <head>
+<meta property="og:type" content="article" />
 <meta property="og:title" content="Отговори друга покупать машину" />
 <meta property="og:site_name" content="Kалькулятор расходов на автомобиль" />
 <meta property="og:url" content="http://car-owning-costs.herokuapp.com" />
@@ -22,11 +23,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="assets/js/bower_components/bootstrap/dist/css/bootstrap.min.css">
-<!-- <link rel="stylesheet/less" type="text/css" href="assets/css/artem-patch.less" />
-<script src="assets/js/vendor/less.min.js"></script> -->
-
- <link rel="stylesheet"  href="assets/css/cars.css" />  
-
+<!--   <link rel="stylesheet/less" type="text/css" href="assets/css/artem-patch.less" />
+<script src="assets/js/vendor/less.min.js"></script> 
+ -->
+ <link rel="stylesheet" href="assets/css/cars.css" />
+ 
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700&subset=latin,cyrillic-ext,cyrillic'
 	rel='stylesheet' type='text/css'>
 
@@ -384,14 +385,22 @@
 			<button class="btn btn-sm btn-default" ng-click="resetData()">вернуть фабричные настройки</button>
 
 
-
-			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-			<!-- Responsive square -->
-			<ins class="adsbygoogle" style="display: block" data-ad-client="ca-pub-4045044665065447" data-ad-slot="7259746818"
-				data-ad-format="auto"></ins>
-			<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-
+			<div class="ads" style="height: 100px">
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- Responsive square -->
+				<ins class="adsbygoogle" style="display: block" data-ad-client="ca-pub-4045044665065447" data-ad-slot="7259746818"
+					data-ad-format="auto"></ins>
+				<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<div class="footer">
+			
+			<label>ссылка для друга:</label>
+			<input value="{{window.location.href + toURL()}}"  type="text" class="form-control">
+			
+				If you've found any errors or just want to improve the thing, fell free to contribute at <a
+					href="https://github.com/compartia/CarOwningCosts">GitHub CarOwningCosts <img
+					src="https://assets-cdn.github.com/images/modules/contact/heartocat.png" width="20px"></a>
+			</div>
 
 		</div>
 
