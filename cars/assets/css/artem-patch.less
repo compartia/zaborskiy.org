@@ -1,4 +1,9 @@
+
 //@import "../js/bower_components/bootstrap-material-design/less/material.less";
+ 
+@mediumDuration: .4s;
+
+
 
 @screen-sm-min: 700px;
 
@@ -10,9 +15,15 @@
 @side-border: 10px;
 @input-corner-rad:0.3em;
 
-@headline-bg-color: desaturate(@punch, 10%); 
-@headline-bg-color-2: lighten(desaturate(@light-sea-green, 60%),10%); 
+@coffee: #B6AEA1;
+@activeColor: @punch;
 
+@headline-bg-color: desaturate(@punch, 10%); 
+@headline-bg-color-2:#B6AEA1;// lighten(desaturate(@light-sea-green, 60%),10%); 
+
+
+
+@table-border-color-2:lighten(@headline-bg-color-2, 15%);
 @selected-row:lighten(desaturate(@light-sea-green, 50%),40%); 
 
 
@@ -36,6 +47,7 @@
 @inverted-font-color: lighten(@inverted-bg-color,40%); 
 @inverted-font-color-dimmed: darken(@inverted-font-color, 20%); 
  
+@openable-row-color:lighten(@panel-bg, 3%);
 
 .roboto{
     font-family: "Roboto" !important;
@@ -306,14 +318,44 @@ b, strong{
         .with-noise;
     }
     
-    .openable td{
-        background: @panel-bg-dimmed;
+    .openable{
+        background-color: @openable-row-color;
         cursor: pointer;
+        
+        -webkit-transition-duration: @mediumDuration;
+        transition-duration: @mediumDuration;
+        -webkit-transition-property: color, background-color;
+        transition-property: color, background-color;
+        
+        td {
+            background: none;
+        }
     }
+    
+    .openable:hover, .openable:focus, .openable:active {
+        background-color: @selected-row!important;
+    }
+ 
+//    .openable:hover{
+//        background: @selected-row;
+//    }
+    
+  
+    
     
     .open td{
         background:@selected-row;
     }
+    
+    .subtable-wrap{
+        background-color: @panel-bg-dimmed;
+        padding: 10px;
+       -webkit-box-shadow: inset 0px 14px 27px -12px @shadow-color;
+        -moz-box-shadow: inset 0px 14px 27px -12px @shadow-color;
+        box-shadow: inset 0px 14px 27px -12px @shadow-color;
+
+        .with-noise;
+    }   
 }
 
 
@@ -357,14 +399,17 @@ b, strong{
 .subtable{
     background: none !important;
     
+    
     td{
         background: none !important;
-        border-top-color: @selected-row!important;
+        border-top-color: @table-border-color-2!important;
+        
         padding-right: 1em!important;
     }
     
     th{
-         background-color:@headline-bg-color-2;
+        border: none;
+        background-color:@headline-bg-color-2;
     }
     
 }
@@ -387,15 +432,7 @@ b, strong{
     border: none !important;
 }
 
-.cars .subtable-wrap{
-    background-color: @panel-bg-dimmed;
-    
-    padding: 10px;
-   -webkit-box-shadow: inset 0px 14px 27px -12px @shadow-color;
-    -moz-box-shadow: inset 0px 14px 27px -12px @shadow-color;
-    box-shadow: inset 0px 14px 27px -12px @shadow-color;
-    .with-noise;
-}
+
  
 .navbar-cars{
     color: @inverted-font-color; 
@@ -490,4 +527,7 @@ ol.simple-list > li:before {
 .easter{
     color: @punch;
 }
+
+
+
 
