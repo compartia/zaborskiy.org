@@ -45,6 +45,26 @@
 
 <body ng-controller="carsController">
 
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '201987453175808',
+      xfbml      : true,
+      version    : 'v2.3'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
 	<nav class="navbar navbar-cars navbar-fixed-top">
 		<div class="container">
 			<div class="text-center">
@@ -403,10 +423,15 @@
 			<!-- {{window.location.href + toURL()}} -->
 			<div class="footer">
 				<div class="text-content">
-
+					
 					<label>ссылка для друга:</label> <input value="{{window.location.href + toURL()}}" type="text" class="form-control">
-
-
+<br>
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
 				</div>
 
 
@@ -440,6 +465,9 @@
   ga('send', 'pageview');
 
 </script>
+
+
+
 
  
         
