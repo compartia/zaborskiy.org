@@ -30,9 +30,10 @@
 
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700&subset=latin,cyrillic-ext,cyrillic'
 	rel='stylesheet' type='text/css'>
-
+	
+	
 <script src="assets/js/bower_components/jquery/dist/jquery.min.js"></script>
-<script src="assets/js/bower_components/angular/angular.js"></script>
+<script src="assets/js/bower_components/angular/angular.min.js"></script>
 <script src="assets/js/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="assets/js/encoder.js"></script>
 <script src="assets/js/app.js"></script>
@@ -65,7 +66,7 @@
 				<p class="lead">«Машина — это удобно»</p>
 				<h1>Нет.</h1>
 				<p class="lead">
-					Цифры — это удобно. <br> <small>калькулятор расходов на машину</small>
+					Удобно уметь считать. <br> <small>калькулятор расходов на машину <sup>v1.0</sup></small>
 				</p>
 				<p>Редкий словоблуд может понятно ответить, зачем покупать машину. Мы тоже не смогли, но мы подсчитали, сколько
 					стоит ее содержать - бензин, страховки и тому подобное. Если вы уже купили автомобиль, то продайте. Если ваш друг
@@ -73,6 +74,9 @@
 					еще ниже — калькулятор расходов.</p>
 				<p>Вот N причин, по которым тебе не стоит покупать автомобиль, [друг мой].</p>
 				<ol class="simple-list">
+					<li>Ты не собьешь беременную дочку депутата на зебре, и твои руки не будут в крови. Что особенно важно, ты не
+						сядешь в тюрьму и как бы сэкономишь несколько лет.</li>
+						
 					<li>Ты можешь пребывать постоянно бухим, что совершенно легально, а в регионах — часть культуры.</li>
 					<li>Ты сможешь читать почти 2 часа в день (можно Чехова, а можно чатики и соцсети).</li>
 					<li>Зимой можно не соскребать лед со стекол.</li>
@@ -83,7 +87,7 @@
 						компании, суды с гибодыдэ, оплату штрафов, транспортных налогов, поиск парковки у супермаркета, накачивание колес.</li>
 
 					<li>Тебя не будут просить подвезти противные коллеги и дачнутые родственники-земледелы.</li>
-					<li>Можно не откладывать деньги каждый месяц, а … см. пункт 1.</li>
+					<li>Можно не откладывать деньги каждый месяц, а … см. пункт 2.</li>
 					<li>В твоей жизни не будет этих кретинов, которые сигналят сзади, когда тебе прямо, а им смерть как приспичило
 						направо.</li>
 
@@ -91,8 +95,7 @@
 						ролики, самокат, пешие прогулки, лыжи, наконец.</li>
 					<li>Тебя оставят в покое сектанты гринписа и прочие эко-хиппи</li>
 
-					<li>Ты не собьешь беременную дочку депутата на зебре, и твои руки не будут в крови. Что особенно важно, ты не
-						сядешь в тюрьму и как бы сэкономишь несколько лет.</li>
+					
 
 					<li>Теперь самое интересное: <br>за {{years}} года ты сэкономишь порядка <strong
 						style="white-space: nowrap;"> {{years*getTotal()|numberRu}} {{curr}} </strong>
@@ -196,12 +199,12 @@
 												</tr>
 												<tr>
 													<td>кредитная ставка</td>
-													<td><input ng-model="car.loan.interrest" type="number" step="0.1" class="form-control"></td>
+													<td><input ng-model="car.loan.interrest" type="number" step="0.1" min="0" max="200" class="form-control"></td>
 													<td>% годовых</td>
 												</tr>
 												<tr>
 													<td>срок кредита (лет)</td>
-													<td><input ng-model="car.loan.years" type="number" class="form-control"></td>
+													<td><input ng-model="car.loan.years" type="number" min="0" max="15" class="form-control"></td>
 													<td>= {{car.loan.years*12}} месяцев</td>
 												</tr>
 
@@ -219,7 +222,7 @@
 													<th>долг на конец года</th>
 													<th>переплата по процентам</th>
 												</tr>
-												<tr ng-repeat="yearData in loanYears track by yearData.yearNo">
+												<tr ng-repeat="yearData in loanYears">
 													<td>{{yearData.yearNo}}</td>
 													<td>{{yearData.paid| numberRu}}</td>
 													<td>{{yearData.balance| numberRu}}</td>
@@ -265,7 +268,7 @@
 													<td>км</td>
 												</tr>
 												<tr>
-													<td>средний пробег в год</td>
+													<td>средний пробег в год<small><br>Справка: cредний пробег автомобиля в год в России - 16 700 км [источник - гугл]</small></td>
 													<td>{{car.fuel.dailyDistance*365 | numberRu}}</td>
 													<td>км</td>
 												</tr>
@@ -275,7 +278,7 @@
 													<td>л.</td>
 												</tr>
 												<tr>
-													<td>средний расход в год <span ng-show="dailyConsumption()*365>1000" class="easter"> <br>
+													<td>расход за год <span ng-show="dailyConsumption()*365>1000" class="easter"> <br>
 															тонна!
 													</span></td>
 													<td>{{dailyConsumption()*365 | numberRu}}</td>
@@ -296,7 +299,9 @@
 							<tr>
 								<td>ОСАГО</td>
 								<td><input name="osago" ng-model="car.osago" number-format type="text" class="form-control"
-									ng-model-options="{ debounce: 200 }"></td>
+									ng-model-options="{ debounce: 200 }">
+									<div class="slider shor slider-material-pink"></div>
+									</td>
 								<td>{{car.osago * years | numberRu}}</td>
 							</tr>
 
@@ -436,5 +441,7 @@
 
 </script>
 
+ 
+        
 </body>
 </html>

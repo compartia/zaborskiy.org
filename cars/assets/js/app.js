@@ -143,15 +143,14 @@ cars.controller('carsController', function($scope) {
 		$scope.car.casco = Math.round(car.value / 12);
 	});
 
-	$scope.$watch('car.loan.years', function(newValue, oldValue) {
+	$scope.$watchCollection('car.loan', function(newValue, oldValue) {
+		console.log(newValue);
 		var car = $scope.car;
-		if (!car) {
+		if (!car || !car.loan) {
 			return;
 		}
-		if (!car.loan) {
-			return;
-		}
-		var loan = $scope.car.loan;
+
+		var loan = scope.car.loan;
 		var ret = new Array();
 
 		var p = $scope.montlyPayment();
@@ -162,7 +161,6 @@ cars.controller('carsController', function($scope) {
 				paid : p * 12 * y
 			}
 			ret.push(adta);
-			// ret.push(y);
 		}
 
 		$scope.loanYears = ret;
