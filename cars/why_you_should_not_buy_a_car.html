@@ -26,12 +26,12 @@
 <!-- <link rel="stylesheet/less" type="text/css" href="assets/css/artem-patch.less" />
 <script src="assets/js/vendor/less.min.js"></script>
  -->
- <link rel="stylesheet" href="assets/css/cars.css" />  
+<link rel="stylesheet" href="assets/css/cars.css" />
 
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700&subset=latin,cyrillic-ext,cyrillic'
 	rel='stylesheet' type='text/css'>
-	
-	
+
+
 <script src="assets/js/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="assets/js/bower_components/angular/angular.min.js"></script>
 <script src="assets/js/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -45,7 +45,7 @@
 
 <body ng-controller="carsController">
 
-<script>
+	<script>
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '201987453175808',
@@ -83,6 +83,8 @@
 
 			<div class="text-content">
 
+
+
 				<p class="lead">«Машина — это удобно»</p>
 				<h1>Нет.</h1>
 				<p class="lead">
@@ -96,7 +98,7 @@
 				<ol class="simple-list">
 					<li>Ты не собьешь беременную дочку депутата на зебре, и твои руки не будут в крови. Что особенно важно, ты не
 						сядешь в тюрьму и как бы сэкономишь несколько лет.</li>
-						
+
 					<li>Ты можешь пребывать постоянно бухим, что совершенно легально, а в регионах — часть культуры.</li>
 					<li>Ты сможешь читать почти 2 часа в день (можно Чехова, а можно чатики и соцсети).</li>
 					<li>Зимой можно не соскребать лед со стекол.</li>
@@ -115,15 +117,17 @@
 						ролики, самокат, пешие прогулки, лыжи, наконец.</li>
 					<li>Тебя оставят в покое сектанты гринписа и прочие эко-хиппи</li>
 
-					
+
 
 					<li>Теперь самое интересное: <br>за {{years}} года ты сэкономишь порядка <strong
 						style="white-space: nowrap;"> {{years*getTotal()|numberRu}} {{curr}} </strong>
 					</li>
 				</ol>
+
+
 			</div>
 			<div>
-
+				<img src="assets/img/car-cost5.png" width="100%" />
 				<form class="form-horizontal cars">
 
 
@@ -219,7 +223,8 @@
 												</tr>
 												<tr>
 													<td>кредитная ставка</td>
-													<td><input ng-model="car.loan.interrest" type="number" step="0.1" min="0" max="200" class="form-control"></td>
+													<td><input ng-model="car.loan.interrest" type="number" step="0.1" min="0" max="200"
+														class="form-control"></td>
 													<td>% годовых</td>
 												</tr>
 												<tr>
@@ -288,7 +293,8 @@
 													<td>км</td>
 												</tr>
 												<tr>
-													<td>средний пробег в год<small><br>Справка: cредний пробег автомобиля в год в России - 16 700 км [источник - гугл]</small></td>
+													<td>средний пробег в год<small><br>Справка: cредний пробег автомобиля в год в России - 16
+															700 км [источник - гугл]</small></td>
 													<td>{{car.fuel.dailyDistance*365 | numberRu}}</td>
 													<td>км</td>
 												</tr>
@@ -298,8 +304,7 @@
 													<td>л.</td>
 												</tr>
 												<tr>
-													<td>расход за год <span ng-show="dailyConsumption()*365>1000" class="easter"> <br>
-															тонна!
+													<td>расход за год <span ng-show="dailyConsumption()*365>1000" class="easter"> <br> тонна!
 													</span></td>
 													<td>{{dailyConsumption()*365 | numberRu}}</td>
 													<td>л.</td>
@@ -320,8 +325,7 @@
 								<td>ОСАГО</td>
 								<td><input name="osago" ng-model="car.osago" number-format type="text" class="form-control"
 									ng-model-options="{ debounce: 200 }">
-									<div class="slider shor slider-material-pink"></div>
-									</td>
+									<div class="slider shor slider-material-pink"></div></td>
 								<td>{{car.osago * years | numberRu}}</td>
 							</tr>
 
@@ -423,15 +427,10 @@
 			<!-- {{window.location.href + toURL()}} -->
 			<div class="footer">
 				<div class="text-content">
-					
+
 					<label>ссылка для друга:</label> <input value="{{window.location.href + toURL()}}" type="text" class="form-control">
-<br>
-<div
-  class="fb-like"
-  data-share="true"
-  data-width="360"
-  data-show-faces="true">
-</div>
+					<br>
+					<div class="fb-like" data-share="true" data-width="360" data-show-faces="true"></div>
 				</div>
 
 
@@ -469,7 +468,7 @@
 
 
 
- 
-        
+
+
 </body>
 </html>
