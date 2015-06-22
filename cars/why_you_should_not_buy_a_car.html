@@ -29,7 +29,7 @@
 <!-- <link rel="stylesheet/less" type="text/css" href="assets/css/artem-patch.less" />
 <script src="assets/js/vendor/less.min.js"></script> -->
 
-<link rel="stylesheet" href="assets/css/cars.css" /> 
+<link rel="stylesheet" href="assets/css/cars.css" />
 
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700&subset=latin,cyrillic-ext,cyrillic'
 	rel='stylesheet' type='text/css'>
@@ -71,7 +71,7 @@
 
 	<nav class="navbar navbar-cars navbar-fixed-top">
 		<div class="container">
-			<div class="text-center">
+			<div class="text-center" ng-cloak>
 				убытки:
 				<h3>{{getTotal() | numberRu}}</h3>
 				<small class="no-padding">{{curr}}/год</small>
@@ -147,7 +147,7 @@
 						</tbody>
 					</table>
 
-					<table class="table cars">
+					<table class="table cars" ng-cloak>
 
 						<tbody>
 							<tr>
@@ -431,12 +431,14 @@
 						</tbody>
 					</table>
 
-					<p>
-						<br> <br> теперь предположим, что ты внял и НЕ купил машину, и...
-					</p>
-					<table class="table cars  units-column">
+					<div class="text-content"><br><br>
+						теперь предположим, что ты внял и НЕ купил машину, и..
+					</div>
+					 
+					<table ng-cloak class="table cars units-column">
 
 						<tbody>
+							
 							<tr>
 								<td>...у тебя уже есть</td>
 								<td><input ng-model="deposit.principal" type="number" step="5000" min="0" class="form-control"></td>
@@ -476,17 +478,13 @@
 						</tbody>
 					</table>
 
-					<p>
-						<br> <br>
-					</p>
+					<div class="text-content"><br><br>
+						Итак, посмотрим на тебя через 3 года..
+					</div>
 
 					<table class="table result" ng-cloak>
 						<tbody>
-							<tr>
-								<td colspan="2">Итак, посмотрим на тебя через 3 года если</td>
-
-
-							</tr>
+							
 
 							<tr>
 								<th class="bad">ты купил машину</th>
@@ -552,6 +550,7 @@
 
 					<label>ссылка для друга:</label> <input value="{{window.location.href + toURL()}}" type="text" class="form-control">
 					<br>
+					Расшаривая эту страницу, ты делаешь своих друзей богаче, а города -- чище. Спасибо тебе.
 					<div class="fb-like" data-share="true" data-width="280" data-show-faces="true"></div>
 				</div>
 
