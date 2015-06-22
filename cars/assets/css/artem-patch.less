@@ -19,7 +19,7 @@
 @activeColor: @punch;
 
 @headline-bg-color: desaturate(@punch, 10%); 
-@headline-bg-color-2:#B6AEA1;// lighten(desaturate(@light-sea-green, 60%),10%); 
+@headline-bg-color-2:@coffee;// lighten(desaturate(@light-sea-green, 60%),10%); 
 
 
 
@@ -27,12 +27,9 @@
 @selected-row:lighten(desaturate(@light-sea-green, 50%),40%); 
 
 
- 
 @base-padding: 15px;
 @inter-panel-padding: 5px;
 
-@section-time-color: @nice-blue;
-@section-basic-color:@turquoise-medium;
 
 @shadow-color: rgba(0,0,0,0.46);
 
@@ -41,13 +38,17 @@
 @bg-color: white;
 @panel-border-color: darken(@panel-bg, 8%); 
  
-@light-font-color: darken(@panel-bg-dimmed, 20%); 
+@light-font-color: darken(@panel-bg-dimmed, 30%); 
 
 @inverted-bg-color: desaturate(@punch, 10%); 
 @inverted-font-color: lighten(@inverted-bg-color,40%); 
 @inverted-font-color-dimmed: darken(@inverted-font-color, 20%); 
  
 @openable-row-color:lighten(@panel-bg, 3%);
+
+@good-result: desaturate(@light-sea-green, 30%); 
+@bad-result: @inverted-bg-color; 
+
 
 .roboto{
     font-family: "Roboto" !important;
@@ -296,6 +297,10 @@ b, strong{
         background-color:@panel-bg;
         border-top-color: @panel-border-color!important;
         .with-noise;
+    }
+    
+    small{
+        color: @light-font-color;
     }
     
     input{
@@ -585,4 +590,30 @@ ol.simple-list > li:before {
 }
 .ads{ 
     height: 100px;
+}
+
+.total{
+    border: 2px solid @headline-bg-color;
+}
+
+.result{
+    td,th{
+        text-align: left!important;
+    }
+    .good{
+        width: 45%!important;
+        background-color: @good-result;
+        .with-noise;
+        
+        color: @inverted-font-color;
+    }
+    
+    .bad{ 
+                width: 45%!important;
+
+        background-color: @bad-result;
+        .with-noise;
+        text-align: left!important;
+        color: @inverted-font-color;
+    }
 }
