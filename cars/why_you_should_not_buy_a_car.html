@@ -47,7 +47,7 @@
 	<![endif]-->
 </head>
 
-<body ng-controller="carsController">
+<body>
 
 	<script>
   window.fbAsyncInit = function() {
@@ -67,6 +67,9 @@
    }(document, 'script', 'facebook-jssdk'));
 </script>
 
+ 
+   
+<div ng-controller="carsController">
 
 
 	<nav class="navbar navbar-cars navbar-fixed-top">
@@ -550,17 +553,23 @@
 
 					<label>ссылка для друга:</label> <input value="{{window.location.href + toURL()}}" type="text" class="form-control">
 					<br>
-					Расшаривая эту страницу, ты делаешь своих друзей богаче, а города -- чище. Спасибо тебе.
+					<div>
+					Расшаривая эту страницу, ты делаешь своих друзей богаче, а города -- чище. Спасибо тебе.</div>
 					<div class="fb-like" data-share="true" data-width="280" data-show-faces="true"></div>
 				</div>
 
 
 				<div class="ads">
-					<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-					<!-- Responsive square -->
-					<ins class="adsbygoogle" style="display: block" data-ad-client="ca-pub-4045044665065447" data-ad-slot="7259746818"
-						data-ad-format="auto"></ins>
-					<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<script type="text/javascript">
+    google_ad_client = "ca-pub-4045044665065447";
+    google_ad_slot = "7244570416";
+    google_ad_width = 320;
+    google_ad_height = 100;
+</script>
+<!-- 320x100 -->
+<script type="text/javascript"
+src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
 				</div>
 
 				<div class="text-content">
@@ -579,7 +588,7 @@
 		</div>
 
 	</div>
-
+</div>
 	<script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -590,6 +599,7 @@
   ga('send', 'pageview');
 
 </script>
+
 
 
 
