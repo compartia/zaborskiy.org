@@ -26,10 +26,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="assets/js/bower_components/bootstrap/dist/css/bootstrap.min.css">
-<!-- <link rel="stylesheet/less" type="text/css" href="assets/css/artem-patch.less" />
+<link rel="stylesheet/less" type="text/css" href="assets/css/artem-patch.less" />
 <script src="assets/js/vendor/less.min.js"></script>
- -->
-<link rel="stylesheet" href="assets/css/cars.css" />
+
+<!-- <link rel="stylesheet" href="assets/css/cars.css" /> -->
 
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700&subset=latin,cyrillic-ext,cyrillic'
 	rel='stylesheet' type='text/css'>
@@ -39,6 +39,7 @@
 <script src="assets/js/bower_components/angular/angular.min.js"></script>
 <script src="assets/js/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="assets/js/encoder.js"></script>
+<script src="assets/js/math.js"></script>
 <script src="assets/js/app.js"></script>
 
 <!--[if lt IE 9]>
@@ -71,6 +72,7 @@
 	<nav class="navbar navbar-cars navbar-fixed-top">
 		<div class="container">
 			<div class="text-center">
+				убытки:
 				<h3>{{getTotal() | numberRu}}</h3>
 				<small class="no-padding">{{curr}}/год</small>
 			</div>
@@ -301,6 +303,15 @@
 													<td>{{car.fuel.dailyDistance*365 | numberRu}}</td>
 													<td>км</td>
 												</tr>
+
+												<tr>
+													<td>Ты проводишь в машине <small><br> Справка: средняя скорость машин в Москве - 24 км/ч.</small></td>
+													<td>≈ {{car.fuel.dailyDistance*365/24 | numberRu}}</td>
+													<td>часов в год</td>
+												</tr>
+
+
+
 												<tr>
 													<td>средний расход в день</td>
 													<td>{{dailyConsumption() | number:1}}</td>
@@ -339,8 +350,6 @@
 							</tr>
 
 
-
-
 							<tr>
 								<td>мойка</td>
 								<td><input ng-model="car.washAnnual" number-format type="text" class="form-control"></td>
@@ -366,7 +375,7 @@
 							</tr>
 
 							<tr>
-								<td>шины <small><br>за три года придется сменить комплект резины. А скорее всего, даже два --
+								<td>шины <small><br>за три года придется сменить комплект резины. А скорее всего, даже два —
 										зимний и летний.</small></td>
 								<td><input ng-model="car.tyres" number-format type="text" class="form-control"></td>
 								<td>{{car.tyres * years | numberRu}}</td>
@@ -422,6 +431,116 @@
 						</tbody>
 					</table>
 
+					<p>
+						<br> <br> теперь предположим, что ты внял и НЕ купил машину, и...
+					</p>
+					<table class="table cars  units-column">
+
+						<tbody>
+							<tr>
+								<td>...у тебя уже есть</td>
+								<td><input ng-model="deposit.principal" type="number" step="5000" min="0" class="form-control"></td>
+								<td>{{curr}}</td>
+
+							</tr>
+							<tr>
+								<td>и ты не струсил и положил их на депозит под</td>
+								<td><input ng-model="deposit.interest" type="number" step="0.1" min="0" max="200" class="form-control"></td>
+								<td>% годовых<sup>*</sup></td>
+
+							</tr>
+							<tr>
+								<td>при этом ты способен откладывать по<sup>*</sup><small><br>Oни называют это
+										«докапитализация»</small></td>
+								<td><input ng-model="deposit.monthlyDeposit" type="number" step="500" min="0" class="form-control">
+								</td>
+								<td>{{curr}} в месяц</td>
+
+
+							</tr>
+
+							<tr>
+								<td>через 3 года у тебя было бы</td>
+								<td>{{getCompoundInterest()| numberRu}}</td>
+								<td>{{curr}}</td>
+
+							</tr>
+							<tr class="summary dimmed">
+								<th class="headline">за 3 года прибыль составила бы <small><br>«упущенная выгода»</small></th>
+								<td class="headline" colspan="2"><h5>
+										{{getCompoundInterestIncome()| numberRu}} <small>{{curr}}</small>
+									</h5></td>
+							</tr>
+
+
+						</tbody>
+					</table>
+
+					<p>
+						<br> <br>
+					</p>
+
+					<table class="table result">
+						<tbody>
+							<tr>
+								<td colspan="2">Итак, посмотрим на тебя через 3 года если</td>
+
+
+							</tr>
+
+							<tr>
+								<th class="bad">ты купил машину</th>
+								<th class="good">ты не купил машину</th>
+							</tr>
+
+							<tr>
+								<td class="bad">ты протупил в пробках <span style="white-space: nowrap;">
+										{{3*car.fuel.dailyDistance*365/averageSpeed | numberRu}} часов</span></td>
+
+								<td class="good">ты прочитал (только в дороге) примерно <span style="white-space: nowrap;">
+										{{100*3*car.fuel.dailyDistance*365/24 | numberRu}} страниц</span> <small><br>"Войну и мир" можно
+										прочитать {{(100*3*car.fuel.dailyDistance*365/24)/1400 | numberRu}} раз</small>.
+
+
+								</td>
+							</tr>
+
+
+							<tr>
+								<td class="bad">у тебя есть ржавеющий кусок металла, который нужно срочно продать, дай бох, за <strong
+									style="white-space: nowrap;"> {{residualCost() | numberRu}} {{curr}}</strong>
+									<div ng-show="loanYears[2] && loanYears[2].balance>10">
+										При этом ты должен банку <strong style="white-space: nowrap;"> {{loanYears[2].balance | numberRu}}
+											{{curr}}</strong> <br> Если ты продашь свой железный хлам и погасишь кредит, то у тебя останется где-то <strong
+											style="white-space: nowrap;"> {{residualCost() - loanYears[2].balance | numberRu}} {{curr}}</strong>
+									</div>
+								</td>
+
+								<td class="good">у тебя на счету <strong style="white-space: nowrap;">{{getCompoundInterest()|
+										numberRu}} {{curr}}</strong> <span class="easter"> <small><br>При средней пенсии в России 12 тыс.
+											рублей, ты можешь прямо сейчас уйти на пенсию на {{getCompoundInterest()/(12*12000)| numberRu}} лет</small>
+								</span>
+								</td>
+							</tr>
+
+							<tr>
+								<td class="bad">у тебя брюшко, отвислые ляжки и нервное истощение</td>
+
+								<td class="good">у тебя цирроз печени, ибо нельзя столько пить</td>
+							</tr>
+
+
+						</tbody>
+					</table>
+
+					<p class="text-content">
+						<small><sup>*</sup>пусть это будет «сложный процент» <a
+							heref="https://en.wikipedia.org/wiki/Compound_interest">см. wiki</a> </small> <br> <small><sup>**</sup>в
+							месяц твои расходы на машину без учета кредита — {{getTotalNoLoan()/12| numberRu}} — кажется, эту сумму можно
+							откладывать.</small>
+					</p>
+
+
 
 
 
@@ -433,7 +552,7 @@
 
 					<label>ссылка для друга:</label> <input value="{{window.location.href + toURL()}}" type="text" class="form-control">
 					<br>
-					<div class="fb-like" data-share="true" data-width="360" data-show-faces="true"></div>
+					<div class="fb-like" data-share="true" data-width="280" data-show-faces="true"></div>
 				</div>
 
 
@@ -450,6 +569,11 @@
 						href="https://github.com/compartia/CarOwningCosts">GitHub CarOwningCosts <img
 						src="https://assets-cdn.github.com/images/modules/contact/heartocat.png" width="20px"></a>
 				</div>
+
+
+
+				<small> design and code : <a href="https://www.behance.net/zaborskiy"> Artem Zaborskiy</a> , 2015
+				</small>
 			</div>
 			<!-- end of footer -->
 
@@ -467,7 +591,6 @@
   ga('send', 'pageview');
 
 </script>
-
 
 
 

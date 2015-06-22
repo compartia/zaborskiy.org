@@ -74,9 +74,11 @@ cars.controller('carsController', function($scope) {
 
 	scope.years = 3;
 	scope.curr = " руб.";
+	scope.averageSpeed = 24;
 
 	$scope.resetData = function() {
 		scope.car = makeDefaultCar();
+
 	}
 
 	$scope.toJSON = function() {
@@ -143,6 +145,11 @@ cars.controller('carsController', function($scope) {
 		$scope.car.casco = Math.round(car.value / 12);
 	});
 
+	$scope.$watch('car.loan.firstPayment', function(newValue, oldValue) {
+		var car = $scope.car;
+		$scope.deposit.principal = car.loan.firstPayment;
+	});
+
 	$scope.$watchCollection('car.loan', function(newValue, oldValue) {
 		console.log(newValue);
 		var car = $scope.car;
@@ -170,9 +177,15 @@ cars.controller('carsController', function($scope) {
 		var car = $scope.car;
 		if (car) {
 			var loanYears = $scope.car.loan.years < $scope.years ? $scope.car.loan.years : $scope.years;
+			return $scope.getTotalNoLoan() + $scope.totalOverpayment(12 * loanYears) / $scope.years;
+		}
+	};
+
+	$scope.getTotalNoLoan = function() {
+		var car = $scope.car;
+		if (car) {
 			return car.osago + car.casco + $scope.annualFuelCost() + car.washAnnual + car.parkingAnnual + car.service
-					+ car.tax + car.misc + car.tyres + $scope.annualReduction()
-					+ $scope.totalOverpayment(12 * loanYears) / $scope.years;
+					+ car.tax + car.misc + car.tyres + $scope.annualReduction();
 		}
 	};
 
@@ -204,6 +217,15 @@ cars.controller('carsController', function($scope) {
 		}
 	};
 
+	$scope.makeDeposit = function(car) {
+		var deposit = {
+			principal : car.loan.firstPayment,
+			interest : 7,
+			monthlyDeposit : 500 * Math.round($scope.getTotalNoLoan() / (12 * 500))
+		}
+		return deposit;
+	};
+
 	scope.restoreData = function() {
 
 		var d = getDataFromUrl();
@@ -211,6 +233,17 @@ cars.controller('carsController', function($scope) {
 			d = makeDefaultCar();
 		}
 		$scope.car = d;
+		$scope.deposit = $scope.makeDeposit($scope.car);
+	};
+
+	scope.getCompoundInterest = function() {
+		return getCompoundInterest(scope.deposit.principal, scope.deposit.interest / 100, 12, scope.years,
+				scope.deposit.monthlyDeposit);
+	};
+
+	scope.getCompoundInterestIncome = function() {
+		return scope.getCompoundInterest() - $scope.deposit.principal - $scope.deposit.monthlyDeposit * 12
+				* scope.years;
 	};
 
 	scope.restoreData();
