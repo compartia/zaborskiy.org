@@ -28,8 +28,8 @@
 <!-- <link rel="stylesheet/less" type="text/css" href="assets/css/artem-patch.less" />
 <script src="assets/js/vendor/less.min.js"></script> -->
 
-  <link rel="stylesheet" href="assets/css/cars.css" />
-  
+<link rel="stylesheet" href="assets/css/cars.css" />
+
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700&subset=latin,cyrillic-ext,cyrillic'
 	rel='stylesheet' type='text/css'>
 
@@ -100,7 +100,7 @@
 					<img src="assets/img/mortgageorrent.png" width="100%" />
 					<form class="form-horizontal cars">
 
-						<table class="table cars units-column">
+						<table class="table cars units-column" ng-cloak>
 							<tbody>
 								<tr>
 									<td>квартира стоит</td>
@@ -125,8 +125,9 @@
 								</tr>
 							</tbody>
 						</table>
-<br>
+						<br>
 						<div class="text-content">Сначала, посчтитаем ипотеку..</div>
+
 						<table class="table cars units-column" ng-cloak>
 
 							<tbody>
@@ -205,7 +206,7 @@
 								</tr>
 
 
-								<tr class="summary good" ng-class="{good:mortgageBalance()>=0, bad:mortgageBalance()<0}">
+								<tr class="summary" ng-class="{good:mortgageBalance()>=0, bad:mortgageBalance()<0}">
 									<td class="headline">итого, ваш баланс через {{appt.loan.years | years}}:</td>
 									<td class="headline" colspan="2">
 										<h4>
@@ -213,7 +214,7 @@
 										</h4>
 									</td>
 								</tr>
-								<tr class="summary good">
+								<tr class="summary">
 									<td colspan="3"><small>= будущая стоимость квартиры - сумма переплаты по процентам - суммарная
 											квартплата - оплата страховки ={{futureValue(appt.value) | numberRu}} - {{loanCalculated.overpayment |
 											numberRu}} - {{totalServiceCost()| numberRu}} - {{totalInsuranceCost()| numberRu}} </small></td>
@@ -302,7 +303,21 @@
 
 					</form>
 				</div>
+				<div class="text-content" ng-cloak>
 
+					<p class="lead total" ng-show="rentalBalance()-mortgageBalance()>=0">
+						<small>в
+							вашем случае<br></small><b>арендовать</b> выгоднее на <br>{{rentalBalance()-mortgageBalance()|numberRu}}
+						{{curr}}
+					</p>
+
+					<p class="lead total" ng-show="rentalBalance()-mortgageBalance()<0">
+					<small>в
+							вашем случае<br></small>
+						<b>ипотеку</b> взять выгоднее <br>на {{mortgageBalance()-rentalBalance()|numberRu}} {{curr}}
+					</p>
+
+				</div>
 
 				<div class="footer" ng-include="'assets/partials/footer.html'"></div>
 

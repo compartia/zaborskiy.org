@@ -7,7 +7,6 @@
 
 @screen-sm-min: 700px;
 
-@nice-blue: desaturate(#2980B9,10%);
 @light-sea-green:#1ABC9C;
 @coral: #E87352;
 @turquoise-medium: #58C8C9;
@@ -38,7 +37,7 @@
 @bg-color: white;
 @panel-border-color: darken(@panel-bg, 8%); 
  
-@light-font-color: darken(@panel-bg-dimmed, 30%); 
+@light-font-color: desaturate(darken(@panel-bg-dimmed, 25%),10%); 
 
 @inverted-bg-color: desaturate(@punch, 10%); 
 @inverted-font-color: lighten(@inverted-bg-color,40%); 
@@ -79,26 +78,7 @@ body{
 
 /* ================= */
 
-.page-header-wrap .page-header {
-    background-color: fadeout(lighten(@nice-blue, 50%), 50%);
-    .with-noise;
-}
-
-.page-header h1 {
-    color: darken(desaturate(@nice-blue, 40%), 20%);
-    font-size: 36px!important;
-    font-family: Roboto;
-    text-transform: uppercase;
-    font-weight: 800;
-    letter-spacing: .1em;
-}
-
-.label-default {
-    background-color: fadeout(desaturate(@nice-blue, 40%), 50%)!important;
-    border: 1.5px solid white;
-    .nice-caption;
-    color: white;
-}
+ 
 
 .fa-my-tag {
     font-size: 0.7em!important;
@@ -561,8 +541,7 @@ ol.simple-list > li:before {
             display: inline-block;
             width: 80px;
             font-weight: 300;
-            color:@inverted-font-color-dimmed;
-             text-align: left!important;
+            text-align: left!important;
         }
     }
     
@@ -582,7 +561,10 @@ ol.simple-list > li:before {
     .headline{
         background-color:desaturate(darken(@headline-bg-color, 5%), 10%);  
         h2,h3,h4,h5{
-            color: darken(@inverted-font-color, 10%);
+            color: darken(@inverted-font-color, 10%);   
+        }
+        small{
+            color: @inverted-font-color-dimmed;
         }
     }
 }
@@ -592,6 +574,8 @@ ol.simple-list > li:before {
 
 .total{
     border: 2px solid @headline-bg-color;
+    padding: @base-padding;
+    text-align: center;
 }
 
 .result{
@@ -632,6 +616,10 @@ ol.simple-list > li:before {
         .with-noise;
         text-align: left!important;
         color: @inverted-font-color;
+        
+        small{
+            color: @inverted-font-color-dimmed;
+        }
         
         .headline{
             background-color:@bad-result;
