@@ -21,7 +21,7 @@ mortgage.filter('years', function() {
 
 		var re = val % 10;
 
-		if (re > 4 || (val >= 10 && val <= 20)) {
+		if (re > 4 || (val >= 10 && val <= 20) || val == 0) {
 			return val + " лет"
 		} else {
 			if (re === 1) {
@@ -40,14 +40,14 @@ mortgage.controller('mortgageController',
 
 			scope.curr = " руб.";
 			scope.appt = {
-				value : 5000000,
-				rental : 30000,
+				value : 6500000,
+				rental : 28000,
 				inflation : 5
 			};
 
 			scope.appt.loan = {
-				firstPayment : 800000,
-				interrest : 13,
+				firstPayment : 1900000,
+				interrest : 13.5,
 				years : 15,
 				insurance : scope.appt.value * 0.0015,
 				service : scope.appt.value * 0.001
@@ -79,13 +79,7 @@ mortgage.controller('mortgageController',
 
 			$scope.totalRentalCost = function() {
 				var appt = $scope.appt;
-				// var sum = 0;
-				// for (y = 0; y < appt.loan.years; y++) {
-				// var v = 12 * inflate(appt.rental, appt.inflation / 100.0, y);
-				// sum += v;
-				// }
-				// return summ;
-				return integrateInflatedAmount(appt.rental, appt.loan.years * 12, appt.inflation / 1200);
+				return integrateInflatedAmount(appt.rental * 12, appt.loan.years, appt.inflation / 100);
 			}
 
 			$scope.totalServiceCost = function() {
@@ -96,6 +90,10 @@ mortgage.controller('mortgageController',
 			$scope.totalInsuranceCost = function() {
 				var appt = $scope.appt;
 				return integrateInflatedAmount(appt.loan.insurance, appt.loan.years, appt.inflation / 100);
+			}
+
+			$scope.deltaBalance = function() {
+				return Math.abs(scope.rentalBalance() - scope.mortgageBalance());
 			}
 
 			$scope.overpayment = function(month) {
@@ -129,14 +127,6 @@ mortgage.controller('mortgageController',
 				return scope.getCompoundInterest() - scope.totalRentalCost();
 			}
 
-			/**
-			 * @deprecated
-			 */
-			$scope.loanAmount = function() {
-				var appt = $scope.appt;
-				return appt.value - appt.loan.firstPayment;
-			}
-
 			$scope.remainingLoanBalance = function(months) {
 				var loan = $scope.appt.loan;
 				var principal = $scope.appt.value - loan.firstPayment;
@@ -150,18 +140,59 @@ mortgage.controller('mortgageController',
 			}
 
 			$scope.$watchCollection('appt.loan', function(newValue, oldValue) {
-				console.log(newValue);
+				// console.log(newValue);
 				scope.recalculateLoan();
 			});
 
+			/**
+			 * XXX: remove this watch, monthlyDeposit not needed
+			 */
 			$scope.$watch('appt.rental', function() {
-				scope.deposit.monthlyDeposit = round(scope.loanCalculated.monthlyPayment - scope.appt.rental, 500);
+				scope.calcDeposit();
+			});
+
+			$scope.$watch('appt.inflation', function() {
+				scope.calcDeposit();
+			});
+			/**
+			 * XXX: remove this watch, monthlyDeposit not needed
+			 */
+			$scope.$watch('loanCalculated.monthlyPayment', function() {
+				scope.calcDeposit();
 			});
 
 			$scope.$watch('appt.value', function(newValue, oldValue) {
-				console.log(newValue);
+				// console.log(newValue);
 				scope.recalculateLoan();
 			});
+
+			scope.calcDeposit = function() {
+				// XXX:
+				var appt = scope.appt;
+				var loan = scope.appt.loan;
+				var totalAddon = 0;
+				var sum = 1;// scope.appt.loan.principal;
+				for (month = 0; month < loan.years * 12; month++) {
+					var rental = inflateMonth(appt.rental, appt.inflation / 100, month - month % 12);
+					var inflatedServiceFee = inflateMonth(loan.service, appt.inflation / 100, month - month % 12);
+					var delta = scope.loanCalculated.monthlyPayment + inflatedServiceFee - rental;
+					// if (delta < 0) {
+					// delta = 0;// XXX negative delta is ok
+					// }
+					// console.log("m=" + month + " inflatedServiceFee=" +
+					// inflatedServiceFee);
+					totalAddon += delta;
+					sum = sum + delta;
+					if (month > 0) {
+						sum = sum + sum * (scope.deposit.interest / 1200);
+					}
+				}
+
+				scope.deposit.monthlyDeposit = totalAddon / (loan.years * 12);
+				// console.log("sum=" + sum);
+				// console.log("mean addon=" + totalAddon / (loan.years * 12));
+				return sum;
+			}
 
 			scope.recalculateLoan = function() {
 				var appt = scope.appt;
@@ -187,15 +218,23 @@ mortgage.controller('mortgageController',
 				scope.loanCalculated.loanYears = ret;
 				scope.loanCalculated.body = appt.value - loan.firstPayment;
 				scope.loanCalculated.overpayment = scope.summOfAllPayments() - scope.loanCalculated.body;
+				scope.loanCalculated.mothlyCosts = scope.loanCalculated.monthlyPayment + appt.loan.service
+						+ appt.loan.insurance / 12;
 			}
 
 			scope.getCompoundInterest = function() {
-				var loan = $scope.appt.loan;
-				return getCompoundInterest(scope.deposit.principal, scope.deposit.interest / 100, 12, loan.years,
-						scope.deposit.monthlyDeposit);
+
+				// XXX: add;
+				return scope.calcDeposit();
+
+				// var loan = $scope.appt.loan;
+				// return getCompoundInterest(scope.deposit.principal,
+				// scope.deposit.interest / 100, 12, loan.years,
+				// scope.deposit.monthlyDeposit);
 			};
 
 			scope.getCompoundInterestIncome = function() {
+
 				var loan = $scope.appt.loan;
 				return scope.getCompoundInterest() - $scope.deposit.principal - $scope.deposit.monthlyDeposit * 12
 						* loan.years;

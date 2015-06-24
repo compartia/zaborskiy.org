@@ -14,7 +14,7 @@
 <meta name='yandex-verification' content='751dbbadb6ed2c0d' />
 
 
-<meta property="og:description" content="Почему дешевле снимать квартиру, а не покупать в ипотеку?" />
+<meta property="og:description" content="Почему дешевле арендовать квартиру, чем покупать в ипотеку?" />
 
 <meta name="google-site-verification" content="Xy-OmtxkjLq80CSWzB5KxClnjHVtUgSH084p5gULJf8" />
 <meta charset="utf-8">
@@ -70,6 +70,23 @@
 
 	<div ng-controller="mortgageController">
 
+		<nav class="navbar navbar-cars navbar-fixed-top">
+			<div class="container">
+				<div class="text-center" ng-cloak>
+
+
+
+					<h3 ng-show="rentalBalance()-mortgageBalance()>=0">арендовать</h3>
+					<h3 ng-show="rentalBalance()-mortgageBalance()<0">ипотека</h3>
+					<small>в вашем случае выгоднее на {{ deltaBalance() | numberRu}} {{curr}}</small>
+
+
+				</div>
+
+				<!--/.nav-collapse -->
+			</div>
+		</nav>
+
 
 
 		<div class="page">
@@ -80,7 +97,6 @@
 
 
 					<div class="text-content">
-
 
 
 						<p class="lead">Покупать квартиру в ипотеку и снимать?</p>
@@ -103,23 +119,24 @@
 						<table class="table cars units-column" ng-cloak>
 							<tbody>
 								<tr>
-									<td>квартира стоит</td>
+									<td>квартира стоит <br> <small>по-хорошему, сюда стоило бы включить стоимость ремонта и
+											мебели</small></td>
 
-									<td><input ng-model="appt.value" type="number" min="1" step="100000" class="input-lg form-control"
+									<td><input ng-model="appt.value" type="number" min="0" step="100000" class="input-lg form-control"
 										ng-model-options="{ debounce: 100 }"></td>
 									<td>{{curr}}</td>
 								</tr>
 
 								<tr>
 									<td>а у вас есть только</td>
-									<td><input ng-model="appt.loan.firstPayment" type="number" step="500" class="form-control"
+									<td><input ng-model="appt.loan.firstPayment" type="number" step="5000" class="form-control"
 										ng-model-options="{ debounce: 100 }"></td>
 									<td>= {{ 100*(appt.loan.firstPayment)/appt.value | numberRu}}%</td>
 								</tr>
 
 								<tr>
 									<td>предположим, что цены на недвижимость растут на</td>
-									<td><input ng-model="appt.inflation" type="number" class="form-control"
+									<td><input ng-model="appt.inflation" type="number" class="form-control" step="0.1"
 										ng-model-options="{ debounce: 100 }"></td>
 									<td>% в год</td>
 								</tr>
@@ -199,8 +216,8 @@
 								</tr>
 
 								<tr>
-									<td>расходы на квартплату за {{appt.loan.years| years}}<small><br>c учетом роста цен на
-											недвижимость {{appt.inflation}}% в год</small></td>
+									<td>расходы на коммунальные платежи за {{appt.loan.years| years}}<small><br>c учетом роста
+											цен на недвижимость {{appt.inflation}}% в год</small></td>
 									<td>{{totalServiceCost()| numberRu}}</td>
 									<td>{{curr}}</td>
 								</tr>
@@ -221,6 +238,7 @@
 								</tr>
 							</tbody>
 						</table>
+
 						<br>
 						<div class="text-content">Теперь вариант, при котором вы снимаете квартиру, а не покупаете..</div>
 						<table class="table cars units-column" ng-cloak>
@@ -247,7 +265,9 @@
 
 
 								<tr>
-									<td>расходы на аренду за {{appt.loan.years| years}}</td>
+									<td>расходы на аренду за {{appt.loan.years| years}} <small><br>при условии, что цену повышают
+											раз в год</small>
+									</td>
 									<td><strong>{{totalRentalCost() | numberRu}}</strong></td>
 									<td>{{curr}}</td>
 								</tr>
@@ -267,10 +287,10 @@
 
 								</tr>
 								<tr>
-									<td>а еще вы можете откладывать по</td>
-									<td><input ng-model="deposit.monthlyDeposit" type="number" step="500" min="0" class="form-control">
-									</td>
-									<td>{{curr}} в месяц</td>
+									<td>а еще вы можете откладывать по <small><br> тут очень сложная формула* — это средняя
+											разница между ежемесячными расходами в случае ипотеки и арендной платой</small></td>
+									<td>{{deposit.monthlyDeposit| numberRu}}</td>
+									<td>{{curr}} в месяц (в среднем)</td>
 
 
 								</tr>
@@ -304,23 +324,28 @@
 					</form>
 				</div>
 				<div class="text-content" ng-cloak>
+					<small><sup>*</sup>Если вы возьмете ипотеку, то каждый месяц ваши расходы будут включать регулярный платеж
+						по кредиту, коммунальные платежи с учетом роста цен и, возможно, страховку. Следовательно, если вы не взяли
+						кредит, то эту сумму за вычетом расходов на съем жилья вы можете откладывать.</small>
+				</div>
 
+
+				<div class="text-content" ng-cloak>
 					<p class="lead total" ng-show="rentalBalance()-mortgageBalance()>=0">
-						<small>в
-							вашем случае<br></small><b>арендовать</b> выгоднее на <br>{{rentalBalance()-mortgageBalance()|numberRu}}
+						<small>в вашем случае<br></small><b>арендовать</b> выгоднее на <br>{{rentalBalance()-mortgageBalance()|numberRu}}
 						{{curr}}
 					</p>
 
 					<p class="lead total" ng-show="rentalBalance()-mortgageBalance()<0">
-					<small>в
-							вашем случае<br></small>
-						<b>ипотеку</b> взять выгоднее <br>на {{mortgageBalance()-rentalBalance()|numberRu}} {{curr}}
+						<small>в вашем случае<br></small> <b>ипотеку</b> взять выгоднее <br>на
+						{{mortgageBalance()-rentalBalance()|numberRu}} {{curr}}
 					</p>
 
 				</div>
 
+				<div class="fb-comments" data-href="http://car-owning-costs.herokuapp.com/mortgage.html" data-width="100%"
+					data-numposts="5"></div>
 				<div class="footer" ng-include="'assets/partials/footer.html'"></div>
-
 			</div>
 
 		</div>
