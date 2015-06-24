@@ -43,10 +43,14 @@
 @inverted-bg-color: desaturate(@punch, 10%); 
 @inverted-font-color: lighten(@inverted-bg-color,40%); 
 @inverted-font-color-dimmed: darken(@inverted-font-color, 20%); 
+
+@inverted-bg-color-2: desaturate(@light-sea-green, 10%); 
+@inverted-font-color-2: lighten(@inverted-bg-color-2, 60%); 
+@inverted-font-color-dimmed-2: darken(@inverted-font-color-2, 20%); 
  
 @openable-row-color:lighten(@panel-bg, 3%);
 
-@good-result: desaturate(@light-sea-green, 30%); 
+@good-result: @inverted-bg-color-2; 
 @bad-result: @inverted-bg-color; 
 
 
@@ -320,13 +324,7 @@ b, strong{
         border-radius: @input-corner-rad;
     }
     
-    .headline{
-        color: white; 
-        font-weight: 400;
-        background-color:@headline-bg-color;
-        border: none;
-        .with-noise;
-    }
+    
     
     .openable{
         background-color: @openable-row-color;
@@ -600,20 +598,43 @@ ol.simple-list > li:before {
     td,th{
         text-align: left!important;
     }
+    
+}
+
+.headline{
+        color: white; 
+        font-weight: 400;
+        background-color:@headline-bg-color;
+        border: none;
+        .with-noise;
+    }
+
+.table{ 
     .good{
         width: 45%!important;
         background-color: @good-result;
         .with-noise;
         
-        color: @inverted-font-color;
+        color: @inverted-font-color-2;
+        
+        .headline{
+            background-color:@good-result;
+        }
+        
+        small{
+            color: @inverted-font-color-dimmed-2;
+        }
     }
     
     .bad{ 
-                width: 45%!important;
-
+        width: 45%!important;
         background-color: @bad-result;
         .with-noise;
         text-align: left!important;
         color: @inverted-font-color;
+        
+        .headline{
+            background-color:@bad-result;
+        }
     }
 }

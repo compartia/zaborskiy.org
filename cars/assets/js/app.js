@@ -114,30 +114,14 @@ cars.controller('carsController', function($scope) {
 
 	$scope.remainingLoanBalance = function(months) {
 		var loan = $scope.car.loan;
-
-		if (months > loan.years * 12) {
-			return 0;
-		}
-
 		var principal = $scope.car.value - loan.firstPayment;
-
-		var rate = loan.interrest / 1200;
-		var payment = $scope.montlyPayment();
-		var d = Math.pow(1 + rate, months);
-		var balance = principal * (d) - ((payment / rate) * (d - 1));
-		return balance;
+		return remainingLoanBalance(months, principal, loan.interrest / 100, loan.years);
 	}
 
 	$scope.montlyPayment = function() {
 		var loan = $scope.car.loan;
-
-		var rate = loan.interrest / 1200;
-		var months = 12 * loan.years;
-		var principal = $scope.car.value - loan.firstPayment;
-
-		var d = Math.pow(1 + rate, months);
-		var payment = (rate + (rate / (d - 1))) * principal;
-		return payment;
+		var loanBody = $scope.car.value - loan.firstPayment;
+		return monthlyPayment(loanBody, loan.interrest / 100, loan.years);
 	}
 
 	$scope.$watch('car.value', function(newValue, oldValue) {

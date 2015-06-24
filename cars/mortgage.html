@@ -1,0 +1,330 @@
+<!doctype html>
+
+<html lang="ru" ng-app="mortgage">
+<head>
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Покупать квартиру или снимать?" />
+<meta property="og:site_name" content="Kалькулятор расходов на ипотеку" />
+<meta property="og:url" content="http://car-owning-costs.herokuapp.com" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="article:author" content="https://www.facebook.com/zaborskiy" />
+<meta property="article:publisher" content="https://www.behance.net/zaborskiy" />
+<meta property="fb:app_id" content="201987453175808" />
+<meta property="og:image" content="http://car-owning-costs.herokuapp.com/assets/img/mortgageorrent.png" />
+<meta name='yandex-verification' content='751dbbadb6ed2c0d' />
+
+
+<meta property="og:description" content="Почему дешевле снимать квартиру, а не покупать в ипотеку?" />
+
+<meta name="google-site-verification" content="Xy-OmtxkjLq80CSWzB5KxClnjHVtUgSH084p5gULJf8" />
+<meta charset="utf-8">
+
+<title>Покупать квартиру или арендовать?</title>
+<meta name="description" content="Почему дешевле снимать квартиру, а не покупать в ипотеку?">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="assets/js/bower_components/bootstrap/dist/css/bootstrap.min.css">
+<!-- <link rel="stylesheet/less" type="text/css" href="assets/css/artem-patch.less" />
+<script src="assets/js/vendor/less.min.js"></script> -->
+
+  <link rel="stylesheet" href="assets/css/cars.css" />
+  
+<link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700&subset=latin,cyrillic-ext,cyrillic'
+	rel='stylesheet' type='text/css'>
+
+
+<script src="assets/js/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="assets/js/bower_components/angular/angular.min.js"></script>
+<script src="assets/js/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="assets/js/encoder.js"></script>
+<script src="assets/js/math.js"></script>
+<script src="assets/js/mortgage.js"></script>
+
+<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '201987453175808',
+      xfbml      : true,
+      version    : 'v2.3'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+	<div ng-controller="mortgageController">
+
+
+
+		<div class="page">
+			<div class="container">
+
+
+				<div>
+
+
+					<div class="text-content">
+
+
+
+						<p class="lead">Покупать квартиру в ипотеку и снимать?</p>
+
+						<h1 class="lead">
+							Что выгоднее? <br> <small>калькулятор расходов на жилье <sup>β1.0</sup></small>
+						</h1>
+
+						<p>
+							Этот вопрос сложнее, чем кажется (гораздо проще <a href="why_you_should_not_buy_a_car.html">посчитать,
+								насколько дорого обходится автомобиль</a>). Многие думают, что оплачивая аренду, они бросают деньги на ветер. Этот
+							калькулятор поможет вам определить, что дороже, а что дешевле.
+						</p>
+
+					</div>
+
+					<img src="assets/img/mortgageorrent.png" width="100%" />
+					<form class="form-horizontal cars">
+
+						<table class="table cars units-column">
+							<tbody>
+								<tr>
+									<td>квартира стоит</td>
+
+									<td><input ng-model="appt.value" type="number" min="1" step="100000" class="input-lg form-control"
+										ng-model-options="{ debounce: 100 }"></td>
+									<td>{{curr}}</td>
+								</tr>
+
+								<tr>
+									<td>а у вас есть только</td>
+									<td><input ng-model="appt.loan.firstPayment" type="number" step="500" class="form-control"
+										ng-model-options="{ debounce: 100 }"></td>
+									<td>= {{ 100*(appt.loan.firstPayment)/appt.value | numberRu}}%</td>
+								</tr>
+
+								<tr>
+									<td>предположим, что цены на недвижимость растут на</td>
+									<td><input ng-model="appt.inflation" type="number" class="form-control"
+										ng-model-options="{ debounce: 100 }"></td>
+									<td>% в год</td>
+								</tr>
+							</tbody>
+						</table>
+<br>
+						<div class="text-content">Сначала, посчтитаем ипотеку..</div>
+						<table class="table cars units-column" ng-cloak>
+
+							<tbody>
+
+
+
+								<tr>
+									<th colspan="3">ипотека</th>
+								</tr>
+
+								<tr>
+									<td>сумма кредита</td>
+									<td><strong>{{loanCalculated.body | numberRu}}</strong></td>
+									<td>{{curr}}</span>
+									</td>
+								</tr>
+								<tr>
+									<td>кредитная ставка</td>
+									<td><input ng-model="appt.loan.interrest" type="number" step="0.1" min="0.1" max="200"
+										class="form-control"></td>
+									<td>% годовых</td>
+								</tr>
+								<tr>
+									<td>срок кредита (лет)</td>
+									<td><input ng-model="appt.loan.years" type="number" min="1" max="50" class="form-control"></td>
+									<td>= {{appt.loan.years*12}} месяцев</td>
+								</tr>
+
+								<tr>
+									<td>вернуть нужно будет</td>
+									<td>{{summOfAllPayments()| numberRu}}</td>
+									<td></td>
+								</tr>
+
+
+								<tr>
+									<td>ежемесячный платеж</td>
+									<td>{{loanCalculated.monthlyPayment | numberRu}}</td>
+									<td></td>
+								</tr>
+
+								<tr>
+									<td>суммарная переплата</td>
+									<td>{{loanCalculated.overpayment | numberRu}}</td>
+									<td></td>
+								</tr>
+
+								<tr>
+									<td>предполагаемая цена квартиры через {{appt.loan.years| years}}<small><br>c учетом роста
+											цен на недвижимость {{appt.inflation}}% в год</small></td>
+									<td>{{futureValue(appt.value) | numberRu}}</td>
+									<td>{{curr}}</td>
+								</tr>
+
+
+								<tr>
+									<td>страховка недвижимости + бесценной жизни<small><br>возможное требование банков при выдаче
+											кредита под залог жилья </small></td>
+									<td><input ng-model="appt.loan.insurance" type="number" min="0" step="100" class="form-control"></td>
+									<td>{{curr}} в год</td>
+								</tr>
+
+								<tr>
+									<td>коммунальные платежи <small><br>ТСЖ, вывоз мусора и «вот это вот все» </small>
+
+									</td>
+									<td><input ng-model="appt.loan.service" type="number" min="0" step="100" class="form-control"></td>
+									<td>{{curr}} в месяц</td>
+								</tr>
+
+								<tr>
+									<td>расходы на квартплату за {{appt.loan.years| years}}<small><br>c учетом роста цен на
+											недвижимость {{appt.inflation}}% в год</small></td>
+									<td>{{totalServiceCost()| numberRu}}</td>
+									<td>{{curr}}</td>
+								</tr>
+
+
+								<tr class="summary good" ng-class="{good:mortgageBalance()>=0, bad:mortgageBalance()<0}">
+									<td class="headline">итого, ваш баланс через {{appt.loan.years | years}}:</td>
+									<td class="headline" colspan="2">
+										<h4>
+											{{mortgageBalance() | numberRu}} <small>{{curr}}</small>
+										</h4>
+									</td>
+								</tr>
+								<tr class="summary good">
+									<td colspan="3"><small>= будущая стоимость квартиры - сумма переплаты по процентам - суммарная
+											квартплата - оплата страховки ={{futureValue(appt.value) | numberRu}} - {{loanCalculated.overpayment |
+											numberRu}} - {{totalServiceCost()| numberRu}} - {{totalInsuranceCost()| numberRu}} </small></td>
+								</tr>
+							</tbody>
+						</table>
+						<br>
+						<div class="text-content">Теперь вариант, при котором вы снимаете квартиру, а не покупаете..</div>
+						<table class="table cars units-column" ng-cloak>
+							<tbody>
+								<tr>
+									<th colspan="3">аренда</th>
+								</tr>
+
+								<tr>
+									<td>арендная плата <small><br>с учетом коммунальных платежей</small></td>
+									<td><input ng-model="appt.rental" min="0" step="500" type="number" class="form-control"></td>
+									<td>{{curr}}/месяц</td>
+								</tr>
+
+
+
+								<tr>
+									<td>гипотетическая цена аренды через {{appt.loan.years| years}} <small><br>c учетом роста цен
+											на недвижимость {{appt.inflation}}% в год</small></td>
+									<td>{{futureValue(appt.rental) | numberRu}}</td>
+									<td>{{curr}}/мес</td>
+								</tr>
+
+
+
+								<tr>
+									<td>расходы на аренду за {{appt.loan.years| years}}</td>
+									<td><strong>{{totalRentalCost() | numberRu}}</strong></td>
+									<td>{{curr}}</td>
+								</tr>
+
+
+
+								<tr>
+									<td>мы уже знаем, у вас есть</td>
+									<td><input ng-model="deposit.principal" type="number" step="5000" min="0" class="form-control"></td>
+									<td>{{curr}}</td>
+
+								</tr>
+								<tr>
+									<td>и вы смело положили их на депозит под</td>
+									<td><input ng-model="deposit.interest" type="number" step="0.1" min="0" max="200" class="form-control"></td>
+									<td>% годовых<sup>*</sup></td>
+
+								</tr>
+								<tr>
+									<td>а еще вы можете откладывать по</td>
+									<td><input ng-model="deposit.monthlyDeposit" type="number" step="500" min="0" class="form-control">
+									</td>
+									<td>{{curr}} в месяц</td>
+
+
+								</tr>
+
+								<tr>
+									<td>через {{appt.loan.years| years}} у вас будет</td>
+									<td>{{getCompoundInterest()| numberRu}}</td>
+									<td>{{curr}}</td>
+								</tr>
+
+
+
+
+								<tr class="summary" ng-class="{good:rentalBalance()>=0, bad:rentalBalance()<0}">
+									<td class="headline">ваш баланс через {{appt.loan.years | years}} :</td>
+									<td class="headline" colspan="2">
+										<h4>
+											{{rentalBalance() | numberRu}} <small>{{curr}}</small>
+										</h4>
+									</td>
+								</tr>
+								<tr class="summary">
+									<td colspan="3"><small>= накопления - расходы на аренду = {{getCompoundInterest()|numberRu}} -
+											{{totalRentalCost() | numberRu}}</small></td>
+								</tr>
+
+
+							</tbody>
+						</table>
+
+					</form>
+				</div>
+
+
+				<div class="footer" ng-include="'assets/partials/footer.html'"></div>
+
+			</div>
+
+		</div>
+	</div>
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64311909-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+
+
+
+</body>
+</html>
