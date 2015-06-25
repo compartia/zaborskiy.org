@@ -12,28 +12,28 @@ function getCompoundInterest(principal, interestRate, numberOfTimesInterestCompo
 	var futureValueOfSeries = monthlyPayment * ((d - 1) / (mothlyInterest))
 
 	return s + futureValueOfSeries;
-}
+};
 
 function round(amount, step) {
 	return step * Math.round(amount / step);
-}
+};
 
 function inflate(amount, inflation, years) {
 	return amount * Math.pow(1 + inflation, years);
-}
+};
 
 function inflateMonth(amount, inflation, month) {
 	return amount * Math.pow(1 + inflation / 12, month);
-}
+};
 
 function integrateInflatedAmount(amount, periods, rate) {
 	var sum = 0;
-	for (y = 0; y < periods; y++) {
+	for (var y = 0; y < periods; y++) {
 		var v = inflate(amount, rate, y);
 		sum += v;
 	}
 	return sum;
-}
+};
 
 function monthlyPayment(principal, interestRate, years) {
 	var months = 12 * years;
@@ -42,7 +42,7 @@ function monthlyPayment(principal, interestRate, years) {
 	var d = Math.pow(1 + rate, months);
 	var payment = (rate + (rate / (d - 1))) * principal;
 	return payment;
-}
+};
 
 function remainingLoanBalance(afterMonth, principal, interestRate, years) {
 	if (afterMonth > years * 12) {
@@ -54,4 +54,17 @@ function remainingLoanBalance(afterMonth, principal, interestRate, years) {
 	var d = Math.pow(1 + rate, afterMonth);
 	var balance = principal * (d) - ((payment / rate) * (d - 1));
 	return balance;
-}
+};
+
+function integrateMonthlyInterrest(periodA, periodB, principal, interestRate, years) {
+	if (periodA < 0) {
+		return 0;
+	}
+	var sum = 0;
+	for (var m = periodA; m < periodB; m++) {
+		var FV = remainingLoanBalance(m, principal, interestRate, years)
+		var interest = FV * (interestRate / 12);
+		sum += interest;
+	}
+	return sum;
+};

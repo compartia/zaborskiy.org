@@ -34,12 +34,21 @@
 	rel='stylesheet' type='text/css'>
 
 
+
+
 <script src="assets/js/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="assets/js/bower_components/angular/angular.min.js"></script>
 <script src="assets/js/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="assets/js/bower_components/Chart.js/Chart.js"></script>
+<script src="assets/js/bower_components/angular-chart.js/dist/angular-chart.js"></script>
+<link rel="stylesheet" href="assets/js/bower_components/angular-chart.js/dist/angular-chart.css">
+
 <script src="assets/js/encoder.js"></script>
 <script src="assets/js/math.js"></script>
 <script src="assets/js/mortgage.js"></script>
+
+
 
 <!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -70,6 +79,8 @@
 
 	<div ng-controller="mortgageController">
 
+
+
 		<nav class="navbar navbar-cars navbar-fixed-top">
 			<div class="container">
 				<div class="text-center" ng-cloak>
@@ -97,9 +108,7 @@
 
 
 					<div class="text-content">
-
-
-						<p class="lead">Покупать квартиру в ипотеку и снимать?</p>
+						<p class="lead">Покупать квартиру в ипотеку или снимать?</p>
 
 						<h1 class="lead">
 							Что выгоднее? <br> <small>калькулятор расходов на жилье <sup>β1.0</sup></small>
@@ -145,12 +154,22 @@
 						<br>
 						<div class="text-content">Сначала, посчитаем ипотеку..</div>
 
+
 						<table class="table cars units-column" ng-cloak>
 
 							<tbody>
 
 								<tr>
 									<th colspan="3">ипотека</th>
+								</tr>
+
+								<tr>
+									<td colspan="3">
+
+										<canvas id="mortgageChart" legend="true" class="chart chart-line" colours="[ '#25b196','#dc5547','#c5ddd8' ]"
+											series="series" data="chartData" labels="chartLabels" options="chartOptions"></canvas>
+
+									</td>
 								</tr>
 
 								<tr>
@@ -245,6 +264,14 @@
 									<th colspan="3">аренда</th>
 								</tr>
 
+								<tr>
+									<td colspan="3">
+
+										<canvas id="rentalChart" legend="true" class="chart chart-line" colours="[ '#25b196','#dc5547','#c5ddd8' ]"
+											series="rentalSeries" data="rentalChartData" labels="chartLabels" options="chartOptions"></canvas>
+
+									</td>
+								</tr>
 								<tr>
 									<td>арендная плата <small><br>с учетом коммунальных платежей</small></td>
 									<td><input ng-model="appt.rental" min="0" step="500" type="number" class="form-control"></td>

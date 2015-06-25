@@ -150,12 +150,14 @@ cars.controller('carsController', function($scope) {
 		var ret = new Array();
 
 		var p = $scope.montlyPayment();
+
 		for (y = 1; y <= loan.years; y++) {
 			var adta = {
 				yearNo : y,
 				balance : $scope.remainingLoanBalance(12 * y),
 				paid : p * 12 * y
 			}
+
 			ret.push(adta);
 		}
 

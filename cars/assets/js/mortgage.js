@@ -1,4 +1,4 @@
-var mortgage = angular.module('mortgage', []);
+var mortgage = angular.module('mortgage', [ 'chart.js' ]);
 
 mortgage.filter('numberRu', function() {
 	return function(n) {
@@ -8,10 +8,14 @@ mortgage.filter('numberRu', function() {
 		}
 		var rounded = num;
 		if (num > 1000) {
-			rounded = Math.round(num / 100);
-			rounded = rounded * 100;
+			rounded = round(num, 100);
 		}
-		return rounded.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ' ');
+
+		var ret = rounded.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ' ');
+		if (rounded <= 0) {
+			ret = "(" + ret + ")";
+		}
+		return ret;
 
 	};
 });
@@ -59,22 +63,104 @@ mortgage.controller('mortgageController',
 
 			scope.loanCalculated = {};
 
+			/**
+			 * chart
+			 */
+			{
+				$scope.series = [ 'долг', 'баланс', 'стоимость квартиры' ];
+				$scope.rentalSeries = [ 'депозит', 'баланс' ];
+				$scope.chartLabels = [];
+				$scope.chartData = [ [], [], [] ];
+				$scope.rentalChartData = [ [], [] ];
+				$scope.onClick = function(points, evt) {
+					console.log(points, evt);
+				};
+
+				$scope.chartOptions = {
+					tooltipCornerRadius : 0,
+					animationEasing : "linear",// "easeOutBounce",
+					animationSteps : 30,
+					tooltipTitleFontStyle : 'normal',
+					scaleShowLabels : false,
+					pointDotRadius : 3,
+					pointDotStrokeWidth : 1,
+					tooltipFontFamily : "Roboto",
+					tooltipTitleFontFamily : 'Roboto' // tooltipTemplate
+				// : "<%=
+				// value
+				// %><%if
+				// (label){%>:<%=label%><%}%>",
+
+				};
+			}
+
+			$scope.updateChartData = function() {
+				var appt = scope.appt;
+				if (!appt || !appt.loan) {
+					return;
+				}
+
+				var chartData = scope.chartData;
+				var chatLabels = scope.chatLabels;
+				var rentalChartData = scope.rentalChartData;
+
+				var loan = scope.appt.loan;
+
+				var p = scope.montlyPayment();
+				// scope.loanCalculated.monthlyPayment = p;
+
+				if (!chartData || chartData[0].length != loan.years) {
+					chartData = [ [], [], [] ];
+					rentalChartData = [ [], [] ];
+					chartLabels = [];
+
+					scope.chartData = chartData;
+					scope.chartLabels = chartLabels;
+					scope.rentalChartData = rentalChartData;
+				}
+
+				for (var y = 0; y <= loan.years; y++) {
+					chartLabels[y] = y + " ";
+
+					var remainingLoanBalance = scope.remainingLoanBalance(12 * y);
+					chartData[0][y] = round(remainingLoanBalance, 1000);
+
+					var serviceCosts = integrateInflatedAmount(loan.service, y * 12, appt.inflation / 1200);
+					var insuranceCosts = integrateInflatedAmount(appt.loan.insurance, y, appt.inflation / 100)
+					var apptFV = inflate(appt.value, appt.inflation / 100, y);
+
+					/* appt FV - summ of payments */
+
+					var overpayments = integrateMonthlyInterrest(0, y * 12, scope.loanCalculated.body,
+							loan.interrest / 100, loan.years);
+					if (y == 0) {
+						overpayments = 0;
+					}
+					chartData[1][y] = round(apptFV - overpayments - serviceCosts - insuranceCosts
+							- remainingLoanBalance, 500);
+					chartData[2][y] = round(apptFV, 500);
+
+					rentalChartData[0][y] = y;
+					rentalChartData[1][y] = y * 2;
+					// scope.futureValue(appt.value);
+
+				}
+
+				// scope.loanCalculated.loanYears = ret;
+				// scope.loanCalculated.body = appt.value - loan.firstPayment;
+				// scope.loanCalculated.overpayment = scope.summOfAllPayments()
+				// - scope.loanCalculated.body;
+				// scope.loanCalculated.mothlyCosts =
+				// scope.loanCalculated.monthlyPayment + appt.loan.service
+				// + appt.loan.insurance / 12;
+			}
+
 			$scope.$watch('appt.loan.firstPayment', function(newValue, oldValue) {
 				scope.deposit.principal = round(scope.appt.loan.firstPayment, 500);
 			});
 
 			scope.futureValue = function(amount) {
 				return inflate(amount, scope.appt.inflation / 100, scope.appt.loan.years);
-			}
-
-			scope.let = function(val) {
-				if (val % 10 < 5) {
-					return val + " года"
-
-				} else {
-					return val + " let"
-
-				}
 			}
 
 			$scope.totalRentalCost = function() {
@@ -96,6 +182,9 @@ mortgage.controller('mortgageController',
 				return Math.abs(scope.rentalBalance() - scope.mortgageBalance());
 			}
 
+			/**
+			 * @deprecated
+			 */
 			$scope.overpayment = function(month) {
 				var loan = $scope.appt.loan;
 				var remainingLoanBalance = $scope.remainingLoanBalance(month);
@@ -107,7 +196,7 @@ mortgage.controller('mortgageController',
 
 			$scope.totalOverpayment = function(month) {
 				var sum = 0;
-				for (a = 0; a < month; a++) {
+				for (var a = 0; a < month; a++) {
 					sum = sum + $scope.overpayment(a + 1);
 				}
 				return sum;
@@ -153,6 +242,7 @@ mortgage.controller('mortgageController',
 
 			$scope.$watch('appt.inflation', function() {
 				scope.calcDeposit();
+				$scope.updateChartData();
 			});
 			/**
 			 * XXX: remove this watch, monthlyDeposit not needed
@@ -172,19 +262,33 @@ mortgage.controller('mortgageController',
 				var loan = scope.appt.loan;
 				var totalAddon = 0;
 				var sum = loan.firstPayment;
-				for (month = 0; month < loan.years * 12; month++) {
-					var rental = inflateMonth(appt.rental, appt.inflation / 100, month - month % 12);
-					var inflatedServiceFee = inflateMonth(loan.service, appt.inflation / 100, month - month % 12);
-					var delta = scope.loanCalculated.monthlyPayment + inflatedServiceFee - rental;
-					// if (delta < 0) {
-					// delta = 0;// XXX negative delta is ok
-					// }
-					// console.log("m=" + month + " inflatedServiceFee=" +
-					// inflatedServiceFee);
-					totalAddon += delta;
-					sum = sum + delta;
-					if (month > 0) {
-						sum = sum + sum * (scope.deposit.interest / 1200);
+
+				// var chartData = scope.chartData;
+				// if (!chartData || chartData[0].length != loan.years) {
+				// rentalChartData = [ [], [] ];
+				// scope.rentalChartData = rentalChartData;
+				// }
+
+				// ----
+				for (var y = 0; y < loan.years; y++) {
+					var rental = inflateMonth(appt.rental, appt.inflation / 100, y * 12);
+					var inflatedServiceFee = inflateMonth(loan.service, appt.inflation / 100, y * 12);
+
+					// rentalChartData[0][y] = rental;
+					for (var m = 0; m < 12; m++) {
+						var month = y * 12 + m;
+
+						var delta = scope.loanCalculated.monthlyPayment + inflatedServiceFee - rental;
+						// if (delta < 0) {
+						// delta = 0;// XXX negative delta is ok
+						// }
+						// console.log("m=" + month + " inflatedServiceFee=" +
+						// inflatedServiceFee);
+						totalAddon += delta;
+						sum = sum + delta;
+						if (month > 0) {
+							sum = sum + sum * (scope.deposit.interest / 1200);
+						}
 					}
 				}
 
@@ -206,7 +310,7 @@ mortgage.controller('mortgageController',
 				var p = scope.montlyPayment();
 				scope.loanCalculated.monthlyPayment = p;
 
-				for (y = 1; y <= loan.years; y++) {
+				for (var y = 1; y <= loan.years; y++) {
 					var adta = {
 						yearNo : y,
 						balance : $scope.remainingLoanBalance(12 * y),
@@ -220,6 +324,8 @@ mortgage.controller('mortgageController',
 				scope.loanCalculated.overpayment = scope.summOfAllPayments() - scope.loanCalculated.body;
 				scope.loanCalculated.mothlyCosts = scope.loanCalculated.monthlyPayment + appt.loan.service
 						+ appt.loan.insurance / 12;
+
+				$scope.updateChartData();
 			}
 
 			scope.getCompoundInterest = function() {
