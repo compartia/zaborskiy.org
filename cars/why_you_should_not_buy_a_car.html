@@ -519,10 +519,10 @@
 									</td>
 
 									<td class="good">у тебя на счету <strong style="white-space: nowrap;">{{getCompoundInterest()|
-											numberRu}} {{curr}}</strong>   <small><br>При средней пенсии в России 12 тыс.
-												рублей, ты можешь прямо сейчас уйти на пенсию на {{getCompoundInterest()/(12*12000)| numberRu}} лет</small>
-												
-									 
+											numberRu}} {{curr}}</strong> <small><br>При средней пенсии в России 12 тыс. рублей, ты можешь прямо
+											сейчас уйти на пенсию на {{getCompoundInterest()/(12*12000)| numberRu}} лет</small>
+
+
 									</td>
 								</tr>
 
@@ -534,9 +534,11 @@
 
 							</tbody>
 						</table>
-						
-						<p class="text-content">												<br><br>А вот еще один <a href="mortgage.html">калькулятор — что выгоднее: покупать квартиру в ипотеку и снимать?</a>
-						
+
+						<p class="text-content">
+							<br> <br>А вот еще один <a href="mortgage.html">калькулятор — что выгоднее: покупать квартиру в
+								ипотеку и снимать?</a>
+
 						</p>
 
 						<p class="text-content">
@@ -549,17 +551,29 @@
 
 					</form>
 				</div>
-				
-				
-				
+
+
+
+				<!-- Modal -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+
+							<div class="modal-body">
+								вот она: <input id="linkForFiend" ng-model="linkUrl" type="text" class="form-control">
+							</div>
+							<div class="modal-footer">
+
+								<button type="button" class="btn btn-default" data-dismiss="modal">ясно</button>
+							</div>
+						</div>
+					</div>
+				</div>
 
 				<div class="text-content grey-bg">
 					<label>ссылку со всеми параметрами рассчета для друга </label>
-					<button type="button" class="btn btn-default btn-sm" ng-click="openLink()">хочу</button>
-					<div ng-show="linkIsOpen">
-						<label>так вот же она: </label><input id="linkForFiend" ng-model="linkUrl" type="text" class="form-control">
-
-					</div>
+					<button type="button" class="btn btn-default btn-sm" ng-click="openLink()" data-toggle="modal"
+						data-target="#myModal">хочу</button>
 				</div>
 
 				<div class="footer" ng-include="'assets/partials/social.html'"></div>

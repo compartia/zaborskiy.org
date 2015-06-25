@@ -96,7 +96,6 @@ cars.controller('carsController', function($scope) {
 	}
 
 	$scope.openLink = function() {
-		$scope.linkIsOpen = !$scope.linkIsOpen;
 		$scope.linkUrl = $scope.toURL();
 		console.log("url=" + $scope.linkUrl);
 	}
@@ -167,8 +166,8 @@ cars.controller('carsController', function($scope) {
 		var car = $scope.car;
 		if (car) {
 			var loanYears = $scope.car.loan.years < $scope.years ? $scope.car.loan.years : $scope.years;
-			return $scope.getTotalNoLoan() + $scope.totalOverpayment(12 * loanYears) / $scope.years;
-
+			var string = $scope.getTotalNoLoan() + $scope.totalOverpayment(12 * loanYears) / $scope.years;
+			return string;
 		}
 	};
 
