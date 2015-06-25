@@ -34,10 +34,19 @@ function encode64(input) {
 function getDataFromUrl() {
 	try {
 		var h = window.location.hash;
-		h = h.substring(1);// + "==";
+		if (!h) {
+			return null;
+		}
+		if (h[0] == '#') {
+			h = h.substring(1);// + "==";
+		}
+		if (h[0] == '/') {
+			h = h.substring(1);// + "==";
+		}
 		var dataJson = decode64(h);
 		return JSON.parse(dataJson);
 	} catch (err) {
+		console.log(err);
 		return null;
 	}
 }

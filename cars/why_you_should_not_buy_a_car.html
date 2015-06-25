@@ -438,8 +438,7 @@
 						</table>
 
 						<div class="text-content">
-							<br>
-							<br> теперь предположим, что ты внял и НЕ купил машину, и..
+							<br> <br> теперь предположим, что ты внял и НЕ купил машину, и..
 						</div>
 
 						<table ng-cloak class="table cars units-column">
@@ -484,8 +483,7 @@
 						</table>
 
 						<div class="text-content">
-							<br>
-							<br> Итак, посмотрим на тебя через 3 года..
+							<br> <br> Итак, посмотрим на тебя через 3 года..
 						</div>
 
 						<table class="table result" ng-cloak>
@@ -521,9 +519,10 @@
 									</td>
 
 									<td class="good">у тебя на счету <strong style="white-space: nowrap;">{{getCompoundInterest()|
-											numberRu}} {{curr}}</strong> <span class="easter"> <small><br>При средней пенсии в России 12 тыс.
+											numberRu}} {{curr}}</strong>   <small><br>При средней пенсии в России 12 тыс.
 												рублей, ты можешь прямо сейчас уйти на пенсию на {{getCompoundInterest()/(12*12000)| numberRu}} лет</small>
-									</span>
+												
+									 
 									</td>
 								</tr>
 
@@ -535,6 +534,10 @@
 
 							</tbody>
 						</table>
+						
+						<p class="text-content">												<br><br>А вот еще один <a href="mortgage.html">калькулятор — что выгоднее: покупать квартиру в ипотеку и снимать?</a>
+						
+						</p>
 
 						<p class="text-content">
 							<small><sup>*</sup>пусть это будет «сложный процент» <a
@@ -546,11 +549,20 @@
 
 					</form>
 				</div>
+				
+				
+				
 
-				<label>ссылка для друга со всеми параметрами рассчета:</label> <input value="{{window.location.href + toURL()}}"
-					type="text" class="form-control"> <br>
+				<div class="text-content grey-bg">
+					<label>ссылку со всеми параметрами рассчета для друга </label>
+					<button type="button" class="btn btn-default btn-sm" ng-click="openLink()">хочу</button>
+					<div ng-show="linkIsOpen">
+						<label>так вот же она: </label><input id="linkForFiend" ng-model="linkUrl" type="text" class="form-control">
 
+					</div>
+				</div>
 
+				<div class="footer" ng-include="'assets/partials/social.html'"></div>
 				<div class="footer" ng-include="'assets/partials/footer.html'"></div>
 
 			</div>
