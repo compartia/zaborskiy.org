@@ -171,7 +171,7 @@ mortgage.controller('mortgageController',
 				var appt = scope.appt;
 				var loan = scope.appt.loan;
 				var totalAddon = 0;
-				var sum = 1;// scope.appt.loan.principal;
+				var sum = loan.firstPayment;
 				for (month = 0; month < loan.years * 12; month++) {
 					var rental = inflateMonth(appt.rental, appt.inflation / 100, month - month % 12);
 					var inflatedServiceFee = inflateMonth(loan.service, appt.inflation / 100, month - month % 12);
