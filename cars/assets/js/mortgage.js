@@ -38,7 +38,7 @@ mortgage.filter('years', function() {
 });
 
 mortgage.controller('mortgageController',
-		function($scope) {
+		function($scope, $timeout) {
 
 			var scope = $scope;
 
@@ -68,18 +68,18 @@ mortgage.controller('mortgageController',
 			 */
 			{
 				$scope.series = [ 'долг', 'баланс', 'стоимость квартиры' ];
-				$scope.rentalSeries = [ 'депозит', 'баланс' ];
+				$scope.rentalSeries = [ 'депозит', 'траты на аренду', 'баланс' ];
 				$scope.chartLabels = [];
 				$scope.chartData = [ [], [], [] ];
-				$scope.rentalChartData = [ [], [] ];
+				$scope.rentalChartData = [ [], [], [] ];
 				$scope.onClick = function(points, evt) {
 					console.log(points, evt);
 				};
 
 				$scope.chartOptions = {
 					tooltipCornerRadius : 0,
-					animationEasing : "linear",// "easeOutBounce",
-					animationSteps : 30,
+					animationEasing : "easeOutQuart",
+					animationSteps : 15,
 					tooltipTitleFontStyle : 'normal',
 					scaleShowLabels : false,
 					pointDotRadius : 3,
@@ -94,7 +94,21 @@ mortgage.controller('mortgageController',
 				};
 			}
 
-			$scope.updateChartData = function() {
+			scope.updateChartData = function() {
+				if (scope.updateChartDataPromise) {
+					return;
+					// $timeout.cancel(scope.updateChartDataPromise);
+					// scope.updateChartDataPromise = null;
+				}
+
+				scope.updateChartDataPromise = $timeout(function() {
+					scope.updateChartDataInt();
+					scope.updateChartDataPromise = null;
+				}, 500);
+
+			}
+
+			$scope.updateChartDataInt = function() {
 				var appt = scope.appt;
 				if (!appt || !appt.loan) {
 					return;
@@ -111,13 +125,16 @@ mortgage.controller('mortgageController',
 
 				if (!chartData || chartData[0].length != loan.years) {
 					chartData = [ [], [], [] ];
-					rentalChartData = [ [], [] ];
+					rentalChartData = [ [], [], [] ];
 					chartLabels = [];
 
 					scope.chartData = chartData;
 					scope.chartLabels = chartLabels;
 					scope.rentalChartData = rentalChartData;
 				}
+
+				var depositSumm = loan.firstPayment;
+				var rentalCostsSumm = 0;
 
 				for (var y = 0; y <= loan.years; y++) {
 					chartLabels[y] = y + " ";
@@ -140,8 +157,30 @@ mortgage.controller('mortgageController',
 							- remainingLoanBalance, 500);
 					chartData[2][y] = round(apptFV, 500);
 
-					rentalChartData[0][y] = y;
-					rentalChartData[1][y] = y * 2;
+					/**
+					 * 
+					 */
+					var rental = inflate(appt.rental, appt.inflation / 100, y);
+
+					var inflatedServiceFee = inflateMonth(loan.service, appt.inflation / 100, y * 12);
+
+					// rentalChartData[0][y] = rental;
+					for (var m = 0; m < 12; m++) {
+						var month = y * 12 + m;
+
+						var delta = scope.loanCalculated.monthlyPayment + inflatedServiceFee - rental;
+
+						depositSumm = depositSumm + delta;
+						if (month > 0) {
+							depositSumm += depositSumm * (scope.deposit.interest / 1200);
+						}
+						rentalCostsSumm += rental;
+					}
+
+					rentalChartData[0][y] = round(depositSumm, 500);
+					rentalChartData[1][y] = round(rentalCostsSumm, 500);
+					rentalChartData[2][y] = round(depositSumm - rentalCostsSumm, 500);
+
 					// scope.futureValue(appt.value);
 
 				}
@@ -242,7 +281,6 @@ mortgage.controller('mortgageController',
 
 			$scope.$watch('appt.inflation', function() {
 				scope.calcDeposit();
-				$scope.updateChartData();
 			});
 			/**
 			 * XXX: remove this watch, monthlyDeposit not needed
@@ -295,6 +333,7 @@ mortgage.controller('mortgageController',
 				scope.deposit.monthlyDeposit = totalAddon / (loan.years * 12);
 				// console.log("sum=" + sum);
 				// console.log("mean addon=" + totalAddon / (loan.years * 12));
+				$scope.updateChartData();
 				return sum;
 			}
 

@@ -131,7 +131,7 @@
 									<td>квартира стоит <br> <small>по-хорошему, сюда стоило бы включить стоимость ремонта и
 											мебели</small></td>
 
-									<td><input ng-model="appt.value" type="number" min="0" step="100000" class="input-lg form-control"
+									<td><input ng-required ng-model="appt.value" type="number" min="0" step="100000" class="input-lg form-control"
 										ng-model-options="{ debounce: 100 }"></td>
 									<td>{{curr}}</td>
 								</tr>
@@ -163,10 +163,10 @@
 									<th colspan="3">ипотека</th>
 								</tr>
 
-								<tr>
-									<td colspan="3">
+								<tr >
+									<td colspan="3" class="subtable-wrap">
 
-										<canvas id="mortgageChart" legend="true" class="chart chart-line" colours="[ '#25b196','#dc5547','#c5ddd8' ]"
+										<canvas id="mortgageChart" legend="true" class="chart chart-line" colours="[ '#dc5547','#25b196','#c5ddd8' ]"
 											series="series" data="chartData" labels="chartLabels" options="chartOptions"></canvas>
 
 									</td>
@@ -267,7 +267,7 @@
 								<tr>
 									<td colspan="3">
 
-										<canvas id="rentalChart" legend="true" class="chart chart-line" colours="[ '#25b196','#dc5547','#c5ddd8' ]"
+										<canvas id="rentalChart" legend="true" class="chart chart-line" colours="[ '#c5ddd8','#dc5547','#25b196' ]"
 											series="rentalSeries" data="rentalChartData" labels="chartLabels" options="chartOptions"></canvas>
 
 									</td>
