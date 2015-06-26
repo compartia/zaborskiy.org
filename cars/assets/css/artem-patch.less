@@ -15,6 +15,7 @@
 @input-corner-rad:0.3em;
 
 @coffee: #B6AEA1;
+@coffee-milk: lighten(@coffee, 10%);
 @activeColor: @punch;
 
 @headline-bg-color: desaturate(@punch, 10%); 
@@ -304,8 +305,6 @@ b, strong{
         border-radius: @input-corner-rad;
     }
     
-    
-    
     .openable{
         background-color: @openable-row-color;
         cursor: pointer;
@@ -323,14 +322,7 @@ b, strong{
     .openable:hover, .openable:focus, .openable:active {
         background-color: @selected-row!important;
     }
- 
-//    .openable:hover{
-//        background: @selected-row;
-//    }
-    
-  
-    
-    
+
     .open td{
         background:@selected-row;
     }
@@ -383,7 +375,9 @@ b, strong{
 }
  
  
-
+.bg-coffee{
+    background-color: @coffee-milk!important;
+}
 .subtable{
     background: none !important;
     
@@ -397,9 +391,8 @@ b, strong{
     
     th{
         border: none;
-        background-color:@headline-bg-color-2;
-    }
-    
+        .bg-coffee;
+    }   
 }
 
 .units-column td:nth-child(3){
@@ -516,6 +509,10 @@ ol.simple-list > li:before {
     color: @punch;
 }
 
+.chart-box{
+    height:200px; 
+}
+
 
 
 
@@ -544,10 +541,16 @@ ol.simple-list > li:before {
             text-align: left!important;
         }
     }
-    
-  
 }
 
+.param-value{
+    small{
+            display: inline-block;
+            width: 80px;
+            font-weight: 300;
+            text-align: left!important;
+        }
+}
 .summary{
     td:nth-child(2){
        
