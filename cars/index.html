@@ -1,0 +1,345 @@
+<!doctype html>
+
+<html lang="ru" ng-app="zaborskiy">
+<head>
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Artem Zaborskiy" />
+<meta property="og:site_name" content="zaborskiy.org" />
+<meta property="og:url" content="http://www.zaborskiy.org" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="article:author" content="https://www.facebook.com/zaborskiy" />
+<meta property="article:publisher" content="http://www.zaborskiy.org/" />
+<meta property="fb:app_id" content="201987453175808" />
+<meta property="og:image" content="http://tools.zaborskiy.org/assets/img/mortgageorrent.png XXX" />
+
+<meta property="og:description" content="Artem Zaborskiy" />
+
+<meta charset="utf-8">
+
+<title>zaborskiy.org</title>
+<meta name="description" content="Artem Zaborskiy">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="assets/js/dist/bootstrap.min.css">
+<link rel="stylesheet" href="assets/logo/styles.css" />
+
+<link rel="stylesheet/less" type="text/css" href="assets/css/zaborskiy.less" />
+<script src="assets/js/vendor/less.min.js"></script>
+
+
+
+<link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700&subset=latin,cyrillic-ext,cyrillic'
+	rel='stylesheet' type='text/css'>
+
+
+
+<script src="assets/js/dist/jquery.min.js"></script>
+<script src="assets/js/dist/angular.min.js"></script>
+<script src="assets/js/dist/bootstrap.min.js"></script>
+<script>
+var zaborskiy = angular.module('zaborskiy', []);
+
+zaborskiy.controller('mainCtrl', function ($scope) {
+
+    $scope.topMenuStyle="col-md-2 col-xs-4 col-sm-4 col-lg-2";
+});
+
+
+zaborskiy.controller('galleryCtrl', function ($scope) {
+  $scope.illustrations = [
+    { name: 'Lone Tourist', url: 'tourist_ik5icr.jpeg', description:"ink on paper, 30 x 40 cm", bg:"bg2t"},
+    { name: 'Africa', url: 'africa.jpeg', description:"mixed media", bg:"bg3t"},
+    { name: 'Валим', url: 'rocket.jpeg', description:"acylic on canvas, 30 x 30 cm", bg:"bg4t"},
+    { name: 'Bostondynamics II', url: 'boston_dynamics.jpeg', bg:"bg6t", description:"mixed media"},
+    { name: 'Secret Lab', url: 'secret-lab-web-3000.jpeg', bg:"bg4", description:"mixed media"},
+    { name: 'Woodcut', url: 'woodcut-web-3000.jpeg', bg:"bg2t", description:"mixed media"}
+  ];
+    
+    $scope.illustrationsUrl = "http://res.cloudinary.com/zaborskiy/image/upload/t_dimmed_500/";
+});
+
+zaborskiy.controller('appsCtrl', function ($scope) {
+  $scope.apps = [
+    { 	name: 'Color Collection', 
+	    url: 'https://play.google.com/store/apps/details?id=org.az.clr', 
+	    bgUrl:'http://res.cloudinary.com/zaborskiy/image/upload/t_app_thumb/color.jpg', 
+	    iconUrl:'http://res.cloudinary.com/zaborskiy/image/upload/t_icon64/color_collection_icon.png', 
+	    text:"Simple and powerful Colour Palette Designer. Useful to compose custom vivid colour schemes for web and UI"},
+	    
+	{ 	
+	    name: 'Minesweeper, Redesigned', 
+	    url: 'https://play.google.com/store/apps/details?id=org.az.minesweeper', 
+	    bgUrl:'http://res.cloudinary.com/zaborskiy/image/upload/t_app_thumb/msw.jpg', 
+	    iconUrl:'http://res.cloudinary.com/zaborskiy/image/upload/t_icon64/msw_icon.png', 
+	    text:"The multiplayer redesign of the classic Minesweeper game."}
+     
+  ];
+    
+ });
+    
+ 
+</script>
+
+
+<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '201987453175808',
+      xfbml      : true,
+      version    : 'v2.3'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+	<div class="container branding " ng-controller="mainCtrl">
+		<div class="stripes">
+
+
+			<div class="row row-fixed-height">
+				<div class="height2 col-sm-8 col-xs-12 logo with-noise col-sm-push-4 banner">
+					<div class="logo-wrap">
+						<span class="az-az-logo" />
+					</div>
+
+					<div ng-cloak class="row nopadding float-caption section-links bg2t">
+						<div class="{{topMenuStyle}}"></div>
+						<a class="{{topMenuStyle}} bg3" href="#apps">apps</a> <a class="{{topMenuStyle}} bg5" href="#tools">pages</a> <a
+							class="{{topMenuStyle}} bg6t" href="#music">music</a> <a class="{{topMenuStyle}} bg1t" href="#texts">texts</a> <a
+							class="{{topMenuStyle}} bg4" href="#arts">arts</a>
+					</div>
+				</div>
+
+
+				<div class="height1 col-sm-4 col-xs-12 col-sm-pull-8 gridbox bg3 ">
+
+
+					<div class="about">
+
+						Hi. My name is <span class="lead"> <br>Artem Zaborskiy
+						</span><br> I'm Java software developer.
+
+						<div class="desciption-wrap">
+							<div class="social">
+								<a target="_blank" href="https://www.facebook.com/zaborskiy"><span class="az-social-facebook" /></a> <a
+									target="_blank" href="https://th.linkedin.com/in/zaborskiy"><span class="az-social-linkedin" /></a> <a
+									target="_blank" href="https://www.behance.net/zaborskiy"><span class="az-social-behance" /></a> <a
+									target="_blank" href="https://plus.google.com/+ArtemZaborskiy"><span class="az-social-google-plus" /></a> <a
+									target="_blank" href="https://play.google.com/store/apps/developer?id=AZZZ"><span class="az-social-android" /></a>
+								<a target="_blank" href="https://github.com/compartia"><span class="az-social-github" /></a> <a target="_blank"
+									href="https://instagram.com/compartia/"><span class="az-social-instagram"></span></a>
+							</div>
+						</div>
+
+					</div>
+
+
+
+				</div>
+
+				<div class="height1 col-sm-4 col-xs-12 col-sm-pull-8 bg5 gridbox">
+					<a name="tools"></a>
+					<h2>tools</h2>
+					<div class="linkset">
+						<ul>
+							<li><a target="_blank" href="http://tools.zaborskiy.org/mortgage.html"> <h3>калькулятор
+										расходов на жилье</h3> <small>покупать квартиру в ипотеку или снимать?</small>
+							</a></li>
+							<li><a target="_blank" href="http://tools.zaborskiy.org/why_you_should_not_buy_a_car.html"> <h3>калькулятор
+										расходов на машину</h3> <small>сколько стоит содержать автомобиль?</small></a></li>
+						</ul>
+					</div>
+				</div>
+
+
+			</div>
+
+
+
+
+
+			<div class="row row-fixed-height">
+
+
+
+				<div class="col-xs-12 col-sm-12 col-md-8 height1 gridbox appsblock">
+					<h2 class="float-caption bg3d">android apps</h2>
+					<div class="row">
+						<div ng-controller="appsCtrl">
+
+							<div class="col-xs-12 col-sm-6 col-md-6 bg3 nopadding" ng-repeat="app in apps">
+
+
+
+								<a target="_blank" href="{{app.url}}">
+
+									<div class="gallery-item" style="background-image: url('{{app.bgUrl}}') !important;">
+
+
+										<div class="desciption-wrap bg3t">
+											<div class="appIcon" style="background-image: url('{{app.iconUrl}}')">
+												<h3>{{app.name}}</h3>
+												<small>{{app.text}}</small>
+											</div>
+										</div>
+									</div>
+
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+
+
+				<div class="col-xs-12 col-sm-6 col-md-4 bg6 gridbox height1">
+					<a name="music"></a>
+					<h2>music</h2>
+					<div class="cell-content ">
+						Here are few sample compositions I made. Feel free to discover more at <a href="https://azzz.bandcamp.com/">bandcamp</a>.
+
+						<iframe style="border: 0; width: 100%; height: 41px; display: block"
+							src="https://bandcamp.com/EmbeddedPlayer/album=3213495709/size=small/bgcol=000000/linkcol=cf4359/artwork=none/track=651293571/transparent=true/"
+							seamless>
+							<a target="_bandcamp" href="http://azzz.bandcamp.com/album/best-of">Best of by Artem Zaborskiy</a>
+						</iframe>
+						<iframe style="border: 0; width: 100%; height: 41px; display: block"
+							src="https://bandcamp.com/EmbeddedPlayer/album=3213495709/size=small/bgcol=000000/linkcol=cf4359/artwork=none/track=21335927/transparent=true/"
+							seamless>
+							<a target="_bandcamp" href="http://azzz.bandcamp.com/album/best-of">Best of by Artem Zaborskiy</a>
+						</iframe>
+						<iframe style="border: 0; width: 100%; height: 41px; display: block"
+							src="https://bandcamp.com/EmbeddedPlayer/album=3213495709/size=small/bgcol=000000/linkcol=cf4359/artwork=none/track=1855768607/transparent=true/"
+							seamless>
+							<a target="_bandcamp" href="http://azzz.bandcamp.com/album/best-of">Best of by Artem Zaborskiy</a>
+						</iframe>
+						<iframe style="border: 0; width: 100%; height: 42px; display: block"
+							src="https://bandcamp.com/EmbeddedPlayer/album=3213495709/size=small/bgcol=000000/linkcol=cf4359/artwork=none/track=1209727700/transparent=true/"
+							seamless>
+							<a target="_bandcamp" href="http://azzz.bandcamp.com/album/best-of">Best of by Artem Zaborskiy</a>
+						</iframe>
+					</div>
+				</div>
+
+
+
+
+				<div class="col-xs-12 col-sm-6 col-md-12 bg1 gridbox">
+
+
+					<a name="texts"></a>
+					<h2>texts</h2>
+
+
+					<div class="linkset row">
+						<ul>
+							<li class="  col-md-4 nopadding"><a target="_blank"
+								href="http://blog.zaborskiy.org/2013/12/Thailand-Samui.html">
+									<h3>Таиланд. Самуй. FAQ</h3> <small>Я провел в Королевстве Таиланд больше полугода. Время от времени
+										встречаются люди, которые задают примерно одинаковые вопросы об этой стране. Чтобы немного упростить себе
+										жизнь, я написал (почти написал) эту статью. Теперь всем вопрошающим я могу просто давать ссылку. </small>
+							</a></li>
+							<li class="  col-md-4 nopadding"><a target="_blank" href="http://blog.zaborskiy.org/2013/11/blog-post.html">
+									<h3>Характеристика</h3> <small>Артем Заборский обладает всеми необходимыми техническими навыками для
+										выполнения своей (а иногда и чужой) работы. В то же время, имеет весьма приблизительные представления о том,
+										какие требования накладывает занимаемая им позиция. </small>
+							</a></li>
+
+
+							<li class="  col-md-4 nopadding"><a target="_blank" href="http://blog.zaborskiy.org/2014/06/snobism.html">
+									<h3>История одного снобизма</h3> <small>Все началось в Ленинграде, в 78-м, но начало я не помню. В
+										любом случае, оно было скучно-соплиывым.В свои три года я оказался в Якутии, в геологической экспедиции. </small>
+							</a></li>
+
+
+							<li class="  col-md-4 nopadding"><a target="_blank" href="http://blog.zaborskiy.org/2014/09/blog-post.html">
+									<h3>Изоморфеус</h3> <small>Изоморфеуса считали психом. Но бывает, некоторых психов признают гениями
+										(посмертно, естественно). Само имя Изоморфеуса дает нам понять, чт...</small>
+							</a></li>
+						</ul>
+					</div>
+				</div>
+
+
+			</div>
+
+
+
+			<div class="row" ng-controller="galleryCtrl">
+				<div class="col-xs-12 nopadding">
+					<a name="arts"></a>
+					<h2 class="bg4">my artworks</h2>
+
+
+					<div class="row ">
+
+						<div ng-repeat="il in illustrations" class="col-xs-12 col-sm-6 col-md-4 gridbox">
+							<div class="gallery-item" style="background-image: url('{{illustrationsUrl+il.url}}')">
+								<div class="desciption-wrap {{il.bg}}">
+									<h4>{{il.name}}</h4>
+									<small ng-show="il.description">{{il.description}}</small>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!--/ gallery row-->
+
+			<div class="footer bg2">
+				<small> Сделано вручную на Петроградке</small><br> <small> Handcrafted in Saint Petersburg, by Artem
+					Zaborskiy </small>
+
+				<div class="logo-wrap">
+					<span class="az-az-logo" />
+				</div>
+				<small> June 2015</small>
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+
+
+
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64311909-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+
+
+
+</body>
+</html>
