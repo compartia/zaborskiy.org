@@ -10,6 +10,6 @@ run lambda { |env|
       'Content-Type'  => 'text/html',
       'Cache-Control' => 'public, max-age=86400'
     },
-    File.open('cars/why_you_should_not_buy_a_car.html', File::RDONLY)
+    File.open('cars/index.html', File::RDONLY)
   ]
 }
