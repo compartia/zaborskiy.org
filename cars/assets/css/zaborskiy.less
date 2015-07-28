@@ -210,16 +210,17 @@ ol.simple-list > li:before {
 
 .appsblock{}
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .about{
         text-align: center!important;
     }
     
     .appsblock {
         .gallery-item{
-            min-height: inherit;
-            background-position: -9999px;
-            background-size: 1px 1px; 
+            min-height: inherit!important;
+            background-position: -9999px!important;
+            background-size: 1px 1px!important;
+            background-repeat: no-repeat;
         }
         
         .desciption-wrap{
