@@ -66,14 +66,19 @@ zaborskiy.controller('appsCtrl', function ($scope) {
 	    url: 'https://play.google.com/store/apps/details?id=org.az.clr', 
 	    bgUrl:'http://res.cloudinary.com/zaborskiy/image/upload/t_app_thumb/color.jpg', 
 	    iconUrl:'http://res.cloudinary.com/zaborskiy/image/upload/t_icon64/color_collection_icon.png', 
-	    text:"Simple and powerful Colour Palette Designer. Useful to compose custom vivid colour schemes for web and UI"},
+	    text:"Simple and powerful Colour Palette Designer. Useful to compose custom vivid colour schemes for web and UI",
+	    type:"http://schema.org/BusinessApplication"
+	},
+	    
 	    
 	{ 	
 	    name: 'Minesweeper, Redesigned', 
 	    url: 'https://play.google.com/store/apps/details?id=org.az.minesweeper', 
 	    bgUrl:'http://res.cloudinary.com/zaborskiy/image/upload/t_app_thumb/msw.jpg', 
 	    iconUrl:'http://res.cloudinary.com/zaborskiy/image/upload/t_icon64/msw_icon.png', 
-	    text:"The multiplayer redesign of the classic Minesweeper game."}
+	    text:"The multiplayer redesign of the classic Minesweeper game.", 
+	    type:"http://schema.org/GameApplication"}
+	    
      
   ];
     
@@ -159,11 +164,12 @@ zaborskiy.controller('appsCtrl', function ($scope) {
 					<h2>tools</h2>
 					<div class="linkset">
 						<ul>
-							<li><a target="_blank" href="http://tools.zaborskiy.org/mortgage.html"> <h3>калькулятор
-										расходов на жилье</h3> <small>покупать квартиру в ипотеку или снимать?</small>
+							<li><a target="_blank" href="http://tools.zaborskiy.org/mortgage.html">
+									<h3>калькулятор расходов на жилье</h3> <small>покупать квартиру в ипотеку или снимать?</small>
 							</a></li>
-							<li><a target="_blank" href="http://tools.zaborskiy.org/why_you_should_not_buy_a_car.html"> <h3>калькулятор
-										расходов на машину</h3> <small>сколько стоит содержать автомобиль?</small></a></li>
+							<li><a target="_blank" href="http://tools.zaborskiy.org/why_you_should_not_buy_a_car.html">
+									<h3>калькулятор расходов на машину</h3> <small>сколько стоит содержать автомобиль?</small>
+							</a></li>
 						</ul>
 					</div>
 				</div>
@@ -179,23 +185,29 @@ zaborskiy.controller('appsCtrl', function ($scope) {
 
 
 
-				<div class="col-xs-12 col-sm-12 col-md-8 height1 gridbox appsblock"><a name="apps"></a>
+				<div class="col-xs-12 col-sm-12 col-md-8 height1 gridbox appsblock">
+					<a name="apps"></a>
 					<h2 class="float-caption bg3d">android apps</h2>
 					<div class="row">
 						<div ng-controller="appsCtrl">
 
-							<div class="col-xs-12 col-sm-6 col-md-6 bg3 nopadding" ng-repeat="app in apps">
+							<div class="col-xs-12 col-sm-6 col-md-6 bg3 nopadding" ng-repeat="app in apps" itemscope
+								itemtype="http://schema.org/MobileApplication">
 
 
 
-								<a target="_blank" href="{{app.url}}">
+								<meta itemprop="operatingSystem" content="Android 1.6" />
+								<meta itemprop="applicationCategory" content="{{app.type}}" />
+								<meta itemprop="downloadUrl" content="{{app.url}}">
+
+								<a target="_blank" href="{{app.url}}" itemprop="url">
 
 									<div class="gallery-item" style="background-image: url('{{app.bgUrl}}') !important;">
 
 
 										<div class="desciption-wrap bg3t">
 											<div class="appIcon" style="background-image: url('{{app.iconUrl}}')">
-												<h3>{{app.name}}</h3>
+												<h3 itemprop="name">{{app.name}}</h3>
 												<small>{{app.text}}</small>
 											</div>
 										</div>
