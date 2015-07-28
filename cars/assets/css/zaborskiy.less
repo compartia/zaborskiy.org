@@ -284,6 +284,10 @@ ol.simple-list > li:before {
 
 .footer{
     color: @palette-color-3!important;
+    a{
+        color: @palette-color-3!important;
+        text-decoration:underline;
+    }
     text-align: center;
     padding: @inter-panel-padding*4;
     
@@ -291,6 +295,9 @@ ol.simple-list > li:before {
         padding: @inter-panel-padding;
         font-size: 6em!important; 
         color: @palette-color-3t;
+        display:block;
+        text-decoration:none;
+        &:hover { text-decoration:none; }
     }
     
     
