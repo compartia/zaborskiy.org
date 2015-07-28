@@ -1,5 +1,5 @@
 use Rack::Static,
-  :urls => ["/assets/img", "/assets/js", "/assets/css", "/assets/logo", "/assets/logo/fonts", "/assets/partials", "/mortgage.html", "/index.html", "/why_you_should_not_buy_a_car.html", "/gal/spb_metro_map.html"],
+  :urls => ["/assets/img", "/assets/js", "/assets/css", "/assets/logo", "/assets/logo/fonts", "/assets/partials", "/mortgage.html", "/index.html", "/why_you_should_not_buy_a_car.html", "/gal"],
   :root => "cars",
   :bind => "0.0.0.0"
 
