@@ -100,14 +100,14 @@ zaborskiy.controller('appsCtrl', function ($scope) {
 [
 
 {
-  "@context": "http://schema.org/",
-  "@type": "MobileApplication",
-  "name": "Minesweeper, Redesigned",
-   "url":"https://play.google.com/store/apps/details?id=org.az.minesweeper",
-   "downloadUrl":"https://play.google.com/store/apps/details?id=org.az.minesweeper",
-  "operatingSystem": "ANDROID",
-  "applicationCategory": "http://schema.org/GameApplication",
-  "aggregateRating": {
+	"@context": "http://schema.org/",
+	"@type": "MobileApplication",
+	"name": "Minesweeper, Redesigned",
+	"url":"https://play.google.com/store/apps/details?id=org.az.minesweeper",
+	"downloadUrl":"https://play.google.com/store/apps/details?id=org.az.minesweeper",
+	"operatingSystem": "ANDROID",
+	"applicationCategory": "http://schema.org/GameApplication",
+	"aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.0",
     "ratingCount": "401"
@@ -119,14 +119,14 @@ zaborskiy.controller('appsCtrl', function ($scope) {
 },
 
 {
-  "@context": "http://schema.org/",
-  "@type": "MobileApplication",
-  "name": "Color Collection", 
-   "url":"https://play.google.com/store/apps/details?id=org.az.clr",
-   "downloadUrl":"https://play.google.com/store/apps/details?id=org.az.clr",
-  "operatingSystem": "ANDROID",
-  "applicationCategory": "http://schema.org/BusinessApplication",
-  "aggregateRating": {
+  	"@context": "http://schema.org/",
+  	"@type": "MobileApplication",
+  	"name": "Color Collection", 
+  	"url":"https://play.google.com/store/apps/details?id=org.az.clr",
+	"downloadUrl":"https://play.google.com/store/apps/details?id=org.az.clr",
+	"operatingSystem": "ANDROID",
+	"applicationCategory": "http://schema.org/BusinessApplication",
+	"aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "3.9",
     "ratingCount": "386"
@@ -189,8 +189,9 @@ zaborskiy.controller('appsCtrl', function ($scope) {
 
 					<div class="about" itemscope itemtype="http://schema.org/Person">
 						<link itemprop="url" href="http://www.zaborskiy.org">
-						Hi. My name is <br><span class="lead" itemprop="name">Artem Zaborskiy</span><br> I'm male 
-						<span itemprop="jobTitle">Java developer</span>.
+						Hi there, I am <br>
+						<span class="lead" itemprop="name">Artem Zaborskiy</span>, <br>a male <span itemprop="jobTitle">Java
+							developer</span>. <br>This is my portfolio. Find me at the networks listed below or via&nbsp;<a href="mailto:compartia@gmail.com">email</a>.
 
 						<div class="desciption-wrap">
 							<div class="social">
@@ -349,8 +350,9 @@ zaborskiy.controller('appsCtrl', function ($scope) {
 
 
 					<div class="row ">
-	
-						<a target="{{il.target}}" href="{{il.link}}" ng-repeat="il in illustrations" class="col-xs-12 col-sm-6 col-md-4 gridbox">
+
+						<a target="{{il.target}}" href="{{il.link}}" ng-repeat="il in illustrations"
+							class="col-xs-12 col-sm-6 col-md-4 gridbox">
 							<div class="gallery-item" style="background-image: url('{{illustrationsUrl+il.url}}')">
 								<div class="desciption-wrap {{il.bg}}">
 									<h4>{{il.name}}</h4>
