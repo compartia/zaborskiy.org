@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="ru">
+<html lang="ru" ng-app="zaborskiy">
 <head>
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Альтернативная карта метро СПб" />
@@ -10,7 +10,8 @@
 <meta property="article:author" content="https://www.facebook.com/zaborskiy" />
 <meta property="article:publisher" content="http://www.zaborskiy.org/" />
 <meta property="fb:app_id" content="201987453175808" />
-<meta property="og:image" content="http://res.cloudinary.com/zaborskiy/image/upload/c_thumb,w_900,h_900/spb_metro_map.png" />
+<meta property="og:image"
+	content="http://res.cloudinary.com/zaborskiy/image/upload/c_thumb,w_900,h_900/spb_metro_map.png" />
 
 <meta property="og:description" content="Альтернативная карта метрополитена Санкт-Петербурга" />
 
@@ -22,21 +23,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
- 
+
 <link rel="stylesheet" href="/assets/js/dist/bootstrap.min.css">
 <link rel="stylesheet" href="/assets/logo/styles.css" />
-
-<!-- <link rel="stylesheet/less" type="text/css" href="assets/css/zaborskiy.less" />
-<script src="assets/js/vendor/less.min.js"></script> -->
-
 <link rel="stylesheet" href="/assets/css/zaborskiy.css" />
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-
-
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700&subset=latin,cyrillic-ext,cyrillic'
 	rel='stylesheet' type='text/css'>
 
+
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="/assets/js/dist/angular.min.js"></script>
+
  
+
 <script type="application/ld+json">
 {
   "@context" : "http://schema.org",
@@ -53,38 +52,36 @@
 
 <body>
 
+	<div id="fb-root"></div>
 	<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '201987453175808',
-      xfbml      : true,
-      version    : 'v2.3'
-    });
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
+	var zaborskiy = angular.module('zaborskiy', []);
+	
+	
+	(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.4&appId=340556079412727";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 
-	<div class="container branding" >
+	<div class="container branding">
+
+
 		<div class="stripes">
-		
-		
-			
+
+
+
 			<div itemscope itemtype="http://schema.org/Product">
 				<meta itemprop="brand" content="Artem Zaborskiy" />
 				<meta itemprop="name" content="Альтернативная карта метро Петербурга" />
-				
-				<img itemprop="image"  src="http://res.cloudinary.com/zaborskiy/image/upload/c_scale,w_1200/spb_metro_map.png" width="100%" /> 
-				<img src="http://res.cloudinary.com/zaborskiy/image/upload/c_thumb,w_1200/spb_metro_map_fragment.png" width="100%" />
-				
-				
+
+				<img itemprop="image" src="http://res.cloudinary.com/zaborskiy/image/upload/c_scale,w_1200/spb_metro_map.png"
+					width="100%" /> <img
+					src="http://res.cloudinary.com/zaborskiy/image/upload/c_thumb,w_1200/spb_metro_map_fragment.png" width="100%" />
+
+
 
 				<meta itemprop="description"
 					content="Printed on 185gsm semi gloss poster paper. Custom cut to three maximum sizes – A2, A1 & A0" />
@@ -93,8 +90,7 @@
 
 
 				<div class="action-wrap">
-					<a class="actionbutton"
-						href="http://www.redbubble.com/people/zaborsky/works/15742969-?p=poster">grab your
+					<a class="actionbutton" href="http://www.redbubble.com/people/zaborsky/works/15742969-?p=poster">grab your
 						poster</a>
 
 					<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
@@ -103,35 +99,22 @@
 
 						<span itemprop="seller" itemscope itemtype="http://schema.org/Organization">
 							<meta itemprop="name" content="Redbubble" />
-							<meta itemprop="url"
-								content="http://www.redbubble.com/people/zaborsky/works/15742969-?p=poster" />
+							<meta itemprop="url" content="http://www.redbubble.com/people/zaborsky/works/15742969-?p=poster" />
 						</span>
 
 					</div>
 				</div>
 			</div>
- 
 
-			<div class="footer bg2">
-				<small> Сделано вручную на Петроградке</small><br> <small> Handcrafted in Saint Petersburg, by <a href="http://zaborskiy.org">Artem
-					Zaborskiy</a></small>
 
-				<a class="logo-wrap" href="/">
-					<span class="az-az-logo" />
-				</a>
-				<small> June 2015</small>
-			</div>
-			
-			<div class="footer bg1">
-				<div class="fb-like" data-share="true" data-width="280" data-show-faces="true"></div>
-				<div class="g-plusone" data-href="http://www.zaborskiy.org/gal/spb_metro_map.html"></div>
-			</div>
-			
+			<div class="footer bg2" ng-include="'/assets/partials/social2.html'"></div>
+			<div class="footer bg2" ng-include="'/assets/partials/branding_footer.html'"></div>
+
+
 		</div>
 
 	</div>
 
-<script type="text/javascript">$.cloudinary.responsive()</script>
 
 	<script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
