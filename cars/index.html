@@ -24,18 +24,15 @@
 
 <link rel="stylesheet" href="/assets/js/dist/bootstrap.min.css">
 <link rel="stylesheet" href="/assets/logo/styles.css" />
+<link rel="stylesheet" href="/assets/css/zaborskiy.css" />
+<link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700&subset=latin,cyrillic-ext,cyrillic'
+	rel='stylesheet' type='text/css'>
 
 <!-- <link rel="stylesheet/less" type="text/css" href="assets/css/zaborskiy.less" />
 <script src="assets/js/vendor/less.min.js"></script> -->
 
-<link rel="stylesheet" href="/assets/css/zaborskiy.css" />
 
-
-<link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700&subset=latin,cyrillic-ext,cyrillic'
-	rel='stylesheet' type='text/css'>
-
-
-
+<script src="//apis.google.com/js/platform.js" async defer></script>
 <script src="/assets/js/dist/angular.min.js"></script>
 
 
@@ -64,16 +61,18 @@ zaborskiy.controller('galleryCtrl', function ($scope) {
     { name: 'Bostondynamics II', url: 'boston_dynamics.jpeg', bg:"bg6t", description:"mixed media", target:"_behance", link:"https://www.behance.net/gallery/24299931/Bostondynamics-2"},
     { name: 'Secret Lab', url: 'secret-lab-web-3000.jpeg', bg:"bg4", description:"mixed media", target:"_self", link:"/gal/secret_lab.html"},
     { name: 'Careful With That Axe, Eugene [Woodcut]', url: 'woodcut-web-3000.jpeg', bg:"bg2t", description:"mixed media", target:"_behance", link:"https://www.behance.net/gallery/24786851/Careful-With-That-Axe-Eugene"},
-    { name: 'Альтернативная карта метро спб', url: 'spb_metro_map.png', bg:"bg1t", description:"vector graphics", link:"/gal/spb_metro_map.html", target:"_self"}
+    { name: 'Альтернативная карта метро спб', url: 'spb_metro_map.png', bg:"bg1t", description:"vector graphics", link:"/gal/spb_metro_map.html", target:"_self"},
+    { name: 'The Forest', url: 'v1438601695/photos/20000101_052413.jpg', bg:"bg1t", description:"photography", link:"/gal/forest_photos.html", target:"_self"},
+    { name: 'Pesonal Branding', url: 'v1438507991/artworks/az-branding-middle.png', bg:"bg3", description:"logo, design, branding", link:"/gal/az_branding.html", target:"_self"}
   ];
     
-    $scope.illustrationsUrl = "http://res.cloudinary.com/zaborskiy/image/upload/t_dimmed_500/";
+    $scope.illustrationsUrl = "http://res.cloudinary.com/zaborskiy/image/upload/t_dimmed_thumb400/";
 });
 
 zaborskiy.controller('appsCtrl', function ($scope) {
   $scope.apps = [
     { 	name: 'Color Collection', 
-	    url: 'https://play.google.com/store/apps/details?id=org.az.clr', 
+	    url: 'https://play.google.com/store/apps/details?id=org.az.clr.x', 
 	    bgUrl:'http://res.cloudinary.com/zaborskiy/image/upload/t_app_thumb/color.jpg', 
 	    iconUrl:'http://res.cloudinary.com/zaborskiy/image/upload/t_icon64/color_collection_icon.png', 
 	    text:"Simple and powerful Colour Palette Designer. Useful to compose custom vivid colour schemes for web and UI",
@@ -88,8 +87,7 @@ zaborskiy.controller('appsCtrl', function ($scope) {
 	    iconUrl:'http://res.cloudinary.com/zaborskiy/image/upload/t_icon64/msw_icon.png', 
 	    text:"The multiplayer redesign of the classic Minesweeper game.", 
 	    type:"http://schema.org/GameApplication"}
-	    
-     
+
   ];
     
  });
@@ -122,8 +120,8 @@ zaborskiy.controller('appsCtrl', function ($scope) {
   	"@context": "http://schema.org/",
   	"@type": "MobileApplication",
   	"name": "Color Collection", 
-  	"url":"https://play.google.com/store/apps/details?id=org.az.clr",
-	"downloadUrl":"https://play.google.com/store/apps/details?id=org.az.clr",
+  	"url":"https://play.google.com/store/apps/details?id=org.az.clr.x",
+	"downloadUrl":"https://play.google.com/store/apps/details?id=org.az.clr.x",
 	"operatingSystem": "ANDROID",
 	"applicationCategory": "http://schema.org/BusinessApplication",
 	"aggregateRating": {
@@ -146,23 +144,15 @@ zaborskiy.controller('appsCtrl', function ($scope) {
 
 <body>
 
-	<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '201987453175808',
-      xfbml      : true,
-      version    : 'v2.3'
-    });
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
+	<div id="fb-root"></div>
+	<script>	
+	(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=340556079412727";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 
 	<div class="container branding " ng-controller="mainCtrl">
@@ -189,9 +179,9 @@ zaborskiy.controller('appsCtrl', function ($scope) {
 
 					<div class="about" itemscope itemtype="http://schema.org/Person">
 						<link itemprop="url" href="http://www.zaborskiy.org">
-						Hi there, I am <br>
-						<span class="lead" itemprop="name">Artem Zaborskiy</span>, <br>a male <span itemprop="jobTitle">Java
-							developer</span>. <br>This is my portfolio. Find me at the networks listed below or via&nbsp;<a href="mailto:compartia@gmail.com">email</a>.
+						Hi there, I am <br> <span class="lead" itemprop="name">Artem Zaborskiy</span>, <br>a male <span
+							itemprop="jobTitle">Java developer</span>. <br>This is my portfolio. Find me at the networks listed below or
+						via&nbsp;<a href="mailto:compartia@gmail.com">email</a>.
 
 						<div class="desciption-wrap">
 							<div class="social">
@@ -366,22 +356,15 @@ zaborskiy.controller('appsCtrl', function ($scope) {
 			</div>
 			<!--/ gallery row-->
 
-			<div class="footer bg2">
-				<small> Сделано вручную на Петроградке</small><br> <small> Handcrafted in Saint Petersburg, by Artem
-					Zaborskiy </small>
 
-				<div class="logo-wrap">
-					<span class="az-az-logo" />
-				</div>
-				<small> June 2015</small>
-			</div>
+			<div class="footer bg2" ng-include="'/assets/partials/social2.html'"></div>
+			<div class="footer bg2" ng-include="'/assets/partials/branding_footer.html'"></div>
+
+
 
 		</div>
 
 	</div>
-
-
-
 
 
 
