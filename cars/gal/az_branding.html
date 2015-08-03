@@ -1,0 +1,108 @@
+<!doctype html>
+
+<html lang="en" ng-app="zaborskiy">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# product: http://ogp.me/ns/product#">
+<meta property="og:type" content="article" />
+<meta property="og:title" content="AZ: personal branding" />
+<meta property="og:site_name" content="zaborskiy.org" />
+<meta property="og:url" content="http://www.zaborskiy.org/gal/az_branding.html" />
+<meta property="og:locale" content="en_US" />
+<meta property="article:author" content="https://www.facebook.com/zaborskiy" />
+<meta property="article:publisher" content="http://www.zaborskiy.org/" />
+<meta property="fb:app_id" content="201987453175808" />
+<meta property="og:image"
+	content="http://res.cloudinary.com/zaborskiy/image/upload/c_thumb,h_900,w_900/az-branding-middle.png" />
+
+<meta property="og:description" content="The Secret Lab by Art Zaborskiy" />
+
+<meta charset="utf-8">
+
+<title>The Secret Lab by Art Zaborskiy</title>
+<meta name="description" content="Art Zaborskiy: personal branding">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="/assets/js/dist/bootstrap.min.css">
+<link rel="stylesheet" href="/assets/logo/styles.css" />
+<link rel="stylesheet" href="/assets/css/zaborskiy.css" />
+<link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700&subset=latin,cyrillic-ext,cyrillic'
+	rel='stylesheet' type='text/css'>
+
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="/assets/js/dist/jquery.min.js"></script>
+<script src="/assets/js/dist/jquery.cloudinary.js"></script>
+<script src="/assets/js/dist/angular.min.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "WebSite",
+  "name" : "Artem Zaborskiy's portfolio",
+  "url" : "http://www.zaborskiy.org"
+}
+</script>
+
+
+
+<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="fb-root"></div>
+	<script>
+	var zaborskiy = angular.module('zaborskiy', []);
+	
+	
+	(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=340556079412727";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+	<div class="container branding">
+		<div class="stripes">
+
+
+			<div class="bg1">
+				<img class="cld-responsive" style="width: 100%"
+					data-src="http://res.cloudinary.com/zaborskiy/image/upload/w_auto,dpr_auto/artworks/branding-top2400.png" /> <img
+					class="cld-responsive"
+					data-src="http://res.cloudinary.com/zaborskiy/image/upload/w_auto,dpr_auto/artworks/az-branding-top2.png"
+					style="width: 100%" /> <img class="cld-responsive"
+					data-src="http://res.cloudinary.com/zaborskiy/image/upload/w_auto,dpr_auto/artworks/az-branding-middle.png"
+					style="width: 100%" /> <img class="cld-responsive"
+					data-src="http://res.cloudinary.com/zaborskiy/image/upload/w_auto,dpr_auto/artworks/az-branding-bottom.png"
+					style="width: 100%" />
+			</div>
+
+			<div class="footer bg2" ng-include="'/assets/partials/social2.html'"></div>
+			<div class="footer bg2" ng-include="'/assets/partials/branding_footer.html'"></div>
+		</div>
+
+	</div>
+
+	<script type="text/javascript">
+$.cloudinary.responsive();
+</script>
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64311909-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
