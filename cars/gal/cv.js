@@ -2,11 +2,12 @@ var artem_zaborskiy_cv = [
 
 		{
 			start : Date.parse("21 February, 2015"),
+			stop : new Date(),
 			position : "freelance web developer",
-			employer : "this",
+			employer : "home",
 			employerUrl : "http://www.zaborskiy.org/",
 
-			technologies : [ "Spring Core", "Spring security", "Hibernate", "ehCache", "AngularJS", "jQuery",
+			technologies : [ "Spring Framework", "Spring Security", "Hibernate", "ehCache", "AngularJS", "jQuery",
 					"Liquibase", "REST", "Dozer mapper", "JUnit", "DBUnit", "Mockito" ],
 			tools : [ "Eclipse", "Jira", "Jenkins", "Sonar", "git", "Confluence", "Maven" ],
 			teamSize : "1 - 3",
@@ -15,7 +16,7 @@ var artem_zaborskiy_cv = [
 		},
 
 		{
-			start : Date.parse("March, 2013"),
+			start : Date.parse("1 March, 2013"),
 			stop : Date.parse("21 February, 2015"),
 			position : "Lead Java Developer",
 
@@ -25,20 +26,65 @@ var artem_zaborskiy_cv = [
 
 			process : "Scrum",
 			customer : "Carpathia",
-			project : "Carpathia hosting. Inventory management for a large hosting provider",
+			projectUrl : "http://carpathia.com/",
+			project : "Carpathia hosting. Inventory management for a large hosting provider.",
 			respons : [ "Requirements elicitation and analysis", "Technical design", "Business components development",
 					"DB design" ],
-			technologies : [ "Spring Core", "Spring security", "Hibernate", "ehCache", "AngularJS", "jQuery",
+			technologies : [ "Spring Framework", "Spring Security", "Hibernate", "ehCache", "AngularJS", "jQuery",
 					"Liquibase", "REST", "Dozer mapper", "JUnit", "DBUnit", "Mockito" ],
 			tools : [ "Eclipse", "Jira", "Jenkins", "Sonar", "SVN", "Confluence", "Maven" ],
 			teamSize : "14 - 30",
-			platforms : [ "Postgres", "Tomcat" ]
+			platforms : [ "PostgreSQL", "Tomcat" ],
+			paradigms : [ "AOP", "TDD", "BDD" ]
+		},
+
+		{
+			start : Date.parse("1 January, 2006"),
+			stop : Date.parse("1 December, 2006"),
+			position : "Developer / Project owner",
+
+			employer : "home",
+
+			process : "Agile",
+			customer : "LJMAP",
+			project : "LJMAP.NET.  Own, non-profit effort in Gravitational Sociology and Geographical Semantics, web-visualization and analysis of e-societies. ",
+			respons : [ "Idea, research,  database design, web-interface design (Google-like map)", "Team management",
+					"PR (negotiations with mass media)", "Math, optimizations",
+					"optimizing heavy calculations on huge amount of data." ],
+			technologies : [ "Java SE", "CSS", "JavaScript", "Servlets", "JSP", "JDBC" ],
+			teamSize : "2 - 4",
+			platforms : [ "Tomcat", "Linux", "Resin", "WindowsXP", "PostgreSQL" ],
+			paradigms : [ "Neural Networks", "Social Networking", "Big Data", "Data Visualization" ]
+		},
+
+		{
+			start : Date.parse("1 August, 2000"),
+			stop : Date.parse("1 April, 2003"),
+			position : "Java Developer",
+
+			employer : "NeMo (Neural Modeling)",
+
+			process : "Agile",
+			customer : "Outsell, LLC (U.S.)",
+			project : "KIBERRY: Building Neural networks based Interactive Virtual Representatives; Web-based dialogue scenarios editor UI.",
+			respons : [ "Designed the product architecture", "Technical documentation",
+					"Negotiations with U.S. partner companies including Outsell, LLC",
+					"Neural Core design and implementation, implementaton GUI for visual dialogue-schema editor",
+					"Design and prototyping the 3D-representation for complex neural networks systems",
+					"Designed the KIBERRY brand, the logo and the website" ],
+			technologies : [ "JavaScript", "Java", "Applets", "XML", "XSLT", "SWING", "AWT", "JDBC", "Servlets", "JSP",
+					"C++", "JNI" ],
+			teamSize : "4 - 12",
+			platforms : [ "Apache", "Tomcat", "Linux", "MySQL" ],
+
+			paradigms : [ "Neural Networks", "Petri net", "AI", "Machine Learning" ]
+
 		},
 
 		{
 
-			start : Date.parse("March, 2011"),
-			stop : Date.parse("March, 2013"),
+			start : Date.parse("1 March, 2011"),
+			stop : Date.parse("1 March, 2013"),
 
 			position : "Lead Developer",
 			employer : "Exigen Services",
@@ -51,7 +97,7 @@ var artem_zaborskiy_cv = [
 					"Planning and tasks distribution, reporting, peer review, code review",
 					"Business components development" ],
 			technologies : [ "JEE", "Spring Framework", "Hibernate", "JSF", "GWT", "RichFaces", "Liquibase", "Lucene",
-					"JUnit" ],
+					"JUnit", "CSS" ],
 			tools : [ "Eclipse", "Jira", "TeamCity", "Jenkins", "Sonar", "Perforce", "Maven" ],
 			achievments : "Has developed the architecture and the framework for the MMI system. Has build the GWT based GUI for the MMI.",
 			platforms : [ "WebLogic", "OC4J", "Oracle" ],
@@ -60,8 +106,8 @@ var artem_zaborskiy_cv = [
 		},
 
 		{
-			start : Date.parse("August, 2010 "),
-			stop : Date.parse("March, 2011"),
+			start : Date.parse("1 August, 2010 "),
+			stop : Date.parse("1 March, 2011"),
 
 			position : "Project Manager",
 			employer : "Exigen Services",
@@ -79,8 +125,8 @@ var artem_zaborskiy_cv = [
 		},
 
 		{
-			start : Date.parse("July, 2008"),
-			stop : Date.parse("August, 2010"),
+			start : Date.parse("1 July, 2008"),
+			stop : Date.parse("1 August, 2010"),
 
 			position : "Lead Java Developer",
 			employer : "Exigen Services",
@@ -93,17 +139,18 @@ var artem_zaborskiy_cv = [
 					"Planning and tasks distribution, tracking, reporting", "Business components development",
 					"Interaction with business analysts located in Germany",
 					"Staffing, team members skills development" ],
-			tools : [ "Eclipse", "ClearCase", "Clear DDTS,", "Jira", "Checkstyle", "FindBugs", "Sonar", "Hudson" ],
+			tools : [ "Eclipse", "ClearCase", "Clear DDTS", "Jira", "Checkstyle", "FindBugs", "Sonar", "Hudson" ],
 			technologies : [ "JEE", "Spring Framework", "Hibernate", "CXF", "XFire" ],
 			platforms : [ "WebLogic", "Oracle" ],
 			awards : "2008: Exigen, Best Technical Lead of the year",
 			process : "Waterfall",
-			teamSize : "15 - 25"
+			teamSize : "15 - 25",
+			paradigms : [ "Web Services", "ESB", "OOP" ]
 		},
 
 		{
-			start : Date.parse("June, 2008"),
-			stop : Date.parse("September, 2008"),
+			start : Date.parse("1 June, 2008"),
+			stop : Date.parse("1 September, 2008"),
 
 			position : "Teacher",
 			employer : "Exigen Services",
@@ -117,8 +164,8 @@ var artem_zaborskiy_cv = [
 		},
 
 		{
-			start : Date.parse("June, 2008"),
-			stop : Date.parse("September, 2008"),
+			start : Date.parse("9 Jan, 2008"),
+			stop : Date.parse("1 September, 2008"),
 
 			position : "Senior Java Developer",
 			employer : "StarSoft",
@@ -133,6 +180,82 @@ var artem_zaborskiy_cv = [
 			platforms : [ "WebLogic", "Oracle" ],
 			teamSize : "7 - 20",
 			process : "Waterfall"
+		},
+
+		{
+			start : Date.parse("1 September, 2008"),
+			stop : Date.parse("1 October, 2009"),
+
+			project : "TestBuilder is a web application for building, publishing and taking quizzes, questionnaires and exams on-line. "
+					+ "The system supports 2 user groups: those who create exams and those who take exams.",
+			position : "Project Owner, Developer",
+			employer : "home",
+			customer : "TestBuilder",
+
+			respons : [
+					"Idea and Concepts, Full cycle management, Building the team",
+					"System architecture, Technical documentation and user’s guide writing, UI design and code (GWT, CSS), DB design",
+					"public relations, presentations for seed investments",
+					"integration with Facebook, integration with Google gadgets and Google AppEngine" ],
+			technologies : [ "Spring Framework", "JPA", "Hibernate", "Lucene", "Hibernate Search", "GWT", "SmartGWT",
+					"iText", "JUnit" ],
+			platforms : [ "AppEngine", "PostgreSQL", "Tomcat", "Apache" ],
+			paradigms : [ "IoC", "AOP" ],
+			tools : [ "SVN", "Cruise control", "Eclipse", "Ant", "Maven", "Track", "Spring Roo" ],
+			teamSize : "2 - 6",
+			process : "Scrum"
+
+		},
+
+		{
+			start : Date.parse("1 September, 2013"),
+			stop : Date.parse("1 July, 2015"),
+			
+			employer : "home",
+			employerUrl : "http://www.zaborskiy.org/",
+
+			project : "Color Collection is a native application for Android. It processes images to extract most used colors.",
+			projectUrl : "https://play.google.com/store/apps/details?id=org.az.clr",
+			position : "Android Developer, Project Owner",
+			 
+			customer : "Color Collection",
+
+			respons : [ "Idea, UI/UX Design", "System architecture", "Development" ],
+			technologies : [ "CSS", "Java", "JSP" ],
+			platforms : [ "Android", "GitHub", "Heroku" ],
+			tools : [ "git", "Maven", "Gradle", "Android Studio" ],
+			paradigms : [ "Clustering", "Open Source" ],
+			teamSize : "1",
+			achievments : "Tens of thousands of installations"
+
 		}
 
 ];
+
+var az_skills = new Array();
+
+for (var i = 0; i < artem_zaborskiy_cv.length; i++) {
+	collectSkills(artem_zaborskiy_cv[i].platforms, "platforms", az_skills);
+	collectSkills(artem_zaborskiy_cv[i].technologies, "technologies", az_skills);
+	collectSkills(artem_zaborskiy_cv[i].tools, "tools", az_skills);
+	collectSkills(artem_zaborskiy_cv[i].paradigms, "paradigms", az_skills);
+}
+
+function collectSkills(project, skillType, az_skills) {
+	if (project) {
+		for (var skill = 0; skill < project.length; skill++) {
+			var name = project[skill];
+			var obj = az_skills[name];
+			if (obj) {
+				obj.count++;
+			} else {
+				az_skills[name] = {
+					name : name,
+					count : 1,
+					skillType : skillType
+				}
+			}
+
+		}
+	}
+}

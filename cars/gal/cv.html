@@ -77,6 +77,13 @@
 	    $scope.items =  artem_zaborskiy_cv;
 	    
 	    
+	    
+	 
+		$scope.skills = new Array(); 
+  		for (key in az_skills) {
+			$scope.skills.push(az_skills[key]);
+		}
+	    
 		angular.element(document).ready(function () {
 	        $.cloudinary.responsive();
 	    });
@@ -97,7 +104,36 @@
 		<div class="">
 
 
-			<div class="bg1 cv" ng-controller="mainCtrl">
+			<div class="bg5d cv" ng-controller="mainCtrl">
+
+				<h2 class="stripes">summary</h2>
+				<div class="cv-position">
+					<div class="row">
+						<label class="col-sm-4">Tools</label>
+						<div class="col-sm-8">
+							<div ng-repeat="skill in skills| orderBy:'count':true | filter:'tools'" class="skill skill{{skill.count}}">{{skill.name}}</div>
+						</div>
+					</div>
+					<div class="row">
+						<label class="col-sm-4">technologies</label>
+						<div class="col-sm-8">
+							<div ng-repeat="skill in skills| orderBy:'count':true | filter:'technologies'" class="skill skill{{skill.count}}">{{skill.name}}</div>
+						</div>
+					</div>
+					<div class="row">
+						<label class="col-sm-4">platforms</label>
+						<div class="col-sm-8">
+							<div ng-repeat="skill in skills| orderBy:'count':true | filter:'platforms'" class="skill skill{{skill.count}}">{{skill.name}}</div>
+						</div>
+					</div>
+					<div class="row">
+						<label class="col-sm-4">paradigms</label>
+						<div class="col-sm-8">
+							<div ng-repeat="skill in skills| orderBy:'count':true | filter:'paradigms'" class="skill skill{{skill.count}}">{{skill.name}}</div>
+						</div>
+					</div>
+				</div>
+
 
 				<h2 class="stripes">work experience</h2>
 
@@ -105,26 +141,28 @@
 
 
 
-					<div class="row with-noise nopadding">
-						<div class="date col-sm-2 col-xs-3">
-							<span class="text-nowrap">{{pos.start | date:"yyyy, MMM" }}</span> — <br>
-							<span class="text-nowrap">{{pos.stop | date:"yyyy, MMM" }}</span>
+					<div class="row nopadding">
+						<div class="date col-sm-2 col-xs-4">
+							<span class="text-nowrap">{{pos.start | date:"yyyy, MMM" }}</span> — <br> <span class="text-nowrap">{{pos.stop
+								| date:"yyyy, MMM" }}</span>
 						</div>
 
-						<h3 class="col-sm-2 position col-padding">{{pos.position}}</h3>
-						<div class="col-sm-8 employer col-padding">
-							<h3 ng-show="pos.employerUrl">
-								@<a target="_emploer" href="{{pos.employerUrl}}">{{pos.employer}}</a>
-							</h3>
-							<h3 ng-show="!pos.employerUrl">@{{pos.employer}}</h3>
-							<small ng-show="pos.employerDescr">({{pos.employerDescr}})</small>
+						<div class="col-sm-10 col-xs-8 col-padding">
+							<span class="position">{{pos.position}}</span> <span class="employer"> <span ng-show="pos.employerUrl">
+									@<a target="_emploer" href="{{pos.employerUrl}}">{{pos.employer}}</a>
+							</span> <span ng-show="!pos.employerUrl">@{{pos.employer}}</span> <small ng-show="pos.employerDescr">({{pos.employerDescr}})</small>
+							</span>
+
 						</div>
+
 					</div>
 
 					<div class="row">
 						<label class="col-sm-4">Project</label>
 						<div class="col-sm-8">
-							<strong>{{pos.customer}}</strong> {{pos.project}}
+							<strong ng-show="!pos.projectUrl">{{pos.customer}}</strong> 
+							<strong ng-show="pos.projectUrl"><a target="_project" href="{{pos.projectUrl}}">{{pos.customer}}</a></strong>
+							{{pos.project}}
 						</div>
 					</div>
 
@@ -157,6 +195,12 @@
 						<label class="col-xs-4">Platforms</label>
 						<div class="col-xs-8">
 							<span class="skill" ng-repeat="t in pos.platforms">{{t}}</span>
+						</div>
+					</div>
+					<div class="row" ng-show="pos.paradigms">
+						<label class="col-xs-4">Paradigms</label>
+						<div class="col-xs-8">
+							<span class="skill" ng-repeat="t in pos.paradigms">{{t}}</span>
 						</div>
 					</div>
 
