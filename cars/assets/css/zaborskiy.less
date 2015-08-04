@@ -1,4 +1,4 @@
-
+@import "const.less";
 //@import "../js/bower_components/bootstrap-material-design/less/material.less";
  
 @mediumDuration: .4s;
@@ -312,7 +312,7 @@ small{
 .bg1{
     background-color: @palette-color-1;
     h2{
-         background: @palette-color-1d;
+         background-color: @palette-color-1d;
     }
      h2,h3{
         color: @palette-color-5!important;
@@ -342,7 +342,7 @@ small{
     background-color: @palette-color-1t;
     color: @palette-color-2;
     h2{
-         background: @palette-color-2t;
+         background-color: @palette-color-2t;
     }
 }
 .bg2t{
@@ -365,7 +365,7 @@ small{
     background-color: @palette-color-3;
     color: @palette-color-1;
     h2{
-         background: @palette-color-2t;
+         background-color: @palette-color-2t;
     }
     a{
         color: @palette-color-1;
@@ -381,7 +381,7 @@ small{
     color: @palette-color-1;
     .with-noise;
     h2{
-         background: @palette-color-2t;
+         background-color: @palette-color-2t;
     }
     a{
         color: darken(@palette-color-4,40%);
@@ -393,7 +393,24 @@ small{
     color: @palette-color-4;
     .with-noise;
     h2{
-        background: @palette-color-2t;
+        background-color: @palette-color-2t;
+    }
+    a{
+        color: @palette-color-4;
+    }
+    
+    small{
+        color: @palette-color-1t;
+    }
+}
+
+
+.bg5d{
+    background-color: @palette-color-5d;
+    color: @palette-color-4;
+    .with-noise;
+    h2{
+        background-color: @palette-color-2t;
     }
     a{
         color: @palette-color-4;
@@ -487,7 +504,7 @@ small{
 
 
 .branding{
- 	background-image: url(../img/alphabet.svg) !important;
+ 	background-image: url(../img/alphabet.svg);
    
     background-position: left top;
     background-repeat: repeat-y;
@@ -498,7 +515,7 @@ small{
 
 
 .stripes{
- 	background-image: url(../img/stripes.svg) !important;
+ 	background-image: url(../img/stripes.svg);
    
     background-repeat: repeat-y;
     background-position: left;
@@ -506,6 +523,12 @@ small{
     
     padding-left: 35px;
     padding-right: 0;
+}
+
+@media print {
+    .stripes{
+        background-image: none;
+    }
 }
 
 .with-shadow{

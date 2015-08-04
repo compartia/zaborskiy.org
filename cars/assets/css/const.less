@@ -1,0 +1,83 @@
+
+@mediumDuration: .4s;
+@bgDefTransparency: 40%;
+@iconSize: 100px;
+@rowHeight: 280px;
+
+@palette-color-1:#F8FFE8;
+@palette-color-2:#2f2b3b;
+@palette-color-3:#84ad8d;
+@palette-color-4:#81abbd;
+@palette-color-5:#572e58;
+@palette-color-6:#cf4359;
+
+@palette-color-1t: fade(@palette-color-1, @bgDefTransparency);
+@palette-color-2t: fade(@palette-color-2, @bgDefTransparency);
+@palette-color-3t: fade(@palette-color-3, @bgDefTransparency);
+@palette-color-4t: fade(@palette-color-4, @bgDefTransparency);
+@palette-color-5t: fade(@palette-color-5, @bgDefTransparency);
+@palette-color-6t: fade(@palette-color-6, @bgDefTransparency);
+
+@palette-color-1d: desaturate(darken(@palette-color-1, 15%),75%);
+
+@palette-color-3d: desaturate(darken(@palette-color-3, 15%),10%);
+@palette-color-4d: desaturate(darken(@palette-color-4, 25%),10%);
+@palette-color-5d: desaturate(darken(@palette-color-5, 5%),10%);
+
+@transparent: rgba(0,0,0,0);
+@shadow-color: rgba(0,0,0,0.46);
+
+@screen-sm-min: 1000px;
+ 
+@side-border: 10px;
+@input-corner-rad:0.3em;
+
+@base-padding: 15px;
+@inter-panel-padding: 10px;
+
+ 
+@media print {
+    *{
+        -webkit-print-color-adjust: exact; 
+        print-color-adjust: exact; 
+    }
+    
+    .branding{
+        background: none!important;
+    }
+    .stripes{
+        background: none!important;
+    }
+    /* presentation rules for the page on color printers */
+}
+
+.roboto{
+    font-family: "Roboto";
+}
+
+.roboto-condensed{
+    font-family: 'Roboto Condensed', sans-serif!important;
+     letter-spacing: .05em;
+}
+
+.with-noise{
+	background-image: url(../img/noise.png) !important;
+}
+
+.nice-caption{
+    .roboto;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: .1em;
+}
+ 
+.with-shadow{
+    -webkit-box-shadow: 0px 14px 27px -12px @shadow-color;
+    -moz-box-shadow: 0px 14px 27px -12px @shadow-color;
+    box-shadow: 0px 14px 27px -12px @shadow-color; 
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
