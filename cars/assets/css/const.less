@@ -1,10 +1,11 @@
 
 @mediumDuration: .4s;
+@longDuration: .8s;
 @bgDefTransparency: 40%;
 @iconSize: 100px;
 @rowHeight: 280px;
 
-@palette-color-1:#F8FFE8;
+@palette-color-1:desaturate(#F8FFE8,50%);
 @palette-color-2:#2f2b3b;
 @palette-color-3:#84ad8d;
 @palette-color-4:#81abbd;
@@ -25,7 +26,7 @@
 @palette-color-5d: desaturate(darken(@palette-color-5, 5%),10%);
 
 @transparent: rgba(0,0,0,0);
-@shadow-color: rgba(0,0,0,0.46);
+@shadow-color: fade(@palette-color-3d, 50%);// rgba(0,0,0,0.46);
 
 @screen-sm-min: 1000px;
  
@@ -35,29 +36,21 @@
 @base-padding: 15px;
 @inter-panel-padding: 10px;
 
+.left-border{
+    border-left: 2px solid fade(@palette-color-3d,20%);
+}
  
-@media print {
-    *{
-        -webkit-print-color-adjust: exact; 
-        print-color-adjust: exact; 
-    }
-    
-    .branding{
-        background: none!important;
-    }
-    .stripes{
-        background: none!important;
-    }
-    /* presentation rules for the page on color printers */
+.roboto{
+    font-family: "Roboto", sans-serif;
 }
 
-.roboto{
-    font-family: "Roboto";
+.roboto-thin{
+    font-family: "Roboto-Thin", sans-serif;
 }
 
 .roboto-condensed{
     font-family: 'Roboto Condensed', sans-serif!important;
-     letter-spacing: .05em;
+    letter-spacing: .05em;
 }
 
 .with-noise{
@@ -70,14 +63,56 @@
     font-weight: 300;
     letter-spacing: .1em;
 }
- 
+
+.with-shadow-sm{
+//    -webkit-box-shadow: 0px 5px 10px -5px @shadow-color;
+//    -moz-box-shadow: 0px 5px 10px -5px @shadow-color;
+//    box-shadow: 0px 5px 10px -5px @shadow-color; 
+    
+     -webkit-box-shadow: 0 5px 5px 0px fade(@shadow-color,15%);
+        -moz-box-shadow: 0 5px 5px 0px fade(@shadow-color,15%);
+             box-shadow: 0 5px 5px 0px fade(@shadow-color,15%);
+}
+
 .with-shadow{
-    -webkit-box-shadow: 0px 14px 27px -12px @shadow-color;
-    -moz-box-shadow: 0px 14px 27px -12px @shadow-color;
-    box-shadow: 0px 14px 27px -12px @shadow-color; 
+//    -webkit-box-shadow: 0px 14px 27px -12px @shadow-color;
+//    -moz-box-shadow: 0px 14px 27px -12px @shadow-color;
+//    box-shadow: 0px 14px 27px -12px @shadow-color; 
+    
+    -webkit-box-shadow: 5px 5px 20px 5px fade(@shadow-color,15%);
+    -moz-box-shadow: 5px 5px 20px 5px fade(@shadow-color,15%);
+    box-shadow: 5px 5px 20px 5px fade(@shadow-color,15%);
+
 }
 
 .nopadding {
    padding: 0 !important;
    margin: 0 !important;
+}
+
+
+.colorTransition{
+     -webkit-transition-duration: @mediumDuration;
+             transition-duration: @mediumDuration;
+     -webkit-transition-property: color, background-color, border-color, padding, height;
+             transition-property: color, background-color, border-color, padding, height;
+}
+
+.gTransition{
+     -webkit-transition-duration: @longDuration;
+             transition-duration: @longDuration;
+     -webkit-transition-property: transform, padding, height;
+             transition-property: transform, padding, height;
+}
+
+
+.stripes{
+ 	background-image: url(../img/stripes.svg);
+   
+    background-repeat: repeat-y;
+    background-position: left;
+    background-size: 50px 350px;
+    
+    padding-left: 35px;
+    padding-right: 0;
 }

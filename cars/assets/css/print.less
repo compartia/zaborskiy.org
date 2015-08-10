@@ -1,0 +1,121 @@
+@import "const.less";
+    
+
+@palette-color-3l: fade(@palette-color-3d, 80%);
+
+@media print {
+    
+    *{
+        -webkit-print-color-adjust: exact!important;
+        print-color-adjust: exact!important;
+    }
+    
+    
+    body{
+        font-size: 12px!important;
+    }
+    
+    
+    
+    .container{
+        width: 100%!important;
+        border: 4px solid @palette-color-1;
+        .nopadding;
+    }
+    
+    .spaceous{
+        padding-bottom: @inter-panel-padding*2!important;
+        padding-top: @inter-panel-padding*1.5!important;
+    }
+    
+    .with-noise{
+        background-image: none!important;
+    }
+    
+    .branding{
+        background: none!important;
+        .nopadding;
+    }
+ 
+    .stripes{
+        background-image: url(../img/stripes.svg)!important;
+   
+        background-repeat: repeat-y!important;
+        background-position: left!important;
+        background-size: 50px 350px!important;
+    }
+    
+    .row {
+        page-break-inside: avoid;
+    }
+    
+    a[href]:after {
+        content: none !important;
+        text-decoration: none!important;
+    }
+    
+    .work-section
+    
+    .date{
+        color: @palette-color-1!important;
+        background-color: @palette-color-6!important;
+         -webkit-print-color-adjust: exact; 
+    }
+    
+    
+    
+    label{
+            color: @palette-color-3l!important;
+             -webkit-print-color-adjust: exact; 
+        }
+    
+    .bg5d .cv-position{
+        
+        
+        
+        .skill{
+            border:0.6px solid @palette-color-3l!important;
+        }
+        
+        
+    }
+    
+    .cv h2{
+        background-color:  @palette-color-1!important;
+    }
+    
+    
+    .date-line{
+     
+        background-color: @palette-color-4t!important;
+        
+        .date-line-marker{
+            background:@palette-color-6!important;
+            color:@palette-color-6!important;
+        }
+    }
+    
+    .bimage img{
+        border: 1px solid @palette-color-1;
+    }
+ 
+    
+    
+
+}
+//
+//@media (min-width: 585px and print) {
+//.col-sm-1,
+//.col-sm-2,
+//.col-sm-3,
+//.col-sm-4,
+//.col-sm-5,
+//.col-sm-6,
+//.col-sm-7,
+//.col-sm-8,
+//.col-sm-9,
+//.col-sm-10,
+//.col-sm-11,
+//.col-sm-12 {
+//float: left;
+//}
