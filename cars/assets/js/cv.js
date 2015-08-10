@@ -185,7 +185,7 @@ var artem_zaborskiy_cv = {
 			},
 
 			{
-				start : Date.parse("1 July, 2008"),
+				start : Date.parse("9 Jan, 2008"),
 				stop : Date.parse("1 August, 2010"),
 
 				position : "Lead Java Developer",
@@ -199,13 +199,18 @@ var artem_zaborskiy_cv = {
 						"Planning and tasks distribution, tracking, reporting", "Business components development",
 						"Interaction with business analysts located in Germany",
 						"Staffing, team members skills development" ],
+
+				achievments : [
+						"Has built a number of components for a distributed JEE app for T-Mobile (DE), "
+								+ "providing functionality for manipulating customer contract data and tariff plans",
+						"Developed B2B SOA interfaces", "Integrated with approximately 30 partner systems" ],
 				tools : [ "Eclipse", "ClearCase", "Clear DDTS", "Jira", "Checkstyle", "FindBugs", "Sonar", "Hudson" ],
-				technologies : [ "JEE", "Spring Framework", "Hibernate", "CXF", "XFire" ],
+				technologies : [ "JEE", "Spring Framework", "Hibernate", "Axis", "CXF", "XFire" ],
 				platforms : [ "WebLogic", "Oracle" ],
 				awards : "2008: Exigen, Best Technical Lead of the year",
 				process : "Waterfall",
 				teamSize : "15 - 25",
-				paradigms : [ "Web Services", "ESB", "OOP" ]
+				paradigms : [ "Web Services", "ESB", "OOP", "SOA" ]
 			},
 
 			{
@@ -242,25 +247,6 @@ var artem_zaborskiy_cv = {
 
 				respons : [ "Provided lectures on Java to groups of 20 students" ],
 				technologies : [ "Java SE" ]
-			},
-
-			{
-				start : Date.parse("9 Jan, 2008"),
-				stop : Date.parse("1 September, 2008"),
-
-				position : "Senior Java Developer",
-				employer : "StarSoft",
-				employerDescr : "later acquired by Exigen Services",
-				employerUrl : "http://www.returnonintelligence.com/",
-
-				customer : "T-Mobile DE",
-
-				respons : [ "Business components development. Scope: all the tiers of the app: from GUI to DB",
-						"Architectural improvements" ],
-				technologies : [ "JEE", "Spring Framework", "Hibernate", "Axis", "XFire" ],
-				platforms : [ "WebLogic", "Oracle" ],
-				teamSize : "7 - 20",
-				process : "Waterfall"
 			},
 
 			{

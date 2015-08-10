@@ -25,7 +25,7 @@ function calculateDurations() {
 
 		var timeDiff = Math.abs(pos.start - pos.stop) / years;
 		// pos.duration = timeDiff;
-		pos.startPercent = 100 * Math.abs((pos.start - artem_zaborskiy_cv.start)/years) / totalDuration;
+		pos.startPercent = 100 * Math.abs((pos.start - artem_zaborskiy_cv.start) / years) / totalDuration;
 		pos.durationPercent = 100 * timeDiff / totalDuration;
 	}
 }
@@ -34,6 +34,7 @@ function calculateDurations() {
 
 function collectSkills(project, skillType, az_skills) {
 	if (project) {
+
 		for (var skill = 0; skill < project.length; skill++) {
 			var name = project[skill];
 			var obj = az_skills[name];
