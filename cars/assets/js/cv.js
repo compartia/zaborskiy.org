@@ -16,6 +16,10 @@ var artem_zaborskiy_cv = {
 			href : "https://th.linkedin.com/in/zaborskiy",
 			name : "th.linkedin.com/in/zaborskiy",
 			iconClass : "az-social-linkedin",
+		}, {
+			href : "http://www.zaborskiy.org",
+			name : "www.zaborskiy.org",
+			iconClass : "az-az-logo",
 		} ]
 	},
 
