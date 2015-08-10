@@ -97,13 +97,16 @@ var artem_zaborskiy_cv = {
 
 				employer : "home",
 
-				process : "Agile",
-				customer : "LJMAP",
-				project : "LJMAP.NET.  Own, non-profit effort in Gravitational Sociology and Geographical Semantics, web-visualization and analysis of e-societies. ",
-				respons : [ "Idea, research,  database design, web-interface design (Google-like map)",
-						"Team management", "PR (negotiations with mass media)", "Math, optimizations",
-						"optimizing heavy calculations on huge amount of data." ],
-				technologies : [ "Java SE", "CSS", "JavaScript", "Servlets", "JSP", "JDBC" ],
+				customer : "LjMap.net",
+				project : "Own, non-profit effort in Gravitational Sociology and Geographical Semantics, "
+						+ "web-visualization and analysis of e-societies. "
+						+ "The aim was to find and to visualize clusters of users in social networks like LiveJournal",
+				achievments : [ "Idea, research", "Created Google Map-like web-interface",
+						"Implemented web crawler for fetching, storing and indexing FOAF data",
+
+						"Math: created the engine for clusterization of 10M+ data records",
+						"Optimized heavy calculations on huge amount of data" ],
+				technologies : [ "Java SE", "CSS", "JavaScript", "Servlets/JSP", "JDBC", "Ajax" ],
 				teamSize : "2 - 4",
 				platforms : [ "Tomcat", "Linux", "Resin", "PostgreSQL" ],
 				paradigms : [ "Neural Networks", "Social Networking", "Big Data", "Data Visualization" ]
@@ -119,13 +122,15 @@ var artem_zaborskiy_cv = {
 				process : "Agile",
 				customer : "Outsell, LLC (U.S.)",
 				project : "KIBERRY: Building Neural networks based Interactive Virtual Representatives; Web-based dialogue scenarios editor UI.",
-				respons : [ "Designed the product architecture", "Technical documentation",
-						"Negotiations with U.S. partner companies including Outsell, LLC",
-						"Neural Core design and implementation, implementaton GUI for visual dialogue-schema editor",
-						"Design and prototyping the 3D-representation for complex neural networks systems",
+				achievments : [ "Designed the product architecture",
+						"Led negotiations with U.S. partner companies including Outsell, LLC",
+						"Neural Core design and implementation",
+						"Has created online dialogue schema editor for designing domain-specific chat bots",
+						"Provided technical documentation",
+						"Has designed and prototyped the 3D-representation for complex neural networks systems",
 						"Designed the KIBERRY brand, the logo and the website" ],
-				technologies : [ "JavaScript", "Java", "Applets", "XML", "XSLT", "SWING", "AWT", "JDBC", "Servlets",
-						"JSP", "C++", "JNI" ],
+				technologies : [ "JavaScript", "Java", "Applets", "XML", "XSLT", "SWING", "AWT", "JDBC",
+						"Servlets/JSP", "C++", "JNI" ],
 				teamSize : "4 - 12",
 				platforms : [ "Apache", "Tomcat", "Linux", "MySQL" ],
 
@@ -297,7 +302,7 @@ var artem_zaborskiy_cv = {
 				customer : "Color Collection",
 
 				respons : [ "Idea, UI/UX Design", "System architecture", "Development" ],
-				technologies : [ "CSS", "Java", "JSP" ],
+				technologies : [ "CSS", "Java", "Servlets/JSP", "Android API" ],
 				platforms : [ "Android", "GitHub", "Heroku" ],
 				tools : [ "git", "Maven", "Gradle", "Android Studio" ],
 				paradigms : [ "Open Source" ],
