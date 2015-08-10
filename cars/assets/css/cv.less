@@ -1,5 +1,6 @@
 @import "const.less";
 @import "cv-media.less";
+
 @skill-bg-color: @palette-color-4;
 
  
@@ -7,6 +8,7 @@
     .nice-caption;
     font-size: 80%;   
 }
+
 .date{
     margin:0;
     padding-top: @inter-panel-padding;
@@ -148,6 +150,7 @@
     li{
         display: block;
     }
+    
     label{
         display: inline-block;
         .small-label;
@@ -170,8 +173,8 @@
 }
 .cv{
     
-    background-image: url(/assets/img/grid.svg);
-    background-size: contain;
+    background-image: url(/assets/img/grid.svg)!important;
+    background-size: contain!important;
     
     p{
         margin-top: @inter-panel-padding;
@@ -334,18 +337,26 @@ h2 img{
     
     
     ul{
+        font-size: 90%;
         list-style: none;
         list-style-position: outside;
         .nopadding;
         list-style-image: none;
         list-style-type: none;
     }
+    
     li{
         display: block;
         line-height: 1.2;
-        margin-bottom: @inter-panel-padding;
- 
-      
+        margin-bottom: @inter-panel-padding/2;
+        margin-top: @inter-panel-padding/2;
+        padding-left: @inter-panel-padding*2;
+        
+        background-image: url(/assets/img/marker-h.svg)!important;
+        background-repeat: no-repeat!important;
+        background-size: 1em 1em!important;
+        
+         
         &:after{
             content: "; ";
         }
@@ -373,7 +384,6 @@ h2 img{
         line-height: 1;
         display: inline-block;
         
-         
         &:after{
             content: ": ";
         }
@@ -389,7 +399,7 @@ h2 img{
     }
     
     label{
-        text-align: right;
+        //text-align: right;
         display: block;
     }
     
