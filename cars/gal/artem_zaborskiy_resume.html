@@ -194,12 +194,7 @@
 						</div> -->
 					</div>
 
-					<div class="row section-row">
-						<label class="col-xs-12 col-sm-3 col-md-3">Tools</label>
-						<div class="col-xs-12 col-sm-9 col-md-8">
-							<div ng-repeat="skill in skills| orderBy:'count':true | filter:'tools'" class="skill skill{{skill.count}}">{{skill.name}}</div>
-						</div>
-					</div>
+					
 					<div class="row section-row">
 						<label class="col-xs-12 col-sm-3 col-md-3">technologies</label>
 						<div class="col-xs-12 col-sm-9 col-md-8">
@@ -210,6 +205,12 @@
 						<label class="col-xs-12 col-sm-3 col-md-3">platforms</label>
 						<div class="col-xs-12 col-sm-9 col-md-8">
 							<div ng-repeat="skill in skills| orderBy:'count':true | filter:'platforms'" class="skill skill{{skill.count}}">{{skill.name}}</div>
+						</div>
+					</div>
+					<div class="row section-row">
+						<label class="col-xs-12 col-sm-3 col-md-3">Tools</label>
+						<div class="col-xs-12 col-sm-9 col-md-8">
+							<div ng-repeat="skill in skills| orderBy:'count':true | filter:'tools'" class="skill skill{{skill.count}}">{{skill.name}}</div>
 						</div>
 					</div>
 					<div class="row section-row">
