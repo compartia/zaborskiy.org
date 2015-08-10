@@ -1,5 +1,7 @@
 @import "const.less";
+@import "zaborskiy.less";
 @import "cv-media.less";
+@import "print.less";
 
 @skill-bg-color: @palette-color-4;
 
@@ -173,8 +175,8 @@
 }
 .cv{
     
-    background-image: url(/assets/img/grid.svg)!important;
-    background-size: contain!important;
+    background-image: url(/assets/img/grid-print.svg);
+    background-size: contain;
     
     p{
         margin-top: @inter-panel-padding;
@@ -319,15 +321,16 @@ h2 img{
         color:@palette-color-5;
     }
     
-    .section-work{
-        .date{
-            color: @palette-color-1;
-            background-color: @palette-color-6;
-            .with-noise;
-        }
-    }
+    
 }
 
+.section-work{
+    .date{
+        color: @palette-color-1;
+        background-color: @palette-color-6;
+        .with-noise;
+    }
+}
  
 .cv-position{
    // border-left: 5px solid @palette-color-6;

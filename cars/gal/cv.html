@@ -21,6 +21,8 @@
 
 <link rel="stylesheet" href="/assets/js/dist/bootstrap.min.css">
 <link rel="stylesheet" href="/assets/logo/styles.css" />
+<link rel="stylesheet" href="/assets/css/cv.css" />
+
 <!-- <link rel="stylesheet" href="/assets/css/zaborskiy.css" /> -->
 
 
@@ -34,11 +36,6 @@
 <script src="/assets/js/dist/angular.min.js"></script>
 
 
-<link rel="stylesheet/less" type="text/css" href="/assets/css/cv.less" />
-<link rel="stylesheet/less" type="text/css" href="/assets/css/zaborskiy.less" />
-<link rel="stylesheet/less" type="text/css" href="/assets/css/print.less" />
-
-<script src="/assets/js/vendor/less.min.js"></script>
 
 <script src="/gal/cv.js"></script>
 <script src="/gal/cv_tools.js"></script>
@@ -145,9 +142,9 @@
 					</div>
 
 
-					<div class="col-xs-12 col-md-9 col-lg-9 spaceous">
+					<div class="col-xs-12 col-md-8 col-lg-8 spaceous">
 						<h1 itemprop="name">
-							Artem Zaborskiy
+							<span style="font-weight: 900;">Artem</span> Zaborskiy
 							<link itemprop="url" href="http://www.zaborskiy.org" />
 						</h1>
 
@@ -195,25 +192,25 @@
 
 					<div class="row section-row">
 						<label class="col-xs-12 col-sm-3 col-md-3">Tools</label>
-						<div class="col-xs-12 col-sm-9 col-md-9">
+						<div class="col-xs-12 col-sm-9 col-md-8">
 							<div ng-repeat="skill in skills| orderBy:'count':true | filter:'tools'" class="skill skill{{skill.count}}">{{skill.name}}</div>
 						</div>
 					</div>
 					<div class="row section-row">
 						<label class="col-xs-12 col-sm-3 col-md-3">technologies</label>
-						<div class="col-xs-12 col-sm-9 col-md-9">
+						<div class="col-xs-12 col-sm-9 col-md-8">
 							<div ng-repeat="skill in skills| orderBy:'count':true | filter:'technologies'" class="skill skill{{skill.count}}">{{skill.name}}</div>
 						</div>
 					</div>
 					<div class="row section-row">
 						<label class="col-xs-12 col-sm-3 col-md-3">platforms</label>
-						<div class="col-xs-12 col-sm-9 col-md-9">
+						<div class="col-xs-12 col-sm-9 col-md-8">
 							<div ng-repeat="skill in skills| orderBy:'count':true | filter:'platforms'" class="skill skill{{skill.count}}">{{skill.name}}</div>
 						</div>
 					</div>
 					<div class="row section-row">
 						<label class="col-xs-12 col-sm-3 col-md-3">paradigms</label>
-						<div class="col-xs-12 col-sm-9 col-md-9">
+						<div class="col-xs-12 col-sm-9 col-md-8">
 							<div ng-repeat="skill in skills| orderBy:'count':true | filter:'paradigms'" class="skill skill{{skill.count}}">{{skill.name}}</div>
 						</div>
 					</div>
@@ -235,28 +232,26 @@
 
 					<div class="row">
 
-						<label class="text-right date col-sm-2 col-md-3 col-xs-4"> {{pos.start | date:"yyyy" }} <span
-							class="hidden-xs">—</span> {{pos.stop | date:"yyyy" }}
-						</label>
+						<label class="date col-xs-4 col-sm-3 col-md-3"> {{pos.start | date:"yyyy" }}  —  {{pos.stop | date:"yyyy" }}</label>
 
-						<h4 class="col-md-8 col-sm-8 col-xs-12">
+						<h4 class="col-xs-8 col-md-8 col-sm-8">
 							<strong>{{pos.name}}</strong>
 						</h4>
 					</div>
 
 					<div class="row" ng-show="pos.faculty">
-						<label class=" col-sm-4 col-md-4 col-xs-3">faculty</label>
-						<div class="col-md-8 col-sm-8 col-xs-9">{{pos.faculty}}</div>
+						<label class="col-xs-4 col-sm-5 col-md-5">faculty</label>
+						<div class="col-md-6 col-sm-6 col-xs-8 h-padding">{{pos.faculty}}</div>
 					</div>
 
 					<div class="row" ng-show="pos.speciality">
-						<label class="col-sm-4 col-md-4 col-xs-3">speciality</label>
-						<div class="col-md-8 col-sm-8 col-xs-9">{{pos.speciality}}</div>
+						<label class="col-xs-4 col-sm-5 col-md-5">speciality</label>
+						<div class="col-md-6 col-sm-6 col-xs-8 h-padding">{{pos.speciality}}</div>
 					</div>
 
 					<div class="row" ng-show="pos.activities">
-						<label class="col-sm-4 col-md-4 col-xs-3">activities</label>
-						<div class="col-md-8 col-sm-8 col-xs-9">{{pos.activities}}</div>
+						<label class="col-xs-4 col-sm-5 col-md-5">activities</label>
+						<div class="col-md-6 col-sm-6 col-xs-8 h-padding">{{pos.activities}}</div>
 					</div>
 
 
@@ -292,7 +287,7 @@
 								</div>
 							</div>
 
-							<div class="date col-sm-4 col-md-3 col-xs-5">
+							<div class="date col-sm-3 col-md-3 col-xs-5">
 								<span class="text-nowrap">{{pos.start | date:"yyyy, MMM" }}</span> — <span class="text-nowrap">{{pos.stop
 									| date:"yyyy, MMM" }}</span>
 							</div>
@@ -309,8 +304,10 @@
 						</div>
 
 						<div class="row section-row">
-							<label class="hidden-xs col-sm-4">Project</label>
-							<div class="col-sm-8">
+							<div class="hidden-sm hidden-xs col-sm-4 col-md-3 col-xs-5"></div>
+							<label class="hidden-xs col-sm-3 col-md-2">Project</label>
+							
+							<div class="col-sm-6">
 								<strong ng-show="!pos.projectUrl">{{pos.customer}}</strong> <strong ng-show="pos.projectUrl"><a
 									target="_project" href="{{pos.projectUrl}}">{{pos.customer}}</a></strong> {{pos.project}}
 							</div>
@@ -318,22 +315,26 @@
 
 
 						<div class="row section-row" ng-show="pos.teamSize">
-							<label class="col-xs-4">Team size</label>
-							<div class="col-xs-8">
+							<div class="hidden-sm hidden-xs col-md-3"></div>
+							<label class="col-xs-3 col-sm-3 col-md-2">Team size</label>
+							<div class="col-xs-3 col-sm-8 col-md-7">
 								<span>{{pos.teamSize}}</span>
 							</div>
 						</div>
-						<div class="row section-row" ng-show="pos.process">
-							<label class="col-xs-4">Process</label>
-							<div class="col-xs-8">
+						 <div class="row section-row" ng-show="pos.process">
+						
+							<div class="hidden-sm hidden-xs col-md-3"></div>
+							<label class="col-xs-3 col-sm-3 col-md-2">Process</label>
+							<div class="col-xs-3 col-sm-4">
 								<span class="skill">{{pos.process}}</span>
 							</div>
 						</div>
 
 
 						<div class="row section-row">
-							<label class="col-xs-12 col-sm-4">Responsibilities</label>
-							<div class="col-xs-12 col-sm-7 nopadding">
+							<div class="col-md-3 hidden-sm hidden-xs"></div>
+							<label class="col-xs-3 col-sm-3 col-md-2">Responsibilities</label>
+							<div class="col-xs-11 col-sm-7 col-md-6 nopadding">
 								<ul>
 									<li ng-repeat="resp in pos.respons">{{resp}}</li>
 								</ul>
@@ -341,11 +342,12 @@
 						</div>
 
 						<div class="row section-row" ng-show="pos.achievments">
-							<label class="col-sm-4">Achievments</label>
+							<div class="hidden-sm hidden-xs col-md-3"></div>
+							<label class="col-xs-3 col-sm-3 col-md-2">Achievments</label>
 							<!-- <div class="col-sm-8">
 								<span>{{pos.achievments}}</span>
 							</div> -->
-							<div class="col-xs-12 col-sm-7 nopadding">
+							<div class="col-xs-11 col-sm-7 nopadding">
 								<ul>
 									<li ng-repeat="resp in pos.achievments">{{resp}}</li>
 								</ul>
@@ -354,39 +356,41 @@
 
 
 						<div class="row section-row" ng-show="pos.technologies">
-							<label class="hidden-xs col-xs-12 col-sm-4">Technologies</label>
-							<div class="col-xs-12 col-sm-8">
+							<div class="hidden-sm hidden-xs col-md-3 "></div>
+							<label class="hidden-xs col-sm-3 col-md-2">Technologies</label>
+							<div class="col-xs-12 col-sm-7 col-md-6 h-padding">
 								<span class="skill" ng-repeat="t in pos.technologies">{{t}}</span>
 							</div>
 						</div>
 
 						<div class="row section-row" ng-show="pos.tools">
-							<label class="hidden-xs col-xs-12 col-sm-4">Tools</label>
-							<div class="col-xs-12 col-sm-8">
+							<div class="hidden-sm hidden-xs col-md-3 "></div>
+							<label class="hidden-xs col-sm-3 col-md-2">Tools</label>
+							<div class="col-xs-12 col-sm-8 col-md-6 h-padding">
 								<span class="skill" ng-repeat="t in pos.tools">{{t}}</span>
 							</div>
 						</div>
 
 						<div class="row section-row" ng-show="pos.platforms">
-							<label class="hidden-xs col-xs-12 col-sm-4">Platforms</label>
-							<div class="col-xs-12 col-sm-8">
+							<div class="hidden-sm hidden-xs col-md-3 "></div>
+							<label class="hidden-xs col-sm-3 col-md-2">Platforms</label>
+							<div class="col-xs-12 col-sm-8 col-md-6 h-padding">
 								<span class="skill" ng-repeat="t in pos.platforms">{{t}}</span>
 							</div>
 						</div>
 						<div class="row section-row" ng-show="pos.paradigms">
-							<label class="hidden-xs col-xs-12 col-sm-4">Paradigms</label>
-							<div class="col-xs-12 col-sm-8">
+							<div class="hidden-sm hidden-xs col-md-3 "></div>
+							<label class="hidden-xs col-sm-3 col-md-2">Paradigms</label>
+							<div class="col-xs-12 col-sm-8 col-md-6 h-padding">
 								<span class="skill" ng-repeat="t in pos.paradigms">{{t}}</span>
 							</div>
 						</div>
 
 
-
-
-
 						<div class="row section-row" ng-show="pos.awards">
-							<label class="col-xs-4">Awards</label>
-							<div class="col-xs-8">
+							<div class="hidden-sm hidden-xs col-md-3 "></div>
+							<label class="col-xs-4 col-sm-3 col-md-2">Awards</label>
+							<div class="col-xs-8 col-md-6">
 								<span>{{pos.awards}}</span>
 							</div>
 						</div>

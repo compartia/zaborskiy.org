@@ -41,7 +41,7 @@ var artem_zaborskiy_cv = {
 		stop : Date.parse("1 June, 1995"),
 		speciality : "Mathematics, Physics, Programming",
 		activities : "Computer Graphics, Artificial Intelligence",
-		name : "St. Petersburg Physics and Mathematics Lyceum (former school 239)"
+		name : "St. Petersburg Physics & Mathematics Lyceum(former school 239)"
 	} ],
 
 	positions : [
