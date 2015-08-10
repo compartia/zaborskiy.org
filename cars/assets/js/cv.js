@@ -7,7 +7,7 @@ var artem_zaborskiy_cv = {
 		locationLast : "Koh Samui",
 		skype : "entity001",
 		phone : "+79217531866",
-		email : "compartia@gmail.com",
+		email : "zaborskiy@protonmail.ch",
 		links : [ {
 			href : "https://www.facebook.com/zaborskiy",
 			name : "facebook.com/zaborskiy",
@@ -60,8 +60,9 @@ var artem_zaborskiy_cv = {
 				employerUrl : "http://www.zaborskiy.org/",
 
 				technologies : [ "Spring Framework", "Spring Security", "Hibernate", "ehCache", "AngularJS",
-						"Spring Boot", "Liquibase", "REST", "Dozer mapper", "JUnit", "DBUnit", "Mockito" ],
+						"Spring Boot", "Liquibase", "Dozer mapper", "JUnit", "DBUnit", "Mockito" ],
 				tools : [ "Eclipse", "Jira", "Jenkins", "Sonar", "git", "Confluence", "Maven" ],
+				paradigms : [ "REST" ],
 				teamSize : "1 - 3",
 				platforms : [ "Heroku", "Tomcat", "Android", "GitHub" ],
 				process : "Agile"
@@ -87,7 +88,7 @@ var artem_zaborskiy_cv = {
 				tools : [ "Eclipse", "Jira", "Jenkins", "Sonar", "SVN", "Confluence", "Maven" ],
 				teamSize : "14 - 30",
 				platforms : [ "PostgreSQL", "Tomcat" ],
-				paradigms : [ "AOP", "TDD", "BDD" ]
+				paradigms : [ "AOP", "TDD", "BDD", "SDLC", "REST" ]
 			},
 
 			{
@@ -154,13 +155,13 @@ var artem_zaborskiy_cv = {
 						"Planning and tasks distribution, reporting, peer review, code review",
 						"Business components development" ],
 				technologies : [ "JEE", "Spring Framework", "Hibernate", "JSF", "GWT", "RichFaces", "Liquibase",
-						"Lucene", "JUnit", "CSS" ],
+						"Lucene", "JUnit", "CSS", "JavaScript", "WSDL" ],
 				tools : [ "Eclipse", "Jira", "TeamCity", "Jenkins", "Sonar", "Perforce", "Maven" ],
 				achievments : [ "Has developed the architecture and the framework for the MMI system",
 						"Implemented cross-browser UI for MMI using GWT",
 						"Integrated with Facebook, LinkedIn, and Twitter.",
 						"Developed business components for composing and publishing press releases." ],
-				platforms : [ "WebLogic", "OC4J", "Oracle" ],
+				platforms : [ "WebLogic", "OC4J", "Oracle", "SDLC", "REST" ],
 				teamSize : "7 - 10",
 
 			},
@@ -203,14 +204,16 @@ var artem_zaborskiy_cv = {
 				achievments : [
 						"Has built a number of components for a distributed JEE app for T-Mobile (DE), "
 								+ "providing functionality for manipulating customer contract data and tariff plans",
-						"Developed B2B SOA interfaces", "Integrated with approximately 30 partner systems" ],
-				tools : [ "Eclipse", "ClearCase", "Clear DDTS", "Jira", "Checkstyle", "FindBugs", "Sonar", "Hudson" ],
-				technologies : [ "JEE", "Spring Framework", "Hibernate", "Axis", "CXF", "XFire" ],
+						"Developed B2B SOA interfaces", "Integrated with approximately 30 partner systems",
+						"Has built the framework for generating PDF reports using iText" ],
+				tools : [ "Eclipse", "ClearCase", "Clear DDTS", "Jira", "Checkstyle", "FindBugs", "Sonar", "Hudson",
+						"SoapUI" ],
+				technologies : [ "JEE", "Spring Framework", "Hibernate", "Axis", "CXF", "XFire", "WSDL", "iText" ],
 				platforms : [ "WebLogic", "Oracle" ],
 				awards : "2008: Exigen, Best Technical Lead of the year",
 				process : "Waterfall",
 				teamSize : "15 - 25",
-				paradigms : [ "Web Services", "ESB", "OOP", "SOA" ]
+				paradigms : [ "Web Services", "ESB", "OOP", "SOA", "EIP", "SDLC" ]
 			},
 
 			{
@@ -228,8 +231,10 @@ var artem_zaborskiy_cv = {
 						"Designed the system architecture and the system backbone",
 						"Consulted on UI and usability",
 						"With GWT, developed the back-office application, allowing users to edit recipes and nutrition data",
-						"Designed and implemented a number of reusable UI components" ],
-				technologies : [ "Java", "GWT", "Spring Framework", "Lucene", "Compass Search" ],
+						"Designed and implemented a number of reusable UI components",
+						"Wrote DAOs using Hibernate and EclipseLink" ],
+				technologies : [ "Java", "GWT", "Spring Framework", "Lucene", "Compass Search", "EclipseLink",
+						"Hibernate" ],
 				tools : [ "Maven", "Sonar", "Bamboo" ],
 				platforms : [ "PostgreSQL", "MySQL", "Tomcat" ]
 			},
@@ -253,7 +258,7 @@ var artem_zaborskiy_cv = {
 				start : Date.parse("1 September, 2008"),
 				stop : Date.parse("1 October, 2009"),
 
-				project : "TestBuilder is a web application for building, publishing and taking quizzes, questionnaires and exams on-line. "
+				project : "TestBuilder is a web application for designing, publishing and taking quizzes, questionnaires and exams online. "
 						+ "The system supports 2 user groups: those who create exams and those who take exams.",
 				position : "Project Owner, Developer",
 				employer : "home",
@@ -262,12 +267,15 @@ var artem_zaborskiy_cv = {
 				respons : [
 						"Idea and Concepts, Full cycle management, Building the team",
 						"System architecture, Technical documentation and user’s guide writing, UI design and code (GWT, CSS), DB design",
-						"public relations, presentations for seed investments",
-						"integration with Facebook, integration with Google gadgets and Google AppEngine" ],
+						"public relations, presentations for seed investments" ],
+				achievments : [ "Designed and built the entire UI using GWT, HTMl and CSS",
+						"Integrated with Facebook, Google gadgets and Google AppEngine",
+						"Has built the framework for generating PDF certificates using iText" ],
 				technologies : [ "Spring Framework", "JPA", "Hibernate", "Lucene", "Hibernate Search", "GWT",
 						"SmartGWT", "iText", "JUnit" ],
 				platforms : [ "PostgreSQL", "Tomcat", "Apache" ],
-				paradigms : [ "IoC", "AOP" ],
+
+				paradigms : [ "IoC", "AOP", "CI" ],
 				tools : [ "SVN", "Cruise control", "Eclipse", "Ant", "Maven", "Track", "Spring Roo" ],
 				teamSize : "2 - 6",
 				process : "Scrum"
