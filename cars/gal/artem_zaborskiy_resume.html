@@ -241,7 +241,7 @@
 
 					<div class="row">
 
-						<label class="date col-xs-4 col-sm-3 col-md-3"> {{pos.start | date:"yyyy" }}  —  {{pos.stop | date:"yyyy" }}</label>
+						<label class="text-right date col-xs-4 col-sm-3 col-md-3"> {{pos.start | date:"yyyy" }}  —  {{pos.stop | date:"yyyy" }}</label>
 
 						<h4 class="col-xs-8 col-md-8 col-sm-8">
 							<strong>{{pos.name}}</strong>
@@ -249,17 +249,17 @@
 					</div>
 
 					<div class="row" ng-show="pos.faculty">
-						<label class="col-xs-4 col-sm-5 col-md-5">faculty</label>
+						<label class="text-right col-xs-4 col-sm-5 col-md-5">faculty</label>
 						<div class="col-md-6 col-sm-6 col-xs-8 h-padding">{{pos.faculty}}</div>
 					</div>
 
 					<div class="row" ng-show="pos.speciality">
-						<label class="col-xs-4 col-sm-5 col-md-5">speciality</label>
+						<label class="text-right col-xs-4 col-sm-5 col-md-5">speciality</label>
 						<div class="col-md-6 col-sm-6 col-xs-8 h-padding">{{pos.speciality}}</div>
 					</div>
 
 					<div class="row" ng-show="pos.activities">
-						<label class="col-xs-4 col-sm-5 col-md-5">activities</label>
+						<label class="text-right col-xs-4 col-sm-5 col-md-5">activities</label>
 						<div class="col-md-6 col-sm-6 col-xs-8 h-padding">{{pos.activities}}</div>
 					</div>
 
@@ -304,7 +304,8 @@
 							<div class="col-sm-8 col-xs-12 col-lg-9 col-padding">
 
 								<span class="position">{{pos.position}}</span> <span class="employer"> <span ng-show="pos.employerUrl">
-										@<a target="_emploer" href="{{pos.employerUrl}}">{{pos.employer}}</a>
+									<br class="visible-xs">
+									<span class="hidden-xs">@</span><a target="_emploer" href="{{pos.employerUrl}}">{{pos.employer}}</a>
 								</span> <span ng-show="!pos.employerUrl">@{{pos.employer}}</span> <!-- <small ng-show="pos.employerDescr"><br>({{pos.employerDescr}})</small> -->
 								</span>
 
@@ -313,27 +314,28 @@
 						</div>
 
 						<div class="row section-row">
-							<div class="hidden-sm hidden-xs col-sm-4 col-md-3 col-xs-5"></div>
+							<div class="hidden-sm hidden-xs col-md-3"></div>
 							<label class="hidden-xs col-sm-3 col-md-2">Project</label>
 							
-							<div class="col-sm-6 h-padding">
-								<strong ng-show="!pos.projectUrl">{{pos.customer}}</strong> <strong ng-show="pos.projectUrl"><a
+							<div class="col-xs-12 col-sm-6 h-padding">
+								<strong ng-show="!pos.projectUrl">{{pos.customer}}</strong> 
+								<strong ng-show="pos.projectUrl"><a
 									target="_project" href="{{pos.projectUrl}}">{{pos.customer}}</a></strong> {{pos.project}}
 							</div>
 						</div>
 
 
-						<div class="row section-row" ng-show="pos.teamSize">
+						<div class="row section-row  hidden-xs" ng-show="pos.teamSize">
 							<div class="hidden-sm hidden-xs col-md-3"></div>
-							<label class="col-xs-3 col-sm-3 col-md-2">Team size</label>
+							<label class="col-xs-3 col-sm-3 col-md-2 text-right">Team size</label>
 							<div class="col-xs-3 col-sm-8 col-md-7 h-padding">
 								<span>{{pos.teamSize}}</span>
 							</div>
 						</div>
-						 <div class="row section-row" ng-show="pos.process">
+						 <div class="row section-row  hidden-xs" ng-show="pos.process">
 						
 							<div class="hidden-sm hidden-xs col-md-3"></div>
-							<label class="col-xs-3 col-sm-3 col-md-2">Process</label>
+							<label class="col-xs-3 col-sm-3 col-md-2 text-right">Process</label>
 							<div class="col-xs-3 col-sm-4 h-padding">
 								<span class="skill">{{pos.process}}</span>
 							</div>
@@ -342,7 +344,7 @@
 
 						<div class="row section-row"  ng-show="pos.respons">
 							<div class="col-md-3 hidden-sm hidden-xs"></div>
-							<label class="col-xs-3 col-sm-3 col-md-2">Responsibilities</label>
+							<label class="hidden-xs col-xs-3 col-sm-3 col-md-2">Responsibilities</label>
 							<div class="col-xs-11 col-sm-7 col-md-6 nopadding">
 								<ul>
 									<li ng-repeat="resp in pos.respons">{{resp}}</li>
@@ -360,6 +362,14 @@
 								<ul>
 									<li ng-repeat="resp in pos.achievments">{{resp}}</li>
 								</ul>
+							</div>
+						</div>
+						
+						<div class="row section-row" ng-show="pos.awards">
+							<div class="hidden-sm hidden-xs col-md-3 "></div>
+							<label class="col-xs-3 col-sm-3 col-md-2">Awards</label>
+							<div class="col-xs-12 col-md-6 h-padding">
+								<span>{{pos.awards}}</span>
 							</div>
 						</div>
 
@@ -396,13 +406,7 @@
 						</div>
 
 
-						<div class="row section-row" ng-show="pos.awards">
-							<div class="hidden-sm hidden-xs col-md-3 "></div>
-							<label class="col-xs-4 col-sm-3 col-md-2">Awards</label>
-							<div class="col-xs-8 col-md-6 h-padding">
-								<span>{{pos.awards}}</span>
-							</div>
-						</div>
+						
 
 
 					</div>
