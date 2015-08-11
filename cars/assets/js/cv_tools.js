@@ -24,7 +24,18 @@ function calculateDurations() {
 		var pos = artem_zaborskiy_cv.positions[i];
 
 		var timeDiff = Math.abs(pos.start - pos.stop) / years;
-		// pos.duration = timeDiff;
+		pos.duration = (Math.round(timeDiff * 12));
+		var nyears = Math.floor(pos.duration / 12);
+		var nmonths = pos.duration - nyears * 12;
+
+		pos.duration = "";
+		if (nyears > 0) {
+			pos.duration += nyears + "Y ";
+		}
+		if (nmonths > 0) {
+			pos.duration += nmonths + "M ";
+		}
+		// (Math.floor(pos.duration / 12))) + "M";
 		pos.startPercent = 100 * Math.abs((pos.start - artem_zaborskiy_cv.start) / years) / totalDuration;
 		pos.durationPercent = 100 * timeDiff / totalDuration;
 	}

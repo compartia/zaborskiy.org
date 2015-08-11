@@ -290,10 +290,10 @@
 						
 						
 						<div class="row" ng-class="{'featured':pos.featured}">
-							<div style="height: 0px; position: relative; z-index: 11 ">
-								<div class="date-line" style="top: -5px; left:0; right:0; position: absolute; ">
+							<div style="height: 5px; position: relative; z-index: 11 ">
+								<div class="date-line" style="bottom: 0px; left:0; right:0; position: absolute; ">
 									<div class="date-line-marker text-right" style="left: {{pos.startPercent}}%; width: {{pos.durationPercent}}%">
-										<span class="hidden-print">{{pos.stop | date:"yyyy, MMM" }}</span>
+										<span class="hidden-print">{{pos.duration}}</span>
 									</div>
 								</div>
 							</div>
