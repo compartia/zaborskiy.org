@@ -4,17 +4,26 @@
 @import "print.less";
 
 @skill-bg-color: @palette-color-4;
-
+@small-width: 100/12%;
 
 .featured{
    // .stripes-right;
   //  padding: 0;
-//    border-right: 1px solid @palette-color-2;
-//    border-left: 1px solid @palette-color-2;
-    box-sizing:border-box!important;
+//    border-right: 10px solid @palette-color-2;
+   // border-left: @inter-panel-padding/2 solid @palette-color-6;
+           box-sizing:border-box!important;
       -moz-box-sizing:border-box!important;
-      -webkit-box-sizing:border-box!important;
-    background: fade(@palette-color-4, 7%)!important;
+   -webkit-box-sizing:border-box!important;
+   
+    background-color: fade(@palette-color-4, 6%)!important;
+    
+//    background-image: url(/assets/img/az_side_branding_tall.svg)!important;
+//    background-size: @small-width!important;
+//    background-repeat: repeat-y!important;
+//    background-position: right!important;
+   // .with-noise;
+    
+    color: @palette-color-2;
 }
 
 .small-label{
@@ -25,11 +34,12 @@
 .date, .featured-label{
     margin:0;
     padding: @inter-panel-padding;
-    color: @palette-color-1!important;
+    color: @palette-color-1;
     .small-label;
 }
 
 .featured-label{
+    margin-right: 0%;
     color: @palette-color-1;
     background: @palette-color-2;
 }

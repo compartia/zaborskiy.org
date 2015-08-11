@@ -270,8 +270,16 @@
 			<!-- ============= -->
 
 			<div class="section-work">
-
-				 
+				
+				
+				<!-- <div ng-repeat="pos in items | orderBy:'stop':true" > 
+						<div class="date-line" >
+							<div class="date-line-marker text-right" style="left: {{pos.startPercent}}%; width: {{pos.durationPercent}}%">
+							<span class="hidden-print">{{pos.customer}}</span>
+						</div>
+					</div>
+				</div>
+				  -->
 				
 				<div class="row with-noise section-headline">
 					<div class="col-md-3"></div>
@@ -304,8 +312,8 @@
 							</div> 
 							
 							<!-- ============= -->
-							<div class="col-xs-3 col-sm-2 col-md-1 col-xs-push-2 col-sm-push-7 col-md-push-8 nopadding text-right">
-								<div class="featured-label" ng-show="pos.featured">
+							<div class="col-xs-3 col-sm-2 col-md-1  nopadding text-right" style="float: right; margin-right: 0">
+								<div class="featured-label text-center" ng-show="pos.featured" >
 								 	featured 
 								</div>
 							</div>
@@ -314,16 +322,23 @@
 							
 							<!-- ============= -->
 							
-							<div class="col-xs-12 col-sm-12 col-md-8 col-md-pull-1  nopadding"  >
+							<div class="col-xs-12 col-sm-12 col-md-8 nopadding"  >
 								
 								<div class="row">
 				
-									<div class="col-xs-12 col-padding" >
+									<div class="col-xs-12  col-sm-push-3 col-padding">
 										<div ng-show="pos.position">
-											<span class="position">{{pos.position}}</span> <span class="employer"> <span ng-show="pos.employerUrl">
-												<br class="visible-xs">
-												<span class="hidden-xs">@</span><a target="_emploer" href="{{pos.employerUrl}}">{{pos.employer}}</a>
-											</span> <span ng-show="!pos.employerUrl">@{{pos.employer}}</span> <!-- <small ng-show="pos.employerDescr"><br>({{pos.employerDescr}})</small> -->
+											<span class="position">{{pos.position}}</span> 
+												<span class="employer"> 
+													
+													<span ng-show="pos.employerUrl">
+														<br class="visible-xs">
+														<span ng-show="pos.employer" class="hidden-xs">@</span>
+														<a target="_emploer" href="{{pos.employerUrl}}">{{pos.employer}}</a>
+													</span> 
+													
+													<span ng-show="!pos.employerUrl"><span ng-show="pos.employer" class="hidden-xs">@</span>{{pos.employer}}</span> 
+											 
 											</span>
 										</div>
 									</div>

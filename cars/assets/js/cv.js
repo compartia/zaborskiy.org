@@ -244,7 +244,7 @@ var artem_zaborskiy_cv = {
 			},
 
 			{
-				start : Date.parse("1 September, 2010"),
+				start : Date.parse("1 September, 2009"),
 				stop : Date.parse("1 September, 2012"),
 
 				position : "Java Developer",
@@ -254,7 +254,7 @@ var artem_zaborskiy_cv = {
 				customer : "youdowell",
 				project : "An online coach for a healthy lifestyle and menu planning",
 
-				respons : [
+				achievments : [
 						"Designed the system architecture and the system backbone",
 						"Consulted on UI and usability",
 						"With GWT, developed the back-office application, allowing users to edit recipes and nutrition data",
@@ -272,12 +272,11 @@ var artem_zaborskiy_cv = {
 
 				position : "Lecturer",
 				employer : "Exigen Services",
-				employerDescr : "acquired by Return on Intelligence",
 				employerUrl : "http://www.returnonintelligence.com/",
 
 				customer : "IT-college",
 
-				respons : [ "Provided lectures on Java to groups of 20 students" ],
+				achievments : [ "Provided lectures on Java to groups of 20 students" ],
 				technologies : [ "Java" ]
 			},
 
@@ -292,18 +291,20 @@ var artem_zaborskiy_cv = {
 				customer : "TestBuilder",
 
 				respons : [
-						"Idea and Concepts, Full cycle management, Building the team",
-						"System architecture, Technical documentation and user’s guide writing, UI design and code (GWT, CSS), DB design",
-						"public relations, presentations for seed investments" ],
+						"Idea and Concepts; Full cycle management; Building the team",
+						"System architecture; Technical documentation and user’s guide writing; UI design and code (GWT, CSS); DB design",
+						"Public relations, presentations for seed investments" ],
+
 				achievments : [ "Designed and built the entire UI using GWT, HTMl and CSS",
 						"Integrated with Facebook, Google gadgets and Google AppEngine",
 						"Has built the framework for generating PDF certificates using iText" ],
+
 				technologies : [ "Spring Framework", "JPA", "Hibernate", "Lucene", "Hibernate Search", "GWT",
 						"SmartGWT", "iText", "JUnit" ],
 				platforms : [ "PostgreSQL", "Tomcat", "Apache" ],
-
 				paradigms : [ "IoC", "AOP", "CI" ],
 				tools : [ "SVN", "Cruise control", "Eclipse", "Ant", "Maven", "Track", "Spring Roo" ],
+
 				teamSize : "2 - 6",
 				process : "Scrum"
 
@@ -313,8 +314,8 @@ var artem_zaborskiy_cv = {
 				start : Date.parse("1 September, 2013"),
 				stop : Date.parse("1 July, 2015"),
 
-				employer : "home",
-				employerUrl : "http://www.zaborskiy.org/",
+				// employer : "home",
+				// employerUrl : "http://www.zaborskiy.org/",
 
 				project : "Color Collection is a native application for Android. It processes images to extract most used colors.",
 				projectUrl : "https://play.google.com/store/apps/details?id=org.az.clr",
