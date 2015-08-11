@@ -301,14 +301,17 @@
 									| date:"yyyy, MMM" }}</span>
 							</div>
 
-							<div class="col-sm-8 col-xs-12 col-lg-9 col-padding">
-
-								<span class="position">{{pos.position}}</span> <span class="employer"> <span ng-show="pos.employerUrl">
-									<br class="visible-xs">
-									<span class="hidden-xs">@</span><a target="_emploer" href="{{pos.employerUrl}}">{{pos.employer}}</a>
-								</span> <span ng-show="!pos.employerUrl">@{{pos.employer}}</span> <!-- <small ng-show="pos.employerDescr"><br>({{pos.employerDescr}})</small> -->
-								</span>
-
+							<div class="col-sm-8 col-xs-12 col-lg-8 col-padding" >
+								<div ng-show="pos.position">
+									<span class="position">{{pos.position}}</span> <span class="employer"> <span ng-show="pos.employerUrl">
+										<br class="visible-xs">
+										<span class="hidden-xs">@</span><a target="_emploer" href="{{pos.employerUrl}}">{{pos.employer}}</a>
+									</span> <span ng-show="!pos.employerUrl">@{{pos.employer}}</span> <!-- <small ng-show="pos.employerDescr"><br>({{pos.employerDescr}})</small> -->
+									</span>
+								</div>
+							</div>
+							<div class="col-lg-1 date" ng-show="pos.featured">
+								 featured 
 							</div>
 
 						</div>
@@ -370,6 +373,13 @@
 							<label class="col-xs-3 col-sm-3 col-md-2">Awards</label>
 							<div class="col-xs-12 col-md-6 h-padding">
 								<span>{{pos.awards}}</span>
+							</div>
+						</div>
+						<div class="row section-row" ng-show="pos.reference">
+							<div class="hidden-sm hidden-xs col-md-3 "></div>
+							<label class="col-xs-3 col-sm-3 col-md-2">reference</label>
+							<div class="col-xs-12 col-md-6 h-padding">
+								<a href="{{pos.reference}}" target="_blank">{{pos.reference}}</a>
 							</div>
 						</div>
 

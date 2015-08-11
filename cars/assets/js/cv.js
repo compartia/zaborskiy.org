@@ -107,7 +107,7 @@ var artem_zaborskiy_cv = {
 
 						"Math: created the engine for clusterization of 10M+ data records",
 						"Optimized heavy calculations on huge amount of data" ],
-				technologies : [ "Java SE", "CSS", "JavaScript", "Servlets/JSP", "JDBC", "Ajax" ],
+				technologies : [ "Java", "CSS", "JavaScript", "Servlets/JSP", "JDBC", "Ajax" ],
 				teamSize : "2 - 4",
 				platforms : [ "Tomcat", "Linux", "Resin", "PostgreSQL" ],
 				paradigms : [ "Neural Networks", "Social Networking", "Big Data", "Data Visualization" ]
@@ -167,6 +167,23 @@ var artem_zaborskiy_cv = {
 			},
 
 			{
+				featured : "true",
+				customer : "http://www.heritagehealthprize.com/c/hhp",
+				projectUrl : "http://www.heritagehealthprize.com/c/hhp",
+				project : "Heritage Health Prize Competition: to create an algorithm that predicts"
+						+ " how many days a patient will spend in a hospital in the next year.",
+				start : Date.parse("4 April, 2011"),
+				stop : Date.parse("15 April, 2013"),
+				achievments : [
+						"Has developed the algorithm to identify patients who will be admitted to a hospital"
+								+ " within the next year using historical claims data",
+						"Has developed own high performant library of machine learning (classification and clustering) "
+								+ "algorithms such as Gentle and Ada Boosting, Random Forests, K-Means, Kohonen Networks, Neural Networks, " ],
+				awards : "top 10% (116th of 1353)",
+				reference : "https://www.kaggle.com/zaborskiy/results"
+			},
+
+			{
 				start : Date.parse("1 August, 2010 "),
 				stop : Date.parse("1 March, 2011"),
 
@@ -186,6 +203,7 @@ var artem_zaborskiy_cv = {
 			},
 
 			{
+				featured : "true",
 				start : Date.parse("9 Jan, 2008"),
 				stop : Date.parse("1 August, 2010"),
 
@@ -251,7 +269,7 @@ var artem_zaborskiy_cv = {
 				customer : "IT-college",
 
 				respons : [ "Provided lectures on Java to groups of 20 students" ],
-				technologies : [ "Java SE" ]
+				technologies : [ "Java" ]
 			},
 
 			{
