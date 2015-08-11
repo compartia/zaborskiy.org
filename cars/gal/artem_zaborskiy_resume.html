@@ -295,7 +295,7 @@
 						
 						
 						<div class="row" ng-class="{'featured':pos.featured}">
-							<div class="print-no-break">
+							<div class="print-no-break" style="position: relative;">
 								
 								<div class="date-line-holder" style="height: 5px; position: relative; z-index: 11 ">
 									<div class="date-line" style="bottom: 0px; left:0; right:0; position: absolute; ">
@@ -305,13 +305,14 @@
 									</div>
 								</div>
 										
-								<div class="date col-sm-3 col-md-3 col-xs-7 elevated-10 print-no-break">
+								<div class="date col-sm-3 col-md-3 col-xs-12 elevated-10 print-no-break">
 									<span class="text-nowrap">{{pos.start | date:"yyyy, MMM" }}</span> — <span class="text-nowrap">{{pos.stop
 										| date:"yyyy, MMM" }}</span>
 								</div> 
 								
 								<!-- ============= -->
-								<div class="col-xs-3 col-sm-2 col-md-1 nopadding text-right print-no-break" style="float: right; margin-right: 0">
+								<div class="col-xs-3 col-sm-2 col-md-1 nopadding text-right print-no-break" 
+										style=" position: absolute; top:5px; z-index: 12; right: 0; ">
 									<div class="featured-label text-center" ng-show="pos.featured" >
 									 	featured 
 									</div>
@@ -327,7 +328,7 @@
 								
 								<div class="row">
 				
-									<div class="col-xs-12  col-sm-push-3 col-padding">
+									<div class="col-xs-12 col-sm-9  col-sm-push-3 col-padding">
 										<div ng-show="pos.position">
 											<span class="position">{{pos.position}}</span> 
 												<span class="employer"> 
