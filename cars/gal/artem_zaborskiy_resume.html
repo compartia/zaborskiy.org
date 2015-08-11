@@ -280,23 +280,25 @@
 					</h2>
 				</div>
 				
-				
+				 
 
 
 				<!-- <h2>work experience</h2> -->
 				<div>
 					<div ng-repeat="pos in items | orderBy:'stop':true"
-						ng-cloak class="cv-position elevated-10 nopadding">
+						ng-cloak class="cv-position nopadding">
 						
 						
 						<div class="row" ng-class="{'featured':pos.featured}">
-							<div class="date-line">
-								<div class="date-line-marker text-right" style="left: {{pos.startPercent}}%; width: {{pos.durationPercent}}%">
-									<span class="hidden-print">{{pos.stop | date:"yyyy, MMM" }}</span>
+							<div style="height: 0px; position: relative; z-index: 11 ">
+								<div class="date-line" style="top: -5px; left:0; right:0; position: absolute; ">
+									<div class="date-line-marker text-right" style="left: {{pos.startPercent}}%; width: {{pos.durationPercent}}%">
+										<span class="hidden-print">{{pos.stop | date:"yyyy, MMM" }}</span>
+									</div>
 								</div>
 							</div>
 									
-							<div class="date col-sm-3 col-md-3 col-xs-7">
+							<div class="date col-sm-3 col-md-3 col-xs-7 elevated-10">
 								<span class="text-nowrap">{{pos.start | date:"yyyy, MMM" }}</span> — <span class="text-nowrap">{{pos.stop
 									| date:"yyyy, MMM" }}</span>
 							</div> 
@@ -312,7 +314,7 @@
 							
 							<!-- ============= -->
 							
-							<div class="col-xs-12 col-sm-12 col-md-8 col-md-pull-1  nopadding" >
+							<div class="col-xs-12 col-sm-12 col-md-8 col-md-pull-1  nopadding"  >
 								
 								<div class="row">
 				
@@ -412,6 +414,9 @@
 									<div class="col-xs-12 col-sm-8 col-md-9 h-padding">
 										<span class="skill" ng-repeat="t in pos.paradigms">{{t}}</span>
 									</div>
+								</div>
+								
+								<div class="section-row" style="height: 40px">
 								</div>
 								
 							</div>

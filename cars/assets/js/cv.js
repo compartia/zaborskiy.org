@@ -51,7 +51,7 @@ var artem_zaborskiy_cv = {
 	positions : [
 
 			{
-				start : Date.parse("21 February, 2015"),
+				start : Date.parse("15 Nov, 2014"),
 				stop : new Date(),
 				position : "web developer",
 				employer : "home",
@@ -59,13 +59,22 @@ var artem_zaborskiy_cv = {
 				project : "skill2peer is an web site for course publishing and registration",
 				employerUrl : "http://www.zaborskiy.org/",
 
+				achievments : [ "Designed the entire system architecture",
+						"UI/UX prototyping, design and implementations, using AngularJS, HTML and CSS",
+						"With Liquibase and Hibernate/JPA, designed the DB and DAO layer",
+						"Using Confluence, has provided technical documentaion",
+						"Wrote event/calendar management core",
+						"Using Spring Social, implemented Login with Twitter and Facebook",
+						"Has designed REST API for posting and fetching events and courses data" ],
+
 				technologies : [ "Spring Framework", "Spring Security", "Hibernate", "ehCache", "AngularJS",
 						"Spring Boot", "Liquibase", "Dozer mapper", "JUnit", "DBUnit", "Mockito" ],
 				tools : [ "Eclipse", "Jira", "Jenkins", "Sonar", "git", "Confluence", "Maven" ],
-				paradigms : [ "REST" ],
+				paradigms : [ "REST", "Open Source", "AOP", "OOP" ],
 				teamSize : "1 - 3",
 				platforms : [ "Heroku", "Tomcat", "Android", "GitHub" ],
-				process : "Agile"
+				process : "Agile",
+				reference : "https://github.com/compartia/skill2peer"
 			},
 
 			{

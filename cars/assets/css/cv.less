@@ -9,8 +9,12 @@
 .featured{
    // .stripes-right;
   //  padding: 0;
-//    border-right: @inter-panel-padding solid @palette-color-2;
-    background: fade(@palette-color-4, 5%)!important;
+//    border-right: 1px solid @palette-color-2;
+//    border-left: 1px solid @palette-color-2;
+    box-sizing:border-box!important;
+      -moz-box-sizing:border-box!important;
+      -webkit-box-sizing:border-box!important;
+    background: fade(@palette-color-4, 7%)!important;
 }
 
 .small-label{
@@ -42,6 +46,7 @@
     height: @inter-panel-padding/2;
     .colorTransition;
     font-size: 55%; 
+    .with-shadow;
     
     &:hover{
         height: @inter-panel-padding*2;
@@ -53,6 +58,7 @@
             .colorTransition;
             overflow: visible;
         }
+        .with-shadow-sm;
     }
     
     .date-line-marker{

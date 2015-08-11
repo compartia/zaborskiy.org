@@ -45,8 +45,13 @@
         padding-top: @inter-panel-padding*1.5!important;
     }
     
-    .section-row, .section-headline {
+    .section-row, .section-headline, .date {
         page-break-inside: avoid;
+        
+    }
+    
+    .section-headline {
+        margin-top: 2px!important;
     }
     
     a[href]:after {
@@ -113,6 +118,13 @@
     
     .bimage img{
        // border: 1px solid @palette-color-4;
+    }
+    
+    .featured{
+
+//        border-right: 1px solid @palette-color-2;
+//        border-left: 1px solid @palette-color-2;
+        background: fade(@palette-color-4, 7%)!important;
     }
  
     
