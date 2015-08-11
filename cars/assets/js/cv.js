@@ -328,7 +328,7 @@ var artem_zaborskiy_cv = {
 				platforms : [ "Android", "GitHub", "Heroku" ],
 				tools : [ "git", "Maven", "Gradle", "Android Studio" ],
 				paradigms : [ "Open Source" ],
-				teamSize : "1",
+				// teamSize : "1",
 				achievments : [ "Tens of thousands of installations" ]
 
 			}

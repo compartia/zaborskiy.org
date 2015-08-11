@@ -40,14 +40,28 @@
 
     }
 
+    
     .spaceous{
         padding-bottom: 0!important;
         padding-top: @inter-panel-padding*1.5!important;
     }
     
-    .section-row, .section-headline, .date {
+//    .date{
+//        page-break-before: avoid;
+//        page-break-after: avoid;  
+//        page-break-inside: avoid;
+//    }
+//    
+//    .section-headline, .date-line-holder, .date-line{
+//        page-break-after: avoid;  
+//    }
+    
+    .page-break{
+        page-break-before: always;
+    }
+    
+    .print-no-break{
         page-break-inside: avoid;
-        
     }
     
     .section-headline {

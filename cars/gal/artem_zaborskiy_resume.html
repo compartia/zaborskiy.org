@@ -144,7 +144,6 @@
 
 
 					<div class="hidden-print download-links-wrap text-right section-links">
-
 						download as <a href="/assets/img/artem_zaborskiy_cv.pdf" class="download-link bg4">PDF</a><a
 							href="/assets/js/cv.js" class="download-link bg5">JSON</a>
 					</div>
@@ -240,9 +239,7 @@
 
 
 					<div class="row">
-
 						<label class="text-right date col-xs-4 col-sm-3 col-md-3"> {{pos.start | date:"yyyy" }}  —  {{pos.stop | date:"yyyy" }}</label>
-
 						<h4 class="col-xs-8 col-md-8 col-sm-8">
 							<strong>{{pos.name}}</strong>
 						</h4>
@@ -281,7 +278,7 @@
 				</div>
 				  -->
 				
-				<div class="row with-noise section-headline">
+				<div class="row with-noise section-headline page-break">
 					<div class="col-md-3"></div>
 					<h2 class="col-md-9 col-sm-12 col-xs-12">
 						Work experience<img class="hidden-xs hidden-print" src="/assets/img/az_side_branding6.svg" />
@@ -298,24 +295,28 @@
 						
 						
 						<div class="row" ng-class="{'featured':pos.featured}">
-							<div style="height: 5px; position: relative; z-index: 11 ">
-								<div class="date-line" style="bottom: 0px; left:0; right:0; position: absolute; ">
-									<div class="date-line-marker text-right" style="left: {{pos.startPercent}}%; width: {{pos.durationPercent}}%">
-										<span class="hidden-print">{{pos.duration}}</span>
+							<div class="print-no-break">
+								
+								<div class="date-line-holder" style="height: 5px; position: relative; z-index: 11 ">
+									<div class="date-line" style="bottom: 0px; left:0; right:0; position: absolute; ">
+										<div class="date-line-marker text-right" style="left: {{pos.startPercent}}%; width: {{pos.durationPercent}}%">
+											<span class="hidden-print">{{pos.duration}}</span>
+										</div>
 									</div>
 								</div>
-							</div>
-									
-							<div class="date col-sm-3 col-md-3 col-xs-7 elevated-10">
-								<span class="text-nowrap">{{pos.start | date:"yyyy, MMM" }}</span> — <span class="text-nowrap">{{pos.stop
-									| date:"yyyy, MMM" }}</span>
-							</div> 
-							
-							<!-- ============= -->
-							<div class="col-xs-3 col-sm-2 col-md-1  nopadding text-right" style="float: right; margin-right: 0">
-								<div class="featured-label text-center" ng-show="pos.featured" >
-								 	featured 
+										
+								<div class="date col-sm-3 col-md-3 col-xs-7 elevated-10 print-no-break">
+									<span class="text-nowrap">{{pos.start | date:"yyyy, MMM" }}</span> — <span class="text-nowrap">{{pos.stop
+										| date:"yyyy, MMM" }}</span>
+								</div> 
+								
+								<!-- ============= -->
+								<div class="col-xs-3 col-sm-2 col-md-1 nopadding text-right print-no-break" style="float: right; margin-right: 0">
+									<div class="featured-label text-center" ng-show="pos.featured" >
+									 	featured 
+									</div>
 								</div>
+								
 							</div>
 							<!-- ============= -->
 							
@@ -369,7 +370,7 @@
 									</div>
 								</div>
 								
-								<div class="row section-row"  ng-show="pos.respons">
+								<div class="row section-row print-no-break"  ng-show="pos.respons">
 									<label class="hidden-xs col-xs-3 col-sm-3 col-md-3">Responsibilities</label>
 									<div class="col-xs-11 col-sm-7 col-md-9 nopadding">
 										<ul>
@@ -378,7 +379,7 @@
 									</div>
 								</div>
 								
-								<div class="row section-row" ng-show="pos.achievments">
+								<div class="row section-row  print-no-break" ng-show="pos.achievments">
 									<label class="col-xs-3 col-sm-3 col-md-3">Experience</label>
 									<div class="col-xs-11 col-sm-7 col-md-9 nopadding">
 										<ul>
@@ -401,7 +402,7 @@
 										<a href="{{pos.reference}}" target="_blank">{{pos.reference}}</a>
 									</div>
 								</div>
-		
+		<div class="print-no-break">
 		
 								<div class="row section-row" ng-show="pos.technologies">
 									<label class="hidden-xs col-sm-3 col-md-3">Technologies</label>
@@ -433,7 +434,7 @@
 								
 								<div class="section-row" style="height: 40px">
 								</div>
-								
+		</div>
 							</div>
 							<!-- ============= -->
 							
