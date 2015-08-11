@@ -16,7 +16,7 @@
     
     
     body{
-        font-size: 10px!important;
+        font-size: 10px;
     }
     
     .icon {
@@ -45,7 +45,7 @@
         padding-top: @inter-panel-padding*1.5!important;
     }
     
-    .row {
+    .section-row, .section-headline {
         page-break-inside: avoid;
     }
     
@@ -54,15 +54,29 @@
         text-decoration: none!important;
     }
     
-    .work-section
-    
-    .section-work
-    .date{
-        color: @palette-color-1!important;
-        background-color: @palette-color-6!important;
-         -webkit-print-color-adjust: exact; 
+
+    .section-work{
+
+        .date, .featured-label{
+            text-align: center;
+            font-size: 7px!important;
+            font-weight: 300;
+        }
+        
+        .featured-label{
+            color: white!important;
+            background: @palette-color-2!important;
+            .roboto-condensed;
+        }
+
+        .date{
+            color: white!important;
+            background: @palette-color-6!important;
+            .text-nowrap{
+                color: white!important;
+            }
+        }
     }
-    
     
     label{
             color: @palette-color-3l!important;
@@ -76,7 +90,7 @@
     .bg1{
         .skill1,.skill2,.skill3,.skill4,.skill5,.skill6,.skill7,.skill8{
             color: @palette-color-4d!important;
-            background-color: white!important; 
+            background: white!important; 
         }
     }
     

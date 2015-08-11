@@ -5,21 +5,34 @@
 
 @skill-bg-color: @palette-color-4;
 
- 
+
+.featured{
+   // .stripes-right;
+  //  padding: 0;
+//    border-right: @inter-panel-padding solid @palette-color-2;
+    background: fade(@palette-color-4, 5%)!important;
+}
+
 .small-label{
     .nice-caption;
     font-size: 80%;   
 }
 
-.date{
+.date, .featured-label{
     margin:0;
-    padding-top: @inter-panel-padding;
-    padding-bottom: @inter-panel-padding;
-    padding-left: @base-padding;
-    padding-right: @inter-panel-padding/2;
-    color: @palette-color-1;
-    background-color: @palette-color-6;
+    padding: @inter-panel-padding;
+    color: @palette-color-1!important;
     .small-label;
+}
+
+.featured-label{
+    color: @palette-color-1;
+    background: @palette-color-2;
+}
+
+.date{
+    color: @palette-color-1;
+    background: @palette-color-6;
 }
 
 .date-line{
@@ -187,9 +200,8 @@
 
 .bg1{
     .skill1,.skill2,.skill3,.skill4,.skill5,.skill6,.skill7,.skill8{
-        color: @palette-color-4d!important;
-        //border-radius: 0;
-        background-color: @palette-color-1!important;
+        color: @palette-color-4d;
+        background-color: @palette-color-1;
     }
     
     .skill1{
@@ -217,29 +229,37 @@
     }
 }
 
-
 .skill1{
-    background-color: fade(@skill-bg-color,10%)!important;
     font-size: 70%;
 }
 .skill2{
-    background-color: fade(@skill-bg-color,20%)!important;
     font-size: 80%;
 }
-.skill3{
-    background-color: fade(@skill-bg-color,30%)!important;
-}
-.skill4{
-    background-color: fade(@skill-bg-color,40%)!important;
-}
-.skill5{
-    background-color: fade(@skill-bg-color,50%)!important;
-}
-.skill6,{
-    background-color: fade(@skill-bg-color,60%)!important;
-}
-.skill7,.skill8{
-    background-color: fade(@skill-bg-color,70%)!important;
+
+.enable-skills-bg{
+    .skill1{
+        background-color: fade(@skill-bg-color,10%)!important;
+        font-size: 70%;
+    }
+    .skill2{
+        background-color: fade(@skill-bg-color,20%)!important;
+        font-size: 80%;
+    }
+    .skill3{
+        background-color: fade(@skill-bg-color,30%)!important;
+    }
+    .skill4{
+        background-color: fade(@skill-bg-color,40%)!important;
+    }
+    .skill5{
+        background-color: fade(@skill-bg-color,50%)!important;
+    }
+    .skill6,{
+        background-color: fade(@skill-bg-color,60%)!important;
+    }
+    .skill7,.skill8{
+        background-color: fade(@skill-bg-color,70%)!important;
+    }
 }
 .skill{
 //    &:after{
@@ -355,11 +375,12 @@ h2 img{
         line-height: 1.2;
         margin-bottom: @inter-panel-padding/2;
         margin-top: @inter-panel-padding/2;
-        padding-left: @inter-panel-padding*2;
+        padding-left: @inter-panel-padding*3;
+        padding-right: @inter-panel-padding;
         
         background-image: url(/assets/img/marker-h.svg)!important;
         background-repeat: no-repeat!important;
-        background-size: 1em 1em!important;
+        background-size: 2em 2em!important;
         
          
         &:after{
