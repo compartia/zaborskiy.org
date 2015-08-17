@@ -96,17 +96,13 @@ section {
   float: right;
   width: 40%;
   margin-left: 20px;
+  margin-right: -20px;
+  border-right: 5px solid #cf4359;
   padding: 10px;
   background-color: #f6f9ee;
   -webkit-box-shadow: 0 5px 5px 0px rgba(103, 126, 108, 0.15);
   -moz-box-shadow: 0 5px 5px 0px rgba(103, 126, 108, 0.15);
   box-shadow: 0 5px 5px 0px rgba(103, 126, 108, 0.15);
-}
-.sidenote:before {
-  content: "Sidenote:";
-  font-weight: 100;
-  font-size: 120%;
-  display: block;
 }
 .gallery {
   list-style: none;
@@ -159,6 +155,11 @@ section {
   color: rgba(246, 249, 238, 0.4);
   text-transform: none;
   letter-spacing: 0;
+}
+.tutorial h1 small small {
+  margin-top: 0.6em;
+  font-size: 40%;
+  color: #f6f9ee;
 }
 .tutorial h2 {
   padding-top: 50px !important;
