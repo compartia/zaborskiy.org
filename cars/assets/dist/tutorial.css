@@ -92,6 +92,9 @@ section {
   padding-top: 50px;
   padding-top: 30px;
 }
+.prettyprint {
+  color: #2f2b3b;
+}
 .sidenote {
   float: right;
   width: 40%;

@@ -27,6 +27,7 @@
 <link rel="stylesheet" href="/assets/js/dist/bootstrap.min.css">
 <link rel="stylesheet" href="/assets/logo/styles.css" />
 <link rel="stylesheet" href="/assets/css/zaborskiy.css" /> 
+
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700&subset=latin,cyrillic-ext,cyrillic'
 	rel='stylesheet' type='text/css'>
 
@@ -34,7 +35,7 @@
 <script src="assets/js/vendor/less.min.js"></script>   -->
 
 
-
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script> 
 <script src="/assets/js/dist/angular.min.js"></script>
 
 
@@ -48,11 +49,14 @@
 </script>
 
 <script>
+    
+
 var zaborskiy = angular.module('zaborskiy', []);
 
 zaborskiy.controller('mainCtrl', function ($scope) {
     $scope.topMenuStyle="col-md-2 col-xs-4 col-sm-4 col-lg-2";
 });
+
 
 
 zaborskiy.controller('galleryCtrl', function ($scope) {
@@ -94,6 +98,22 @@ zaborskiy.controller('appsCtrl', function ($scope) {
     
  });
  
+</script>
+<script type="text/javascript">
+$(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
 </script>
 
 <script type="application/ld+json">
@@ -163,16 +183,18 @@ zaborskiy.controller('appsCtrl', function ($scope) {
 
 			<div class="row row-fixed-height">
 			
-				<div class="height2 col-sm-8 col-xs-12 logo with-noise col-sm-push-4 banner">
+				<div class="height2 col-sm-8 col-xs-12 logo col-sm-push-4 banner">
 					<div class="logo-wrap">
-						<span class="az-az-logo" />
+						<span class="az-az-logo"></span>
 					</div>
 
 					<div ng-cloak class="row nopadding float-caption section-links bg2t">
 						<div class="{{topMenuStyle}}"></div>
-						<a class="{{topMenuStyle}} bg3" href="#apps">apps</a> <a class="{{topMenuStyle}} bg5" href="#tools">pages</a> <a
-							class="{{topMenuStyle}} bg6t" href="#music">music</a> <a class="{{topMenuStyle}} bg1t" href="#texts">texts</a> <a
-							class="{{topMenuStyle}} bg4" href="#arts">arts</a>
+						<a target="_self" class="{{topMenuStyle}} bg3" href="#apps">apps</a> 
+                        <a target="_self" class="{{topMenuStyle}} bg5" href="#tools">pages</a> 
+                        <a target="_self" class="{{topMenuStyle}} bg6t" href="#music">music</a> 
+                        <a target="_self" class="{{topMenuStyle}} bg1t" href="#texts">texts</a> 
+                        <a target="_self" class="{{topMenuStyle}} bg4" href="#arts">arts</a>
 					</div>
 					
 				</div>
@@ -182,24 +204,23 @@ zaborskiy.controller('appsCtrl', function ($scope) {
 
 
 					<div class="about" itemscope itemtype="http://schema.org/Person">
-						<link itemprop="url" href="http://www.zaborskiy.org">
-						Hi there, I am <br> <span class="lead" itemprop="name">Artem Zaborskiy</span>, <br>a male <span
-							itemprop="jobTitle">Java developer</span>. <br>This is my portfolio. Find me at the networks listed below or
-						via&nbsp;<a href="mailto:compartia@gmail.com">email</a>.
-						<br><br>
-						Download my <a href="/gal/artem_zaborskiy_resume.html">CV here</a>
-
+                        <div class="intro">
+                            <link itemprop="url" href="http://www.zaborskiy.org">
+                            Hi there, I am <br> <span class="lead" itemprop="name" style="line-height:1">Artem Zaborskiy</span>, <br>a male <span
+                                itemprop="jobTitle">Java developer</span>. <br>This is my portfolio. Find me at the networks listed below or
+                            via&nbsp;<a href="mailto:compartia@gmail.com">email</a>.
+                             
+                            Download my <a href="/gal/artem_zaborskiy_resume.html">CV here</a>
+                        </div>
 						<div class="desciption-wrap">
 							<div class="social">
-								<a itemprop="sameAs" target="_blank" href="https://www.facebook.com/zaborskiy"><span
-									class="az-social-facebook" /></a> <a itemprop="sameAs" target="_blank" href="https://th.linkedin.com/in/zaborskiy"><span
-									class="az-social-linkedin" /></a> <a itemprop="sameAs" target="_blank" href="https://www.behance.net/zaborskiy"><span
-									class="az-social-behance" /></a> <a itemprop="sameAs" target="_blank"
-									href="https://plus.google.com/+ArtemZaborskiy"><span class="az-social-google-plus" /></a> <a itemprop="sameAs"
-									target="_blank" href="https://play.google.com/store/apps/developer?id=AZZZ"><span class="az-social-android" /></a>
-								<a itemprop="sameAs" target="_blank" href="https://github.com/compartia"><span class="az-social-github" /></a>
-								<a itemprop="sameAs" target="_blank" href="https://instagram.com/compartia/"><span
-									class="az-social-instagram"></span></a>
+								<a itemprop="sameAs" target="_blank" href="https://www.facebook.com/zaborskiy"><span class="az-social-facebook"></span></a> 
+								<a itemprop="sameAs" target="_blank" href="https://th.linkedin.com/in/zaborskiy"><span class="az-social-linkedin"></span></a> 
+								<a itemprop="sameAs" target="_blank" href="https://www.behance.net/zaborskiy"><span class="az-social-behance"></span></a> 
+								<a itemprop="sameAs" target="_blank" href="https://plus.google.com/+ArtemZaborskiy"><span class="az-social-google-plus"></span></a> 
+								<a itemprop="sameAs" target="_blank" href="https://play.google.com/store/apps/developer?id=AZZZ"><span class="az-social-android"></span></a>
+								<a itemprop="sameAs" target="_blank" href="https://github.com/compartia"><span class="az-social-github"></span></a>
+								<a itemprop="sameAs" target="_blank" href="https://instagram.com/compartia/"><span class="az-social-instagram"></span></a>
 							</div>
 						</div>
 
@@ -210,7 +231,7 @@ zaborskiy.controller('appsCtrl', function ($scope) {
 				</div>
 
 				<div class="height1 col-sm-4 col-xs-12 col-sm-pull-8 bg5 gridbox">
-					<a name="tools"></a>
+					<a id="tools"></a>
 					<h2>tools</h2>
 					<div class="linkset">
 						<ul>
@@ -236,7 +257,7 @@ zaborskiy.controller('appsCtrl', function ($scope) {
 
 
 				<div class="col-xs-12 col-sm-12 col-md-8 height1 gridbox appsblock">
-					<a name="apps"></a>
+					<a id="apps"></a>
 					<h2 class="float-caption bg3d">android apps</h2>
 					<div class="row">
 						<div ng-controller="appsCtrl">
@@ -267,7 +288,7 @@ zaborskiy.controller('appsCtrl', function ($scope) {
 
 
 				<div class="col-xs-12 col-sm-6 col-md-4 bg6 gridbox height1">
-					<a name="music"></a>
+					<a id="music"></a>
 					<h2>music</h2>
 					<div class="cell-content ">
 						Here are few sample compositions I made. Feel free to discover more at <a href="https://azzz.bandcamp.com/">bandcamp</a>.
@@ -346,8 +367,8 @@ zaborskiy.controller('appsCtrl', function ($scope) {
 
 			<div class="row" ng-controller="galleryCtrl">
 				<div class="col-xs-12 nopadding">
-					<a name="arts"></a>
-					<h2 class="bg4">my artworks</h2>
+					 
+					<h2 id="arts" class="bg4">my artworks</h2>
 
 
 					<div class="row ">
