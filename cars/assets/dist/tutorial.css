@@ -195,5 +195,5 @@ section {
   display: inline-block;
   content: counter(chapter);
   background-color: #572e58;
-  color: white;
+  color: #f6f9ee;
 }
