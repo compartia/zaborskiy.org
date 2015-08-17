@@ -1,0 +1,3 @@
+[submodule "cars/deepdream"]
+	path = cars/deepdream
+	url = https://github.com/compartia/deepdream.git
