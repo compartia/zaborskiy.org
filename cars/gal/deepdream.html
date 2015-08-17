@@ -13,7 +13,8 @@
 <meta property="og:locale:alternate" content="ru_RU" />
 
 <meta property="fb:app_id" content="201987453175808" />
-<meta property="og:image" content="http://res.cloudinary.com/zaborskiy/image/upload/w_900,dpr_auto/v1439795785/download_13_dswfjm.jpg" />
+<meta property="og:image"
+	content="http://res.cloudinary.com/zaborskiy/image/upload/w_900,dpr_auto/v1439795785/download_13_dswfjm.jpg" />
 
 <meta property="og:description" content="GoogLeNet DeepDreams @ OS X step by step guide" />
 
@@ -21,22 +22,30 @@
 
 <title>GoogLeNet DeepDreams [zaborskiy.org]</title>
 <meta name="description" content="GoogLeNet DeepDreams @ OS X how-to">
-    
+
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link rel="stylesheet" href="../assets/logo/styles.css" />
-<!--    <link rel="stylesheet" href="../assets/css/cv.css" />-->
-<link rel="stylesheet" href="../assets/css/tutorial.css" />
+<link rel="stylesheet" href="../assets/css/zaborskiy.css" /> 
+
+ 
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700&subset=latin,cyrillic-ext,cyrillic'
 	rel='stylesheet' type='text/css'>
 
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="../assets/js/dist/jquery.cloudinary.js"></script>
-<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<!--<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>-->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 
+<!--
+<link rel="stylesheet/less" type="text/css" href="../assets/less/tutorial.less" />
+<script src="/assets/js/vendor/less.min.js"></script> 
+-->
+ 
+ 
+<link rel="stylesheet" href="../assets/css/tutorial.css" />
 
 <!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -68,10 +77,10 @@
 
 
 
-	<div class="container bg1 tutorial" ng-controller="mainCtrl">
+	<div class="container tutorial" ng-controller="mainCtrl">
 
 		<h1>
-			GoogLeNet DeepDreams @ OS X step by step guide<small> for girls</small>
+			GoogLeNet DeepDreams @ OS X <small>step by step guide for girls</small>
 		</h1>
 		<p>
 			You're reading this because you’ve seen the <a
@@ -160,7 +169,7 @@ GNU Make 3.81
 
 		<section>
 			<h2>
-				scene <strong></strong> <small>in which  the reader meets The Anaconda</small>
+				scene <strong></strong> <small>in which the reader meets The Anaconda</small>
 			</h2>
 			<p>
 				We’re going to install Anaconda. It will strangle you in the end, but for today we need it. So, just <a
@@ -180,7 +189,7 @@ conda 3.14.1</pre>
 
 		<section>
 			<h2>
-				scene <strong></strong> <small>in which  the reader dives into beer</small>
+				scene <strong></strong> <small>in which the reader dives into beer</small>
 			</h2>
 
 			<div class="substep">
@@ -216,16 +225,21 @@ protoc --version</pre>
 				<pre class="prettyprint output">
 libprotoc 2.6.1</pre>
 			</div>
-            
-            
-            
-            <div>
-            <p class="substep">
-                Just in case, install <code><a href="https://developers.google.com/protocol-buffers/" target="_blank">protobuf</a></code> dependency required for the python scripts. Use <a href="https://pip.pypa.io/en/stable/" target="_blank">pip</a>:</p>
-<pre class="prettyprint">
+
+
+
+			<div>
+				<p class="substep">
+					Just in case, install
+					<code>
+						<a href="https://developers.google.com/protocol-buffers/" target="_blank">protobuf</a>
+					</code>
+					dependency required for the python scripts. Use <a href="https://pip.pypa.io/en/stable/" target="_blank">pip</a>:
+				</p>
+				<pre class="prettyprint">
 pip install protobuf
 </pre>
-           </div>
+			</div>
 		</section>
 
 		<section>
@@ -328,10 +342,10 @@ make runtest</pre>
 [  PASSED  ] 824 tests.
 </pre>
 			</div>
-            
-            
-            
-                 
+
+
+
+
 		</section>
 
 
@@ -356,18 +370,24 @@ scripts/download_model_binary.py models/bvlc_googlenet</pre>
 			</div>
 
 			<div class="substep">
-                <p>Finally, get the <a href="https://github.com/google/deepdream">Neural Network art</a> script (plus a couple of sample images) and play with it.</p>
+				<p>
+					Finally, get the <a href="https://github.com/google/deepdream">Neural Network art</a> script (plus a couple of
+					sample images) and play with it.
+				</p>
 				<pre class="prettyprint">
 curl -o dream.ipynb "https://raw.githubusercontent.com/google/deepdream/master/dream.ipynb"
 curl -o sky1024px.jpg "https://raw.githubusercontent.com/google/deepdream/master/sky1024px.jpg"
 curl -o flowers.jpg "https://raw.githubusercontent.com/google/deepdream/master/flowers.jpg"
 export PYTHONPATH=$HOME/caffe/python:$PYTHONPATH
 ipython notebook dream.ipynb</pre>
-                
-                <p>It opens your browser and navigates to <code>http://localhost:8888/notebooks/dream.ipynb</code> where you should be able to run the script cell by cell to make your experiments in deepdreams.
-                </p>
-                
-                Thanks!
+
+				<p>
+					It opens your browser and navigates to
+					<code>http://localhost:8888/notebooks/dream.ipynb</code>
+					where you should be able to run the script cell by cell to make your experiments in deepdreams.
+				</p>
+
+				Thanks!
 			</div>
 
 
@@ -379,8 +399,8 @@ ipython notebook dream.ipynb</pre>
 				scene <small>In which the reader meets Lucy in the sky with diamonds. Unfinished.</small>
 			</h2>
 
-			<ul class="row">
-<!--
+			<ul class="row gallery">
+				<!--
 				<li class="col-md-6   col-sm-12  "><img class="cld-responsive" style="width: 100%"
 					data-src="http://res.cloudinary.com/zaborskiy/image/upload/w_auto,dpr_auto/v1439690033/download_8_hhiw0i.jpg" />
 				</li>
@@ -389,40 +409,56 @@ ipython notebook dream.ipynb</pre>
 				</li>
                 
 -->
-                
-                
-                <li class="col-md-6   col-sm-12 "><img class="cld-responsive" style="width: 100%"
-					data-src="http://res.cloudinary.com/zaborskiy/image/upload/w_auto,dpr_auto/v1439796094/download_5_bjvjeg.png" />
-				</li>
-                
-                <li class="col-md-6   col-sm-12 "><img class="cld-responsive" style="width: 100%"
-					data-src="http://res.cloudinary.com/zaborskiy/image/upload/w_auto,dpr_auto/v1439795993/img-p-5_jrmnt4.jpg" />
-				</li>
-                
-                <li class="col-md-6   col-sm-12 "><img class="cld-responsive" style="width: 100%"
+
+
+				<li class="col-md-6   col-sm-12 "><img class="cld-responsive" style="width: 100%"
+					data-src="http://res.cloudinary.com/zaborskiy/image/upload/w_auto,dpr_auto/v1439796094/download_5_bjvjeg.png" /></li>
+
+				<li class="col-md-6   col-sm-12 "><img class="cld-responsive" style="width: 100%"
+					data-src="http://res.cloudinary.com/zaborskiy/image/upload/w_auto,dpr_auto/v1439795993/img-p-5_jrmnt4.jpg" /></li>
+
+				<li class="col-md-6   col-sm-12 "><img class="cld-responsive" style="width: 100%"
 					data-src="http://res.cloudinary.com/zaborskiy/image/upload/w_auto,dpr_auto/v1439795785/download_13_dswfjm.jpg" />
 				</li>
-                
-                <li class="col-md-6   col-sm-12 "><img class="cld-responsive" style="width: 100%"
+
+				<li class="col-md-6   col-sm-12 "><img class="cld-responsive" style="width: 100%"
 					data-src="http://res.cloudinary.com/zaborskiy/image/upload/w_auto,dpr_auto/v1439800675/download_19_u6kfvg.png" />
 				</li>
-                
-                
-                
-                
+
+
+
+
 			</ul>
 
 
 
 		</section>
-    
-    <section>
-    
-    <div class="footer bg2" ng-include="'/assets/partials/social2.html'"></div>
-			<div class="footer bg2" ng-include="'/assets/partials/branding_footer.html'"></div>
-    </section>
 
+
+		<section>
+			<div id="disqus_thread"></div>
+			<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'zaborskiy';
+    
+    
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();</script>
+		</section>
 	</div>
+
+
+
+	<section>
+
+		<div class="footer bg2" ng-include="'/assets/partials/social2.html'"></div>
+		<div class="footer bg2" ng-include="'/assets/partials/branding_footer.html'"></div>
+	</section>
+
+
 
 
 

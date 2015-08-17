@@ -1,5 +1,5 @@
+// out: zaborskiy.css, compress: true, strictMath: true
 @import "const.less";
- 
 
  *{
      .roboto;
@@ -34,6 +34,7 @@ h1{
     text-transform: uppercase;
     font-weight: 100;
     letter-spacing: .1em;
+    
 }
 
 h3,h4,h5{
@@ -52,7 +53,20 @@ h3{
 h2{
     margin: 0;
     padding: @inter-panel-padding;
+    small{
+        display: block;
+    }
     .nice-caption;
+}
+
+section{
+
+    margin-bottom: @inter-panel-padding*2;
+    padding-top: @inter-panel-padding*3;
+}
+
+pre{
+    font-family: monospace!important;padding: @inter-panel-padding!important;
 }
 
  
