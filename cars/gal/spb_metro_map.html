@@ -30,10 +30,10 @@
 <link rel='stylesheet'
 	href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700&subset=latin,cyrillic-ext,cyrillic' type='text/css'>
 
-
+    
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="../assets/js/dist/jquery.cloudinary.js"></script>
 <script src="/assets/js/dist/angular.min.js"></script>
-
-
 
 <script type="application/ld+json">
 {
@@ -54,7 +54,7 @@
 	<div id="fb-root"></div>
 	<script>
 	var zaborskiy = angular.module('zaborskiy', []);
-	
+ 
 	
 	(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -76,12 +76,17 @@
 				<meta itemprop="brand" content="Artem Zaborskiy" />
 				<meta itemprop="name" content="Альтернативная карта метро Петербурга" />
 
-				<img itemprop="image" src="http://res.cloudinary.com/zaborskiy/image/upload/c_scale,w_1200/spb_metro_map.png"
-					width="100%" /> <img
-					src="http://res.cloudinary.com/zaborskiy/image/upload/c_thumb,w_1200/spb_metro_map_fragment.png" width="100%" />
+				<meta itemprop="image" content="http://res.cloudinary.com/zaborskiy/image/upload/c_thumb,w_1200/spb_metro_map.png"
+					width="100%" />
+                
+<!--                <img src="http://res.cloudinary.com/zaborskiy/image/upload/c_thumb,w_1200/spb_metro_map_fragment.png" width="100%" />-->
 
-
-
+                <img class="cld-responsive" style="width: 100%"
+                                    data-src="http://res.cloudinary.com/zaborskiy/image/upload/w_auto,dpr_auto/spb_metro_map.png" />
+    
+                <img class="cld-responsive" 
+                    style="width: 100%" data-src="http://res.cloudinary.com/zaborskiy/image/upload/w_auto,dpr_auto/w_80,g_south_east,x_5,y_5,l_watermark/spb_metro_map_fragment.png" />
+ 
 				<meta itemprop="description"
 					content="Printed on 185gsm semi gloss poster paper. Custom cut to three maximum sizes – A2, A1 & A0" />
 
@@ -113,7 +118,7 @@
 		</div>
 
 	</div>
-
+    
 
 	<script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -125,7 +130,9 @@
   ga('send', 'pageview');
 
 </script>
-
+<script>
+        $.cloudinary.responsive();
+    </script>
 
 
 
