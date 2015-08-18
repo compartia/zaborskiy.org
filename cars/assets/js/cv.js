@@ -67,7 +67,7 @@ var artem_zaborskiy_cv = {
 						"Using Spring Social, implemented Login with Twitter and Facebook",
 						"Has designed REST API for posting and fetching events and courses data" ],
 
-				technologies : [ "Spring Framework", "Spring Security", "Hibernate", "ehCache", "AngularJS",
+				technologies : [ "Spring Framework", "Spring Security", "Hibernate", "ehCache", "AngularJS","LESS",
 						"Spring Boot", "Liquibase", "Dozer mapper", "JUnit", "DBUnit", "Mockito" ],
 				tools : [ "Eclipse", "Jira", "Jenkins", "Sonar", "git", "Confluence", "Maven" ],
 				paradigms : [ "REST", "Open Source", "AOP", "OOP" ],
