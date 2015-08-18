@@ -1,4 +1,6 @@
- @media (max-width: 350px) {
+@import "const.less";
+
+@media (max-width: 350px) {
      
      .cv{
         .logo-wrap{
@@ -13,6 +15,25 @@
             font-size: 16pt;
             
         }
+    }
+     
+     code{
+         max-width: 100%;
+         display: inline-block;
+         overflow: hidden;
+         margin: 0;
+         padding: 0;line-height: 1; 
+         white-space: normal;
+    }
+     
+     pre{
+         font-size: 60%;
+         
+     }
+    
+    .tutorial h2 small{
+        padding-left: @content-padding;
+        padding-right: @content-padding   
     }
 }
 
@@ -33,4 +54,6 @@
     label{
          text-align: right;
     }
+    
+    
 }

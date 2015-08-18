@@ -7,8 +7,9 @@ lessc -verbose -x --strict-imports less/artem-patch.less css/cars.css
 
 
 cd ..
-cd neural
-git fetch
-cd ..
+#cd neural
+#git fetch
+#cd ..
+git submodule foreach git pull origin master
 cp neural/* gal/
 
