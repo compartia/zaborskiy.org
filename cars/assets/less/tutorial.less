@@ -90,7 +90,9 @@ section{
     margin-left:  @numeration-size - @content-padding;
     margin-bottom: @padding-base;
 }
-
+.reset-chapter {
+	counter-reset: chapter;
+}
 .tutorial{
     
     background: @palette-color-1;
@@ -133,6 +135,52 @@ section{
         }  
     }
     
+    
+    ul.heavy{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+   
+    ul.heavy li{
+        margin: 0;
+        padding: 0;
+        
+        padding-top: 5* @padding-base;
+        padding-top: 3* @padding-base;
+        
+        
+        
+         h2 {
+             
+             &:before{
+                float: left;
+                margin-top: -0.33em;
+                line-height: 1;
+                text-align: right;
+
+                font-size: @numeration-size * 1.25;
+               // border: @border-base solid lightgrey;
+                width: @numeration-size;
+                height: @numeration-size;
+                overflow: hidden;
+                font-weight: 900;
+                padding-left: @numeration-size/1.8;            
+
+                margin-right: @padding-base;
+                margin-bottom: @padding-base;
+                display: inline-block;
+
+                content: counter(chapter);
+                background-color: @palette-color-5;
+                color: @palette-color-1;
+            }
+
+
+         }
+    }
+    
+    
     h2 {
         padding-top: 6* @padding-base!important;
         margin-left: -@content-padding;
@@ -153,6 +201,8 @@ section{
             text-transform: none;
             letter-spacing: 0;
         }  
+        
+      //deprecated  
         &:before{
             float: left;
             margin-top: -0.33em;
