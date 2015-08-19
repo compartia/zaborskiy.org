@@ -72,30 +72,33 @@
 
 
 
-	<div class="container tutorial" ng-controller="mainCtrl">
-		<h1 class="bg2">
-			How to Fight a Robot <small>a Scientific Approach <small>by <a href="http://www.zaborskiy.org">Artem
-						Zaborskiy</a></small>
-			</small>
-		</h1>
+	<main class="container tutorial" ng-controller="mainCtrl">
+	<article>
+		<header>
+			<h1 class="bg2">
+				How to Fight a Robot <small>a Scientific Approach <small>by <a href="http://www.zaborskiy.org">Artem
+							Zaborskiy</a></small>
+				</small>
+			</h1>
 
-		<div class="row">
-			<div class="col-sm-12 col-md-7">
+			<div class="row">
+				<div class="col-sm-12 col-md-7">
 
-				<p class="lead">These days either you kill a robot or it kills you. This doc. will make your life longer and
-					happier.</p>
-				<hr>
+					<p class="lead">These days either you kill a robot or it kills you. This doc. will make your life longer and
+						happier.</p>
+					<hr>
 
-				<p>As a software engineer who deals with machine learning, I can give you few advices. The first mean is surely
-					a camouflage. To survive, you must not look like a human.</p>
-			</div>
+					<p>As a software engineer who deals with machine learning, I can give you few advices. The first mean is surely
+						a camouflage. To survive, you must not look like a human.</p>
+				</div>
 
-			<div class="col-sm-12 col-md-5 nopadding">
-				<div class="embed-responsive embed-responsive-4by3">
-					<iframe src="https://www.youtube.com/embed/NwrjAa1SgjQ" frameborder="0" allowfullscreen></iframe>
+				<div class="col-sm-12 col-md-5 nopadding">
+					<div class="embed-responsive embed-responsive-4by3">
+						<iframe src="https://www.youtube.com/embed/NwrjAa1SgjQ" frameborder="0" allowfullscreen></iframe>
+					</div>
 				</div>
 			</div>
-		</div>
+		</header>
 
 		<section>
 			<ul class="heavy">
@@ -128,8 +131,8 @@
 					<p>Try a wingsuit. Long skirt is also an option.</p>
 
 
-					<div class="sidenote hidden-xs">REMEMBER: A robot is going to hit you either in the head, or in a leg to
-						immobilize you. So..</div></li>
+					<aside class="sidenote hidden-xs">REMEMBER: A robot is going to hit you either in the head, or in a leg to
+						immobilize you. So..</aside></li>
 				<li><h2>
 						No head or two <small>Pretend you're headless</small>
 					</h2>
@@ -229,13 +232,13 @@
 
 		<section>Stay well.</section>
 
+	</article>
 
 
 
-
-		<section>
-			<div id="disqus_thread"></div>
-			<script type="text/javascript">
+	<section>
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = 'zaborskiy';
     var disqus_identifier = '/fight_robot';
@@ -246,15 +249,16 @@
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();</script>
-		</section>
-	</div>
+	</section>
+
+	</main>
 
 
 
-	<section>
+	<footer>
 		<div class="footer bg2" ng-include="'/assets/partials/social2.html'"></div>
 		<div class="footer bg2" ng-include="'/assets/partials/branding_footer.html'"></div>
-	</section>
+	</footer>
 
 
 
