@@ -31,11 +31,11 @@
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700&subset=latin,cyrillic-ext,cyrillic'
 	rel='stylesheet' type='text/css'>
 
- <!--  <link rel="stylesheet/less" type="text/css" href="assets/css/zaborskiy.less" />
-<script src="assets/js/vendor/less.min.js"></script>   -->
+<!-- <link rel="stylesheet/less" type="text/css" href="/assets/less/zaborskiy.less" />
+<script src="/assets/js/vendor/less.min.js"></script>
+ -->
 
-
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script> 
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="/assets/js/dist/angular.min.js"></script>
 
 
@@ -162,7 +162,7 @@ $(function() {
 <!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-    
+
 <meta name="pocket-site-verification" content="321835abaa995c70b46a5473ae885d" />
 </head>
 
@@ -184,57 +184,59 @@ $(function() {
 
 
 			<div class="row row-fixed-height">
-			
-				<div class="height2 col-sm-8 col-xs-12 logo col-sm-push-4 banner">
-					<div class="logo-wrap">
-						<span class="az-az-logo"></span>
-					</div>
-
-					<div ng-cloak class="row nopadding float-caption section-links bg2t">
-						<div class="{{topMenuStyle}}"></div>
-						<a target="_self" class="{{topMenuStyle}} bg3" href="#apps">apps</a> 
-                        <a target="_self" class="{{topMenuStyle}} bg5" href="#tools">pages</a> 
-                        <a target="_self" class="{{topMenuStyle}} bg6t" href="#music">music</a> 
-                        <a target="_self" class="{{topMenuStyle}} bg1t" href="#texts">texts</a> 
-                        <a target="_self" class="{{topMenuStyle}} bg4" href="#arts">arts</a>
-					</div>
-					
-				</div>
-
-
-				<div class="height1 col-sm-4 col-xs-12 col-sm-pull-8 gridbox bg3 ">
-
-
-					<div class="about" itemscope itemtype="http://schema.org/Person">
-                        <div class="intro">
-                            <link itemprop="url" href="http://www.zaborskiy.org">
-                            Hi there, I am <br> <span class="lead" itemprop="name" style="line-height:1">Artem Zaborskiy</span>, <br>a male <span
-                                itemprop="jobTitle">Java developer</span>. <br>This is my portfolio. Find me at the networks listed below or
-                            via&nbsp;<a href="mailto:compartia@gmail.com">email</a>.
-                             
-                            Download my <a href="/gal/artem_zaborskiy_resume.html">CV here</a>
-                        </div>
-						<div class="desciption-wrap">
-							<div class="social">
-								<a itemprop="sameAs" target="_blank" href="https://www.facebook.com/zaborskiy"><span class="az-social-facebook"></span></a> 
-								<a itemprop="sameAs" target="_blank" href="https://th.linkedin.com/in/zaborskiy"><span class="az-social-linkedin"></span></a> 
-								<a itemprop="sameAs" target="_blank" href="https://www.behance.net/zaborskiy"><span class="az-social-behance"></span></a> 
-								<a itemprop="sameAs" target="_blank" href="https://plus.google.com/+ArtemZaborskiy"><span class="az-social-google-plus"></span></a> 
-								<a itemprop="sameAs" target="_blank" href="https://play.google.com/store/apps/developer?id=AZZZ"><span class="az-social-android"></span></a>
-								<a itemprop="sameAs" target="_blank" href="https://github.com/compartia"><span class="az-social-github"></span></a>
-								<a itemprop="sameAs" target="_blank" href="https://instagram.com/compartia/"><span class="az-social-instagram"></span></a>
-							</div>
+				<header>
+					<div class="height2 col-sm-8 col-xs-12 logo col-sm-push-4 banner">
+						<div class="logo-wrap">
+							<span class="az-az-logo"></span>
 						</div>
 
+						<nav ng-cloak class="row nopadding float-caption section-links bg2t">
+							<div class="{{topMenuStyle}}"></div>
+							<a target="_self" class="{{topMenuStyle}} bg3" href="#apps">apps</a> <a target="_self"
+								class="{{topMenuStyle}} bg5" href="#tools">pages</a> <a target="_self" class="{{topMenuStyle}} bg6t"
+								href="#music">music</a> <a target="_self" class="{{topMenuStyle}} bg1t" href="#texts">texts</a> <a
+								target="_self" class="{{topMenuStyle}} bg4" href="#arts">arts</a>
+						</nav>
+
 					</div>
 
 
+					<div class="height1 col-sm-4 col-xs-12 col-sm-pull-8 gridbox bg3 ">
 
-				</div>
 
-				<div class="height1 col-sm-4 col-xs-12 col-sm-pull-8 bg5 gridbox">
-					<a id="tools"></a>
-					<h2>tools</h2>
+						<section class="about" itemscope itemtype="http://schema.org/Person">
+							<div class="intro">
+								<link itemprop="url" href="http://www.zaborskiy.org">
+								Hi there, I am
+								<h1 class="lead" itemprop="name" style="line-height: 1">Artem Zaborskiy</h1>
+								a male <span itemprop="jobTitle">Java developer</span>. <br>This is my portfolio. Find me at the networks
+								listed below or via&nbsp;<a href="mailto:compartia@gmail.com">email</a>. Download my <a
+									href="/gal/artem_zaborskiy_resume.html">CV here</a>
+							</div>
+							<div class="desciption-wrap">
+								<div class="social">
+									<a itemprop="sameAs" target="_blank" href="https://www.facebook.com/zaborskiy"><span
+										class="az-social-facebook"></span></a> <a itemprop="sameAs" target="_blank"
+										href="https://th.linkedin.com/in/zaborskiy"><span class="az-social-linkedin"></span></a> <a itemprop="sameAs"
+										target="_blank" href="https://www.behance.net/zaborskiy"><span class="az-social-behance"></span></a> <a
+										itemprop="sameAs" target="_blank" href="https://plus.google.com/+ArtemZaborskiy"><span
+										class="az-social-google-plus"></span></a> <a itemprop="sameAs" target="_blank"
+										href="https://play.google.com/store/apps/developer?id=AZZZ"><span class="az-social-android"></span></a> <a
+										itemprop="sameAs" target="_blank" href="https://github.com/compartia"><span class="az-social-github"></span></a>
+									<a itemprop="sameAs" target="_blank" href="https://instagram.com/compartia/"><span
+										class="az-social-instagram"></span></a>
+								</div>
+							</div>
+
+						</section>
+
+
+
+					</div>
+				</header>
+
+				<section class="height1 col-sm-4 col-xs-12 col-sm-pull-8 bg5 gridbox">
+					<h2 id=tools class="panel-caption">tools</h2>
 					<div class="linkset">
 						<ul>
 							<li><a target="_blank" href="http://tools.zaborskiy.org/mortgage.html">
@@ -245,7 +247,7 @@ $(function() {
 							</a></li>
 						</ul>
 					</div>
-				</div>
+				</section>
 
 
 			</div>
@@ -258,7 +260,7 @@ $(function() {
 
 
 
-				<div class="col-xs-12 col-sm-12 col-md-8 height1 gridbox appsblock">
+				<section class="col-xs-12 col-sm-12 col-md-8 height1 gridbox appsblock">
 					<a id="apps"></a>
 					<h2 class="float-caption bg3d">android apps</h2>
 					<div class="row">
@@ -283,13 +285,13 @@ $(function() {
 							</div>
 						</div>
 					</div>
-				</div>
+				</section>
 
 
 
 
 
-				<div class="col-xs-12 col-sm-6 col-md-4 bg6 gridbox height1">
+				<section class="col-xs-12 col-sm-6 col-md-4 bg6 gridbox height1">
 					<a id="music"></a>
 					<h2>music</h2>
 					<div class="cell-content ">
@@ -316,12 +318,12 @@ $(function() {
 							<a target="_bandcamp" href="http://azzz.bandcamp.com/album/best-of">Best of by Artem Zaborskiy</a>
 						</iframe>
 					</div>
-				</div>
+				</section>
 
 
 
 
-				<div class="col-xs-12 col-sm-6 col-md-12 bg1 gridbox">
+				<section class="col-xs-12 col-sm-6 col-md-12 bg1 gridbox">
 
 
 					<a name="texts"></a>
@@ -330,6 +332,12 @@ $(function() {
 
 					<div class="linkset row">
 						<ul>
+							<li class="  col-md-4 nopadding"><a href="gal/fight_robot.html">
+									<h3>How to Fight a Robot</h3> <small>s a software engineer who deals with machine learning, I can give
+										you few advices. The first mean is surely a camouflage. To survive, you must not look like a human....</small>
+							</a></li>
+
+
 							<li class="  col-md-4 nopadding"><a target="_blank"
 								href="http://blog.zaborskiy.org/2013/12/Thailand-Samui.html">
 									<h3>Таиланд. Самуй. FAQ</h3> <small>Я провел в Королевстве Таиланд больше полугода. Время от времени
@@ -353,23 +361,25 @@ $(function() {
 									<h3>Изоморфеус</h3> <small>Изоморфеуса считали психом. Но бывает, некоторых психов признают гениями
 										(посмертно, естественно). Само имя Изоморфеуса дает нам понять, чт...</small>
 							</a></li>
-							
+
 							<li class="  col-md-4 nopadding"><a href="gal/deepdream.html">
-									<h3>GoogLeNet DeepDreams <span style="white-space: nowrap;">@ OS X. </span>Step by step guide</h3> <small>You're reading this because you’ve 
-									seen the original “inceptionism” gallery of hallucinating neural networks. This tutorial...</small>
+									<h3>
+										GoogLeNet DeepDreams <span style="white-space: nowrap;">@ OS X. </span>Step by step guide
+									</h3> <small>You're reading this because you’ve seen the original “inceptionism” gallery of hallucinating
+										neural networks. This tutorial...</small>
 							</a></li>
 						</ul>
 					</div>
-				</div>
+				</section>
 
 
 			</div>
 
 
 
-			<div class="row" ng-controller="galleryCtrl">
+			<section class="row" ng-controller="galleryCtrl">
 				<div class="col-xs-12 nopadding">
-					 
+
 					<h2 id="arts" class="bg4">my artworks</h2>
 
 
@@ -387,13 +397,13 @@ $(function() {
 
 					</div>
 				</div>
-			</div>
+			</section>
 			<!--/ gallery row-->
 
-
-			<div class="footer bg2" ng-include="'/assets/partials/social2.html'"></div>
-			<div class="footer bg2" ng-include="'/assets/partials/branding_footer.html'"></div>
-
+			<footer>
+				<div class="footer bg2" ng-include="'/assets/partials/social2.html'"></div>
+				<div class="footer bg2" ng-include="'/assets/partials/branding_footer.html'"></div>
+			</footer>
 
 
 		</div>
@@ -409,8 +419,10 @@ $(function() {
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+if (document.location.hostname != "localhost"){
   ga('create', 'UA-64311909-1', 'auto');
   ga('send', 'pageview');
+}
 
 </script>
 
