@@ -28,9 +28,9 @@
 <link rel="stylesheet" href="/assets/logo/styles.css" /> -->
 <!-- <link rel="stylesheet" href="assets/css/zaborskiy.css" />  -->
 
-<link rel="stylesheet" href="/assets/js/dist/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="/assets/js/dist/bootstrap.min.css"> -->
 <link rel="stylesheet" href="/assets/logo/styles.css" />
-<link rel="stylesheet" href="/assets/css/zaborskiy.css" /> 
+<link rel="stylesheet" href="/assets/css/zaborskiy.org.css" />
 
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700&subset=latin,cyrillic-ext,cyrillic'
 	rel='stylesheet' type='text/css'>
@@ -43,6 +43,8 @@
 <script src="/assets/js/dist/angular.min.js"></script>
 
 
+<script src="/assets/js/zaborskiy.js"></script>
+
 <script type="application/ld+json">
 {
   "@context" : "http://schema.org",
@@ -54,32 +56,36 @@
 
 <script>
     
-
+/*
 var zaborskiy = angular.module('zaborskiy', []);
 
-zaborskiy.controller('mainCtrl', function ($scope) {
+
+
+*/
+
+zaborskiy.controller('navController', function ($scope) {
     $scope.topMenuStyle="col-md-2 col-xs-4 col-sm-4 col-lg-2";
+    //$scope.textLinkStyle="col-xs-12 col-sm-6 col-md-6 col-lg-4";
 });
-
-
 
 zaborskiy.controller('galleryCtrl', function ($scope) {
   $scope.illustrations = [
-  	{ name: 'Tautology: repeating patterns', url: 'tautology/PA090272.png', bg:"bg2t", description:"photography", link:"/gal/tautology.html", target:"_self"},
-  	{ name: 'Input/Output', url: 'IO/PA131458.png', bg:"bg1t", description:"photography", link:"/gal/input_output.html", target:"_self"},
-  	{ name: "When it's cold, nipples hard", url: 'rocks/PA172011.png', bg:"bg2t", description:"photography", link:"/gal/rocks.html", target:"_self"},
-    { name: 'Lone Tourist', url: 'tourist_ik5icr.jpeg', description:"ink on paper, 30 x 40 cm", bg:"bg2t", target:"_behance", link:"https://www.behance.net/gallery/24130253/Tour"},
-    { name: 'Africa', url: 'africa.jpeg', description:"mixed media", bg:"bg3t", link:"https://www.behance.net/gallery/27546513/africa", target:"_behance"},
+  	{ name: 'Tautology: repeating patterns', url: 'c_fill,dpr_auto,w_400/tautology/PA090272.png', bg:"bg2t", description:"photography", link:"/gal/tautology.html", target:"_self"},
+  	{ name: 'Input/Output', url: 'c_fill,dpr_auto,w_400/IO/PA131458.jpg', bg:"bg1t", description:"photography", link:"/gal/input_output.html", target:"_self"},
+  	{ name: "When it's cold, nipples hard", url: 'c_fill,dpr_auto,w_400/rocks/PA172011.jpg', bg:"bg2t", description:"photography", link:"/gal/rocks.html", target:"_self"},
+    
+    { name: 'Lone Tourist', url: '/c_fill,dpr_auto,w_400/tourist_ik5icr.jpeg', description:"ink on paper, 30 x 40 cm", bg:"bg2t", target:"_behance", link:"https://www.behance.net/gallery/24130253/Tour"},
+   // { name: 'Africa', url: '/c_fill,dpr_auto,w_400/africa.jpeg', description:"mixed media", bg:"bg3t", link:"https://www.behance.net/gallery/27546513/africa", target:"_behance"},
     { name: 'Валим', url: 'rocket.jpeg', description:"acylic on canvas, 30 x 30 cm", bg:"bg4t", target:"_self", link:"/"},
     { name: 'Bostondynamics II', url: 'boston_dynamics.jpeg', bg:"bg6t", description:"mixed media", target:"_behance", link:"https://www.behance.net/gallery/24299931/Bostondynamics-2"},
     { name: 'Secret Lab', url: 'secret-lab-web-3000.jpeg', bg:"bg4", description:"mixed media", target:"_self", link:"/gal/secret_lab.html"},
     { name: 'Careful With That Axe, Eugene [Woodcut]', url: 'woodcut-web-3000.jpeg', bg:"bg2t", description:"mixed media", target:"_behance", link:"https://www.behance.net/gallery/24786851/Careful-With-That-Axe-Eugene"},
     { name: 'Альтернативная карта метро спб', url: 'spb_metro_map.png', bg:"bg1t", description:"vector graphics", link:"/gal/spb_metro_map.html", target:"_self"},
-    { name: 'The Forest', url: 'v1438601695/photos/20000101_052413.jpg', bg:"bg1t", description:"photography", link:"/gal/forest_photos.html", target:"_self"},
+    { name: 'The Forest', url: '/c_fill,dpr_auto,w_400/photos/20000101_052413.jpg', bg:"bg1t", description:"photography", link:"/gal/forest_photos.html", target:"_self"},
     { name: 'Pesonal Branding', url: 'v1438507991/artworks/az-branding-middle.png', bg:"bg3", description:"logo, design, branding", link:"/gal/az_branding.html", target:"_self"}
   ];
     
-    $scope.illustrationsUrl = "http://res.cloudinary.com/zaborskiy/image/upload/t_dimmed_thumb400/";
+    $scope.illustrationsUrl = "http://res.cloudinary.com/zaborskiy/image/upload/t_dimmed_thumb400/dpr_auto/";
 });
 
 zaborskiy.controller('appsCtrl', function ($scope) {
@@ -186,13 +192,13 @@ $(function() {
 }(document, 'script', 'facebook-jssdk'));</script>
 
 
-	<div class="container branding " ng-controller="mainCtrl">
-		<div class="stripes">
+	<div class="container" ng-controller="mainCtrl">
+		<div>
 
 
-			<div class="row row-fixed-height">
+			<div class="row row-fixed-height banner">
 				<header>
-					<div class="height2 col-sm-8 col-xs-12 logo col-sm-push-4 banner">
+					<div class="height2 col-sm-12 col-md-8 logo " ng-controller="navController">
 						<div class="logo-wrap">
 							<span class="az-az-logo"></span>
 						</div>
@@ -208,202 +214,188 @@ $(function() {
 					</div>
 
 
-					<div class="height1 col-sm-4 col-xs-12 col-sm-pull-8 gridbox bg3 ">
+					<div class="height1 col-sm-12 col-md-4 gridbox  bg2t ">
 
-
+						<div ng-include="'/assets/partials/social_icons.html'"></div>
 						<section class="about" itemscope itemtype="http://schema.org/Person">
+
+
 							<div class="intro">
+
+
 								<link itemprop="url" href="http://www.zaborskiy.org">
-								Hi there, I am
+								Hi there, I'm
+
 								<h1 class="lead" itemprop="name" style="line-height: 1">Artem Zaborskiy</h1>
-								a male <span itemprop="jobTitle">Java developer</span>. <br>This is my portfolio. Find me at the networks
-								listed below or via&nbsp;<a href="mailto:compartia@gmail.com">email</a>. Download my <a
-									href="/gal/artem_zaborskiy_resume.html">CV here</a>
-							</div>
-							<div class="desciption-wrap">
-								<div class="social">
-									<a itemprop="sameAs" target="_blank" href="https://www.facebook.com/zaborskiy"><span
-										class="az-social-facebook"></span></a> <a itemprop="sameAs" target="_blank"
-										href="https://th.linkedin.com/in/zaborskiy"><span class="az-social-linkedin"></span></a> <a itemprop="sameAs"
-										target="_blank" href="https://www.behance.net/zaborskiy"><span class="az-social-behance"></span></a> <a
-										itemprop="sameAs" target="_blank" href="https://plus.google.com/+ArtemZaborskiy"><span
-										class="az-social-google-plus"></span></a> <a itemprop="sameAs" target="_blank"
-										href="https://play.google.com/store/apps/developer?id=AZZZ"><span class="az-social-android"></span></a> <a
-										itemprop="sameAs" target="_blank" href="https://github.com/compartia"><span class="az-social-github"></span></a>
-									<a itemprop="sameAs" target="_blank" href="https://instagram.com/compartia/"><span
-										class="az-social-instagram"></span></a>
-								</div>
+								a male <span itemprop="jobTitle">Java developer</span>. <br>This is my portfolio site. <br> Download
+								my <a href="/gal/artem_zaborskiy_resume.html">CV here</a> <br> <br> Find me at the networks listed
+								above or via&nbsp;<a href="mailto:compartia@gmail.com">email</a>.
+
+
 							</div>
 
 						</section>
 
-
-
 					</div>
 				</header>
 
-				<section class="height1 col-sm-4 col-xs-12 col-sm-pull-8 bg5 gridbox">
-					<h2 id=tools class="panel-caption">tools</h2>
-					<div class="linkset">
-						<ul>
-							<li><a target="_blank" href="http://tools.zaborskiy.org/mortgage.html">
-									<h3>калькулятор расходов на жилье</h3> <small>покупать квартиру в ипотеку или снимать?</small>
-							</a></li>
-							<li><a target="_blank" href="http://tools.zaborskiy.org/why_you_should_not_buy_a_car.html">
-									<h3>калькулятор расходов на машину</h3> <small>сколько стоит содержать автомобиль?</small>
-							</a></li>
-						</ul>
-					</div>
-				</section>
+
 
 
 			</div>
 
+			<div class="linkset">
+				<ul id="texts-links" ng-cloak ng-controller="appsCtrl">
+					<li class="bg5 gridbox">
 
 
-
-
-			<div class="row row-fixed-height">
-
-
-
-				<section class="col-xs-12 col-sm-12 col-md-8 height1 gridbox appsblock">
-					<a id="apps"></a>
-					<h2 class="float-caption bg3d">android apps</h2>
-					<div class="row">
-						<div ng-controller="appsCtrl">
-
-							<div class="col-xs-12 col-sm-6 col-md-6 bg3 nopadding" ng-repeat="app in apps">
-
-								<a target="_blank" href="{{app.url}}" itemprop="url">
-
-									<div class="gallery-item" style="background-image: url('{{app.bgUrl}}') !important;">
-
-
-										<div class="desciption-wrap bg3t">
-											<div class="appIcon" style="background-image: url('{{app.iconUrl}}')">
-												<h3 itemprop="name">{{app.name}}</h3>
-												<small>{{app.text}}</small>
-											</div>
-										</div>
-									</div>
-
-								</a>
-							</div>
+						<h2 id=tools class="panel-caption">tools</h2>
+						<div class="linkset">
+							<ul>
+								<li><a target="_blank" href="http://tools.zaborskiy.org/mortgage.html">
+										<h3>калькулятор расходов на жилье</h3> <small>покупать квартиру в ипотеку или снимать?</small>
+								</a></li>
+								<li><a target="_blank" href="http://tools.zaborskiy.org/why_you_should_not_buy_a_car.html">
+										<h3>калькулятор расходов на машину</h3> <small>сколько стоит содержать автомобиль?</small>
+								</a></li>
+							</ul>
 						</div>
-					</div>
-				</section>
+
+
+					</li>
+
+
+					<li class="bg3">
+
+						<h2 id="apps" class="panel-caption">Android apps</h2>
+						<div class="linkset">
+							<ul>
+								<li ng-repeat="app in apps"><a target="_blank" href="{{app.url}}" itemprop="url">
+
+										<div class="appIcon" style="background-image: url('{{app.iconUrl}}')">
+											<h3 itemprop="name">{{app.name}}</h3>
+											<small>{{app.text}}</small>
+										</div>
+
+
+								</a></li>
+
+							</ul>
+						</div>
+
+
+					</li>
 
 
 
+					<li class="bg6 gridbox">
+
+						<h2 id="music">music</h2>
+						<div class="cell-content">
+							Here are few sample compositions I made. Feel free to discover more at <a class="nopadding"
+								href="https://azzz.bandcamp.com/">bandcamp</a>.
+
+							<iframe style="border: 0; width: 100%; height: 41px; display: block"
+								src="https://bandcamp.com/EmbeddedPlayer/album=3213495709/size=small/bgcol=000000/linkcol=cf4359/artwork=none/track=651293571/transparent=true/"
+								seamless>
+								<a target="_bandcamp" href="http://azzz.bandcamp.com/album/best-of">Best of by Artem Zaborskiy</a>
+							</iframe>
+							<iframe style="border: 0; width: 100%; height: 41px; display: block"
+								src="https://bandcamp.com/EmbeddedPlayer/album=3213495709/size=small/bgcol=000000/linkcol=cf4359/artwork=none/track=21335927/transparent=true/"
+								seamless>
+								<a target="_bandcamp" href="http://azzz.bandcamp.com/album/best-of">Best of by Artem Zaborskiy</a>
+							</iframe>
+							<iframe style="border: 0; width: 100%; height: 41px; display: block"
+								src="https://bandcamp.com/EmbeddedPlayer/album=3213495709/size=small/bgcol=000000/linkcol=cf4359/artwork=none/track=1855768607/transparent=true/"
+								seamless>
+								<a target="_bandcamp" href="http://azzz.bandcamp.com/album/best-of">Best of by Artem Zaborskiy</a>
+							</iframe>
+							<iframe style="border: 0; width: 100%; height: 42px; display: block"
+								src="https://bandcamp.com/EmbeddedPlayer/album=3213495709/size=small/bgcol=000000/linkcol=cf4359/artwork=none/track=1209727700/transparent=true/"
+								seamless>
+								<a target="_bandcamp" href="http://azzz.bandcamp.com/album/best-of">Best of by Artem Zaborskiy</a>
+							</iframe>
+						</div>
+					</li>
+
+					<h2 id="texts" class="bg2 flex-wide">texts</h2>
+
+					<a class="grid-box bg4t" bg-class="bg4t"
+						bg="http://res.cloudinary.com/zaborskiy/image/upload/w_480,dpr_2.0/v1439795785/download_13_dswfjm.jpg"
+						title="GoogLeNet DeepDreams @ OS X. Step by step guide" href="gal/deepdream.html">You're reading this because
+						you’ve seen the original “inceptionism” gallery of hallucinating neural networks. This tutorial...</a>
 
 
-				<section class="col-xs-12 col-sm-6 col-md-4 bg6 gridbox height1">
-					<a id="music"></a>
-					<h2>music</h2>
-					<div class="cell-content ">
-						Here are few sample compositions I made. Feel free to discover more at <a href="https://azzz.bandcamp.com/">bandcamp</a>.
 
-						<iframe style="border: 0; width: 100%; height: 41px; display: block"
-							src="https://bandcamp.com/EmbeddedPlayer/album=3213495709/size=small/bgcol=000000/linkcol=cf4359/artwork=none/track=651293571/transparent=true/"
-							seamless>
-							<a target="_bandcamp" href="http://azzz.bandcamp.com/album/best-of">Best of by Artem Zaborskiy</a>
-						</iframe>
-						<iframe style="border: 0; width: 100%; height: 41px; display: block"
-							src="https://bandcamp.com/EmbeddedPlayer/album=3213495709/size=small/bgcol=000000/linkcol=cf4359/artwork=none/track=21335927/transparent=true/"
-							seamless>
-							<a target="_bandcamp" href="http://azzz.bandcamp.com/album/best-of">Best of by Artem Zaborskiy</a>
-						</iframe>
-						<iframe style="border: 0; width: 100%; height: 41px; display: block"
-							src="https://bandcamp.com/EmbeddedPlayer/album=3213495709/size=small/bgcol=000000/linkcol=cf4359/artwork=none/track=1855768607/transparent=true/"
-							seamless>
-							<a target="_bandcamp" href="http://azzz.bandcamp.com/album/best-of">Best of by Artem Zaborskiy</a>
-						</iframe>
-						<iframe style="border: 0; width: 100%; height: 42px; display: block"
-							src="https://bandcamp.com/EmbeddedPlayer/album=3213495709/size=small/bgcol=000000/linkcol=cf4359/artwork=none/track=1209727700/transparent=true/"
-							seamless>
-							<a target="_bandcamp" href="http://azzz.bandcamp.com/album/best-of">Best of by Artem Zaborskiy</a>
-						</iframe>
-					</div>
-				</section>
+					<a class="grid-box bg3t" bg-class="bg2"
+						bg="http://3.bp.blogspot.com/-DelrrZwEXzw/UrMCZ1cPlMI/AAAAAAAARTc/JKK6WlZXMs0/s640/IMG_20130209_173724.jpg"
+						title="Таиланд. Самуй. FAQ" href="http://blog.zaborskiy.org/2013/12/Thailand-Samui.html" target="_blank">Я
+						провел в Королевстве Таиланд больше полугода. Время от времени встречаются люди, которые задают примерно
+						одинаковые вопросы об этой стране. Чтобы немного упростить себе жиз...</a>
+
+					<a class="grid-box bg5t" title="How to Fight a Robot" href="gal/fight_robot.html">as a software engineer who
+						deals with machine learning, I can give you few advices. The first mean is surely a camouflage. To survive, you
+						must not look like a human....</a>
+
+					<a class="grid-box bg1t" title="Характеристика" href="http://blog.zaborskiy.org/2013/11/blog-post.html"
+						target="_blank"> Артем Заборский обладает всеми необходимыми техническими навыками для выполнения своей (а
+						иногда и чужой) работы. В то же время, имеет весьма приблизительные представления о том, какие требования
+						накладывает занимаемая им пози...</a>
 
 
+					<a class="grid-box bg6t" title="История одного снобизма" target="_blank"
+						href="http://blog.zaborskiy.org/2014/06/snobism.html">Все началось в Ленинграде, в 78-м, но начало я не помню.
+						В любом случае, оно было скучно-соплиывым.В свои три года я оказался в Якутии, в геологической эксп...</a>
 
 
-				<section class="col-xs-12 col-sm-6 col-md-12 bg1 gridbox">
+					<a class="grid-box bg4t" title="Изоморфеус" link="_blank" href="http://blog.zaborskiy.org/2014/09/blog-post.html">
+						Изоморфеуса считали психом. Но бывает, некоторых психов признают гениями (посмертно, естественно). Само имя
+						Изоморфеуса дает нам понять, чт...</a>
 
 
-					<a name="texts"></a>
-					<h2>texts</h2>
-
-
-					<div class="linkset row">
-						<ul>
-							<li class="  col-md-4 nopadding"><a href="gal/fight_robot.html">
-									<h3>How to Fight a Robot</h3> <small>s a software engineer who deals with machine learning, I can give
-										you few advices. The first mean is surely a camouflage. To survive, you must not look like a human....</small>
-							</a></li>
-
-
-							<li class="  col-md-4 nopadding"><a target="_blank"
-								href="http://blog.zaborskiy.org/2013/12/Thailand-Samui.html">
-									<h3>Таиланд. Самуй. FAQ</h3> <small>Я провел в Королевстве Таиланд больше полугода. Время от времени
-										встречаются люди, которые задают примерно одинаковые вопросы об этой стране. Чтобы немного упростить себе
-										жизнь, я написал (почти написал) эту статью. Теперь всем вопрошающим я могу просто давать ссылку. </small>
-							</a></li>
-							<li class="  col-md-4 nopadding"><a target="_blank" href="http://blog.zaborskiy.org/2013/11/blog-post.html">
-									<h3>Характеристика</h3> <small>Артем Заборский обладает всеми необходимыми техническими навыками для
-										выполнения своей (а иногда и чужой) работы. В то же время, имеет весьма приблизительные представления о том,
-										какие требования накладывает занимаемая им позиция. </small>
-							</a></li>
-
-
-							<li class="  col-md-4 nopadding"><a target="_blank" href="http://blog.zaborskiy.org/2014/06/snobism.html">
-									<h3>История одного снобизма</h3> <small>Все началось в Ленинграде, в 78-м, но начало я не помню. В
-										любом случае, оно было скучно-соплиывым.В свои три года я оказался в Якутии, в геологической экспедиции. </small>
-							</a></li>
-
-
-							<li class="  col-md-4 nopadding"><a target="_blank" href="http://blog.zaborskiy.org/2014/09/blog-post.html">
-									<h3>Изоморфеус</h3> <small>Изоморфеуса считали психом. Но бывает, некоторых психов признают гениями
-										(посмертно, естественно). Само имя Изоморфеуса дает нам понять, чт...</small>
-							</a></li>
-
-							<li class="  col-md-4 nopadding"><a href="gal/deepdream.html">
-									<h3>
-										GoogLeNet DeepDreams <span style="white-space: nowrap;">@ OS X. </span>Step by step guide
-									</h3> <small>You're reading this because you’ve seen the original “inceptionism” gallery of hallucinating
-										neural networks. This tutorial...</small>
-							</a></li>
-						</ul>
-					</div>
-				</section>
-
-
+				</ul>
 			</div>
 
 
 
-			<section class="row" ng-controller="galleryCtrl">
-				<div class="col-xs-12 nopadding">
-
-					<h2 id="arts" class="bg4">my artworks</h2>
 
 
-					<div class="row ">
+			<section class="grid" ng-controller="galleryCtrl">
+				<h2 id="arts" class="bg2 flex-wide">artworks</h2>
 
-						<a target="{{il.target}}" href="{{il.link}}" ng-repeat="il in illustrations"
-							class="col-xs-12 col-sm-6 col-md-4 gridbox">
-							<div class="gallery-item" style="background-image: url('{{illustrationsUrl+il.url}}')">
-								<div class="desciption-wrap {{il.bg}}">
-									<h4>{{il.name}}</h4>
-									<small ng-show="il.description">{{il.description}}</small>
-								</div>
-							</div>
-						</a>
+				<a class="grid-panel" href="/gal/rocks.html" title="When it's cold, nipples hard"
+					bg="{{illustrationsUrl}}/rocks/PA172011.jpg" bg-class="bg2t" description="photography"></a> <a class="grid-panel"
+					title="Tautology: repeating patterns" bg="{{illustrationsUrl}}/c_fill,dpr_auto,w_400/tautology/PA090272.jpg"
+					bg-class="bg2t" description="photography" href="/gal/tautology.html"></a> <a class="grid-panel"
+					title="Input/Output" bg="{{illustrationsUrl}}/c_fill,dpr_auto,w_400/IO/PA131458.jpg" bg-class="bg4t"
+					description="photography" href="/gal/input_output.html"></a> <a class="grid-panel" title="Lone Tourist"
+					bg="{{illustrationsUrl}}/c_fill,dpr_auto,w_400/tourist_ik5icr.jpeg" bg-class="bg1t"
+					description="ink on paper, 30 x 40 cm" href="https://www.behance.net/gallery/24130253/Tour" target="_behance"></a>
 
-					</div>
-				</div>
+				<a class="grid-panel" title="Валим" bg="{{illustrationsUrl}}/rocket.jpeg" bg-class="bg4t"
+					description="acylic on canvas, 30 x 30 cm"
+					href="https://www.facebook.com/photo.php?fbid=10153240052289273&set=a.10152110198564273.1073741829.662639272&type=3&theater"
+					target="_facebook"></a> <a class="grid-panel" title="Bostondynamics II"
+					bg="{{illustrationsUrl}}/boston_dynamics.jpeg" bg-class="bg6t" description="mixed media"
+					href="https://www.behance.net/gallery/24299931/Bostondynamics-2" target="_behance"></a> <a class="grid-panel"
+					title="Secret Lab" bg="{{illustrationsUrl}}/secret-lab-web-3000.jpeg" bg-class="bg4" description="mixed media"
+					href="/gal/secret_lab.html"></a> <a class="grid-panel" title="Careful With That Axe, Eugene [Woodcut]"
+					bg="{{illustrationsUrl}}/woodcut-web-3000.jpeg" bg-class="bg2t" description="mixed media"
+					href="https://www.behance.net/gallery/24786851/Careful-With-That-Axe-Eugene" target="_behance"></a> <a
+					class="grid-panel" title="Альтернативная карта метро спб" bg="{{illustrationsUrl}}/spb_metro_map.png"
+					bg-class="bg1t" description="vector graphics" href="/gal/spb_metro_map.html"></a> <a class="grid-panel"
+					title="Botanics" bg="{{illustrationsUrl}}/photos/P1010045.jpg" bg-class="bg3t" description="photography"
+					href="/gal/botanica_photos.html"></a> <a class="grid-panel" title="Pesonal Branding"
+					bg="{{illustrationsUrl}}/artworks/az-branding-middle.png" bg-class="bg3" description="logo, design, branding"
+					href="/gal/az_branding.html"></a>
+
+
+
+
+
+
+
+
 			</section>
 			<!--/ gallery row-->
 
