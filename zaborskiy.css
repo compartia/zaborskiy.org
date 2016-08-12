@@ -1,9 +1,7 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,700);
-@import url(../logo/styles.css);
 .left-border {
   border-left: 2px solid fade(#677e6c, 20%); }
 
-.roboto, BODY, .substep::before, .tutorial h1, .tutorial h2 {
+.roboto {
   font-family: "Roboto", sans-serif; }
 
 .roboto-thin, .nice-caption, h3, h4, h5, h2, .panel-caption, .lead small, .linkset li strong, .section-links a, .actionbutton, h1 {
@@ -22,7 +20,7 @@
   font-weight: 300;
   letter-spacing: .1em; }
 
-.with-shadow-sm, .sidenote, aside {
+.with-shadow-sm {
   -webkit-box-shadow: 0 5px 5px 0px rgba(103, 126, 108, 0.15);
   -moz-box-shadow: 0 5px 5px 0px rgba(103, 126, 108, 0.15);
   box-shadow: 0 5px 5px 0px rgba(103, 126, 108, 0.15); }
@@ -2059,7 +2057,7 @@ pre {
 .lead {
   margin-bottom: 30px;
   font-size: 24px;
-  font-weight: 500 !important;
+  font-weight: 300;
   line-height: 1.46428571; }
 
 b, strong {
@@ -2513,167 +2511,4 @@ blockquote {
     padding: 0;
     margin: 0; }
 
-BODY {
-  color: #6c882d;
-  counter-reset: chapter; }
-
-code {
-  color: #4b6773;
-  background: #f6f9ee; }
-
-pre {
-  font-family: Liberation Mono, Consolas, Monaco, Lucida Console, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace !important;
-  padding: 10px;
-  border-radius: 0 !important;
-  padding: 0.5rem !important;
-  border-color: #81abbd !important;
-  background: fade(#81abbd, 10%) !important; }
-
-.output {
-  background: none !important;
-  border-color: lightgray !important; }
-
-section {
-  padding-top: 5rem;
-  padding-top: 3rem; }
-
-.prettyprint {
-  color: #2f2b3b; }
-
-.sidenote, aside {
-  float: right;
-  margin-left: 2rem;
-  margin-right: -2rem;
-  border-right: 5px solid #cf4359;
-  padding: 1rem;
-  background-color: #f6f9ee; }
-
-.sidenote {
-  width: 40%; }
-
-aside {
-  width: 40%; }
-
-.gallery {
-  list-style: none; }
-
-.substep {
-  margin-left: 6rem;
-  margin-bottom: 1rem; }
-  .substep::before {
-    content: counter(chapter) "." counter(section) " ";
-    counter-increment: section;
-    font-size: 200%;
-    font-weight: 300;
-    text-align: right;
-    float: left;
-    width: 8rem;
-    margin-left: -8rem;
-    padding-right: 1rem;
-    margin-top: -0.33em;
-    color: #572e58; }
-
-.reset-chapter {
-  counter-reset: chapter; }
-
-.tutorial {
-  background: #f6f9ee;
-  padding: 2rem; }
-  .tutorial h3 {
-    margin: 0;
-    padding: 0;
-    margin-bottom: 1rem;
-    margin-top: 1rem; }
-  .tutorial h1 {
-    background: #572e58;
-    color: #f6f9ee;
-    text-transform: none;
-    letter-spacing: 0;
-    font-size: 350%;
-    margin: -2rem;
-    padding: 2rem;
-    margin-bottom: 4rem;
-    font-weight: 300; }
-    .tutorial h1 small {
-      display: block;
-      line-height: 1;
-      font-weight: 200;
-      margin-bottom: 2rem;
-      color: rgba(246, 249, 238, 0.4);
-      text-transform: none;
-      letter-spacing: 0; }
-      .tutorial h1 small small {
-        margin-top: 0.6em;
-        font-size: 40%;
-        color: #f6f9ee; }
-  .tutorial ul.plain {
-    line-height: 1;
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important; }
-    .tutorial ul.plain li {
-      line-height: 1;
-      margin-bottom: 0;
-      margin-top: 0;
-      padding-top: 0 !important;
-      padding-bottom: 0 !important; }
-  .tutorial ul.heavy, .tutorial ol.heavy {
-    list-style: none;
-    margin: 0;
-    padding: 0; }
-  .tutorial ul.heavy li, .tutorial ol.heavy li {
-    margin: 0;
-    padding: 0;
-    padding-bottom: 3rem;
-    padding-top: 3rem; }
-    .tutorial ul.heavy li h2:before, .tutorial ol.heavy li h2:before {
-      float: left;
-      margin-top: -0.33em;
-      line-height: 1;
-      text-align: right;
-      font-size: 10rem;
-      width: 8rem;
-      height: 8rem;
-      overflow: hidden;
-      font-weight: 900;
-      padding-left: 4.44444rem;
-      margin-right: 1rem;
-      margin-bottom: 1rem;
-      display: inline-block;
-      content: counter(chapter);
-      background-color: #572e58;
-      color: #f6f9ee; }
-  .tutorial h2 {
-    padding-top: 6rem !important;
-    margin-left: -2rem;
-    counter-reset: section;
-    counter-increment: chapter;
-    padding: 0;
-    color: #572e58;
-    line-height: 0.8;
-    margin-bottom: 4rem; }
-    .tutorial h2 small {
-      display: block;
-      line-height: 1;
-      font-weight: 200;
-      margin-bottom: 2rem;
-      text-transform: none;
-      letter-spacing: 0; }
-    .tutorial h2:before {
-      float: left;
-      margin-top: -0.33em;
-      line-height: 1;
-      text-align: right;
-      font-size: 10rem;
-      width: 8rem;
-      height: 8rem;
-      overflow: hidden;
-      font-weight: 900;
-      padding-left: 4.44444rem;
-      margin-right: 1rem;
-      margin-bottom: 1rem;
-      display: inline-block;
-      content: counter(chapter);
-      background-color: #572e58;
-      color: #f6f9ee; }
-
-/*# sourceMappingURL=tutorial.css.map */
+/*# sourceMappingURL=zaborskiy.css.map */

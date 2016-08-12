@@ -5,6 +5,7 @@ $numeration-size: $padding-base*8;
 
 
 BODY {
+    color: $body-color;
     counter-reset: chapter;      
      @extend .roboto;
 }

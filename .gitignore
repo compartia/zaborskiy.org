@@ -2,3 +2,9 @@
 cars/.settings/org.eclipse.wst.jsdt.ui.superType.container
 
 cars/.settings/org.eclipse.wst.jsdt.ui.superType.name
+
+*.scssc
+
+cars/assets/css/bower_components/
+cars/assets/scss/bower_components/
+cars/assets/js/bower_components/bootstrap/

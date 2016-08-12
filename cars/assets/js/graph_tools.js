@@ -238,6 +238,102 @@ function updateGraph2(points) {
 
 };
 
+function updateGraph2a(points) {
+	var shiftLeft = 15;
+	var containerWidth = 100 - shiftLeft;
+	hideLabels();
+
+	var containersAnimParam = {
+		duration : 1000,
+		queue : true
+	};
+
+	$('#graphbody').animate({
+		width : (100 - shiftLeft) + "%",// valueInPixes,
+		height : "100%",
+		bottom : 0,
+		top : 0,
+		right : 0,
+		left : shiftLeft + "%"
+	}, containersAnimParam);
+
+	$('#labels-left').animate({
+		width : "100%",// valueInPixes,
+		height : "100%",
+		top : 0,
+		left : 0
+	}, containersAnimParam);
+
+	$('#labels-bottom').animate({
+		width : (100 - shiftLeft) + "%",// valueInPixes,
+		height : "100%",
+		top : 0,
+		left : shiftLeft + "%"
+	}, containersAnimParam);
+
+	var rowHeight = graphHeight / daysInWeek;
+	for (var hr = 0; hr < hoursPerDay; hr++) {
+		for (var day = 0; day < daysInWeek; day++) {
+
+			var i = day * hoursPerDay + hr;
+
+			var valueInPixes = 2 * (100 * (data[i] - 0.3));
+
+			points[i].animate({
+				bottom : 0,// (daysInWeek - day - 1) * rowHeight + "%",//
+				// valueInPixes,
+				height : valueInPixes + "%",
+				left : (hr * 100 / data.length) + "%",
+				width : (85 / data.length) + "%"
+			}, {
+				duration : 500 + Math.round(i * transitionDuration / data.length),
+				queue : true
+			});
+
+			if (hr == 2 || day == daysInWeek - 1) {
+				points[i].attr('class', "dot-selected");
+			} else {
+				points[i].attr('class', "dot");
+			}
+
+		}
+	}
+
+	var labelWidth = shiftLeft;
+
+	for (var hr = 0; hr < hoursPerDay; hr++) {
+		vLabels[hr].show().attr('class', 'graph-label graph-label-left').text(hr * (24 / hoursPerDay) + ":" + "00")
+				.animate({
+					height : "100%",
+					top : 0,
+					background : "red",
+					left : hr * 100 / hoursPerDay + "%",
+					width : 100 / hoursPerDay + "%"
+
+				}, {
+					duration : 300,// Math.round(i
+					queue : true
+				});
+	}
+
+	for (var day = 0; day < daysInWeek; day++) {
+		hLabels[day].show().attr('class', 'graph-label graph-label-left').text("Day " + (day + 1)).animate({
+			height : graphHeight / daysInWeek + "%",
+			top : (day * (graphHeight / daysInWeek)) + "%",
+			left : 0,
+			width : "100%"
+
+		}, {
+			duration : 300 + Math.round(day * transitionDuration / data.length),// Math.round(i
+			queue : true
+		});
+	}
+
+	$('#label-h-' + (daysInWeek - 1)).text("Average").addClass("graph-label-selected");
+	$('#label-v-' + 2).addClass("graph-label-selected");
+
+};
+
 /**
  * week patterns
  * 
@@ -348,7 +444,7 @@ function bindScrolling(points) {
 		triggerElement : "#scene-2"
 	}) // pins the element for the the scene's duration
 	.addTo(controller).on("enter leave", function(e) {
-		updateGraph2(points);
+		updateGraph2a(points);
 	}); // assign the scene to the controller
 
 	new ScrollMagic.Scene({
