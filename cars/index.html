@@ -51,12 +51,18 @@ var zaborskiy = angular.module('zaborskiy', []);
 
 zaborskiy.controller('navController', function ($scope) {
     $scope.topMenuStyle="col-md-2 col-xs-4 col-sm-4 col-lg-2";
-    //$scope.textLinkStyle="col-xs-12 col-sm-6 col-md-6 col-lg-4";
 });
 
 zaborskiy.controller('galleryCtrl', function ($scope) {
   $scope.illustrations = [
-  	{ name: 'Tautology: repeating patterns', url: 'c_fill,dpr_auto,w_400/tautology/PA090272.png', bg:"bg2t", description:"photography", link:"/gal/tautology.html", target:"_self"},
+  	{ 
+  		name: 'Tautology: repeating patterns', 
+  		url: 'c_fill,dpr_auto,w_400/tautology/PA090272.png', 
+  		bg:"bg2t", 
+  		description:"photography", 
+  		link:"/gal/tautology.html", 
+  		target:"_self"},
+
   	{ name: 'Input/Output', url: 'c_fill,dpr_auto,w_400/IO/PA131458.jpg', bg:"bg1t", description:"photography", link:"/gal/input_output.html", target:"_self"},
   	{ name: "When it's cold, nipples hard", url: 'c_fill,dpr_auto,w_400/rocks/PA172011.jpg', bg:"bg2t", description:"photography", link:"/gal/rocks.html", target:"_self"},
     
@@ -184,12 +190,10 @@ $(function() {
 		<div>
 
 
-			<div class="row row-fixed-height banner">
-				<header>
-					<div class="height2 col-sm-12 col-md-8 logo " ng-controller="navController">
-						<div class="logo-wrap">
-							<span class="az-az-logo"></span>
-						</div>
+			<div class="banner row-fixed-height">
+				<header class="row">
+					<div class="height2 col-sm-12 col-md-8 " ng-controller="navController">
+						
 
 						<nav ng-cloak class="row nopadding float-caption section-links bg2t">
 							<div class="{{topMenuStyle}}"></div>
@@ -203,24 +207,32 @@ $(function() {
 					</div>
 
 
-					<div class="height1 col-sm-12 col-md-4 gridbox  bg2t ">
+					<div class="height1 col-sm-12 col-md-4 gridbox bg2t">
 
 						<div ng-include="'/assets/partials/social_icons.html'"></div>
 						<section class="about" itemscope itemtype="http://schema.org/Person">
 
 
 							<div class="intro">
+								<div class="logo logo-wrap">
+									<span class="az-az-logo"></span>
+								</div>
 
 								<link itemprop="url" href="http://www.zaborskiy.org">
 								Hi there, I'm
 
-								<h1 class="lead" itemprop="name" style="line-height: 1">Artem Zaborskiy</h1>
+								<!-- <h1 class="lead" itemprop="name" style="line-height: 1">Artem Zaborskiy</h1>
+ -->
+								<h1 itemprop="name"><span style="font-weight: 900;">Artem</span> Zaborskiy <link itemprop="url" href="http://www.zaborskiy.org" /></h1>
+
 								a male <span itemprop="jobTitle">Java developer</span>. <br>This is my portfolio site. <br> Download
 								my <a href="/gal/artem_zaborskiy_resume.html">CV here</a> <br> <br> Find me at the networks listed
 								above or via&nbsp;<a href="mailto:compartia@gmail.com">email</a>.
 
+								
 
 							</div>
+
 
 						</section>
 
@@ -235,113 +247,146 @@ $(function() {
 			<div class="linkset">
 				<ul id="texts-links" ng-cloak ng-controller="appsCtrl">
 					
-                    <li class="bg5 gridbox">
+                    
+					<li class="row">
+                    
+	                    <div class="bg5 gridbox {{textsStyle}}">
 
-						<h2 id=tools class="panel-caption">tools</h2>
-						<div class="linkset">
-							<ul>
-								<li><a target="_blank" href="http://tools.zaborskiy.org/mortgage.html">
-										<h3>калькулятор расходов на жилье</h3> <small>покупать квартиру в ипотеку или снимать?</small>
-								</a></li>
-								<li><a target="_blank" href="http://tools.zaborskiy.org/why_you_should_not_buy_a_car.html">
-										<h3>калькулятор расходов на машину</h3> <small>сколько стоит содержать автомобиль?</small>
-								</a></li>
-							</ul>
+							<h2 id=tools class="panel-caption">tools</h2>
+							<div class="linkset">
+								<ul>
+									<li><a target="_blank" href="http://tools.zaborskiy.org/mortgage.html">
+											<h3>калькулятор расходов на жилье</h3> <small>покупать квартиру в ипотеку или снимать?</small>
+									</a></li>
+									<li><a target="_blank" href="http://tools.zaborskiy.org/why_you_should_not_buy_a_car.html">
+											<h3>калькулятор расходов на машину</h3> <small>сколько стоит содержать автомобиль?</small>
+									</a></li>
+								</ul>
+							</div>
+
 						</div>
 
-					</li>
+
+						<div class="bg3 gridbox {{textsStyle}}">
+
+							<h2 id="apps" class="panel-caption">Android apps</h2>
+							<div class="linkset">
+								<ul>
+									<li ng-repeat="app in apps"><a target="_blank" href="{{app.url}}" itemprop="url">
+
+											<div class="appIcon" style="background-image: url('{{app.iconUrl}}')">
+												<h3 itemprop="name">{{app.name}}</h3>
+												<small>{{app.text}}</small>
+											</div>
+
+									</a></li>
+
+								</ul>
+							</div>
+						</div>
 
 
-					<li class="bg3">
 
-						<h2 id="apps" class="panel-caption">Android apps</h2>
-						<div class="linkset">
-							<ul>
-								<li ng-repeat="app in apps"><a target="_blank" href="{{app.url}}" itemprop="url">
+						<div class="bg5d gridbox {{textsStyle}}">
 
-										<div class="appIcon" style="background-image: url('{{app.iconUrl}}')">
-											<h3 itemprop="name">{{app.name}}</h3>
-											<small>{{app.text}}</small>
-										</div>
+							<h2 class="panel-caption" id="music">music</h2>
 
-								</a></li>
+							<div class="cell-content">
+								Here are few sample compositions I made. Discover more at <a class="nopadding"
+									href="https://azzz.bandcamp.com/">BandCamp</a>
 
-							</ul>
+								<iframe style="border: 0; width: 100%; height: 41px; display: block"								src="https://bandcamp.com/EmbeddedPlayer/album=3213495709/size=small/bgcol=000000/linkcol=cf4359/artwork=none/track=651293571/transparent=true/" seamless>
+									<a target="_bandcamp" href="http://azzz.bandcamp.com/album/best-of">Best of by Artem Zaborskiy</a>
+								</iframe>
+	                            
+								<iframe style="border: 0; width: 100%; height: 41px; display: block"								src="https://bandcamp.com/EmbeddedPlayer/album=3213495709/size=small/bgcol=000000/linkcol=cf4359/artwork=none/track=21335927/transparent=true/"
+									seamless>
+									<a target="_bandcamp" href="http://azzz.bandcamp.com/album/best-of">Best of by Artem Zaborskiy</a>
+								</iframe>
+								<iframe style="border: 0; width: 100%; height: 41px; display: block"
+									src="https://bandcamp.com/EmbeddedPlayer/album=3213495709/size=small/bgcol=000000/linkcol=cf4359/artwork=none/track=1855768607/transparent=true/"
+									seamless>
+									<a target="_bandcamp" href="http://azzz.bandcamp.com/album/best-of">Best of by Artem Zaborskiy</a>
+								</iframe>
+								<iframe style="border: 0; width: 100%; height: 42px; display: block"
+									src="https://bandcamp.com/EmbeddedPlayer/album=3213495709/size=small/bgcol=000000/linkcol=cf4359/artwork=none/track=1209727700/transparent=true/"
+									seamless>
+									<a target="_bandcamp" href="http://azzz.bandcamp.com/album/best-of">Best of by Artem Zaborskiy</a>
+								</iframe>
+							</div>
 						</div>
 					</li>
 
+ 
+ 					<li class="row">
+						<h2 id="texts" class="bg2 col-md-12 panel-caption">texts</h2>
+
+						
+						<a title="У Вас зайчанка!" 
+							class="grid-box bg6t {{textsStyle}}" bg-class="bg4t"	
+							target="_blank"						 							
+							href="https://medium.com/@artzaborskiy/%D1%83-%D0%B2%D0%B0%D1%81-%D0%B7%D0%B0%D0%B9%D1%87%D0%B0%D0%BD%D0%BA%D0%B0-5bdc6fbed023">You're reading this because
+							В 1961 году КПСС постановила, что “человек человеку — друг, товарищ и брат”, а вовсе не волк (см. “Моральный кодекс строителя коммунизма”, пункт ...</a>
+
+						<a title="Запредельное" 
+							class="grid-box bg3t {{textsStyle}}" bg-class="bg4t"	
+							target="_blank"						 							
+							href="https://medium.com/@artzaborskiy/%D0%B7%D0%B0%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5-9b3168eda3dd">You're reading this because
+							Чем быстрее мы вращаемся вокруг сливного отверстия, которое называют сингулярностью, тем чаще мелькают берега прошлого. Они уже совсем раз…...
+							</a>
+
+						<a title="Эгоизм" 
+							target="_blank"
+							class="grid-box bg5t {{textsStyle}}" bg-class="bg4t"							 							
+							href="https://medium.com/@artzaborskiy/egoism-bd797fd49f44#.du157kat4">You're reading this because
+							Общество маркирует некоторые модели поведения как нежелательные. <br>Эгоизм, к примеру. <br>Вообще, это самопожирающая авто-моно-антитеза ...</a>
+
+						<a title="GoogLeNet DeepDreams @ OS X. Step by step guide" 
+							class="grid-box bg4t {{textsStyle}}" bg-class="bg4t"
+							bg="http://res.cloudinary.com/zaborskiy/image/upload/w_480,dpr_2.0/v1439795785/download_13_dswfjm.jpg"
+							href="gal/deepdream.html">You're reading this because
+							you’ve seen the original “inceptionism” gallery of hallucinating neural networks. This tutorial...</a>
+
+						<a title="How to Fight a Robot"
+							class="grid-box bg5t {{textsStyle}}"  href="gal/fight_robot.html">as a software engineer who
+							deals with machine learning, I can give you few advices. The first mean is surely a camouflage. To survive, you
+							must not look like a human....</a>
+							
+						<a title="Таиланд. Самуй. FAQ"
+							class="grid-box bg3t {{textsStyle}}" bg-class="bg2"
+							bg="http://3.bp.blogspot.com/-DelrrZwEXzw/UrMCZ1cPlMI/AAAAAAAARTc/JKK6WlZXMs0/s640/IMG_20130209_173724.jpg"
+							href="http://blog.zaborskiy.org/2013/12/Thailand-Samui.html" target="_blank">Я
+							провел в Королевстве Таиланд больше полугода. Время от времени встречаются люди, которые задают примерно
+							одинаковые вопросы об этой стране. Чтобы немного упростить себе жиз...</a>
 
 
-					<li class="bg2 gridbox">
 
-						<h2 id="music">music</h2>
-						<div class="cell-content">
-							Here are few sample compositions I made. Discover more at <a class="nopadding"
-								href="https://azzz.bandcamp.com/">BandCamp</a>
+						<a class="grid-box bg1t {{textsStyle}}" title="Характеристика" href="http://blog.zaborskiy.org/2013/11/blog-post.html"
+							target="_blank"> Артем Заборский обладает всеми необходимыми техническими навыками для выполнения своей (а
+							иногда и чужой) работы. В то же время, имеет весьма приблизительные представления о том, какие требования
+							накладывает занимаемая им пози...</a>
 
-							<iframe style="border: 0; width: 100%; height: 41px; display: block"								src="https://bandcamp.com/EmbeddedPlayer/album=3213495709/size=small/bgcol=000000/linkcol=cf4359/artwork=none/track=651293571/transparent=true/" seamless>
-								<a target="_bandcamp" href="http://azzz.bandcamp.com/album/best-of">Best of by Artem Zaborskiy</a>
-							</iframe>
-                            
-							<iframe style="border: 0; width: 100%; height: 41px; display: block"								src="https://bandcamp.com/EmbeddedPlayer/album=3213495709/size=small/bgcol=000000/linkcol=cf4359/artwork=none/track=21335927/transparent=true/"
-								seamless>
-								<a target="_bandcamp" href="http://azzz.bandcamp.com/album/best-of">Best of by Artem Zaborskiy</a>
-							</iframe>
-							<iframe style="border: 0; width: 100%; height: 41px; display: block"
-								src="https://bandcamp.com/EmbeddedPlayer/album=3213495709/size=small/bgcol=000000/linkcol=cf4359/artwork=none/track=1855768607/transparent=true/"
-								seamless>
-								<a target="_bandcamp" href="http://azzz.bandcamp.com/album/best-of">Best of by Artem Zaborskiy</a>
-							</iframe>
-							<iframe style="border: 0; width: 100%; height: 42px; display: block"
-								src="https://bandcamp.com/EmbeddedPlayer/album=3213495709/size=small/bgcol=000000/linkcol=cf4359/artwork=none/track=1209727700/transparent=true/"
-								seamless>
-								<a target="_bandcamp" href="http://azzz.bandcamp.com/album/best-of">Best of by Artem Zaborskiy</a>
-							</iframe>
-						</div>
+
+						<a class="grid-box bg6t {{textsStyle}}" title="История одного снобизма" target="_blank"
+							href="http://blog.zaborskiy.org/2014/06/snobism.html">Все началось в Ленинграде, в 78-м, но начало я не помню.
+							В любом случае, оно было скучно-соплиывым.В свои три года я оказался в Якутии, в геологической эксп...</a>
+
+
+						<a class="grid-box bg4t {{textsStyle}}" title="Изоморфеус" link="_blank" href="http://blog.zaborskiy.org/2014/09/blog-post.html">
+							Изоморфеуса считали психом. Но бывает, некоторых психов признают гениями (посмертно, естественно). Само имя
+							Изоморфеуса дает нам понять, чт...</a>
 					</li>
-
-					<h2 id="texts" class="bg2 flex-wide">texts</h2>
-
-					<a class="grid-box bg4t" bg-class="bg4t"
-						bg="http://res.cloudinary.com/zaborskiy/image/upload/w_480,dpr_2.0/v1439795785/download_13_dswfjm.jpg"
-						title="GoogLeNet DeepDreams @ OS X. Step by step guide" href="gal/deepdream.html">You're reading this because
-						you’ve seen the original “inceptionism” gallery of hallucinating neural networks. This tutorial...</a>
-
-					<a class="grid-box bg3t" bg-class="bg2"
-						bg="http://3.bp.blogspot.com/-DelrrZwEXzw/UrMCZ1cPlMI/AAAAAAAARTc/JKK6WlZXMs0/s640/IMG_20130209_173724.jpg"
-						title="Таиланд. Самуй. FAQ" href="http://blog.zaborskiy.org/2013/12/Thailand-Samui.html" target="_blank">Я
-						провел в Королевстве Таиланд больше полугода. Время от времени встречаются люди, которые задают примерно
-						одинаковые вопросы об этой стране. Чтобы немного упростить себе жиз...</a>
-
-					<a class="grid-box bg5t" title="How to Fight a Robot" href="gal/fight_robot.html">as a software engineer who
-						deals with machine learning, I can give you few advices. The first mean is surely a camouflage. To survive, you
-						must not look like a human....</a>
-
-					<a class="grid-box bg1t" title="Характеристика" href="http://blog.zaborskiy.org/2013/11/blog-post.html"
-						target="_blank"> Артем Заборский обладает всеми необходимыми техническими навыками для выполнения своей (а
-						иногда и чужой) работы. В то же время, имеет весьма приблизительные представления о том, какие требования
-						накладывает занимаемая им пози...</a>
-
-
-					<a class="grid-box bg6t" title="История одного снобизма" target="_blank"
-						href="http://blog.zaborskiy.org/2014/06/snobism.html">Все началось в Ленинграде, в 78-м, но начало я не помню.
-						В любом случае, оно было скучно-соплиывым.В свои три года я оказался в Якутии, в геологической эксп...</a>
-
-
-					<a class="grid-box bg4t" title="Изоморфеус" link="_blank" href="http://blog.zaborskiy.org/2014/09/blog-post.html">
-						Изоморфеуса считали психом. Но бывает, некоторых психов признают гениями (посмертно, естественно). Само имя
-						Изоморфеуса дает нам понять, чт...</a>
-
-
+ 
 				</ul>
+				
 			</div>
 
 
 
 
 
-			<section class="grid" ng-controller="galleryCtrl">
-				<h2 id="arts" class="bg2 flex-wide">artworks</h2>
+			<section class="grid row" ng-controller="galleryCtrl">
+				<h2 id="arts" class="bg2 col-md-12 panel-caption">artworks</h2>
 
 				<a class="grid-panel" bg-class="bg2t"
                     href="/gal/rocks.html" 
@@ -373,20 +418,24 @@ $(function() {
 					href="https://www.behance.net/gallery/24299931/Bostondynamics-2" target="_behance"></a> 
                 
                 <a class="grid-panel"
-					title="Secret Lab" bg="{{illustrationsUrl}}/secret-lab-web-3000.jpeg" bg-class="bg4" description="mixed media"
+					title="Secret Lab" 
+					bg="{{illustrationsUrl}}/secret-lab-web-3000.jpeg" bg-class="bg4" description="mixed media"
 					href="/gal/secret_lab.html"></a> 
                 
-                <a class="grid-panel" title="Careful With That Axe, Eugene [Woodcut]"
+                <a class="grid-panel" 
+                	title="Careful With That Axe, Eugene [Woodcut]"
 					bg="{{illustrationsUrl}}/woodcut-web-3000.jpeg" bg-class="bg2t" description="mixed media"
 					href="https://www.behance.net/gallery/24786851/Careful-With-That-Axe-Eugene" target="_behance"></a> 
                 
-                <a
-					class="grid-panel" title="Альтернативная карта метро спб" bg="{{illustrationsUrl}}/spb_metro_map.png"
+                <a class="grid-panel" 
+                	title="Альтернативная карта метро спб" 
+                	bg="{{illustrationsUrl}}/spb_metro_map.png"
 					bg-class="bg1t" description="vector graphics" href="/gal/spb_metro_map.html"></a> 
                 
-                <a class="grid-panel"
-					title="Botanics" bg="{{illustrationsUrl}}/photos/P1010045.jpg" bg-class="bg3t" description="photography"
-					href="/gal/botanica_photos.html"></a> 
+               <!--  <a class="grid-panel"
+					title="Botanics" 
+					bg="{{illustrationsUrl}}/photos/P1010045.jpg" bg-class="bg3t" description="photography"
+					href="/gal/botanica_photos.html"></a>  -->
                 
                 <a class="grid-panel" title="Pesonal Branding"
 					bg="{{illustrationsUrl}}/artworks/az-branding-middle.png" bg-class="bg3t" description="logo, design, branding"

@@ -3,7 +3,12 @@
 
 $palette-color-3l: fade($palette-color-3d, 80%);
 
+
 @media print {
+    
+    .hidden-print{        
+        display: none;
+    }
     
     *{
         -webkit-print-color-adjust: exact!important;
@@ -12,6 +17,10 @@ $palette-color-3l: fade($palette-color-3d, 80%);
     
     a{
         text-decoration: none!important;
+    }
+    
+    h1{
+        font-size: 22pt;
     }
     
     footer{
@@ -26,10 +35,10 @@ $palette-color-3l: fade($palette-color-3d, 80%);
     .icon {
         color: $palette-color-4!important;
     }
+    
     .contact-info {
         //font-size: 10px!important;
     }
-    
     
     .container{
         width: 100%!important;        
@@ -41,7 +50,6 @@ $palette-color-3l: fade($palette-color-3d, 80%);
         background-size: contain!important;
         background-repeat: repeat-y!important;
         background-color: transparent!important;
-
     }
 
     

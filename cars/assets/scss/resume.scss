@@ -20,7 +20,7 @@ $small-width: 100/12%;
 
 .small-label{
     @extend .nice-caption;
-    font-size: 80%;   
+    font-size: 81%;   
 }
 
 .date, .featured-label{
@@ -38,7 +38,7 @@ $small-width: 100/12%;
 
 .date{
     color: $palette-color-1;
-    background: $palette-color-6;
+    //background: $palette-color-6;
 }
 
 .date-line{
@@ -149,6 +149,9 @@ $small-width: 100/12%;
         &:hover:visited{
             color: $palette-color-1!important;
         }
+    }
+    @media print{
+        display: none;
     }
     @extend .colorTransition;
 }
@@ -361,8 +364,9 @@ h2 img{
 .section-work{
     .date{        
         color: $palette-color-1;
-        background-color: $palette-color-6;
-        @extend .with-noise;
+        text-align: right;
+        //background-color: $palette-color-6;
+        //@extend .with-noise;
     }
 }
  
