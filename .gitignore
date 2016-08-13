@@ -7,3 +7,5 @@ cars/assets/css/bower_components/
 cars/assets/scss/bower_components/
 cars/assets/js/bower_components/bootstrap/
 cars/.settings/**
+
+.sass-cache/

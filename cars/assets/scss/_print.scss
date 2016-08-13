@@ -3,7 +3,12 @@
 
 $palette-color-3l: fade($palette-color-3d, 80%);
 
+
 @media print {
+    
+    .hidden-print{        
+        display: none;
+    }
     
     *{
         -webkit-print-color-adjust: exact!important;
@@ -26,10 +31,10 @@ $palette-color-3l: fade($palette-color-3d, 80%);
     .icon {
         color: $palette-color-4!important;
     }
+    
     .contact-info {
         //font-size: 10px!important;
     }
-    
     
     .container{
         width: 100%!important;        

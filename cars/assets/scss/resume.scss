@@ -150,6 +150,9 @@ $small-width: 100/12%;
             color: $palette-color-1!important;
         }
     }
+    @media print{
+        display: none;
+    }
     @extend .colorTransition;
 }
 

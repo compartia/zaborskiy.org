@@ -571,35 +571,21 @@ small{
 }
 
 .grid{
-    display: flex!important; 
-    -webkit-flex-wrap: wrap; /* Safari */
-    flex-wrap:         wrap;
-    -webkit-align-items: stretch; /* Safari */
-    align-items: stretch;
+//    display: flex!important; 
+//    -webkit-flex-wrap: wrap; /* Safari */
+//    flex-wrap:         wrap;
+//    -webkit-align-items: stretch; /* Safari */
+//    align-items: stretch;
 }
 
 .grid-panel{
-    -webkit-flex: 1;
-    flex: 1;
-
-    
     padding: 0!important;
-    
-     
-    -webkit-flex-grow: 1;
-    min-width: 18rem;
+    @extend .col-md-4;
+    @extend .col-lg-3;    
+    @extend .col-sm-6;
+    @extend .col-xs-12;
 }
 
-
-
-.flex-2{
-   flex-grow: 2;
-    -webkit-flex-grow: 2;
-}
-
-.flex-wide{
-   width:100%;
-}
 
 .linkset{
 
@@ -619,22 +605,9 @@ small{
     }
     
     ul#texts-links{
-        display: flex!important; 
-        -webkit-flex-wrap: wrap; /* Safari */
-        flex-wrap:         wrap;
-        -webkit-align-items: stretch; /* Safari */
-        align-items: stretch;
-        
        
-        li, a.grid-box{ 
-            -webkit-flex: 1;
-            flex: 1;
-
-            min-width: 18rem;
-            //padding: 0!important;
-            
-            display: block;
-            
+        li, a.grid-box{             
+            min-width: 18rem;            
         }
         
         li{
@@ -643,7 +616,6 @@ small{
         
         a.grid-box{ 
             text-decoration: none;  
-            display: block;
             padding: $inter-panel-padding;
             @extend .colorTransition;
         }

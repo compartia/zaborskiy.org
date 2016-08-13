@@ -1,6 +1,9 @@
 var zaborskiy = angular.module('zaborskiy', []);
 
 zaborskiy.controller('mainCtrl', function($scope) {
+
+	$scope.textsStyle="grid-box col-md-4 col-xs-12 col-sm-6 col-lg-4";
+
 	angular.element(document).ready(function() {
         if($.cloudinary){
             $.cloudinary.responsive();    
