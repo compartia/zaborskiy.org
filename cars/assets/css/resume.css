@@ -15,7 +15,7 @@
   font-family: "Roboto Condensed", sans-serif !important;
   letter-spacing: .05em; }
 
-.with-noise, .bg4, .bg5, .bg5d, .bg5t, .bg6, .gallery-item:after, .section-links a, .section-work .date {
+.with-noise, .bg4, .bg5, .bg5d, .bg5t, .bg6, .gallery-item:after, .section-links a {
   background-image: url(../img/noise.png) !important; }
 
 .nice-caption, h3, h4, h5, h2, .panel-caption, .lead small, .linkset li strong, .section-links a, .actionbutton, .small-label, .date, .featured-label, .section-education .date, .section-education h4, .contact-info label, .cv-position h3, .cv-position label, .date-line .date-line-marker, .cv-position .position, .cv-position .employer {
@@ -82,7 +82,7 @@
   font-family: "Roboto Condensed", sans-serif !important;
   letter-spacing: .05em; }
 
-.with-noise, .bg4, .bg5, .bg5d, .bg5t, .bg6, .gallery-item:after, .section-links a, .section-work .date {
+.with-noise, .bg4, .bg5, .bg5d, .bg5t, .bg6, .gallery-item:after, .section-links a {
   background-image: url(../img/noise.png) !important; }
 
 .nice-caption, h3, h4, h5, h2, .panel-caption, .lead small, .linkset li strong, .section-links a, .actionbutton, .small-label, .date, .featured-label, .section-education .date, .section-education h4, .contact-info label, .cv-position h3, .cv-position label, .date-line .date-line-marker, .cv-position .position, .cv-position .employer {
@@ -2526,9 +2526,9 @@ small {
   padding-bottom: 4em; }
 
 .banner {
-  background-image: url(http://res.cloudinary.com/zaborskiy/image/upload/w_970,dpr_auto/PA161858_cpunkb.jpg) !important;
+  background-image: url(/assets/img/PA141623-Edit.jpg) !important;
   background-size: cover;
-  background-position: left center; }
+  background-position: center; }
 
 .branding {
   background-image: url(../img/alphabet.svg);
@@ -2732,7 +2732,7 @@ blockquote {
   font-family: "Roboto Condensed", sans-serif !important;
   letter-spacing: .05em; }
 
-.with-noise, .bg4, .bg5, .bg5d, .bg5t, .bg6, .gallery-item:after, .section-links a, .section-work .date {
+.with-noise, .bg4, .bg5, .bg5d, .bg5t, .bg6, .gallery-item:after, .section-links a {
   background-image: url(../img/noise.png) !important; }
 
 .nice-caption, h3, h4, h5, h2, .panel-caption, .lead small, .linkset li strong, .section-links a, .actionbutton, .small-label, .date, .featured-label, .section-education .date, .section-education h4, .contact-info label, .cv-position h3, .cv-position label, .date-line .date-line-marker, .cv-position .position, .cv-position .employer {
@@ -2839,7 +2839,7 @@ blockquote {
   font-family: "Roboto Condensed", sans-serif !important;
   letter-spacing: .05em; }
 
-.with-noise, .bg4, .bg5, .bg5d, .bg5t, .bg6, .gallery-item:after, .section-links a, .section-work .date {
+.with-noise, .bg4, .bg5, .bg5d, .bg5t, .bg6, .gallery-item:after, .section-links a {
   background-image: url(../img/noise.png) !important; }
 
 .nice-caption, h3, h4, h5, h2, .panel-caption, .lead small, .linkset li strong, .section-links a, .actionbutton, .small-label, .date, .featured-label, .section-education .date, .section-education h4, .contact-info label, .cv-position h3, .cv-position label, .date-line .date-line-marker, .cv-position .position, .cv-position .employer {
@@ -2994,8 +2994,7 @@ blockquote {
   background: #2f2b3b; }
 
 .date {
-  color: white;
-  background: #cf4359; }
+  color: white; }
 
 .date-line {
   display: block;
@@ -3190,7 +3189,7 @@ h2 img {
 
 .section-work .date {
   color: white;
-  background-color: #cf4359; }
+  text-align: right; }
 
 .cv-position {
   padding-bottom: 2rem; }

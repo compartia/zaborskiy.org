@@ -26,10 +26,7 @@
 <script src="/assets/js/cv.js"></script>
 <script src="/assets/js/cv_tools.js"></script>
 
-<!--
-<link rel="stylesheet" href="/assets/js/dist/bootstrap.min.css">
-<link rel="stylesheet" href="/assets/logo/styles.css" />
--->
+ 
 <link rel="stylesheet" href="/assets/css/resume.css" />
 
  
@@ -134,43 +131,47 @@
 					</div>
 
 
-					<div class="hidden-print download-links-wrap text-right section-links">
-						download as <a href="/assets/img/artem_zaborskiy_cv.pdf" class="download-link bg4">PDF</a><a
-							href="/assets/js/cv.js" class="download-link bg5">JSON</a>
-					</div>
+					
 
 
-					<div class="col-xs-12 col-md-8 col-lg-8 spaceous">
-						<h1 itemprop="name">
-							<span style="font-weight: 900;">Artem</span> Zaborskiy
-							<link itemprop="url" href="http://www.zaborskiy.org" />
-						</h1>
-
-
-						<div class="map contact-info ">
-
-							<div class="map">
-								<del class="hidden-print">{{cv.contactInfo.locationLast}}</del>
-								{{cv.contactInfo.location}}
-							</div>
-							<div>
-								<a itemprop="email" href="mailto:{{cv.contactInfo.email}}">{{cv.contactInfo.email}}</a>
-							</div>
-							<div>
-								<span>{{cv.contactInfo.phone}}</span>
-							</div>
+					<div class="col-xs-12 col-md-9 col-lg-9 nopadding">
+						<div class="hidden-print download-links-wrap text-right section-links">
+							download as <a href="/assets/img/artem_zaborskiy_cv.pdf" class="download-link bg4">PDF</a><a
+								href="/assets/js/cv.js" class="download-link bg5">JSON</a>
 						</div>
+						<section class="spaceous">
+						
 
-						<p>{{cv.summary}}</p>
+							<h1 itemprop="name">
+								<span style="font-weight: 900;">Artem</span> Zaborskiy
+								<link itemprop="url" href="http://www.zaborskiy.org" />
+							</h1>
 
-						<div class="contact-info ">
-							<ul>
-								<li ng-repeat="link in cv.contactInfo.links"><a itemprop="sameAs" target="_blank" href="{{link.href}}">
-										<span class="icon {{link.iconClass}}"></span>{{link.name}}
-								</a></li>
-							</ul>
-						</div>
 
+							<div class="map contact-info ">
+
+								<div class="map">
+									<del class="hidden-print">{{cv.contactInfo.locationLast}}</del>
+									{{cv.contactInfo.location}}
+								</div>
+								<div>
+									<a itemprop="email" href="mailto:{{cv.contactInfo.email}}">{{cv.contactInfo.email}}</a>
+								</div>
+								<div>
+									<span>{{cv.contactInfo.phone}}</span>
+								</div>
+							</div>
+
+							<p>{{cv.summary}}</p>
+
+							<div class="contact-info ">
+								<ul>
+									<li ng-repeat="link in cv.contactInfo.links"><a itemprop="sameAs" target="_blank" href="{{link.href}}">
+											<span class="icon {{link.iconClass}}"></span>{{link.name}}
+									</a></li>
+								</ul>
+							</div>
+						</section>
 
 					</div>
 
@@ -274,152 +275,151 @@
 
 				<!-- <h2>work experience</h2> -->
 				<div>
-					<div ng-repeat="pos in items | orderBy:'stop':true"
-						ng-cloak class="cv-position nopadding">
+					<div ng-repeat="pos in items | orderBy:'stop':true" ng-cloak class="cv-position nopadding">
 						
-						
-						<div class="row" ng-class="{'featured':pos.featured}">
-							<div class="print-no-break" style="position: relative;">
+						<div class="print-no-break" style="position: relative;">
 								
-								<div class="date-line-holder" style="height: 5px; position: relative; z-index: 11 ">
-									<div class="date-line" style="bottom: 0px; left:0; right:0; position: absolute; ">
-										<div class="date-line-marker text-right" style="left: {{pos.startPercent}}%; width: {{pos.durationPercent}}%">
-											<span class="hidden-print">{{pos.duration}}</span>
-										</div>
+							<div class="date-line-holder" style="height: 5px; position: relative; z-index: 11 ">
+								<div class="date-line" style="bottom: 0px; left:0; right:0; position: absolute; ">
+									<div class="date-line-marker text-right" style="left: {{pos.startPercent}}%; width: {{pos.durationPercent}}%">
+										<span class="hidden-print">{{pos.duration}}</span>
 									</div>
 								</div>
-										
-								<div class="date col-sm-3 col-md-3 col-xs-12 elevated-10 print-no-break">
+							</div>
+																			
+						</div>
+							<!-- ============= -->
+							<div class="row" ng-class="{'featured':pos.featured}">
+
+								<div class="col-sm-5 col-md-3 col-xs-12 print-no-break nopadding"><div class="date bg6">
 									<span class="text-nowrap">{{pos.start | date:"yyyy, MMM" }}</span> — <span class="text-nowrap">{{pos.stop
-										| date:"yyyy, MMM" }}</span>
+										| date:"yyyy, MMM" }}</span></div>
 								</div> 
 								
-								<!-- ============= -->
+							<!-- ============= -->
+							
 								<div class="col-xs-3 col-sm-2 col-md-1 nopadding text-right print-no-break" 
-										style=" position: absolute; top:5px; z-index: 12; right: 0; ">
+											style=" position: absolute; top:5px; z-index: 12; right: 0; ">
 									<div class="featured-label text-center" ng-show="pos.featured" >
 									 	featured 
 									</div>
 								</div>
-								
-							</div>
-							<!-- ============= -->
-							
 							
 							<!-- ============= -->
 							
-							<div class="col-xs-12 col-sm-12 col-md-8 nopadding"  >
-								
-								<div class="row">
-				
-									<div class="col-xs-12 col-sm-9  col-sm-push-3 col-padding">
-										<div ng-show="pos.position">
-											<span class="position">{{pos.position}}</span> 
-												<span class="employer"> 
-													
-													<span ng-show="pos.employerUrl">
-														<br class="visible-xs">
-														<span ng-show="pos.employer" class="hidden-xs">@</span>
-														<a target="_emploer" href="{{pos.employerUrl}}">{{pos.employer}}</a>
-													</span> 
-													
-													<span ng-show="!pos.employerUrl"><span ng-show="pos.employer" class="hidden-xs">@</span>{{pos.employer}}</span> 
-											 
-											</span>
+								<div class="col-xs-12 col-sm-12 col-md-8 nopadding"  >
+									
+									<div class="row">
+					
+										<div class="col-xs-12 col-sm-9  col-sm-push-3 col-padding">
+											<div ng-show="pos.position">
+												<span class="position">{{pos.position}}</span> 
+													<span class="employer"> 
+														
+														<span ng-show="pos.employerUrl">
+															<br class="visible-xs">
+															<span ng-show="pos.employer" class="hidden-xs">@</span>
+															<a target="_emploer" href="{{pos.employerUrl}}">{{pos.employer}}</a>
+														</span> 
+														
+														<span ng-show="!pos.employerUrl"><span ng-show="pos.employer" class="hidden-xs">@</span>{{pos.employer}}</span> 
+												 
+												</span>
+											</div>
+										</div>
+		
+									</div>
+									
+									<div class="row section-row">
+										<label class="hidden-xs col-sm-3 col-md-3">Project</label>
+										
+										<div class="col-xs-12 col-sm-6 col-md-9 h-padding">
+											<strong ng-show="!pos.projectUrl">{{pos.customer}}</strong> 
+											<strong ng-show="pos.projectUrl"><a
+												target="_project" href="{{pos.projectUrl}}">{{pos.customer}}</a></strong> {{pos.project}}
 										</div>
 									</div>
-	
-								</div>
-								
-								<div class="row section-row">
-									<label class="hidden-xs col-sm-3 col-md-3">Project</label>
 									
-									<div class="col-xs-12 col-sm-6 col-md-9 h-padding">
-										<strong ng-show="!pos.projectUrl">{{pos.customer}}</strong> 
-										<strong ng-show="pos.projectUrl"><a
-											target="_project" href="{{pos.projectUrl}}">{{pos.customer}}</a></strong> {{pos.project}}
+									<div class="row section-row  hidden-xs" ng-show="pos.teamSize">
+										<label class="col-xs-3 col-sm-3 col-md-3 text-right">Team&nbsp;size</label>
+										<div class="col-xs-3 col-sm-9 col-md-9 h-padding">
+											<span>{{pos.teamSize}}</span>
+										</div>
 									</div>
-								</div>
-								
-								<div class="row section-row  hidden-xs" ng-show="pos.teamSize">
-									<label class="col-xs-3 col-sm-3 col-md-3 text-right">Team size</label>
-									<div class="col-xs-3 col-sm-9 col-md-9 h-padding">
-										<span>{{pos.teamSize}}</span>
+									
+									<div class="row section-row  hidden-xs" ng-show="pos.process">						
+										<label class="col-xs-3 col-sm-3 col-md-3 text-right">Process</label>
+										<div class="col-xs-3 col-sm-4 col-md-9 h-padding">
+											<span class="skill">{{pos.process}}</span>
+										</div>
 									</div>
-								</div>
-								
-								<div class="row section-row  hidden-xs" ng-show="pos.process">						
-									<label class="col-xs-3 col-sm-3 col-md-3 text-right">Process</label>
-									<div class="col-xs-3 col-sm-4 col-md-9 h-padding">
-										<span class="skill">{{pos.process}}</span>
+									
+									<div class="row section-row print-no-break"  ng-show="pos.respons">
+										<label class="hidden-xs col-xs-3 col-sm-3 col-md-3">Responsibilities</label>
+										<div class="col-xs-11 col-sm-7 col-md-9 nopadding">
+											<ul>
+												<li ng-repeat="resp in pos.respons">{{resp}}</li>
+											</ul>
+										</div>
 									</div>
-								</div>
-								
-								<div class="row section-row print-no-break"  ng-show="pos.respons">
-									<label class="hidden-xs col-xs-3 col-sm-3 col-md-3">Responsibilities</label>
-									<div class="col-xs-11 col-sm-7 col-md-9 nopadding">
-										<ul>
-											<li ng-repeat="resp in pos.respons">{{resp}}</li>
-										</ul>
+									
+									<div class="row section-row  print-no-break" ng-show="pos.achievments">
+										<label class="col-xs-3 col-sm-3 col-md-3">Experience</label>
+										<div class="col-xs-11 col-sm-7 col-md-9 nopadding">
+											<ul>
+												<li ng-repeat="resp in pos.achievments">{{resp}}</li>
+											</ul>
+										</div>
 									</div>
-								</div>
-								
-								<div class="row section-row  print-no-break" ng-show="pos.achievments">
-									<label class="col-xs-3 col-sm-3 col-md-3">Experience</label>
-									<div class="col-xs-11 col-sm-7 col-md-9 nopadding">
-										<ul>
-											<li ng-repeat="resp in pos.achievments">{{resp}}</li>
-										</ul>
+									
+									<div class="row section-row" ng-show="pos.awards">
+										<label class="col-xs-3 col-sm-3 col-md-3">Awards</label>
+										<div class="col-xs-12 col-sm-9 col-md-9 h-padding">
+											<span>{{pos.awards}}</span>
+										</div>
 									</div>
-								</div>
-								
-								<div class="row section-row" ng-show="pos.awards">
-									<label class="col-xs-3 col-sm-3 col-md-3">Awards</label>
-									<div class="col-xs-12 col-sm-9 col-md-9 h-padding">
-										<span>{{pos.awards}}</span>
+									
+									
+									<div class="row section-row" ng-show="pos.reference">
+										<label class="col-xs-3 col-sm-3 col-md-3">reference</label>
+										<div class="col-xs-12 col-sm-9 col-md-9 h-padding">
+											<a href="{{pos.reference}}" target="_blank">{{pos.reference}}</a>
+										</div>
 									</div>
-								</div>
-								
-								
-								<div class="row section-row" ng-show="pos.reference">
-									<label class="col-xs-3 col-sm-3 col-md-3">reference</label>
-									<div class="col-xs-12 col-sm-9 col-md-9 h-padding">
-										<a href="{{pos.reference}}" target="_blank">{{pos.reference}}</a>
-									</div>
-								</div>
-		<div class="print-no-break">
 		
-								<div class="row section-row" ng-show="pos.technologies">
-									<label class="hidden-xs col-sm-3 col-md-3">Technologies</label>
-									<div class="col-xs-12 col-sm-7 col-md-9 h-padding">
-										<span class="skill" ng-repeat="t in pos.technologies">{{t}}</span>
-									</div>
-								</div>
+									<div class="print-no-break">
 		
-								<div class="row section-row" ng-show="pos.tools">
-									<label class="hidden-xs col-sm-3 col-md-3">Tools</label>
-									<div class="col-xs-12 col-sm-8 col-md-9 h-padding">
-										<span class="skill" ng-repeat="t in pos.tools">{{t}}</span>
+									<div class="row section-row" ng-show="pos.technologies">
+										<label class="hidden-xs col-sm-3 col-md-3">Technologies</label>
+										<div class="col-xs-12 col-sm-7 col-md-9 h-padding">
+											<span class="skill" ng-repeat="t in pos.technologies">{{t}}</span>
+										</div>
+									</div>
+			
+									<div class="row section-row" ng-show="pos.tools">
+										<label class="hidden-xs col-sm-3 col-md-3">Tools</label>
+										<div class="col-xs-12 col-sm-8 col-md-9 h-padding">
+											<span class="skill" ng-repeat="t in pos.tools">{{t}}</span>
+										</div>
+									</div>
+			
+									<div class="row section-row" ng-show="pos.platforms">
+										<label class="hidden-xs col-sm-3 col-md-3">Platforms</label>
+										<div class="col-xs-12 col-sm-8 col-md-9 h-padding">
+											<span class="skill" ng-repeat="t in pos.platforms">{{t}}</span>
+										</div>
+									</div>
+									
+									<div class="row section-row" ng-show="pos.paradigms">
+										<label class="hidden-xs col-sm-3 col-md-3">Paradigms</label>
+										<div class="col-xs-12 col-sm-8 col-md-9 h-padding">
+											<span class="skill" ng-repeat="t in pos.paradigms">{{t}}</span>
+										</div>
+									</div>
+									
+									<div class="section-row" style="height: 40px">
 									</div>
 								</div>
-		
-								<div class="row section-row" ng-show="pos.platforms">
-									<label class="hidden-xs col-sm-3 col-md-3">Platforms</label>
-									<div class="col-xs-12 col-sm-8 col-md-9 h-padding">
-										<span class="skill" ng-repeat="t in pos.platforms">{{t}}</span>
-									</div>
-								</div>
-								
-								<div class="row section-row" ng-show="pos.paradigms">
-									<label class="hidden-xs col-sm-3 col-md-3">Paradigms</label>
-									<div class="col-xs-12 col-sm-8 col-md-9 h-padding">
-										<span class="skill" ng-repeat="t in pos.paradigms">{{t}}</span>
-									</div>
-								</div>
-								
-								<div class="section-row" style="height: 40px">
-								</div>
-		</div>
 							</div>
 							<!-- ============= -->
 							

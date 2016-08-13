@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&subset=latin,cyrillic,cyrillic-ext);
-@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300&subset=latin,cyrillic,cyrillic-ext);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300&subset=latin,cyrillic,cyrillic-ext);
 	
 
 @import "variables";
@@ -56,7 +56,7 @@ h1{
     
 }
 
-h3,h4,h5{
+h3, h4, h5{
     @extend .nice-caption;
     margin: 0;
     z-index: 4;   
@@ -212,6 +212,10 @@ ol.simple-list > li:before {
 
 .appsblock{}
 
+.logo-wrap{
+    font-size: 8em; 
+}
+
 @include media-breakpoint-down(sm) {
  
     .about{
@@ -240,9 +244,7 @@ ol.simple-list > li:before {
         height: inherit!important;
     }
   
-//    .gridbox{
-//        margin-bottom: 25px!important;
-//    }
+ 
     
     .branding{
          padding-left: $brand-line-width!important;
@@ -254,6 +256,7 @@ ol.simple-list > li:before {
     }
  
 }
+
 
 @include media-breakpoint-down(xs) {
     .logo-wrap{
@@ -363,6 +366,9 @@ small{
     h2{
          background-color: $palette-color-2t;
     }
+    a{
+        color: $palette-color-1;   
+    }
 }
 .bg2t{
     background-color: $palette-color-2t;
@@ -451,7 +457,7 @@ small{
 
 .bg6t{
     background-color: $palette-color-6t;
-    color: $palette-color-4;
+    color: $palette-color-1;
     
     a{
         color: $palette-color-4;
@@ -480,9 +486,8 @@ small{
  
 .logo{
     
-    
-    padding-bottom: 50px;
-    padding-top: $rowHeight / 2;
+    padding-bottom: $rowHeight / 8;
+    padding-top: $rowHeight / 8;
     margin: 0;
     text-align: center;
     
@@ -516,9 +521,10 @@ small{
 }
 
 .banner {
- 	background-image: url(http://res.cloudinary.com/zaborskiy/image/upload/w_970,dpr_auto/PA161858_cpunkb.jpg) !important;
+// 	background-image: url(http://res.cloudinary.com/zaborskiy/image/upload/w_970,dpr_auto/PA161858_cpunkb.jpg) !important;
+    background-image: url(/assets/img/PA141623-Edit.jpg) !important;
     background-size: cover;
-    background-position: left center;     
+    background-position: center;     
 }
 
 

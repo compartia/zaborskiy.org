@@ -38,7 +38,7 @@ $small-width: 100/12%;
 
 .date{
     color: $palette-color-1;
-    background: $palette-color-6;
+    //background: $palette-color-6;
 }
 
 .date-line{
@@ -364,8 +364,9 @@ h2 img{
 .section-work{
     .date{        
         color: $palette-color-1;
-        background-color: $palette-color-6;
-        @extend .with-noise;
+        text-align: right;
+        //background-color: $palette-color-6;
+        //@extend .with-noise;
     }
 }
  

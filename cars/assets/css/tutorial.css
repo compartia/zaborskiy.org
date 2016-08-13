@@ -2459,9 +2459,9 @@ small {
   padding-bottom: 4em; }
 
 .banner {
-  background-image: url(http://res.cloudinary.com/zaborskiy/image/upload/w_970,dpr_auto/PA161858_cpunkb.jpg) !important;
+  background-image: url(/assets/img/PA141623-Edit.jpg) !important;
   background-size: cover;
-  background-position: left center; }
+  background-position: center; }
 
 .branding {
   background-image: url(../img/alphabet.svg);
