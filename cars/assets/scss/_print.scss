@@ -19,6 +19,10 @@ $palette-color-3l: fade($palette-color-3d, 80%);
         text-decoration: none!important;
     }
     
+    h1{
+        font-size: 22pt;
+    }
+    
     footer{
         display: none;
     }
@@ -46,7 +50,6 @@ $palette-color-3l: fade($palette-color-3d, 80%);
         background-size: contain!important;
         background-repeat: repeat-y!important;
         background-color: transparent!important;
-
     }
 
     

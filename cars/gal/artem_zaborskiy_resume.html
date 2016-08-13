@@ -217,7 +217,7 @@
 				</div>
 			</div>
 
-			<div class="row with-noise section-headline">
+			<div class="row with-noise section-headline page-break">
 				<div class="col-md-3"></div>
 				<h2 class="col-md-9 col-sm-12 col-xs-12">
 					Education <img class="hidden-print" src="/assets/img/az_side_branding4.svg" />
@@ -226,7 +226,7 @@
 			</div>
 
 			<!-- ============= -->
-			<div class="section-education">
+			<div class="section-education ">
 				<div ng-cloak class="cv-position" ng-repeat="pos in cv.education | orderBy:'stop':true">
 
 
@@ -286,10 +286,17 @@
 									</div>
 								</div>
 							</div>
+
+							<div class="col-xs-3 col-sm-2 col-md-1 nopadding text-right print-no-break" 
+											style="position: absolute; z-index: 12; right: 0; ">
+									<div class="featured-label text-center" ng-show="pos.featured" >
+									 	featured 
+									</div>
+								</div>
 																			
 						</div>
 							<!-- ============= -->
-							<div class="row" ng-class="{'featured':pos.featured}">
+							<div class="row" ng-class="featured':pos.featured">
 
 								<div class="col-sm-5 col-md-3 col-xs-12 print-no-break nopadding"><div class="date bg6">
 									<span class="text-nowrap">{{pos.start | date:"yyyy, MMM" }}</span> — <span class="text-nowrap">{{pos.stop
@@ -298,12 +305,7 @@
 								
 							<!-- ============= -->
 							
-								<div class="col-xs-3 col-sm-2 col-md-1 nopadding text-right print-no-break" 
-											style=" position: absolute; top:5px; z-index: 12; right: 0; ">
-									<div class="featured-label text-center" ng-show="pos.featured" >
-									 	featured 
-									</div>
-								</div>
+								
 							
 							<!-- ============= -->
 							

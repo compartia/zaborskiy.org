@@ -275,12 +275,6 @@ ol.simple-list > li:before {
 	}
 }
 
-//@include media-breakpoint-down(sm) {
-// 	.container {
-//        max-width: 100%;
-//	}
-//}
-
 
 @include media-breakpoint-down(md) {
  	h4 {
@@ -481,7 +475,6 @@ small{
     h2{
         background: $palette-color-5t;
     }
-    
 }
  
 .logo{
