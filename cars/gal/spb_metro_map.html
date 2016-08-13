@@ -10,31 +10,24 @@
 <meta property="article:author" content="https://www.facebook.com/zaborskiy" />
 <meta property="article:publisher" content="http://www.zaborskiy.org/" />
 <meta property="fb:app_id" content="201987453175808" />
-<meta property="og:image"
-	content="http://res.cloudinary.com/zaborskiy/image/upload/c_thumb,w_900,h_900/spb_metro_map.png" />
-
+<meta property="og:image" content="http://res.cloudinary.com/zaborskiy/image/upload/c_thumb,w_900,h_900/spb_metro_map.png" />
 <meta property="og:description" content="Альтернативная карта метрополитена Санкт-Петербурга" />
 
 <meta charset="utf-8">
 
 <title>zaborskiy.org:карта метро СПб</title>
+
 <meta name="description" content="Artem Zaborskiy">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-
  
-<link rel="stylesheet" href="/assets/logo/styles.css" />
-<link rel="stylesheet" href="/assets/css/zaborskiy.org.css" />
-
-<link rel='stylesheet'
-	href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700&subset=latin,cyrillic-ext,cyrillic' type='text/css'>
-
+ <link rel="stylesheet" href="../assets/css/zaborskiy.css" />
+ 
     
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="../assets/js/dist/jquery.min.js"></script>
 <script src="../assets/js/dist/jquery.cloudinary.js"></script>
-<script src="/assets/js/dist/angular.min.js"></script>
+<script src="../assets/js/dist/angular.min.js"></script>
 
 <script type="application/ld+json">
 {
@@ -69,7 +62,7 @@
 	<div class="container">
 
 
-		<div class="stripes">
+		<div  >
 
 
 
@@ -126,12 +119,14 @@
     })();</script>
 		</section>
 
-
-			<div class="footer bg2" ng-include="'/assets/partials/social2.html'"></div>
-			<div class="footer bg2" ng-include="'/assets/partials/branding_footer.html'"></div>
-
+        
 
 		</div>
+        
+        <footer>            
+			<div ng-include="'/assets/partials/social2.html'"></div>
+			<div ng-include="'/assets/partials/branding_footer.html'"></div>
+        </footer>
 
 	</div>
     

@@ -1,28 +1,28 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&subset=latin,cyrillic,cyrillic-ext);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300&subset=latin,cyrillic,cyrillic-ext);
+	
+
 @import "variables";
+@import "../logo/styles.css";
 //@import "const";
 
-@import "../bootstrap/scss/mixins";
+@import "bower_components/bootstrap/scss/mixins";
 //
 //// Reset and dependencies
-@import "../bootstrap/scss/normalize";
-@import "../bootstrap/scss/print";
+@import "bower_components/bootstrap/scss/normalize";
+@import "bower_components/bootstrap/scss/print";
 
 
 
-@import "../bootstrap/scss/reboot";
-@import "../bootstrap/scss/type";
-@import "../bootstrap/scss/images";
+@import "bower_components/bootstrap/scss/reboot";
+@import "bower_components/bootstrap/scss/type";
+@import "bower_components/bootstrap/scss/images";
 //@import "../bower_components/bootstrap/scss/code";
-@import "../bootstrap/scss/grid";
+@import "bower_components/bootstrap/scss/grid";
 //@import "../bower_components/bootstrap/scss/tables";
-@import "../bootstrap/scss/forms";
-@import "../bootstrap/scss/buttons";
+@import "bower_components/bootstrap/scss/forms";
+@import "bower_components/bootstrap/scss/buttons";
 
-
-//@import "../bootstrap/scss/bootstrap.scss"
-//    
-//    
- 
 
 $brand-line-width: 2rem;
 
@@ -137,7 +137,7 @@ pre{
 .lead {
     margin-bottom: 30px;
     font-size: 24px;
-    font-weight: 300;
+    font-weight: 500!important;
     line-height: 1.46428571;
 }
 
@@ -294,18 +294,19 @@ ol.simple-list > li:before {
   
 
 
-
-.footer{
+$footer-padding: $inter-panel-padding * 2;
+footer{
+    text-align: center;
+    padding: $footer-padding;
     color: $palette-color-3!important;
+    
     a{
         color: $palette-color-3!important;
         text-decoration:underline;
     }
-    text-align: center;
-    padding: $inter-panel-padding * 2;
-    
+        
     .logo-wrap{
-        padding: $inter-panel-padding;
+        padding: $footer-padding/2;
         font-size: 6em!important; 
         color: $palette-color-3t;
         display:block;
@@ -313,6 +314,11 @@ ol.simple-list > li:before {
         &:hover { text-decoration:none; }
     }
     
+    hr{
+        margin-left: -$footer-padding;
+        margin-right: -$footer-padding;
+        border-top: $inter-panel-padding/6 solid $palette-color-3d;
+    }
     
 }
   
@@ -858,6 +864,6 @@ blockquote {
 }
 
 
-   
-   
- 
+.text-right {
+    text-align: right;
+} 

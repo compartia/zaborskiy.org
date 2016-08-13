@@ -2,7 +2,9 @@ var zaborskiy = angular.module('zaborskiy', []);
 
 zaborskiy.controller('mainCtrl', function($scope) {
 	angular.element(document).ready(function() {
-		$.cloudinary.responsive();
+        if($.cloudinary){
+            $.cloudinary.responsive();    
+        }		
 	});
 })
 
@@ -51,7 +53,7 @@ zaborskiy.directive(
 		template :
 		// '<a target="{{il.target}}" href="{{il.link}}">'+
 		'<div class="gallery-item gallery-item-tall" style="background-image: url(\'{{bg}}\')">'
-				+ '<div class="desciption-wrap {{bgClass}}">' + '<h4>{{title}}</h4>'
+				+ '<div class="desciption-wrap bg2t">' + '<h4>{{title}}</h4>'
 				+ '<small ng-show="description">{{description}}</small>' + '<small><ng-transclude></ng-transclude> '
 				+ '</small></div>' + '</div>'
 	// '</a>'

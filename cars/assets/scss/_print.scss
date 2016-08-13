@@ -1,0 +1,144 @@
+@import "const";
+    
+
+$palette-color-3l: fade($palette-color-3d, 80%);
+
+@media print {
+    
+    *{
+        -webkit-print-color-adjust: exact!important;
+        print-color-adjust: exact!important;
+    }
+    
+    a{
+        text-decoration: none!important;
+    }
+    
+    footer{
+        display: none;
+    }
+    
+    body{
+        background: white;
+        font-size: 10px;
+    }
+    
+    .icon {
+        color: $palette-color-4!important;
+    }
+    .contact-info {
+        //font-size: 10px!important;
+    }
+    
+    
+    .container{
+        width: 100%!important;        
+      //  @extend .nopadding; 
+    }
+    
+    .cv{
+        background-image: url(/assets/img/grid-print.svg)!important;
+        background-size: contain!important;
+        background-repeat: repeat-y!important;
+        background-color: transparent!important;
+
+    }
+
+    
+    .spaceous{
+        padding-bottom: 0!important;
+        padding-top: $inter-panel-padding*1.5!important;
+    }
+    
+ 
+    
+    .page-break{
+        page-break-before: always;
+    }
+    
+    .print-no-break{
+        page-break-inside: avoid;
+    }
+    
+    .section-headline {
+        margin-top: 2px!important;
+    }
+    
+    a[href]:after {
+        content: none !important;
+        text-decoration: none!important;
+    }
+    
+
+    .section-work{
+
+        .date, .featured-label{
+            text-align: center;
+            font-size: 7px!important;
+            font-weight: 300;
+        }
+        
+        .featured-label{
+            color: white!important;
+            background: $palette-color-2!important;
+           
+            //@extend .roboto-condensed;
+        }
+
+        .date{
+            color: white!important;
+            background: $palette-color-6!important;
+            .text-nowrap{
+                color: white!important;
+            }
+        }
+    }
+    
+    label{
+            color: $palette-color-3l!important;
+             -webkit-print-color-adjust: exact; 
+    }
+    
+    .skill{
+        background: white!important;
+    }  
+    
+    .bg1{
+        .skill1,.skill2,.skill3,.skill4,.skill5,.skill6,.skill7,.skill8{
+            color: $palette-color-4d!important;
+            background: white!important; 
+        }
+    }
+    
+     
+    
+    .cv h2{
+        //border-left: 5px solid $palette-color-4t;
+    }
+    
+    
+    .date-line{
+     
+        background-color: $palette-color-4t!important;
+        
+        .date-line-marker{
+            background:$palette-color-6!important;
+            color:$palette-color-6!important;
+        }
+    }
+    
+    .bimage img{
+       // border: 1px solid $palette-color-4;
+    }
+    
+    .featured{
+        border-right: none;
+        border-left: none;
+        background: fade($palette-color-4, 7%)!important;
+    }
+ 
+    
+    
+
+}
+ 

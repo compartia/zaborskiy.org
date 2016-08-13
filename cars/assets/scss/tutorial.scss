@@ -1,0 +1,247 @@
+@import "zaborskiy";
+
+ 
+$numeration-size: $padding-base*8;
+
+
+BODY {
+    color: $text-color;
+    counter-reset: chapter;      
+    @extend .roboto;
+}
+ 
+
+code{
+    color: $palette-color-4d;
+    background: $palette-color-1;
+}
+
+pre{
+    font-family:Liberation Mono,Consolas,Monaco,Lucida Console, DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace!important;
+    padding: 10px;
+    border-radius: 0!important;
+    padding: $padding-base/2!important;
+    border-color: $palette-color-4!important; 
+    background: fade($palette-color-4, 10%)!important;
+}
+
+.output{ 
+    background: none!important;
+    border-color: lightgray!important; 
+}
+
+section{
+    padding-top: 5* $padding-base;
+    padding-top: 3* $padding-base;
+}
+
+.prettyprint{
+    color: $palette-color-2;
+}
+
+.sidenote, aside{
+    float: right; 
+   
+    margin-left: 2*$padding-base;
+    margin-right: -$content-padding;
+    border-right: 5px solid $palette-color-6;
+    padding: $padding-base;
+    
+    background-color: $palette-color-1;
+    //border: @border-base solid @palette-color-4;
+     @extend .with-shadow-sm;
+    
+    
+//    
+//    &:before{
+//        font-family: "zaborskiyorg-logo";
+//        content: "j";
+//       
+//        font-size: 120%; 
+//        display: block;
+//    }
+
+}
+
+.sidenote{
+     width: 40%;  
+}
+aside{
+    width: 40%;  
+}
+.gallery{
+    list-style: none;
+}
+
+.substep{
+    &::before {
+        content: counter(chapter) "." counter(section) " ";
+        counter-increment: section;
+        font-size: 200%;
+        font-weight: 300;
+        
+        text-align: right;
+        float: left;
+        width: $numeration-size;
+        margin-left: -$numeration-size;
+        padding-right: $padding-base;
+        
+        margin-top: -0.33em;
+        color: $palette-color-5;
+        @extend .roboto;
+    }
+
+    margin-left:  $numeration-size - $content-padding;
+    margin-bottom: $padding-base;
+}
+.reset-chapter {
+	counter-reset: chapter;
+}
+.tutorial{
+    
+    background: $palette-color-1;
+    padding: $content-padding;
+    
+    h3{
+        margin: 0;
+        padding: 0;
+        margin-bottom: $padding-base;
+        margin-top: $padding-base;
+    }
+    
+    h1{
+        background:  $palette-color-5;
+        color: $palette-color-1;
+        text-transform: none;
+        letter-spacing: 0;
+        font-size: 350%;
+        margin: -$content-padding;
+        padding: $content-padding;
+        margin-bottom: 2*$content-padding;
+        font-weight: 300;
+        @extend .roboto; 
+        
+        
+        small{
+            display: block;
+            line-height: 1;
+            font-weight: 200;
+            margin-bottom: 2* $padding-base;
+            color: $palette-color-1t;
+            text-transform: none;
+            letter-spacing: 0;
+            
+            small{
+                margin-top: 0.6em;
+                font-size: 40%;
+                color: $palette-color-1;
+            }
+        }  
+    }
+    
+    
+    ul.plain{
+        line-height: 1;
+         padding-top:  $padding-base!important;
+         padding-bottom: $padding-base!important;
+        li{
+           line-height: 1;
+            margin-bottom: 0;
+            margin-top: 0;
+            padding-top: 0!important;
+            padding-bottom: 0!important;
+        }
+    }
+    
+    ul.heavy,ol.heavy{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+   
+    ul.heavy li, ol.heavy li{
+        margin: 0;
+        padding: 0;
+        
+        padding-bottom: 3* $padding-base;
+        padding-top: 3* $padding-base;
+        
+        
+        
+         h2 {
+             
+             &:before{
+                float: left;
+                margin-top: -0.33em;
+                line-height: 1;
+                text-align: right;
+
+                font-size: $numeration-size * 1.25;
+               // border: @border-base solid lightgrey;
+                width: $numeration-size;
+                height: $numeration-size;
+                overflow: hidden;
+                font-weight: 900;
+                padding-left: $numeration-size/1.8;            
+
+                margin-right: $padding-base;
+                margin-bottom: $padding-base;
+                display: inline-block;
+
+                content: counter(chapter);
+                background-color: $palette-color-5;
+                color: $palette-color-1;
+            }
+
+
+         }
+    }
+    
+    
+    h2 {
+        @extend .roboto;
+        padding-top: 6* $padding-base!important;
+        margin-left: -$content-padding;
+        counter-reset: section;  
+        counter-increment: chapter;
+        padding: 0;
+        color: $palette-color-5;
+       
+   
+        line-height: 0.8;
+        margin-bottom: 4* $padding-base;
+        
+        small{
+            display: block;
+            line-height: 1;
+            font-weight: 200;
+            margin-bottom: 2* $padding-base;
+            text-transform: none;
+            letter-spacing: 0;
+        }  
+        
+      //deprecated  
+        &:before{
+            float: left;
+            margin-top: -0.33em;
+            line-height: 1;
+            text-align: right;
+            
+            font-size: $numeration-size * 1.25;
+           // border: @border-base solid lightgrey;
+            width: $numeration-size;
+            height: $numeration-size;
+            overflow: hidden;
+            font-weight: 900;
+            padding-left: $numeration-size/1.8;            
+            
+            margin-right: $padding-base;
+            margin-bottom: $padding-base;
+            display: inline-block;
+            
+            content: counter(chapter);
+            background-color: $palette-color-5;
+            color: $palette-color-1;
+        }
+    }
+}

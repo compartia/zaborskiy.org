@@ -23,26 +23,12 @@
 <meta name="description" content="Artem Zaborskiy">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
 
-<!-- <link rel="stylesheet" href="/assets/js/dist/bootstrap.min.css">
-<link rel="stylesheet" href="/assets/logo/styles.css" /> -->
-<!-- <link rel="stylesheet" href="assets/css/zaborskiy.css" />  -->
+<link rel="stylesheet" href="assets/css/zaborskiy.css" /> 
 
-<!-- <link rel="stylesheet" href="/assets/js/dist/bootstrap.min.css"> -->
-<link rel="stylesheet" href="/assets/logo/styles.css" />
-<link rel="stylesheet" href="/assets/css/zaborskiy.org.css" />
-
-<link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700&subset=latin,cyrillic-ext,cyrillic'
-	rel='stylesheet' type='text/css'>
-
-<!-- <link rel="stylesheet/less" type="text/css" href="/assets/less/zaborskiy.less" />
-<script src="/assets/js/vendor/less.min.js"></script>
- -->
-
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="/assets/js/dist/jquery.min.js"></script>
 <script src="/assets/js/dist/angular.min.js"></script>
-
-
 <script src="/assets/js/zaborskiy.js"></script>
 
 <script type="application/ld+json">
@@ -179,6 +165,8 @@ $(function() {
 <meta name="pocket-site-verification" content="321835abaa995c70b46a5473ae885d" />
 </head>
 
+
+
 <body>
 
 	<div id="fb-root"></div>
@@ -205,10 +193,11 @@ $(function() {
 
 						<nav ng-cloak class="row nopadding float-caption section-links bg2t">
 							<div class="{{topMenuStyle}}"></div>
-							<a target="_self" class="{{topMenuStyle}} bg3" href="#apps">apps</a> <a target="_self"
-								class="{{topMenuStyle}} bg5" href="#tools">pages</a> <a target="_self" class="{{topMenuStyle}} bg6t"
-								href="#music">music</a> <a target="_self" class="{{topMenuStyle}} bg1t" href="#texts">texts</a> <a
-								target="_self" class="{{topMenuStyle}} bg4" href="#arts">arts</a>
+							<a target="_self" class="{{topMenuStyle}} bg3" href="#apps">apps</a> 
+                            <a target="_self" class="{{topMenuStyle}} bg5" href="#tools">pages</a> 
+                            <a target="_self" class="{{topMenuStyle}} bg6t" href="#music">music</a> 
+                            <a target="_self" class="{{topMenuStyle}} bg1t" href="#texts">texts</a> 
+                            <a target="_self" class="{{topMenuStyle}} bg4" href="#arts">arts</a>
 						</nav>
 
 					</div>
@@ -221,7 +210,6 @@ $(function() {
 
 
 							<div class="intro">
-
 
 								<link itemprop="url" href="http://www.zaborskiy.org">
 								Hi there, I'm
@@ -246,8 +234,8 @@ $(function() {
 
 			<div class="linkset">
 				<ul id="texts-links" ng-cloak ng-controller="appsCtrl">
-					<li class="bg5 gridbox">
-
+					
+                    <li class="bg5 gridbox">
 
 						<h2 id=tools class="panel-caption">tools</h2>
 						<div class="linkset">
@@ -260,7 +248,6 @@ $(function() {
 								</a></li>
 							</ul>
 						</div>
-
 
 					</li>
 
@@ -277,31 +264,26 @@ $(function() {
 											<small>{{app.text}}</small>
 										</div>
 
-
 								</a></li>
 
 							</ul>
 						</div>
-
-
 					</li>
 
 
 
-					<li class="bg6 gridbox">
+					<li class="bg2 gridbox">
 
 						<h2 id="music">music</h2>
 						<div class="cell-content">
-							Here are few sample compositions I made. Feel free to discover more at <a class="nopadding"
-								href="https://azzz.bandcamp.com/">bandcamp</a>.
+							Here are few sample compositions I made. Discover more at <a class="nopadding"
+								href="https://azzz.bandcamp.com/">BandCamp</a>
 
-							<iframe style="border: 0; width: 100%; height: 41px; display: block"
-								src="https://bandcamp.com/EmbeddedPlayer/album=3213495709/size=small/bgcol=000000/linkcol=cf4359/artwork=none/track=651293571/transparent=true/"
-								seamless>
+							<iframe style="border: 0; width: 100%; height: 41px; display: block"								src="https://bandcamp.com/EmbeddedPlayer/album=3213495709/size=small/bgcol=000000/linkcol=cf4359/artwork=none/track=651293571/transparent=true/" seamless>
 								<a target="_bandcamp" href="http://azzz.bandcamp.com/album/best-of">Best of by Artem Zaborskiy</a>
 							</iframe>
-							<iframe style="border: 0; width: 100%; height: 41px; display: block"
-								src="https://bandcamp.com/EmbeddedPlayer/album=3213495709/size=small/bgcol=000000/linkcol=cf4359/artwork=none/track=21335927/transparent=true/"
+                            
+							<iframe style="border: 0; width: 100%; height: 41px; display: block"								src="https://bandcamp.com/EmbeddedPlayer/album=3213495709/size=small/bgcol=000000/linkcol=cf4359/artwork=none/track=21335927/transparent=true/"
 								seamless>
 								<a target="_bandcamp" href="http://azzz.bandcamp.com/album/best-of">Best of by Artem Zaborskiy</a>
 							</iframe>
@@ -324,8 +306,6 @@ $(function() {
 						bg="http://res.cloudinary.com/zaborskiy/image/upload/w_480,dpr_2.0/v1439795785/download_13_dswfjm.jpg"
 						title="GoogLeNet DeepDreams @ OS X. Step by step guide" href="gal/deepdream.html">You're reading this because
 						you’ve seen the original “inceptionism” gallery of hallucinating neural networks. This tutorial...</a>
-
-
 
 					<a class="grid-box bg3t" bg-class="bg2"
 						bg="http://3.bp.blogspot.com/-DelrrZwEXzw/UrMCZ1cPlMI/AAAAAAAARTc/JKK6WlZXMs0/s640/IMG_20130209_173724.jpg"
@@ -363,45 +343,62 @@ $(function() {
 			<section class="grid" ng-controller="galleryCtrl">
 				<h2 id="arts" class="bg2 flex-wide">artworks</h2>
 
-				<a class="grid-panel" href="/gal/rocks.html" title="When it's cold, nipples hard"
-					bg="{{illustrationsUrl}}/rocks/PA172011.jpg" bg-class="bg2t" description="photography"></a> <a class="grid-panel"
+				<a class="grid-panel" bg-class="bg2t"
+                    href="/gal/rocks.html" 
+                    title="When it's cold, nipples hard"
+					bg="{{illustrationsUrl}}/rocks/PA172011.jpg"  description="photography"></a> 
+                
+                <a class="grid-panel" bg-class="bg2t" 
 					title="Tautology: repeating patterns" bg="{{illustrationsUrl}}/c_fill,dpr_auto,w_400/tautology/PA090272.jpg"
-					bg-class="bg2t" description="photography" href="/gal/tautology.html"></a> <a class="grid-panel"
-					title="Input/Output" bg="{{illustrationsUrl}}/c_fill,dpr_auto,w_400/IO/PA131458.jpg" bg-class="bg4t"
-					description="photography" href="/gal/input_output.html"></a> <a class="grid-panel" title="Lone Tourist"
-					bg="{{illustrationsUrl}}/c_fill,dpr_auto,w_400/tourist_ik5icr.jpeg" bg-class="bg1t"
+					description="photography" href="/gal/tautology.html"></a> 
+                
+                <a class="grid-panel" bg-class="bg2t"
+					title="Input/Output" bg="{{illustrationsUrl}}/c_fill,dpr_auto,w_400/IO/PA131458.jpg" 
+					description="photography" href="/gal/input_output.html"></a> 
+                
+                <a class="grid-panel" bg-class="bg2t"
+                    title="Lone Tourist"
+					bg="{{illustrationsUrl}}/c_fill,dpr_auto,w_400/tourist_ik5icr.jpeg" 
 					description="ink on paper, 30 x 40 cm" href="https://www.behance.net/gallery/24130253/Tour" target="_behance"></a>
 
-				<a class="grid-panel" title="Валим" bg="{{illustrationsUrl}}/rocket.jpeg" bg-class="bg4t"
+				<a class="grid-panel" bg-class="bg2t"
+                    title="Валим" bg="{{illustrationsUrl}}/rocket.jpeg"
 					description="acylic on canvas, 30 x 30 cm"
 					href="https://www.facebook.com/photo.php?fbid=10153240052289273&set=a.10152110198564273.1073741829.662639272&type=3&theater"
-					target="_facebook"></a> <a class="grid-panel" title="Bostondynamics II"
-					bg="{{illustrationsUrl}}/boston_dynamics.jpeg" bg-class="bg6t" description="mixed media"
-					href="https://www.behance.net/gallery/24299931/Bostondynamics-2" target="_behance"></a> <a class="grid-panel"
+					target="_facebook"></a> 
+                
+                <a class="grid-panel" bg-class="bg2t"
+                    title="Bostondynamics II"
+					bg="{{illustrationsUrl}}/boston_dynamics.jpeg" description="mixed media"
+					href="https://www.behance.net/gallery/24299931/Bostondynamics-2" target="_behance"></a> 
+                
+                <a class="grid-panel"
 					title="Secret Lab" bg="{{illustrationsUrl}}/secret-lab-web-3000.jpeg" bg-class="bg4" description="mixed media"
-					href="/gal/secret_lab.html"></a> <a class="grid-panel" title="Careful With That Axe, Eugene [Woodcut]"
+					href="/gal/secret_lab.html"></a> 
+                
+                <a class="grid-panel" title="Careful With That Axe, Eugene [Woodcut]"
 					bg="{{illustrationsUrl}}/woodcut-web-3000.jpeg" bg-class="bg2t" description="mixed media"
-					href="https://www.behance.net/gallery/24786851/Careful-With-That-Axe-Eugene" target="_behance"></a> <a
+					href="https://www.behance.net/gallery/24786851/Careful-With-That-Axe-Eugene" target="_behance"></a> 
+                
+                <a
 					class="grid-panel" title="Альтернативная карта метро спб" bg="{{illustrationsUrl}}/spb_metro_map.png"
-					bg-class="bg1t" description="vector graphics" href="/gal/spb_metro_map.html"></a> <a class="grid-panel"
+					bg-class="bg1t" description="vector graphics" href="/gal/spb_metro_map.html"></a> 
+                
+                <a class="grid-panel"
 					title="Botanics" bg="{{illustrationsUrl}}/photos/P1010045.jpg" bg-class="bg3t" description="photography"
-					href="/gal/botanica_photos.html"></a> <a class="grid-panel" title="Pesonal Branding"
-					bg="{{illustrationsUrl}}/artworks/az-branding-middle.png" bg-class="bg3" description="logo, design, branding"
+					href="/gal/botanica_photos.html"></a> 
+                
+                <a class="grid-panel" title="Pesonal Branding"
+					bg="{{illustrationsUrl}}/artworks/az-branding-middle.png" bg-class="bg3t" description="logo, design, branding"
 					href="/gal/az_branding.html"></a>
-
-
-
-
-
-
 
 
 			</section>
 			<!--/ gallery row-->
 
 			<footer>
-				<div class="footer bg2" ng-include="'/assets/partials/social2.html'"></div>
-				<div class="footer bg2" ng-include="'/assets/partials/branding_footer.html'"></div>
+				<div ng-include="'/assets/partials/social2.html'"></div>
+				<div ng-include="'/assets/partials/branding_footer.html'"></div>
 			</footer>
 
 
