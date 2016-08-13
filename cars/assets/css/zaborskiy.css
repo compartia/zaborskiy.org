@@ -1,4 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&subset=latin,cyrillic,cyrillic-ext);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300&subset=latin,cyrillic,cyrillic-ext);
 @import url(../logo/styles.css);
 .left-border {
   border-left: 2px solid fade(#677e6c, 20%); }
@@ -2516,5 +2517,8 @@ blockquote {
   .intro h1 {
     padding: 0;
     margin: 0; }
+
+.text-right {
+  text-align: right; }
 
 /*# sourceMappingURL=zaborskiy.css.map */

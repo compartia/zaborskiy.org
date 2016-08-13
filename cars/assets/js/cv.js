@@ -3,8 +3,8 @@ var artem_zaborskiy_cv = {
 	start : Date.parse("1 August, 2000"),
 
 	contactInfo : {
-		location : "St. Petersburg",
-		locationLast : "Koh Samui",
+		location : "Ubud, Indonesia",
+		locationLast : "St. Petersburg",
 		skype : "entity001",
 		phone : "+79217531866",
 		email : "zaborskiy@protonmail.ch",
@@ -49,45 +49,39 @@ var artem_zaborskiy_cv = {
 	} ],
 
 	positions : [
-
 			{
-				start : Date.parse("1 Dec, 2015"),
+				start : Date.parse("1 May, 2016"),
 				stop : new Date(),
 				position : "Software Engineer",
-				// employer : "adammatic.com (via Toptal)",
-				// customer : "adammatic.com",
+				employer : "kestreltechnology.com (via Toptal)",
+				customer : "kestreltechnology.com",
+				project : "Static C code analyser",
+				
+				employerUrl : "http://www.toptal.com/",
+
+				
+
+				technologies : [ "SCSS", "ehCache", "SonarQube"],
+				tools : [ "Eclipse", "git", "Maven" ],
+				teamSize : "1 - 3",
+				platforms : [ "SonarQube"],
+				process : "Agile"
+			},
+
+			{
+				featured : "true",
+				start : Date.parse("1 Dec, 2015"),
+				stop : new Date(),
+				position : "Software Engineer", 
 				project : "A deep convolutional neural network based system for image deblurring, denoise and removal of jpeg artifacts",
-				// employerUrl : "http://www.zaborskiy.org/",
-				//
-				// achievments : [
-				// "Created the newural n for adammatic.com from scratch, both
-				// front- and back-ends. "
-				// + "The server side was made with Java and Spring Boot, Spring
-				// Security, Hibernate, and PosgreSQL. "
-				// + "Heroku was used as staging environment, and GitHub for
-				// versioning.",
-				// "Created customer login (including login with Facebook and
-				// Twitter) and registration flows.",
-				// "Developed services for fetching website traffic statistics
-				// via Google Analytics API, "
-				// + "and correlating the traffic data with TV ads airings times
-				// logs.",
-				// "Built the responsive UI with AngularJS, Bootstrap 4, and
-				// SCSS. "
-				// + "Developed the dashboard for displaying charts, graphs, and
-				// other analytics-related widgets like "
-				// + "(1) Which TV networks are driving the MOST visitors, (2)
-				// The best Days and Times to run commercials, (3) Leads -
-				// Conversions - Cost Per Visitor",
-				// "Created the admin tool." ],
+				
 
 				technologies : [ "Python", "Java", "TensorFlow" ],
 				tools : [ "iPython", "git", "Eclipse", "TensorBoard" ],
 				paradigms : [ "NN", "Deep Learning", "CNN" ],
-				// teamSize : "1",
-				platforms : [ "TensorFlow", "GitHub" ]
-			// ,
-			// process : "Agile"
+				platforms : [ "TensorFlow", "GitHub" ],
+				employer : "AZ",
+				employerUrl : "http://www.zaborskiy.org/"
 			},
 
 			{
@@ -97,7 +91,8 @@ var artem_zaborskiy_cv = {
 				employer : "adammatic.com (via Toptal)",
 				customer : "adammatic.com",
 				project : "Adammatic is an analytics tool to track how TV advertising impacts websites traffic.",
-				employerUrl : "http://www.zaborskiy.org/",
+				
+				mployerUrl : "http://www.toptal.com/",
 
 				achievments : [
 						"Created the MVP for adammatic.com from scratch, both front- and back-ends. "
@@ -141,7 +136,7 @@ var artem_zaborskiy_cv = {
 
 				technologies : [ "Spring Framework", "Spring Security", "Hibernate", "ehCache", "AngularJS", "LESS",
 						"Spring Boot", "Liquibase", "Dozer mapper", "JUnit", "DBUnit", "Mockito" ],
-				tools : [ "Eclipse", "Jira", "Jenkins", "Sonar", "git", "Confluence", "Maven" ],
+				tools : [ "Eclipse", "Jira", "Jenkins", "SonarQube", "git", "Confluence", "Maven" ],
 				paradigms : [ "REST", "Open Source", "AOP", "OOP" ],
 				teamSize : "1 - 3",
 				platforms : [ "Heroku", "Tomcat", "Android", "GitHub" ],
@@ -386,9 +381,6 @@ var artem_zaborskiy_cv = {
 				start : Date.parse("1 September, 2013"),
 				stop : Date.parse("1 July, 2015"),
 
-				// employer : "home",
-				// employerUrl : "http://www.zaborskiy.org/",
-
 				project : "Color Collection is a native application for Android. It processes images to extract most used colors.",
 				projectUrl : "https://play.google.com/store/apps/details?id=org.az.clr",
 				position : "Android Developer, Project Owner",
@@ -400,7 +392,7 @@ var artem_zaborskiy_cv = {
 				platforms : [ "Android", "GitHub", "Heroku" ],
 				tools : [ "git", "Maven", "Gradle", "Android Studio" ],
 				paradigms : [ "Open Source" ],
-				// teamSize : "1",
+
 				achievments : [ "Tens of thousands of installations" ]
 
 			}
