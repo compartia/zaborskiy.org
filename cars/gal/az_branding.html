@@ -21,12 +21,9 @@
 <meta name="description" content="Art Zaborskiy: personal branding">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet" href="/assets/js/dist/bootstrap.min.css">
-<link rel="stylesheet" href="/assets/logo/styles.css" />
+ 
 <link rel="stylesheet" href="/assets/css/zaborskiy.css" />
-<link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,700&subset=latin,cyrillic-ext,cyrillic'
-	rel='stylesheet' type='text/css'>
+
 
 <script src="/assets/js/dist/jquery.min.js"></script>
 <script src="/assets/js/dist/jquery.cloudinary.js"></script>
@@ -64,27 +61,24 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 
-	<div class="container branding">
-		<div class="stripes">
+	<footer>
 
+        <div class="bg1">
+            <img class="cld-responsive" style="width: 100%"
+                data-src="http://res.cloudinary.com/zaborskiy/image/upload/w_auto,dpr_auto/artworks/branding-top2400.png" /> <img
+                class="cld-responsive"
+                data-src="http://res.cloudinary.com/zaborskiy/image/upload/w_auto,dpr_auto/artworks/az-branding-top2.png"
+                style="width: 100%" /> <img class="cld-responsive"
+                data-src="http://res.cloudinary.com/zaborskiy/image/upload/w_auto,dpr_auto/artworks/az-branding-middle.png"
+                style="width: 100%" /> <img class="cld-responsive"
+                data-src="http://res.cloudinary.com/zaborskiy/image/upload/w_auto,dpr_auto/artworks/az-branding-bottom.png"
+                style="width: 100%" />
+        </div>
 
-			<div class="bg1">
-				<img class="cld-responsive" style="width: 100%"
-					data-src="http://res.cloudinary.com/zaborskiy/image/upload/w_auto,dpr_auto/artworks/branding-top2400.png" /> <img
-					class="cld-responsive"
-					data-src="http://res.cloudinary.com/zaborskiy/image/upload/w_auto,dpr_auto/artworks/az-branding-top2.png"
-					style="width: 100%" /> <img class="cld-responsive"
-					data-src="http://res.cloudinary.com/zaborskiy/image/upload/w_auto,dpr_auto/artworks/az-branding-middle.png"
-					style="width: 100%" /> <img class="cld-responsive"
-					data-src="http://res.cloudinary.com/zaborskiy/image/upload/w_auto,dpr_auto/artworks/az-branding-bottom.png"
-					style="width: 100%" />
-			</div>
-
-			<div class="footer bg2" ng-include="'/assets/partials/social2.html'"></div>
-			<div class="footer bg2" ng-include="'/assets/partials/branding_footer.html'"></div>
-		</div>
-
-	</div>
+        <div class="footer bg2" ng-include="'/assets/partials/social2.html'"></div>
+        <div class="footer bg2" ng-include="'/assets/partials/branding_footer.html'"></div>
+	 
+	</footer>
 
 	<script type="text/javascript">
 $.cloudinary.responsive();

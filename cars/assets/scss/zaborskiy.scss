@@ -292,18 +292,19 @@ ol.simple-list > li:before {
   
 
 
-
-.footer{
+$footer-padding: $inter-panel-padding * 2;
+footer{
+    text-align: center;
+    padding: $footer-padding;
     color: $palette-color-3!important;
+    
     a{
         color: $palette-color-3!important;
         text-decoration:underline;
     }
-    text-align: center;
-    padding: $inter-panel-padding * 2;
-    
+        
     .logo-wrap{
-        padding: $inter-panel-padding;
+        padding: $footer-padding/2;
         font-size: 6em!important; 
         color: $palette-color-3t;
         display:block;
@@ -311,6 +312,11 @@ ol.simple-list > li:before {
         &:hover { text-decoration:none; }
     }
     
+    hr{
+        margin-left: -$footer-padding;
+        margin-right: -$footer-padding;
+        border-top: $inter-panel-padding/6 solid $palette-color-3d;
+    }
     
 }
   

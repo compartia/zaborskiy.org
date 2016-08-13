@@ -22,12 +22,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  
- <link rel="stylesheet" href="/assets/css/zaborskiy.css" />
+ <link rel="stylesheet" href="../assets/css/zaborskiy.css" />
  
     
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="../assets/js/dist/jquery.min.js"></script>
 <script src="../assets/js/dist/jquery.cloudinary.js"></script>
-<script src="/assets/js/dist/angular.min.js"></script>
+<script src="../assets/js/dist/angular.min.js"></script>
 
 <script type="application/ld+json">
 {
@@ -62,7 +62,7 @@
 	<div class="container">
 
 
-		<div class="stripes">
+		<div  >
 
 
 
@@ -119,12 +119,14 @@
     })();</script>
 		</section>
 
-
-			<div class="footer bg2" ng-include="'/assets/partials/social2.html'"></div>
-			<div class="footer bg2" ng-include="'/assets/partials/branding_footer.html'"></div>
-
+        
 
 		</div>
+        
+        <footer>            
+			<div ng-include="'/assets/partials/social2.html'"></div>
+			<div ng-include="'/assets/partials/branding_footer.html'"></div>
+        </footer>
 
 	</div>
     

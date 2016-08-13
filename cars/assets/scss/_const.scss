@@ -5,7 +5,7 @@ $bgDefTransparency: 0.4;
 $iconSize: 5rem;
 $rowHeight: 18rem;
 
-$palette-color-1:desaturate(#F8FFE8,50%);
+$palette-color-1:lighten(desaturate(#F8FFE8,60%),5%);
 $palette-color-2:#2f2b3b;
 $palette-color-3:#84ad8d;
 $palette-color-4:#81abbd;
@@ -24,7 +24,7 @@ $palette-color-3l: desaturate(lighten($palette-color-3, 40%),20%);
 $palette-color-1d: desaturate(darken($palette-color-1, 15%),75%);
 
 $palette-color-3d: desaturate(darken($palette-color-3, 15%),10%);
-$palette-color-4d: desaturate(darken($palette-color-4, 25%),10%);
+$palette-color-4d: desaturate(darken($palette-color-4, 35%),10%);
 $palette-color-5d: desaturate(darken($palette-color-5, 5%),10%);
 
 
@@ -35,7 +35,7 @@ $gray-light:                darken($palette-color-1, 10%);
 $gray-lighter:              $palette-color-1;
 $gray-lightest:             lighten($palette-color-1, 5%);
 
-
+$text-color: $palette-color-4d;
 
 $transparent: rgba(0,0,0,0);
 $shadow-color: rgba($palette-color-3d, 0.5);// rgba(0,0,0,0.46);
