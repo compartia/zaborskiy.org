@@ -24,6 +24,16 @@
 @import "bower_components/bootstrap/scss/buttons";
 
 
+@mixin gradient($from-color, $to-color) {
+    //background-color: mix($from-color, $to-color); /* Fallback */
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from-color), to($to-color));
+    background-image: -webkit-linear-gradient(top, $from-color, $to-color); 
+    background-image:    -moz-linear-gradient(top, $from-color, $to-color);
+    background-image:     -ms-linear-gradient(top, $from-color, $to-color);
+    background-image:      -o-linear-gradient(top, $from-color, $to-color);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$from-color}', EndColorStr='#{$to-color}')";
+}
+
 $brand-line-width: 2rem;
 
 body {
@@ -31,6 +41,11 @@ body {
     background: $palette-color-2;
 }
  
+.grad{
+    //@extend .bg2;
+    @include gradient ( rgba($palette-color-2, 0), rgba($palette-color-2, 0.7));
+    
+}
 
 a{
     text-decoration: underline;
@@ -48,13 +63,30 @@ a{
 
 
 h1{
-   // .nice-caption;
+    @extend .nice-caption;
     @extend .roboto-thin;
     text-transform: uppercase;
     font-weight: 100;
     letter-spacing: .1em;
+    padding-bottom: $inter-panel-padding;
     
+    @include media-breakpoint-down(md) { 
+        font-size: 1.5rem;
+    }  
+    
+    @include media-breakpoint-down(lg) { 
+        font-size: 1.8rem;
+    }  
+    
+    .name{
+        @extend .roboto; 
+        font-weight: 900;
+    }
+    
+     
 }
+
+ 
 
 h3, h4, h5{
     @extend .nice-caption;
@@ -79,8 +111,10 @@ h2, .panel-caption{
     @extend .nice-caption;
 }
 
-section{
-    margin-bottom: $inter-panel-padding*2;
+    
+
+section.row{
+    margin-bottom: $inter-panel-padding * 4!important;
     //padding-top: $inter-panel-padding*3;
 }
 
@@ -230,7 +264,7 @@ ol.simple-list > li:before {
             background-repeat: no-repeat;
         }
         
-        .desciption-wrap{
+        .description-wrap{
             position: relative;
         }
 
@@ -271,6 +305,7 @@ ol.simple-list > li:before {
 
 @include media-breakpoint-down(md) {
  	.container {
+        padding: 0;
         max-width: 100%;
 	}
 }
@@ -282,11 +317,6 @@ ol.simple-list > li:before {
 	}
 }
 
-@media (min-width: 768px) {
-    .lead {
-        font-size: 28px;
-    }
-}
 
   
 
@@ -544,11 +574,10 @@ small{
 }
 
 .social{
-    padding-top: $spacer;
-    
+    padding-top: $spacer;    
     text-align: center;
-    font-size: 1.5rem;
-   
+    font-size: 1.5rem;   
+    @extend .row;
     
     a{
         color: $palette-color-1;
@@ -556,7 +585,10 @@ small{
         border: none;
         padding: 0.2em;
         text-decoration: none;
+        
+        @extend .col-xs;
     }
+    
     a:hover{
         color: $palette-color-6;
         border: none!important;
@@ -577,12 +609,20 @@ small{
 //    align-items: stretch;
 }
 
+.widget{
+    
+    padding: 0!important;
+    
+    h3{
+        margin-bottom: $inter-panel-padding/2;
+    }
+}
 .grid-panel{
     padding: 0!important;
-    @extend .col-md-4;
-    @extend .col-lg-3;    
-    @extend .col-sm-6;
-    @extend .col-xs-12;
+//    @extend .col-md-4;
+//    @extend .col-lg-3;    
+//    @extend .col-sm-6;
+//    @extend .col-xs-12;
 }
 
 
@@ -667,66 +707,88 @@ small{
     background-position: center center;
     background-size: cover;
 }
-.gallery-item-tall{
-    min-height: $rowHeight;
-}
-.gallery-item{
-    position: relative;
-    @extend .image-bg-continer;
-//    min-height: $rowHeight / 2;
-//    border: 0 solid $palette-color-2;
-//    transition: border-width 0.2s ease-in-out;
+
+
+a.widget{
+    text-decoration: none;   
     
-    &:hover{
-//        border: $inter-panel-padding/2 solid $palette-color-6;
-//        transition: border-width 0.2s ease-in-out;
-        .desciption-wrap{
-            color: $palette-color-1;
-            background: $palette-color-6;
+    &:hover{        
+        background: $palette-color-6;
+    }
+}
+
+
+.gallery-item{
+    //position: relative;
+    @extend .image-bg-continer;
+ 
+    &:hover{        
+        .description-wrap{
+            background:  $transparent;
+            color: $palette-color-1;            
         }
     }
 
-    &:after{
-        content: "";
-        background:  $palette-color-2t;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        position: absolute;
-        z-index: 1;   
-        @extend .colorTransition;
-        @extend .with-noise;   
+    
+    
+    .description-wrap{       
+        padding: $inter-panel-padding;   
+        margin: 0;
+        width: 100%;
+        small{
+            margin: 0;
+        }
+        z-index: 4;
+        @extend .colorTransition
     }
 
-    &:hover:after{
-        content: "";
-        background:  $transparent;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        position: absolute;
-        z-index: 3;   
-    }
-    
 }
 
-.desciption-wrap{
-    padding: $inter-panel-padding;
-    position: absolute;
-    bottom: 0;
-    left: 0; 
-    right: 0;
-    width: 100%;
-    margin: 0;
-//    padding-top: $spacer;
-    small{
-        margin: 0;
+.tall{
+    .description-wrap{
+        position: absolute;
+        bottom: 0;
+        left: 0; 
+        right: 0;
+        
+        @extend .bg2t;
     }
-    z-index: 4;
+ 
+   .gallery-item{
+        min-height: $rowHeight;
+       
+       &:hover{
+            .description-wrap{
+                color: $palette-color-1;
+                background: $palette-color-6;
+            }
+        }
+       
+       &:after{
+            content: "";
+            background:  $dimmed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: 1;   
+            @extend .colorTransition;
+            @extend .with-noise;   
+        }
 
-    @extend .colorTransition
+        &:hover:after{
+            content: "";
+            background:  $transparent;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: 3;   
+        }
+    } 
+    
 }
 
 
@@ -829,7 +891,6 @@ blockquote {
     padding-bottom: $spacer;
     
     h1{
-        padding: 0;
         margin: 0;
     }
 }

@@ -56,9 +56,44 @@ zaborskiy.directive(
 		template :
 		// '<a target="{{il.target}}" href="{{il.link}}">'+
 		'<div class="gallery-item gallery-item-tall" style="background-image: url(\'{{bg}}\')">'
-				+ '<div class="desciption-wrap bg2t">' + '<h3>{{title}}</h3>'
+				+ '<div class="description-wrap bg2t">' + '<h3>{{title}}</h3>'
 				+ '<small ng-show="description">{{description}}</small>' + '<small><ng-transclude></ng-transclude> '
-				+ '</small></div>' + '</div>'
-	// '</a>'
+				+ '</small></div>' + '</div>',
+		link: function(scope, element, attributes){
+	         element.addClass('col-md-4 col-lg-3 col-sm-6 col-xs-12');
+	    }
 	}
 });
+ 
+zaborskiy.directive(
+'widget', function() {
+	return {
+		transclude : true,
+		scope : {
+			bg : '@',
+			bgClass : '@',
+			title : '@',
+			description : '@',
+			size : '@'
+		},
+		restrict : 'C',
+		template :
+		'<div class="gallery-item" style="background-image: url(\'{{bg}}\')">'
+				+ '<div class="description-wrap">' + '<h3>{{title}}</h3>'
+				+ '<small>{{description}}<ng-transclude></ng-transclude></small></div>' + '</div>',
+
+		link: function(scope, element, attributes){
+			if(2==attributes.size){
+				element.addClass('col-xl-6 col-md-8 col-lg-8 col-sm-6 col-xs-12');
+				//element.addClass('col-xs col-lg-6');
+			}else{
+	         	element.addClass('col-xl-3 col-md-4 col-lg-4 col-sm-6 col-xs-12');
+	         	//element.addClass('col-xs col-lg-3');
+			}			
+	    }
+	}
+});
+
+
+
+

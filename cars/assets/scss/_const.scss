@@ -13,7 +13,9 @@ $palette-color-5:desaturate(#572e58, 20%);
 $palette-color-6:#cf4359;
 
 $palette-color-1t: rgba($palette-color-1, $bgDefTransparency);
-$palette-color-2t: rgba($palette-color-2, 0.4);
+$palette-color-2t: rgba($palette-color-2, 0.6);
+$dimmed: rgba($palette-color-2, 0.35);
+
 $palette-color-3t: rgba($palette-color-3, $bgDefTransparency);
 $palette-color-4t: rgba($palette-color-4, $bgDefTransparency);
 $palette-color-5t: rgba($palette-color-5, $bgDefTransparency);

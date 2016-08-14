@@ -1,0 +1,13 @@
+<div
+    style="background-image: url({{bg}})"
+    class="gallery-item">
+    
+    <div class="description-wrap">
+        <h3 ng-show="title">TITLE:{{title}}</h3>
+        <small ng-show="description">{{description}}</small>
+        <small>
+            BODY:
+            <ng-transclude></ng-transclude>
+        </small>
+    </div>
+</div>
