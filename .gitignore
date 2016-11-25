@@ -1,6 +1,6 @@
 
 
-web/.settings/ 
+web/.settings/
 *.scssc
 
 web/assets/css/bower_components/
@@ -9,5 +9,3 @@ web/assets/js/bower_components/bootstrap/
 web/.settings/**
 
 .sass-cache/
-
-Gemfile.lock
