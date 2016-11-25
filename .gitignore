@@ -1,11 +1,13 @@
 
- 
-cars/.settings/ 
+
+web/.settings/ 
 *.scssc
 
-cars/assets/css/bower_components/
-cars/assets/scss/bower_components/
-cars/assets/js/bower_components/bootstrap/
-cars/.settings/**
+web/assets/css/bower_components/
+web/assets/scss/bower_components/
+web/assets/js/bower_components/bootstrap/
+web/.settings/**
 
 .sass-cache/
+
+Gemfile.lock
