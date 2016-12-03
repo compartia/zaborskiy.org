@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&subset=latin,cyrillic,cyrillic-ext);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300&subset=latin,cyrillic,cyrillic-ext);
-	
+
 
 @import "variables";
 @import "../logo/styles.css";
@@ -27,7 +27,7 @@
 @mixin gradient($from-color, $to-color) {
     //background-color: mix($from-color, $to-color); /* Fallback */
     background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from-color), to($to-color));
-    background-image: -webkit-linear-gradient(top, $from-color, $to-color); 
+    background-image: -webkit-linear-gradient(top, $from-color, $to-color);
     background-image:    -moz-linear-gradient(top, $from-color, $to-color);
     background-image:     -ms-linear-gradient(top, $from-color, $to-color);
     background-image:      -o-linear-gradient(top, $from-color, $to-color);
@@ -40,11 +40,11 @@ body {
     font-weight: 300;
     background: $palette-color-2;
 }
- 
+
 .grad{
     //@extend .bg2;
     @include gradient ( rgba($palette-color-2, 0), rgba($palette-color-2, 0.7));
-    
+
 }
 
 a{
@@ -69,29 +69,29 @@ h1{
     font-weight: 100;
     letter-spacing: .1em;
     padding-bottom: $inter-panel-padding;
-    
-    @include media-breakpoint-down(md) { 
+
+    @include media-breakpoint-down(md) {
         font-size: 1.5rem;
-    }  
-    
-    @include media-breakpoint-down(lg) { 
+    }
+
+    @include media-breakpoint-down(lg) {
         font-size: 1.8rem;
-    }  
-    
+    }
+
     .name{
-        @extend .roboto; 
+        @extend .roboto;
         font-weight: 900;
     }
-    
-     
+
+
 }
 
- 
+
 
 h3, h4, h5{
     @extend .nice-caption;
     margin: 0;
-    z-index: 4;   
+    z-index: 4;
 }
 
 h3{
@@ -111,7 +111,7 @@ h2, .panel-caption{
     @extend .nice-caption;
 }
 
-    
+
 
 section.row{
     margin-bottom: $inter-panel-padding * 4!important;
@@ -122,8 +122,8 @@ pre{
     font-family: monospace!important;padding: $inter-panel-padding!important;
 }
 
- 
- 
+
+
 /*  = === = = = */
 .list-group-item{
     padding: 0!important;
@@ -140,14 +140,14 @@ pre{
     padding: $base-padding;
     display: table-cell;
     /*border-bottom: 1px solid @panel-border-color;*/
-} 
- 
+}
 
- 
-  
- 
+
+
+
+
 .row{
-     margin: 0px!important;   
+     margin: 0px!important;
     @extends .nopadding;
 }
 
@@ -167,7 +167,7 @@ pre{
 }
 
 
- 
+
 .lead {
     margin-bottom: 30px;
     font-size: 24px;
@@ -176,34 +176,34 @@ pre{
 }
 
 
- 
+
 b, strong{
      font-weight: 400 !important;
 }
 
- 
- /* ============================= */
-  
 
-    
+ /* ============================= */
+
+
+
 
 .no-padding{
     padding: 0!important;
     margin: 0!important;
 }
 
- 
 
-  
+
+
 
 ol.simple-list {
 	list-style-type: none;
 	list-style-type: decimal ;
-	
+
 	margin: 0;
 	margin-left: 3em;
 	padding: 0;
-	
+
 	counter-reset: li-counter;
 }
 ol.simple-list > li{
@@ -211,19 +211,19 @@ ol.simple-list > li{
 	margin-bottom: 20px;
 	padding-left: 0.5em;
 	min-height: 3em;
-  
+
 }
 ol.simple-list > li:before {
 	position: absolute;
 	top: 0;
 	left: -1.2em;
 	width: 1.2em;
-	
+
 	font-size: 2.5em;
 	line-height: 1;
 	font-weight: 100;
 	text-align: right;
-	 
+
 
 	content: counter(li-counter);
 	counter-increment: li-counter;
@@ -241,21 +241,21 @@ ol.simple-list > li:before {
 
 .lead small{
     font-size: 60%;
-    @extend .nice-caption; 
+    @extend .nice-caption;
 }
 
 .appsblock{}
 
 .logo-wrap{
-    font-size: 8em; 
+    font-size: 8em;
 }
 
 @include media-breakpoint-down(sm) {
- 
+
     .about{
         text-align: center!important;
     }
-    
+
     .appsblock {
         .gallery-item{
             min-height: inherit!important;
@@ -263,7 +263,7 @@ ol.simple-list > li:before {
             background-size: 1px 1px!important;
             background-repeat: no-repeat;
         }
-        
+
         .description-wrap{
             position: relative;
         }
@@ -271,37 +271,37 @@ ol.simple-list > li:before {
         .float-caption{
             position: relative;
         }
-    }    
+    }
 
     .row-fixed-height .height1{
         min-height: inherit!important;
         height: inherit!important;
     }
-  
- 
-    
+
+
+
     .branding{
          padding-left: $brand-line-width!important;
          background-size: $brand-line-width 10 * $brand-line-width!important;
     }
-    
+
     .logo-wrap{
-        font-size: 10rem!important; 
+        font-size: 10rem!important;
     }
- 
+
 }
 
 
 @include media-breakpoint-down(xs) {
     .logo-wrap{
-        font-size: 8em; 
+        font-size: 8em;
     }
     .row-fixed-height .height2{
-        min-height: 350px!important; 
+        min-height: 350px!important;
         height: inherit!important;
     }
 }
- 
+
 
 @include media-breakpoint-down(md) {
  	.container {
@@ -318,7 +318,7 @@ ol.simple-list > li:before {
 }
 
 
-  
+
 
 
 $footer-padding: $inter-panel-padding * 2;
@@ -326,29 +326,29 @@ footer{
     text-align: center;
     padding: $footer-padding;
     color: $palette-color-3!important;
-    
+
     a{
         color: $palette-color-3!important;
         text-decoration:underline;
     }
-        
+
     .logo-wrap{
         padding: $footer-padding/2;
-        font-size: 6em!important; 
+        font-size: 6em!important;
         color: $palette-color-3t;
         display:block;
         text-decoration:none;
         &:hover { text-decoration:none; }
     }
-    
+
     hr{
         margin-left: -$footer-padding;
         margin-right: -$footer-padding;
         border-top: $inter-panel-padding/6 solid $palette-color-3d;
     }
-    
+
 }
-  
+
 
 small{
         font-weight: 300;
@@ -363,19 +363,19 @@ small{
     h2,h3,.panel-caption{
         color: $palette-color-5;
     }
-    
+
     a{
         color: $palette-color-3d;
     }
-    
+
     a:hover{
         color: $palette-color-6;
-        
+
         h3{
             color: $palette-color-6 ;
         }
     }
-    
+
 }
 .bg2{
     background-color: $palette-color-2;
@@ -391,12 +391,12 @@ small{
          background-color: $palette-color-2t;
     }
     a{
-        color: $palette-color-1;   
+        color: $palette-color-1;
     }
 }
 .bg2t{
     background-color: $palette-color-2t;
-    color: $palette-color-1; 
+    color: $palette-color-1;
 }
 .bg3t{
     background-color: $palette-color-3t;
@@ -419,7 +419,7 @@ small{
     a{
         color: $palette-color-1;
     }
-    
+
     small{
         color: lighten($palette-color-3,25%);
         font-weight: 300;
@@ -447,7 +447,7 @@ small{
     a{
         color: $palette-color-4;
     }
-    
+
     small{
         color: $palette-color-1t;
     }
@@ -464,7 +464,7 @@ small{
     a{
         color: $palette-color-4;
     }
-    
+
     small{
         color: $palette-color-1t;
     }
@@ -475,14 +475,14 @@ small{
     background-color: $palette-color-5t;
     color: $palette-color-4;
     @extend .with-noise;
-    
+
 }
 
 
 .bg6t{
     background-color: $palette-color-6t;
     color: $palette-color-1;
-    
+
     a{
         color: $palette-color-4;
     }
@@ -506,20 +506,20 @@ small{
         background: $palette-color-5t;
     }
 }
- 
+
 .logo{
-    
+
     padding-bottom: $rowHeight / 8;
     padding-top: $rowHeight / 8;
     margin: 0;
     text-align: center;
-    
-    
+
+
     .logo-wrap{
         color: $palette-color-1;//lighten($palette-color-1,5%);
         font-size: 17em;
         line-height: 0.68em;
-        text-shadow: 10px 10px 20px rgba(0, 0, 0, 0.59);    
+        text-shadow: 10px 10px 20px rgba(0, 0, 0, 0.59);
     }
 }
 
@@ -547,16 +547,16 @@ small{
 // 	background-image: url(http://res.cloudinary.com/zaborskiy/image/upload/w_970,dpr_auto/PA161858_cpunkb.jpg) !important;
     background-image: url(/assets/img/PA141623-Edit.jpg) !important;
     background-size: cover;
-    background-position: center;     
+    background-position: center;
 }
 
 
 .branding{
  	background-image: url(../img/alphabet.svg);
-   
+
     background-position: left top;
     background-repeat: repeat-y;
-    
+
      padding-left: 2 * $brand-line-width;
      background-size: 2 * $brand-line-width 20 * $brand-line-width;
 }
@@ -564,7 +564,7 @@ small{
 .with-shadow{
     -webkit-box-shadow: 0px 14px 27px -12px $shadow-color;
     -moz-box-shadow: 0px 14px 27px -12px $shadow-color;
-    box-shadow: 0px 14px 27px -12px $shadow-color; 
+    box-shadow: 0px 14px 27px -12px $shadow-color;
 }
 
 .gridbox{
@@ -574,26 +574,26 @@ small{
 }
 
 .social{
-    padding-top: $spacer;    
+    padding-top: $spacer;
     text-align: center;
-    font-size: 1.5rem;   
+    font-size: 1.5rem;
     @extend .row;
-    
+
     a{
         color: $palette-color-1;
         margin: 0;
         border: none;
         padding: 0.2em;
         text-decoration: none;
-        
+
         @extend .col-xs;
     }
-    
+
     a:hover{
         color: $palette-color-6;
         border: none!important;
     }
-   
+
 }
 
 .nopadding {
@@ -602,7 +602,7 @@ small{
 }
 
 .grid{
-//    display: flex!important; 
+//    display: flex!important;
 //    -webkit-flex-wrap: wrap; /* Safari */
 //    flex-wrap:         wrap;
 //    -webkit-align-items: stretch; /* Safari */
@@ -610,9 +610,9 @@ small{
 }
 
 .widget{
-    
+    border: 4px solid $palette-color-2;
     padding: 0!important;
-    
+
     h3{
         margin-bottom: $inter-panel-padding/2;
     }
@@ -620,7 +620,7 @@ small{
 .grid-panel{
     padding: 0!important;
 //    @extend .col-md-4;
-//    @extend .col-lg-3;    
+//    @extend .col-lg-3;
 //    @extend .col-sm-6;
 //    @extend .col-xs-12;
 }
@@ -632,29 +632,29 @@ small{
         color: $palette-color-1;
         background-color: $palette-color-6;
     }
-    
+
     a:hover:visited{
         color: $palette-color-1!important;
     }
-    
-    ul{      
+
+    ul{
         @extend .nopadding;
         list-style-image: none;
         list-style-type: none;
     }
-    
+
     ul#texts-links{
-       
-        li, a.grid-box{             
-            min-width: 18rem;            
+
+        li, a.grid-box{
+            min-width: 18rem;
         }
-        
+
         li{
             padding: 0;
         }
-        
-        a.grid-box{ 
-            text-decoration: none;  
+
+        a.grid-box{
+            text-decoration: none;
             padding: $inter-panel-padding;
             @extend .colorTransition;
         }
@@ -662,9 +662,9 @@ small{
 
 
 
-    li{         
+    li{
         a{
-            text-decoration: none;  
+            text-decoration: none;
             display: block;
             padding: $inter-panel-padding;
             @extend .colorTransition;
@@ -673,11 +673,11 @@ small{
             @extend .nice-caption;
         }
     }
-    
+
     img{
         width: 40px;
     }
-    
+
     small{
         display: block;
         //max-height: 50px;
@@ -710,9 +710,9 @@ small{
 
 
 a.widget{
-    text-decoration: none;   
-    
-    &:hover{        
+    text-decoration: none;
+
+    &:hover{
         background: $palette-color-6;
     }
 }
@@ -721,18 +721,18 @@ a.widget{
 .gallery-item{
     //position: relative;
     @extend .image-bg-continer;
- 
-    &:hover{        
+
+    &:hover{
         .description-wrap{
             background:  $transparent;
-            color: $palette-color-1;            
+            color: $palette-color-1;
         }
     }
 
-    
-    
-    .description-wrap{       
-        padding: $inter-panel-padding;   
+
+
+    .description-wrap{
+        padding: $inter-panel-padding;
         margin: 0;
         width: 100%;
         small{
@@ -748,22 +748,22 @@ a.widget{
     .description-wrap{
         position: absolute;
         bottom: 0;
-        left: 0; 
+        left: 0;
         right: 0;
-        
+
         @extend .bg2t;
     }
- 
+
    .gallery-item{
         min-height: $rowHeight;
-       
+
        &:hover{
             .description-wrap{
                 color: $palette-color-1;
                 background: $palette-color-6;
             }
         }
-       
+
        &:after{
             content: "";
             background:  $dimmed;
@@ -772,9 +772,9 @@ a.widget{
             bottom: 0;
             right: 0;
             position: absolute;
-            z-index: 1;   
+            z-index: 1;
             @extend .colorTransition;
-            @extend .with-noise;   
+            @extend .with-noise;
         }
 
         &:hover:after{
@@ -785,34 +785,34 @@ a.widget{
             bottom: 0;
             right: 0;
             position: absolute;
-            z-index: 3;   
+            z-index: 3;
         }
-    } 
-    
+    }
+
 }
 
 
 
 .section-links a{
     @extend .nice-caption;
-    @extend .with-noise;   
+    @extend .with-noise;
     @extend .colorTransition;
-    
+
     text-align: center;
     padding: $inter-panel-padding;
     padding-bottom: -$spacer/4 + $inter-panel-padding;
-    
+
     border-bottom: $spacer/4 solid $transparent;
     display: inline-block;
     text-decoration: none;
     margin: 0;
-    
+
     &:hover{
         background-color:  $palette-color-6;
         a{text-decoration: none;}
         @extend .button-hover;
     }
-    
+
     &:hover{
         color: $palette-color-1;
     }
@@ -834,12 +834,12 @@ a.widget{
 .float-caption{
     position: absolute;
     top: 0;
-    left: 0; 
+    left: 0;
     width: 100%;
-    margin: 0; 
+    margin: 0;
     z-index: 4;
 }
- 
+
 
 
 blockquote {
@@ -868,28 +868,28 @@ blockquote {
     @extend .nice-caption;
     font-weight: 600;
     padding: $inter-panel-padding;
-    
+
     display: inline-block;
     width: auto;
     clear: both;
-    
-    @extend .with-shadow;   
+
+    @extend .with-shadow;
     @extend .colorTransition;
-    
-    
+
+
     &:hover{
         padding-left: 2 * $inter-panel-padding;
         padding-right: 2 * $inter-panel-padding;
         background: $palette-color-6;
         text-decoration: none;
         color: $palette-color-1;
-        
+
     }
 }
 
 .intro{
     padding-bottom: $spacer;
-    
+
     h1{
         margin: 0;
     }
@@ -898,4 +898,4 @@ blockquote {
 
 .text-right {
     text-align: right;
-} 
+}

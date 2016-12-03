@@ -9,3 +9,5 @@ web/assets/js/bower_components/bootstrap/
 web/.settings/**
 
 .sass-cache/
+
+web/node_modules/**

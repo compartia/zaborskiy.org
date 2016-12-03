@@ -4,7 +4,7 @@
 .left-border {
   border-left: 2px solid fade(#727272, 20%); }
 
-.roboto, h1 .name, BODY, .substep::before, .tutorial h1, .tutorial h2 {
+.roboto, h1 .name, BODY, .substep::before, .substep h3, .tutorial h1, .tutorial h2 {
   font-family: "Roboto", sans-serif; }
 
 .roboto-thin, .nice-caption, h1, h3, h4, h5, h2, .panel-caption, .lead small, .linkset li strong, .section-links a, .actionbutton {
@@ -23,7 +23,7 @@
   font-weight: 300;
   letter-spacing: .1em; }
 
-.with-shadow-sm, .sidenote, aside {
+.with-shadow-sm {
   -webkit-box-shadow: 0 5px 5px 0px rgba(114, 114, 114, 0.15);
   -moz-box-shadow: 0 5px 5px 0px rgba(114, 114, 114, 0.15);
   box-shadow: 0 5px 5px 0px rgba(114, 114, 114, 0.15); }
@@ -2518,6 +2518,7 @@ small {
   margin: 0 !important; }
 
 .widget {
+  border: 4px solid #2f2b3b;
   padding: 0 !important; }
   .widget h3 {
     margin-bottom: 0.5rem; }
@@ -2710,9 +2711,10 @@ section {
 
 .sidenote, aside {
   float: right;
+  color: #727272;
   margin-left: 2rem;
   margin-right: -2rem;
-  border-right: 5px solid #cf4359;
+  border-left: 4px solid #2f2b3b;
   padding: 1rem;
   background-color: white; }
 
@@ -2727,33 +2729,57 @@ aside {
 
 .substep {
   margin-left: 6rem;
-  margin-bottom: 1rem; }
+  margin-bottom: 2rem; }
   .substep::before {
     content: counter(chapter) "." counter(section) " ";
     counter-increment: section;
-    font-size: 200%;
-    font-weight: 300;
     text-align: right;
     float: left;
     width: 8rem;
     margin-left: -8rem;
-    padding-right: 1rem;
-    margin-top: -0.33em;
+    padding-right: 1rem; }
+  .substep::before, .substep h3 {
+    font-size: 200%;
+    font-weight: 300;
     color: #4a3b4b; }
 
 .reset-chapter {
   counter-reset: chapter; }
 
+.img-wrapper, .tutorial h1 {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  vertical-align: bottom; }
+
+.tutorial.container-fluid p {
+  max-width: inherit; }
+.tutorial.container-fluid .img-wrapper {
+  width: auto;
+  margin-left: -2rem; }
+.tutorial.container-fluid .substep .img-wrapper {
+  width: auto;
+  margin-left: -8rem;
+  margin-right: -2rem; }
+
 .tutorial {
   background: white;
   padding: 2rem; }
-  .tutorial h3 {
+  .tutorial p {
+    line-height: 1.3; }
+  .tutorial h4 {
+    font-size: 120%;
     margin: 0;
     padding: 0;
     margin-bottom: 1rem;
     margin-top: 1rem; }
   .tutorial h1 {
     background: #4a3b4b;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    vertical-align: bottom;
     color: white;
     text-transform: none;
     letter-spacing: 0;
@@ -2793,23 +2819,33 @@ aside {
     padding: 0;
     padding-bottom: 3rem;
     padding-top: 3rem; }
-    .tutorial ul.heavy li h2:before, .tutorial ol.heavy li h2:before {
-      float: left;
-      margin-top: -0.33em;
-      line-height: 1;
-      text-align: right;
-      font-size: 10rem;
-      width: 8rem;
-      height: 8rem;
-      overflow: hidden;
-      font-weight: 900;
-      padding-left: 4.44444rem;
-      margin-right: 1rem;
-      margin-bottom: 1rem;
-      display: inline-block;
-      content: counter(chapter);
-      background-color: #4a3b4b;
-      color: white; }
+    .tutorial ul.heavy li h2, .tutorial ol.heavy li h2 {
+      margin-bottom: 0; }
+      .tutorial ul.heavy li h2:after, .tutorial ol.heavy li h2:after {
+        height: 10px;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        content: " ";
+        display: block;
+        clear: both; }
+      .tutorial ul.heavy li h2:before, .tutorial ol.heavy li h2:before {
+        float: left;
+        margin-top: -0.33em;
+        line-height: 1;
+        text-align: right;
+        font-size: 10rem;
+        width: 8rem;
+        height: 8rem;
+        overflow: hidden;
+        font-weight: 900;
+        padding-left: 4.44444rem;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        display: inline-block;
+        content: counter(chapter);
+        background-color: #4a3b4b;
+        color: white; }
   .tutorial h2 {
     padding-top: 6rem !important;
     margin-left: -2rem;
@@ -2843,5 +2879,8 @@ aside {
       content: counter(chapter);
       background-color: #4a3b4b;
       color: white; }
+
+.char-xl {
+  font-size: 200%; }
 
 /*# sourceMappingURL=tutorial.css.map */
