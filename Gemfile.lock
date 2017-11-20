@@ -1,6 +1,9 @@
-GEM 
+GEM
   remote: https://rubygems.org/
-  
+  specs:
+    rack (2.0.3)
+    rack-rewrite (1.5.1)
+
 PLATFORMS
   ruby
 
@@ -8,4 +11,8 @@ DEPENDENCIES
   rack
   rack-rewrite
 
+RUBY VERSION
+   ruby 2.3.4p301
 
+BUNDLED WITH
+   1.16.0
