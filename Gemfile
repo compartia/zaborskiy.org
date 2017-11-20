@@ -1,5 +1,5 @@
-ruby '2.0.0'
-source "https://rubygems.org"
+source 'https://rubygems.org'
+ruby '2.3.4'
 gem 'rack'
 gem 'rack-rewrite'
 # gem "rails"
