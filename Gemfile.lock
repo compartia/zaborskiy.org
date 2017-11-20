@@ -1,0 +1,11 @@
+GEM 
+  remote: https://rubygems.org/
+  
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  rack
+  rack-rewrite
+
+
