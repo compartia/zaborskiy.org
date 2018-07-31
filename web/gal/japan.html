@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en" ng-app="zaborskiy">
     <head>
@@ -23,12 +23,17 @@
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- <script src="../assets/js/dist/jquery.cloudinary.js"></script> -->
 
-        <link rel="stylesheet" href="/assets/css/tutorial.css"/>
+        <!-- <link rel="stylesheet" href="/assets/css/tutorial.css"/>
 
         <script src="../assets/js/dist/jquery.min.js"></script>
-        <script src="../assets/js/dist/jquery.cloudinary.js"></script>
-        <script src="../assets/js/dist/angular.min.js"></script>
+        
+        <script src="../assets/js/dist/angular.min.js"></script> -->
+
+
+        <script src="japan.js"></script>
 
         <!--[if lt IE 9]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
 
@@ -44,27 +49,12 @@
 
         <div id="fb-root"></div>
         <script>
-            var zaborskiy = angular.module('zaborskiy', []);
-
-            zaborskiy.controller('mainCtrl', function($scope) {
-
-                angular.element(document).ready(function() {
-                    $.cloudinary.responsive();
-                });
-            });
-
-            (function(d, s, id) {
-                var js,
-                    fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id))
-                    return;
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=340556079412727";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
+            
         </script>
-        <div class="img-wrapper" style="background-image:url(/assets/img/jp/gate.jpg); min-height:12cm;"></div>
+        <div class="img-wrapper jp-header"> </div>
+
+   
+
         <main class="tutorial container-fluid" ng-controller="mainCtrl">
             <article>
                 <header class="bg1">
@@ -195,8 +185,7 @@
                                     весь день, губа болит”
                                 </p>
 
-<div class="img-wrapper" style="background-image:url(/assets/img/jp/metro.jpg); min-height:14cm">
-</div>
+                                <div class="img-wrapper jp-metro")></div>
 
                                 <p>
                                     40 минут до станции Намба.
@@ -217,8 +206,9 @@
                                     с этой фотографии?”. Поиски затянулись. Пошел плановый дождь. Видимость 30 метров. Приборы отказали. Топливо на исходе. Тяга 20%. Сулу, мы теряем высоту. Передать по плазмапроводу всю энергию со щитов на варп-двигатель! (кажется, сырой осьминог из
                                     аэро-ланча начинает действовать).
                                 </p>
-<div class="img-wrapper" style="background-image:url(/assets/img/jp/street.jpg); min-height:14cm">
-</div>
+<div class="img-wrapper jp-street"> </div>
+
+
                                 <p>
                                     По расчетам, я должен был искать свой дом несколько месяцев, двигаясь
                                     по спирали от центра Осаки. Но произошло то, что математики-атеисты
@@ -237,8 +227,9 @@
                                     Я очень настойчивый и сильный, но должен признать: наши обычные вилки невозможно воткнуть в узкоглазые японские розетки.
                                 </p>
 
-<div class="img-wrapper" style="background-image:url(/assets/img/jp/columns.jpg); min-height:14cm">
-</div>
+
+                                <div class="img-wrapper jp-columns"> </div>
+ 
 
                                 <p>
                                     Все японцы очень красивые. До определенного возраста, конечно.
@@ -410,7 +401,6 @@
                                     Второй символ - 空 - вам понадобится, чтобы безопасно идентифицировать свободную комнату с фонтанами. Или парковку. Или такси. Он означает “свободно” (иногда -- “небо”).
                                 </p>
                                 <p>
-
                                     Третий - 出. Прежде, чем войти в японское здание, убедитесь, что у него есть 出. Так маркируют выходы.
                                 </p>
                                 <p>
@@ -470,7 +460,7 @@
         </footer>
 
         <script>
-            $.cloudinary.responsive();
+           
 
             (function(i, s, o, g, r, a, m) {
                 i['GoogleAnalyticsObject'] = r;

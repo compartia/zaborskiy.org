@@ -25,11 +25,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<link rel="stylesheet" href="assets/css/zaborskiy.css" />
-
-<script src="/assets/js/dist/jquery.min.js"></script>
-<script src="/assets/js/dist/angular.min.js"></script>
-<script src="/assets/js/zaborskiy.js"></script>
+ 
+<script src="index.js"></script>
+ 
+ 
 
 <script type="application/ld+json">
 {
@@ -40,62 +39,8 @@
 }
 </script>
 
-<script>
-
-/*
-var zaborskiy = angular.module('zaborskiy', []);
-
-
-
-*/
-
-zaborskiy.controller('navController', function ($scope) {
-    $scope.topMenuStyle="col-md-2 col-xs-4 col-sm-4 col-lg-2";
-});
-
-zaborskiy.controller('galleryCtrl', function ($scope) {
-    $scope.illustrationsUrl = "http://res.cloudinary.com/zaborskiy/image/upload/t_dimmed_thumb400/dpr_auto/";
-});
-
-zaborskiy.controller('appsCtrl', function ($scope) {
-  $scope.apps = [
-    { 	name: 'Color Collection',
-	    url: 'https://play.google.com/store/apps/details?id=org.az.clr.x',
-	    bgUrl:'http://res.cloudinary.com/zaborskiy/image/upload/t_app_thumb/color.jpg',
-	    iconUrl:'http://res.cloudinary.com/zaborskiy/image/upload/t_icon64/color_collection_icon.png',
-	    text:"Simple and powerful Colour Palette Designer. Useful to compose custom vivid colour schemes for web and UI",
-	    type:"http://schema.org/BusinessApplication"
-	},
-
-	{
-	    name: 'Minesweeper, Redesigned',
-	    url: 'https://play.google.com/store/apps/details?id=org.az.minesweeper',
-	    bgUrl:'http://res.cloudinary.com/zaborskiy/image/upload/t_app_thumb/msw.jpg',
-	    iconUrl:'http://res.cloudinary.com/zaborskiy/image/upload/t_icon64/msw_icon.png',
-	    text:"The multiplayer redesign of the classic Minesweeper game.",
-	    type:"http://schema.org/GameApplication"}
-
-  ];
-
- });
-
-</script>
-<script type="text/javascript">
-$(function() {
-  $('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
-});
-</script>
+ 
+ 
 
 <script type="application/ld+json">
 [
@@ -151,7 +96,7 @@ $(function() {
 
 <body>
 
-	<div id="fb-root"></div>
+	<!-- <div id="fb-root"></div>
 	<script>
 	(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -159,9 +104,10 @@ $(function() {
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=340556079412727";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));</script> -->
 
-
+<div id="container-three" style="width:100%; height:75vh">							
+	</div>
 	<div class="container" ng-controller="mainCtrl">
 		<div>
 
@@ -179,12 +125,14 @@ $(function() {
                             <a target="_self" class="{{topMenuStyle}} bg4" href="#arts">arts</a>
 						</nav>
 
+						
+
 					</div>
 
-
+					
 					<div class=" col-sm-12 col-md-4 nopadding grad">
 
-
+							
 						<section class="about" itemscope itemtype="http://schema.org/Person">
 
 
@@ -224,12 +172,14 @@ $(function() {
 			<section class="row ng-cloak" id="texts">
 
 
-                <a title="Детализированный отчет о визите в Японию"
+                <!-- <a title="Детализированный отчет о визите в Японию"
 					class="widget tall bg3t col-md-8 col-lg-8 col-xl-6"
-					bg="/assets/img/jp/gate.jpg"
-					href="gal/japan.html">
+					bg="assets/img/jp/gate.jpg"
+					href="japan.html">
 					<b>Пошаговый гид</b>
-					</a>
+					</a> -->
+
+				
 
                 <a title="У Вас зайчанка!"
 					class="widget tall bg4t col-xl-6"
@@ -246,10 +196,6 @@ $(function() {
 					Говорят, будет холодно. <br>Арендовал пропуканный масалой спальник "на минус 20". В Катманду вообще, все довольно пропукано, это бросается в нос еще до вы...
                 </a>
 
-
-
-
-
 				<a title="Запредельное"
 					bg="https://cdn-images-1.medium.com/max/1200/0*aMSqG2FJG9KetKZQ.jpg"
 					class="widget bg3t tall col-xl-3"
@@ -258,12 +204,12 @@ $(function() {
 					Чем быстрее мы вращаемся вокруг сливного отверстия, которое называют сингулярностью, тем чаще мелькают берега прошлого. Они уже совсем раз...<br><br>
 					</a>
 
-				<a title="How to Fight a Robot"
+				<!-- <a title="How to Fight a Robot"
 					class="widget bg3 tall"
 					href="gal/fight_robot.html"
 					bg="/assets/img/robot.jpeg">as a software engineer who
 					deals with machine learning, I can give you few advices. The first mean is surely a camouflage. To survive, you
-					must not look like a human....</a>
+					must not look like a human....</a> -->
 
 
 
@@ -410,6 +356,14 @@ $(function() {
 				 	photography
 				</a>
 
+				<a title="NPM dependency graph"
+					class="widget tall bg4t col-xl-6"
+					bg="https://github.com/compartia/npm-viz/raw/master/docs/3d.gif"
+					target="_blank"
+					href="https://github.com/compartia/npm-viz">
+					This project allows you to visualize the dependencies of NPM modules in the form of 2D (and 3D) graph;
+                </a>
+
                 <a class="widget bg6 tall col-xl-6"
 					title="Japan, 2016, November"
 					href='https://500px.com/artzaborskiy/galleries/jp'
@@ -417,7 +371,6 @@ $(function() {
 					target="_blank">
 				 	photography
 				</a>
-
 
 
 				<a class="widget bg6 tall" size="2"
@@ -428,12 +381,12 @@ $(function() {
 				 	photography
 				</a>
 
-				<a class="widget tall col-xl-6 bg3t"
+				<!-- <a class="widget tall col-xl-6 bg3t"
                     href="/gal/rocks.html"
                     title="Himalaya"
 					bg="{{illustrationsUrl}}/rocks/PA172011.jpg" >
 						photography
-				</a>
+				</a> -->
 
 				<a class="widget bg5 tall"
 					title="Asia"
@@ -451,9 +404,9 @@ $(function() {
 				 	People. Photographies takein in Asia
 				</a>
 
-				<a class="widget tall bg4t"
+				<!-- <a class="widget tall bg4t"
 					title="Tautology: repeating patterns" bg="{{illustrationsUrl}}/c_fill,dpr_auto,w_400/tautology/PA090272.jpg"
-					description="photography" href="/gal/tautology.html"></a>
+					description="photography" href="/gal/tautology.html"></a> -->
 
 				<a class="widget bg5 tall col-xl-6"
 					title="Secrets"
@@ -466,10 +419,10 @@ $(function() {
 
 
 
-
+<!-- 
                 <a class="widget tall" bg-class="bg2t"
 					title="Input/Output" bg="{{illustrationsUrl}}/c_fill,dpr_auto,w_400/IO/PA131458.jpg"
-					description="photography" href="/gal/input_output.html"></a>
+					description="photography" href="/gal/input_output.html"></a> -->
 
                 <a class="widget tall bg2t"
                     title="Lone Tourist"
@@ -490,7 +443,8 @@ $(function() {
                 <a class="widget tall"
 					title="Secret Lab"
 					bg="{{illustrationsUrl}}/secret-lab-web-3000.jpeg" bg-class="bg4" description="mixed media"
-					href="/gal/secret_lab.html"></a>
+					href="https://www.behance.net/portfolio/editor?project_id=24134517"
+					target="_blank"></a>
 
                 <a class="widget tall"
                 	title="Careful With That Axe, Eugene [Woodcut]"
@@ -523,10 +477,6 @@ $(function() {
 			</section>
 
 
-
-
-
-
 			<!--/ gallery row-->
 
 			<footer>
@@ -542,7 +492,7 @@ $(function() {
 
 
 
-	<script>
+	<!-- <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -553,7 +503,7 @@ if (document.location.hostname != "localhost"){
   ga('send', 'pageview');
 }
 
-</script>
+</script> -->
 
 
 
