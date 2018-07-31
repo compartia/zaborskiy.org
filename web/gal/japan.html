@@ -24,14 +24,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <!-- <script src="../assets/js/dist/jquery.cloudinary.js"></script> -->
-
-        <!-- <link rel="stylesheet" href="/assets/css/tutorial.css"/>
-
-        <script src="../assets/js/dist/jquery.min.js"></script>
-        
-        <script src="../assets/js/dist/angular.min.js"></script> -->
-
+       
 
         <script src="japan.js"></script>
 
@@ -455,8 +448,10 @@
         </main>
 
         <footer>
-            <div g-include="'/assets/partials/social2.html'"></div>
-            <div ng-include="'/assets/partials/branding_footer.html'"></div>
+       
+
+            <%= require('html-loader!../assets/partials/social2.html') %>
+            <%= require('html-loader!../assets/partials/branding_footer.html') %>	
         </footer>
 
         <script>

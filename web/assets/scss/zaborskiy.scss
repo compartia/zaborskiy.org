@@ -795,7 +795,7 @@ a.widget{
 
 .section-links a{
     @extend .nice-caption;
-    @extend .with-noise;
+    // @extend .with-noise;
     @extend .colorTransition;
 
     text-align: center;

@@ -28,13 +28,13 @@ module.exports = {
         // index: path.resolve(__dirname, 'web/index.html'),
         index: path.resolve(__dirname, 'web/index.ts'),
         japan: path.resolve(__dirname, 'web/gal/japan.ts'),
+        cv: path.resolve(__dirname, 'web/gal/cv.ts'),
     },
-    
+
     resolve: {
         modules: [
             path.resolve(__dirname, 'bower_components'),
             path.resolve(__dirname, 'node_modules'),
-
         ],
         extensions: ['.ts', '.tsx', '.js', '.jsx', '.html']
     },
@@ -52,15 +52,15 @@ module.exports = {
             //     })
             // },
 
-            { 
-                test: /\.(png|jpg|woff|woff2|eot|ttf|svg)$/, 
-                loader: 'url-loader' ,
-                options: { 
+            {
+                test: /\.(png|jpg|woff|woff2|eot|ttf|svg|pdf)$/,
+                loader: 'url-loader',
+                options: {
                     limit: 8000, // Convert images < 8kb to base64 strings
                     name: 'assets/img/[name].[ext]'
-                } 
+                }
             },
-        
+
 
             {
                 test: /\.(sa|sc|c)ss$/,
@@ -71,16 +71,12 @@ module.exports = {
                 ],
             },
 
-            {
-                test: /\.html$/,
-                loader: 'html-loader' 
-              },
-       
-
             // {
             //     test: /\.html$/,
             //     loader: 'html-loader'
-            //   },
+            // },
+
+
             {
                 // If you see a file that ends in .js, just send it to the babel-loader.
                 test: /\.js$/,
@@ -96,24 +92,23 @@ module.exports = {
         // This plugin will generate an index.html file for us that can be used
         // by the Webpack dev server. We can give it a template file (written in EJS)
         // and it will handle injecting our bundle for us.
-       
+
         new HtmlWebpackPlugin({
             inject: false,
             template: path.resolve(__dirname, 'web/index.html')
         }),
 
-        new HtmlWebpackPlugin({ 
-            minify:true,
+        new HtmlWebpackPlugin({
+            minify: true,
             inject: true,
             filename: 'japan.html',
             template: 'web/gal/japan.html'
         }),
 
-        new HtmlWebpackPlugin({ 
-            minify:true,
-            inject: true,
-            filename: 'secret_lab.html',
-            template: 'web/gal/secret_lab.html'
+
+        new HtmlWebpackPlugin({
+            filename: 'artem_zaborskiy_resume.html',
+            template: 'web/gal/artem_zaborskiy_resume.html'
         }),
 
         // This plugin will copy files over to ‘./dist’ without transforming them.
@@ -130,7 +125,7 @@ module.exports = {
             filename: devMode ? '[name].css' : '[name].[hash].css',
             chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
         }),
-        
+
         BrowserSyncPluginConfig,
 
         new Clean(['dist']),

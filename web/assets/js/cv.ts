@@ -1,4 +1,4 @@
-var artem_zaborskiy_cv = {
+export const artem_zaborskiy_cv = {
 
     start: Date.parse("1 August, 2000"),
 

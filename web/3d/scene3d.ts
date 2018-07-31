@@ -36,6 +36,14 @@ export abstract class SimpleScene {
 
 
         this.resetScene();
+
+        window.addEventListener( 'resize', ()=>this.onWindowResize(), false );
+
+    }
+
+    private onWindowResize() {
+        
+        this.renderer.setSize( window.innerWidth, window.innerHeight );
     }
 
     public resetScene() {
@@ -47,7 +55,6 @@ export abstract class SimpleScene {
         this.makeLights();
         this.makeCamera();
         this.makeObjects();
-
 
     }
 

@@ -90,20 +90,24 @@
 
 <style>
 	.bcard{
+	 
 		position: absolute;
-		height: 80vh;
+		
 		z-index: 1;
 		left: 0;
 		top: 0;
+		right: 0;
 	}
 
 	.logo{
-		text-align: left;	
-		font-size: 140px;	
+		 
+		text-align: center;	
+		/* font-size: 140px;	 */
 	}
 
 	.intro h1{
 		font-size: 20px;
+		text-align: center;	
 	}
 
 	#container-three{
@@ -115,7 +119,16 @@
 	}
 
 	.container{
-		padding-top: 80vh;
+		position: relative;
+		top: 80vh;
+	}
+	.social{
+		position: fixed;
+		
+		z-index: 1;
+		left: 0;
+		top: 0;
+		right: 0;
 	}
 </style>
 
@@ -129,27 +142,34 @@
 
 		
 	<div id="container-three"></div>
-
+	 
+	<%= require('html-loader!./assets/partials/social_icons.html') %>		
 
 	<div class="bcard">
+			
 		<section class="about" itemscope itemtype="http://schema.org/Person">
 			<div class="intro">
 				<div class="logo logo-wrap">
 					<span class="az-az-logo"></span>
 				</div>
 	
-				<link itemprop="url" href="http://www.zaborskiy.org"> Hi there, I'm
+				<link itemprop="url" href="http://www.zaborskiy.org">
 	
 				<h1 itemprop="name">
 					<span class="name">Artem</span> Zaborskiy
 					<link itemprop="url" href="http://www.zaborskiy.org" />
 				</h1>
 	
-				find my
-				<a href="/gal/artem_zaborskiy_resume.html">CV here</a>
+				<div style="text-align: center" class="section-links">
+					<a  href="artem_zaborskiy_resume.html">CV</a>
+					<a target="_self" href="#texts">Works</a>
+				</div>
 			</div>
+
+			
 		</section>
-		<div ng-include="'/assets/partials/social_icons.html'"></div>
+
+		
 	</div>
 	
 
@@ -187,8 +207,9 @@ But we’re shortsightedly refuse to notice bigger and more powerful species aro
 					Говорят, будет холодно. <br>Арендовал пропуканный масалой спальник "на минус 20". В Катманду вообще, все довольно пропукано, это бросается в нос еще до вы...
                 </a>
 				
-				<div class="widget bg3" size="1">
-					<iframe width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/438859995&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+				<div class="widget bg2t" size="1">
+					<iframe style="padding: 0; margin: 0;" width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/438859995&color=%230f1de2&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+					<!-- <iframe width="100%" height="166" scrolling="no" frameborder="no"   src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/438859995&color=%230f1de2&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe> -->
 				</div>
 
                 <a title="У Вас зайчанка!"
@@ -245,12 +266,12 @@ But we’re shortsightedly refuse to notice bigger and more powerful species aro
 
 				<a title="Эгоизм"
 					target="_blank"
-					class="widget bg6t"					 
+					class="widget bg4t"					 
 					href="https://medium.com/@artzaborskiy/egoism-bd797fd49f44#.du157kat4">
 					Общество маркирует некоторые модели поведения как нежелательные. <br>Эгоизм, к примеру. <br>Вообще, это самопожирающая авто-моно-антитеза ...</a>
 
 
-				<a class="widget bg1t" title="Характеристика" href="http://blog.zaborskiy.org/2013/11/blog-post.html"
+				<a class="widget bg2t" title="Характеристика" href="http://blog.zaborskiy.org/2013/11/blog-post.html"
 					target="_blank"> Артем Заборский обладает всеми необходимыми техническими навыками для выполнения своей (а
 					иногда и чужой) работы. В то же время, имеет весьма приблизительные представления о том, какие требования
 					накладывает занимаемая им пози...</a>
@@ -287,7 +308,7 @@ But we’re shortsightedly refuse to notice bigger and more powerful species aro
 
 				
 
-				<div class="widget bg3" id="apps" title="Android Apps">
+				<div class="widget bg2" id="apps" title="Android Apps">
 					<div class="linkset">
 						<ul>
 							<li ng-repeat="app in apps"><a target="_blank" href="{{app.url}}" itemprop="url">
@@ -305,7 +326,7 @@ But we’re shortsightedly refuse to notice bigger and more powerful species aro
 
 
 				<div id="tools"
-					class="widget bg5"
+					class="widget bg4"
 					title="Tools">
 					<div class="linkset">
 						<ul>
@@ -367,7 +388,7 @@ But we’re shortsightedly refuse to notice bigger and more powerful species aro
 
 				<a title="NPM dependency graph"
 					class="widget tall bg4t col-xl-6"
-					bg="https://github.com/compartia/npm-viz/raw/master/docs/3d.gif"
+					bg="https://github.com/compartia/npm-viz/raw/master/docs/graph2.png"
 					target="_blank"
 					href="https://github.com/compartia/npm-viz">
 					This project allows you to visualize the dependencies of NPM modules in the form of 2D (and 3D) graph;
@@ -492,8 +513,8 @@ But we’re shortsightedly refuse to notice bigger and more powerful species aro
 			<!--/ gallery row-->
 
 			<footer>
-				<div ng-include="'/assets/partials/social2.html'"></div>
-				<div ng-include="'/assets/partials/branding_footer.html'"></div>
+				<%= require('html-loader!./assets/partials/social2.html') %>
+				<%= require('html-loader!./assets/partials/branding_footer.html') %>	
 			</footer>
 
 
