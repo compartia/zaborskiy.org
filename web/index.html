@@ -24,7 +24,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
+<meta name="pocket-site-verification" content="321835abaa995c70b46a5473ae885d" />
  
 <script src="index.js"></script>
  
@@ -84,27 +84,9 @@
 }
 ]
 </script>
-
-<!--[if lt IE 9]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-
-<meta name="pocket-site-verification" content="321835abaa995c70b46a5473ae885d" />
-</head>
+ 
 
 
-
-<body>
-
-	<!-- <div id="fb-root"></div>
-	<script>
-	(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=340556079412727";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script> -->
 
 <style>
 	.bcard{
@@ -123,66 +105,52 @@
 		font-size: 20px;
 	}
 </style>
-<div id="container-three" style="width:100%; height:75vh">							
+
+
+</head>
+
+
+
+<body>
+ 
+
+		
+	<div id="container-three" style="width:100%; height:75vh"></div>
+
+
+	<div class="bcard">
+		<section class="about" itemscope itemtype="http://schema.org/Person">
+			<div class="intro">
+				<div class="logo logo-wrap">
+					<span class="az-az-logo"></span>
+				</div>
+	
+				<link itemprop="url" href="http://www.zaborskiy.org"> Hi there, I'm
+	
+				<h1 itemprop="name">
+					<span class="name">Artem</span> Zaborskiy
+					<link itemprop="url" href="http://www.zaborskiy.org" />
+				</h1>
+	
+				find my
+				<a href="/gal/artem_zaborskiy_resume.html">CV here</a>
+			</div>
+		</section>
+		<div ng-include="'/assets/partials/social_icons.html'"></div>
 	</div>
+	
+
+
 	<div class="container" ng-controller="mainCtrl">
 		<div>
-
-
-			<section class="banner ">
-				<header class="row flex-items-xs-top">
-
-					<div class=" col-sm-12 col-md-8 nopadding" ng-controller="navController">
-						<nav ng-cloak class="row nopadding  section-links bg2t">
-							<div class="{{topMenuStyle}}"></div>
-							<a target="_self" class="{{topMenuStyle}}  " href="#apps">apps</a>
-                            <a target="_self" class="{{topMenuStyle}}  " href="#tools">pages</a>
-                            <a target="_self" class="{{topMenuStyle}}  " href="#music">music</a>
-                            <a target="_self" class="{{topMenuStyle}}  " href="#texts">texts</a>
-                            <a target="_self" class="{{topMenuStyle}}  " href="#arts">arts</a>
-						</nav>					
-					</div>
-
-					
-					<div class="bcard">
-
-							
-						<section class="about" itemscope itemtype="http://schema.org/Person">
-
-
-							<div class="intro">
-								<div class="logo logo-wrap">
-									<span class="az-az-logo"></span>
-								</div>
-
-								<link itemprop="url" href="http://www.zaborskiy.org">
-								Hi there, I'm
-
- 								<h1 itemprop="name"><span class="name">Artem</span> Zaborskiy <link itemprop="url" href="http://www.zaborskiy.org" /></h1>
-
-								<!-- a male <span itemprop="jobTitle">Java developer</span>.   -->
-								find my <a href="/gal/artem_zaborskiy_resume.html">CV here</a>
-
-							</div>
-
-
-						</section>
-
-						<div ng-include="'/assets/partials/social_icons.html'"></div>
-
-					</div>
-				</header>
-			</section>
-
-
-
-
 
 
 			<!-- ================= -->
 
 			<section class="row ng-cloak" id="texts">
-
+				<div class="widget bg3">
+					<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/438859995&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+				</div>
 
                 <!-- <a title="Детализированный отчет о визите в Японию"
 					class="widget tall bg3t col-md-8 col-lg-8 col-xl-6"
@@ -191,7 +159,14 @@
 					<b>Пошаговый гид</b>
 					</a> -->
 
-				
+				<a title="Biodiversity"
+					class="widget tall bg4t col-xl-6"
+					bg="https://cdn-images-1.medium.com/max/1200/1*5KnWAbL9Wme-EAglWvxF7w.jpeg"
+					target="_blank"
+					href="https://medium.com/@artzaborskiy/biodiversity-49f933370d13">
+					Humans dare to naively believe they are the head of the food chain (which is wrong from several points of view). 
+But we’re shortsightedly refuse to notice bigger and more powerful species around ...
+                </a>
 
                 <a title="У Вас зайчанка!"
 					class="widget tall bg4t col-xl-6"
@@ -243,16 +218,16 @@
 					Изоморфеуса считали психом. Но бывает, некоторых психов признают гениями (посмертно, естественно). Само имя
 					Изоморфеуса дает нам понять, чт...</a>
 
-				<a title="Таиланд. Самуй. FAQ"
+				<!-- <a title="Таиланд. Самуй. FAQ"
 					class="widget tall bg3t"
 					bg="http://3.bp.blogspot.com/-DelrrZwEXzw/UrMCZ1cPlMI/AAAAAAAARTc/JKK6WlZXMs0/s640/IMG_20130209_173724.jpg"
 					href="http://blog.zaborskiy.org/2013/12/Thailand-Samui.html" target="_blank">Я
 					провел в Королевстве Таиланд больше полугода. Время от времени встречаются люди, которые задают примерно
-					одинаковые вопросы об этой стране. Чтобы немного упростить себе жиз...</a>
+					одинаковые вопросы об этой стране. Чтобы немного упростить себе жиз...</a> -->
 
 				<a title="Эгоизм"
 					target="_blank"
-					class="widget bg6t"
+					class="widget bg6t"					 
 					href="https://medium.com/@artzaborskiy/egoism-bd797fd49f44#.du157kat4">
 					Общество маркирует некоторые модели поведения как нежелательные. <br>Эгоизм, к примеру. <br>Вообще, это самопожирающая авто-моно-антитеза ...</a>
 
@@ -275,7 +250,9 @@
                 
                
                 
-                <a class="widget tall bg3t" title="Об энтропии ада" target="_blank"
+				<a class="widget tall bg3t" 
+					size="2"
+					title="Об энтропии ада" target="_blank"
                     bg="/assets/img/hellcolor.jpg"
 					href="https://medium.com/@artzaborskiy/%D0%BE%D0%B1-%D1%8D%D0%BD%D1%82%D1%80%D0%BE%D0%BF%D0%B8%D0%B8-%D0%B0%D0%B4%D0%B0-d5d750d092e7">Красота притягивает, она желает размножаться, она — само желание жить. Таково определение эволюции.
 Любые представления о рае скучны потому...</a>
@@ -289,6 +266,8 @@
 <!-- ================= -->
 
 			<section class="row" ng-controller="appsCtrl">
+
+				
 
 				<div class="widget bg3" id="apps" title="Android Apps">
 					<div class="linkset">
@@ -401,6 +380,7 @@
 				</a> -->
 
 				<a class="widget bg5 tall"
+					size="2"
 					title="Asia"
 					href='https://500px.com/ArtZaborskiy/galleries/asia'
 					bg="https://drscdn.500px.org/photo/157322525/m%3D900/2dd70208b18831452129dff98a71533d"
@@ -421,6 +401,7 @@
 					description="photography" href="/gal/tautology.html"></a> -->
 
 				<a class="widget bg5 tall col-xl-6"
+					size="2"
 					title="Secrets"
 					href='https://500px.com/ArtZaborskiy/galleries/secrets'
 					bg="https://drscdn.500px.org/photo/125881065/m%3D900/96d2b8b6892414e21458f62935c3b065"
@@ -454,6 +435,7 @@
 
                 <a class="widget tall"
 					title="Secret Lab"
+					size="2"
 					bg="{{illustrationsUrl}}/secret-lab-web-3000.jpeg" bg-class="bg4" description="mixed media"
 					href="https://www.behance.net/portfolio/editor?project_id=24134517"
 					target="_blank"></a>

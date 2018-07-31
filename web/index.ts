@@ -4,9 +4,10 @@ import '../web/assets/js/index'
 import './3d/graph3d'
 import { P3dScene } from './3d/graph3d';
 
+const DEBUG=false
 
 
-
+if(!DEBUG)
 document.addEventListener("DOMContentLoaded", function (event) {
     let container = document.getElementById('container-three');
     const scene = new P3dScene(container);

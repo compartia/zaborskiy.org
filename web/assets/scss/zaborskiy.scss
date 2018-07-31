@@ -252,9 +252,9 @@ ol.simple-list > li:before {
 
 @include media-breakpoint-down(sm) {
 
-    .about{
-        text-align: center!important;
-    }
+    // .about{
+    //     text-align: center!important;
+    // }
 
     .appsblock {
         .gallery-item{

@@ -83,9 +83,9 @@ export abstract class SimpleScene {
             light0.position.set(0, 0, 0)
             this.scene.add(light0);
             this.pointLight = light0;
-
         }
-        this.light1 = new THREE.DirectionalLight(0x0000ff, 0.9)
+
+        this.light1 = new THREE.DirectionalLight(0x0f1de2, 0.9)
         this.light1.position.set(100, 100, 100)
         this.scene.add(this.light1);
 
