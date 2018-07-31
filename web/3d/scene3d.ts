@@ -17,10 +17,10 @@ export abstract class SimpleScene {
         this.container = container;
         this.scene = new THREE.Scene()
 
-        let fogColor = new THREE.Color(0x000000);
+        let fogColor = new THREE.Color(0x000011);
 
         this.scene.background = fogColor;
-        this.scene.fog = new THREE.Fog(fogColor.getHex(), 0.05, 15);
+        this.scene.fog = new THREE.Fog(fogColor.getHex(), 0.05, 10);
 
         let renderer = new THREE.WebGLRenderer()
         renderer.setPixelRatio(window.devicePixelRatio);
@@ -58,14 +58,14 @@ export abstract class SimpleScene {
         controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
         controls.dampingFactor = 0.25;
         // controls.screenSpacePanning = false;
-        controls.minDistance = 1;
-        controls.maxDistance = 50
+        controls.minDistance = 0.5;
+        controls.maxDistance = 20
 
         controls.enableZoom = true;
         controls.enablePan = true;
 
         controls.autoRotate = true;
-        controls.autoRotateSpeed=0.2;
+        controls.autoRotateSpeed=0.3;
 
         this.controls = controls;
 
