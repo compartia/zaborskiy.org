@@ -29,7 +29,7 @@ export abstract class SimpleScene {
         this.renderer = renderer;
 
         // set size
-        this.renderer.setSize(container.clientWidth , container.clientHeight);
+        this.renderer.setSize(container.clientWidth, container.clientHeight);
 
         // add canvas to dom
         container.appendChild(this.renderer.domElement);
@@ -65,7 +65,7 @@ export abstract class SimpleScene {
         controls.enablePan = true;
 
         controls.autoRotate = true;
-        controls.autoRotateSpeed=0.3;
+        controls.autoRotateSpeed = 0.3;
 
         this.controls = controls;
 
@@ -82,16 +82,13 @@ export abstract class SimpleScene {
             let light0 = new THREE.PointLight(0xffffff, 1.6)
             light0.position.set(0, 0, 0)
             this.scene.add(light0);
-            this.pointLight=light0;
+            this.pointLight = light0;
 
         }
         this.light1 = new THREE.DirectionalLight(0x0000ff, 0.9)
         this.light1.position.set(100, 100, 100)
         this.scene.add(this.light1);
 
-        // let light2 = new THREE.DirectionalLight(0xffffff, 0.9)
-        // light2.position.set(-100, 100, -100)
-        // this.scene.add(light2)
     }
 
     private makeCamera() {
