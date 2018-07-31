@@ -3,16 +3,23 @@ import "../assets/img/robot.jpg"
 import "../assets/sprites/sprite1.png"
 import "../assets/sprites/sprite2.png"
 
-// import "../assets/sprites/sprite3.png"
-import "../assets/sprites/glasses.png"
-import "../assets/sprites/glasses2.png"
+import "../assets/sprites/sprite3.png"
+import "../assets/sprites/sprite4.png"
+
 
 import "../assets/sprites/sprite5.png"
-
 import "../assets/sprites/sprite6.png"
+
 import "../assets/sprites/sprite7.png"
 import "../assets/sprites/sprite8.png"
 
+import "../assets/sprites/sprite9.png"
+import "../assets/sprites/sprite10.png"
+
+
+import "../assets/sprites/glasses.png"
+import "../assets/sprites/glasses2.png"
+import "../assets/sprites/glasses3.png"
 
 import * as THREE from 'three'
 import { SimpleScene } from './scene3d';
@@ -21,7 +28,7 @@ import { Relaxer, EdgesCollection, NodesCollection, Point, Edge } from './relaxe
 import { Vector3 } from 'three';
 
 export class Lib {
-    public static lineColors = [
+    public static lineColors = [ 
         1, 0.2, 0.2,
         0, 0, 0.5
     ];
@@ -137,16 +144,26 @@ export class P3dScene extends SimpleScene implements EdgesCollection, NodesColle
             this.nodes.push(face);
             this.nodes.push(g);
             linkNodes(face, g);
-            linkNodes(center, face);
+            if(Math.random()<0.5){
+                linkNodes(center, face);    
+            }else{
+                linkNodes(center, g);
+            }
+           
         }
         for (let x = 0; x < 5; x++) {
-            let  sprite2name='assets/img/glasses2.png';
+            let  sprite2name='assets/img/glasses3.png';
             addFace('assets/img/sprite1.png', sprite2name);
             addFace('assets/img/sprite2.png', sprite2name);
+            addFace('assets/img/sprite3.png', sprite2name);
+            addFace('assets/img/sprite4.png', sprite2name);
             addFace('assets/img/sprite5.png', sprite2name);
+            
             addFace('assets/img/sprite6.png', sprite2name);
             addFace('assets/img/sprite7.png', sprite2name);
             addFace('assets/img/sprite8.png', sprite2name);
+            addFace('assets/img/sprite9.png', sprite2name);
+            addFace('assets/img/sprite10.png', sprite2name);
             // this.nodes.push(this.addSprie('assets/img/sprite1.png', R));
             // this.nodes.push(this.addSprie('assets/img/sprite2.png', R));
             // this.nodes.push(this.addSprie('assets/img/sprite5.png', R));
@@ -175,18 +192,15 @@ export class P3dScene extends SimpleScene implements EdgesCollection, NodesColle
         const R = len;
         const R2 = R / 2;
         const spriteMap = new THREE.TextureLoader().load(name);
-        const spriteMaterial = new THREE.MeshLambertMaterial({ map: spriteMap, transparent: true });
-        // const sprite = new THREE.Sprite(spriteMaterial);
-        // this.scene.add(sprite);
+        // const spriteMaterial = new THREE.MeshLambertMaterial({ color:"0xff0000", transparent: true });
+        const spriteMaterial = new THREE.MeshLambertMaterial({ map: spriteMap, transparent: true }); 
         let pos = new THREE.Vector3(Math.random() * R - R2, Math.random() * R - R2, Math.random() * R - R2);
         pos.setLength(R2);
 
-        // // sprite.scale.set(3,3,0.01);
-        // return sprite;
+       
 
-        var planeGeometry = new THREE.PlaneGeometry(0, 0, 20, 20);
-        // var planeMaterial = new THREE.MeshBasicMaterial(spriteMaterial);
-        let plane = new THREE.Mesh(planeGeometry, spriteMaterial);
+        var planeGeometry = new THREE.PlaneGeometry(2, 2, 1, 3);
+         let plane = new THREE.Mesh(planeGeometry, spriteMaterial);
         plane.rotation.x = -Math.PI / 2;
         plane.position.set(pos.x, pos.y, pos.z);
 
@@ -207,65 +221,14 @@ export class P3dScene extends SimpleScene implements EdgesCollection, NodesColle
         this.scene.add(sprite);
         let pos = new THREE.Vector3(Math.random() * R - R2, Math.random() * R - R2, Math.random() * R - R2);
         sprite.position.set(pos.x, pos.y, pos.z);
-        // sprite.scale.set(3,3,0.01);
+        // sprite.scale.set(8,3,0.01);
+        // sprite.scale()
         return sprite;
     }
 
 
 
-    public rebuild() {
-
-
-        // this.scene.add
-        // this.names2mesh = {};
-
-        // this.edges = [];
-
-        // //XXX: re-use object if any
-
-        // console.error("graph rebuild: " + graph.edges.length);
-
-        // this.resetScene();
-
-        // let names = Object.keys(graph.nodes);
-
-        // const R = Math.sqrt(graph.edges.length) + 2;
-        // const R2 = R / 2;
-
-        // let maxCardinality = 1;
-        // for (let name of names) {
-        //     let c = graph.nodes[name].cardinality;
-        //     if (c > maxCardinality) {
-        //         maxCardinality = c;
-        //     }
-        // }
-
-        // for (let name of names) {
-        //     let packageName = graph.nodes[name].nodeAttributes["package"];
-        //     let versionName = graph.nodes[name].nodeAttributes["version"];
-        //     let clr = 0.4 + (graph.nodes[name].cardinality * 0.6) / (maxCardinality);
-        //     if (clr > 1) clr = 1;
-        //     let spritey = this.makeTextSprite(packageName, versionName,
-        //         { fontsize: 20, backgroundColor: { r: 255, g: 255, b: 255, a: clr } });
-        //     let pos = new THREE.Vector3(Math.random() * R - R2, Math.random() * R - R2, Math.random() * R - R2);
-        //     pos.setLength(R);
-        //     spritey.position.set(pos.x, pos.y, pos.z);
-        //     this.scene.add(spritey);
-
-        //     let ow = new ObjWrapper(spritey);
-        //     this.names2mesh[name] = ow;
-        //     this.nodes.push(ow);
-        // }
-
-
-        // for (let edge of graph.edges) {
-        //     let line = this.makeConnector(this.names2mesh[edge.v], this.names2mesh[edge.w]);
-        //     this.scene.add(line);
-        //     let ew = new EdgeWrapper(this.names2mesh[edge.v], this.names2mesh[edge.w]);
-        //     ew.line = line;
-        //     this.edges.push(ew);
-        // }
-    }
+     
 
 
     private updateMesh() {

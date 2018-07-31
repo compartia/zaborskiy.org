@@ -23,7 +23,7 @@ export class Relaxer {
 
         let max_len=3*(edges.listEdges.length+1) / (1+nodes.listNodes.length);
 
-        let speed = 5 / Math.log(nodes.listNodes.length);
+        let speed = 2 / Math.log(nodes.listNodes.length + edges.listEdges.length +1);
         // repulsion
         for (let n1 of nodes.listNodes) {
             for (let n2 of nodes.listNodes) {

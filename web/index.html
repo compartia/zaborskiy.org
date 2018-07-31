@@ -106,6 +106,23 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script> -->
 
+<style>
+	.bcard{
+		position: absolute;
+		z-index: 1;
+		left: 0;
+		top: 0;
+	}
+
+	.logo{
+		text-align: left;	
+		font-size: 140px;	
+	}
+
+	.intro h1{
+		font-size: 20px;
+	}
+</style>
 <div id="container-three" style="width:100%; height:75vh">							
 	</div>
 	<div class="container" ng-controller="mainCtrl">
@@ -118,19 +135,16 @@
 					<div class=" col-sm-12 col-md-8 nopadding" ng-controller="navController">
 						<nav ng-cloak class="row nopadding  section-links bg2t">
 							<div class="{{topMenuStyle}}"></div>
-							<a target="_self" class="{{topMenuStyle}} bg3" href="#apps">apps</a>
-                            <a target="_self" class="{{topMenuStyle}} bg5" href="#tools">pages</a>
-                            <a target="_self" class="{{topMenuStyle}} bg6t" href="#music">music</a>
-                            <a target="_self" class="{{topMenuStyle}} bg1t" href="#texts">texts</a>
-                            <a target="_self" class="{{topMenuStyle}} bg4" href="#arts">arts</a>
-						</nav>
-
-						
-
+							<a target="_self" class="{{topMenuStyle}}  " href="#apps">apps</a>
+                            <a target="_self" class="{{topMenuStyle}}  " href="#tools">pages</a>
+                            <a target="_self" class="{{topMenuStyle}}  " href="#music">music</a>
+                            <a target="_self" class="{{topMenuStyle}}  " href="#texts">texts</a>
+                            <a target="_self" class="{{topMenuStyle}}  " href="#arts">arts</a>
+						</nav>					
 					</div>
 
 					
-					<div class=" col-sm-12 col-md-4 nopadding grad">
+					<div class="bcard">
 
 							
 						<section class="about" itemscope itemtype="http://schema.org/Person">
@@ -144,9 +158,7 @@
 								<link itemprop="url" href="http://www.zaborskiy.org">
 								Hi there, I'm
 
-								<!-- <h1 class="lead" itemprop="name" style="line-height: 1">Artem Zaborskiy</h1>
- -->
-								<h1 itemprop="name"><span class="name">Artem</span> Zaborskiy <link itemprop="url" href="http://www.zaborskiy.org" /></h1>
+ 								<h1 itemprop="name"><span class="name">Artem</span> Zaborskiy <link itemprop="url" href="http://www.zaborskiy.org" /></h1>
 
 								<!-- a male <span itemprop="jobTitle">Java developer</span>.   -->
 								find my <a href="/gal/artem_zaborskiy_resume.html">CV here</a>
