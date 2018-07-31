@@ -139,7 +139,7 @@ export class P3dScene extends SimpleScene implements EdgesCollection, NodesColle
             linkNodes(face, g);
             linkNodes(center, face);
         }
-        for (let x = 0; x < 20; x++) {
+        for (let x = 0; x < 5; x++) {
             let  sprite2name='assets/img/glasses2.png';
             addFace('assets/img/sprite1.png', sprite2name);
             addFace('assets/img/sprite2.png', sprite2name);

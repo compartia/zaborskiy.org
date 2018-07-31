@@ -20,17 +20,20 @@ export interface NodesCollection {
 
 export class Relaxer {
     public relax(edges: EdgesCollection, nodes: NodesCollection) {
+
+        let max_len=3*(edges.listEdges.length+1) / (1+nodes.listNodes.length);
+
         let speed = 5 / Math.log(nodes.listNodes.length);
         // repulsion
         for (let n1 of nodes.listNodes) {
             for (let n2 of nodes.listNodes) {
-                this.repulse(n1, n2, speed / 30);
+                this.repulse(n1, n2, speed / 30, max_len);
             }
         }
 
         // attraction
         for (let e of edges.listEdges) {
-            this.e2eInteract(e.a, e.b, -speed * 1);
+            this.e2eInteract(e.a, e.b, -speed * 1, max_len*0.8);
         }
 
         for (let n of nodes.listNodes) {
@@ -44,9 +47,11 @@ export class Relaxer {
         }
 
     }
-    public repulse(e: Point, n: Point, k: number) {
-        const MAX_LEN = 4;
-        const MAX_LEN_SQ = MAX_LEN * MAX_LEN;
+
+
+    public repulse(e: Point, n: Point, k: number, max_len) {
+       
+        const MAX_LEN_SQ = max_len * max_len;
         const eps = MAX_LEN_SQ / 15;
 
         if (e === n) return;
@@ -82,14 +87,14 @@ export class Relaxer {
 
     }
 
-    public e2eInteract(e: Point, n: Point, k: number) {
-        const MAX_LEN = 1;
-        const MAX_LEN_SQ = MAX_LEN * MAX_LEN;
+    public e2eInteract(e: Point, n: Point, k: number, max_len) {
+        
+        const MAX_LEN_SQ = max_len * max_len;
         const eps = MAX_LEN_SQ / 10;
 
         if (e === n) return;
 
-        let rSquared = e.pos.distanceTo(n.pos) - MAX_LEN;
+        let rSquared = e.pos.distanceTo(n.pos) - max_len;
         if (isNaN(rSquared)) return;
         if (rSquared < 0.0001) {
             return;
