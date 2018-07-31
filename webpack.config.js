@@ -10,6 +10,18 @@ const Clean = require('clean-webpack-plugin');
 const path = require('path');
 const setupServerMockup = require('./demo/serverMockup');
 
+
+/* Configure BrowserSync */
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+const BrowserSyncPluginConfig = new BrowserSyncPlugin({
+    host: 'localhost',
+    port: 9020,
+    proxy: 'http://localhost:8080/'
+}, config = {
+    reload: false
+})
+
+
 module.exports = {
     // Tell Webpack which file kicks off our app.
     entry: {
@@ -118,15 +130,17 @@ module.exports = {
             filename: devMode ? '[name].css' : '[name].[hash].css',
             chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
         }),
+        
+        BrowserSyncPluginConfig,
 
         new Clean(['dist']),
     ],
 
-    devServer: {
-        contentBase: path.join(__dirname),
-        compress: true,
-        overlay: true,
-        port: 9020,
-        setup: setupServerMockup,
-    },
+    // devServer: {
+    //     contentBase: path.join(__dirname),
+    //     compress: true,
+    //     overlay: true,
+    //     port: 9020,
+    //     setup: setupServerMockup,
+    // },
 };

@@ -20,7 +20,7 @@ export abstract class SimpleScene {
         let fogColor = new THREE.Color(0x000011);
 
         this.scene.background = fogColor;
-        this.scene.fog = new THREE.Fog(fogColor.getHex(), 0.05, 10);
+        this.scene.fog = new THREE.Fog(fogColor.getHex(), 0.05, 9);
 
         let renderer = new THREE.WebGLRenderer()
         renderer.setPixelRatio(window.devicePixelRatio);
@@ -59,13 +59,16 @@ export abstract class SimpleScene {
         controls.dampingFactor = 0.25;
         // controls.screenSpacePanning = false;
         controls.minDistance = 0.5;
-        controls.maxDistance = 20
+        controls.maxDistance = 7
 
         controls.enableZoom = true;
         controls.enablePan = true;
 
         controls.autoRotate = true;
         controls.autoRotateSpeed = 0.3;
+
+        controls.maxPolarAngle=Math.PI*0.66;
+        controls.minPolarAngle=Math.PI*0.33;
 
         this.controls = controls;
 
@@ -96,7 +99,7 @@ export abstract class SimpleScene {
         this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
         this.camera.position.x = 2
-        this.camera.position.y = 2
+        this.camera.position.y = 1.5
         this.camera.position.z = 2
 
         this.camera.lookAt(this.scene.position);

@@ -91,6 +91,7 @@
 <style>
 	.bcard{
 		position: absolute;
+		height: 80vh;
 		z-index: 1;
 		left: 0;
 		top: 0;
@@ -104,6 +105,18 @@
 	.intro h1{
 		font-size: 20px;
 	}
+
+	#container-three{
+		position: fixed;
+		width:100%; 
+		height:100vh;
+		left: 0;
+		right: 0;
+	}
+
+	.container{
+		padding-top: 80vh;
+	}
 </style>
 
 
@@ -115,7 +128,7 @@
  
 
 		
-	<div id="container-three" style="width:100%; height:75vh"></div>
+	<div id="container-three"></div>
 
 
 	<div class="bcard">
@@ -148,9 +161,7 @@
 			<!-- ================= -->
 
 			<section class="row ng-cloak" id="texts">
-				<div class="widget bg3">
-					<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/438859995&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-				</div>
+				
 
                 <!-- <a title="Детализированный отчет о визите в Японию"
 					class="widget tall bg3t col-md-8 col-lg-8 col-xl-6"
@@ -160,13 +171,25 @@
 					</a> -->
 
 				<a title="Biodiversity"
+					size="1"
 					class="widget tall bg4t col-xl-6"
 					bg="https://cdn-images-1.medium.com/max/1200/1*5KnWAbL9Wme-EAglWvxF7w.jpeg"
 					target="_blank"
 					href="https://medium.com/@artzaborskiy/biodiversity-49f933370d13">
 					Humans dare to naively believe they are the head of the food chain (which is wrong from several points of view). 
 But we’re shortsightedly refuse to notice bigger and more powerful species around ...
+				</a>
+
+				<a title="Иже еси на EBC"
+					class="widget bg4t tall col-xl-6 col-md-8 col-lg-8" bg="https://static.tildacdn.com/1f51b02a-6039-4e69-bad9-f6906da4d1b5/PA192119.jpg"
+					target="_blank"
+					href="http://everest.tilda.ws/">Краткое изложение обстоятельств ходки к Everest Base Camp<br>
+					Говорят, будет холодно. <br>Арендовал пропуканный масалой спальник "на минус 20". В Катманду вообще, все довольно пропукано, это бросается в нос еще до вы...
                 </a>
+				
+				<div class="widget bg3" size="1">
+					<iframe width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/438859995&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+				</div>
 
                 <a title="У Вас зайчанка!"
 					class="widget tall bg4t col-xl-6"
@@ -176,12 +199,7 @@ But we’re shortsightedly refuse to notice bigger and more powerful species aro
 					В 1961 году КПСС постановила, что “человек человеку — друг, товарищ и брат”, а вовсе не волк (см. “Моральный кодекс строителя коммунизма”, пункт ...
                 </a>
 
-                <a title="Иже еси на EBC"
-					class="widget bg4t tall col-xl-6 col-md-8 col-lg-8" bg="https://static.tildacdn.com/1f51b02a-6039-4e69-bad9-f6906da4d1b5/PA192119.jpg"
-					target="_blank"
-					href="http://everest.tilda.ws/">Краткое изложение обстоятельств ходки к Everest Base Camp<br>
-					Говорят, будет холодно. <br>Арендовал пропуканный масалой спальник "на минус 20". В Катманду вообще, все довольно пропукано, это бросается в нос еще до вы...
-                </a>
+                
 
 				<a title="Запредельное"
 					bg="https://cdn-images-1.medium.com/max/1200/0*aMSqG2FJG9KetKZQ.jpg"
