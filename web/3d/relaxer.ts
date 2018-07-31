@@ -45,9 +45,9 @@ export class Relaxer {
 
     }
     public repulse(e: Point, n: Point, k: number) {
-        const MAX_LEN = 10;
+        const MAX_LEN = 4;
         const MAX_LEN_SQ = MAX_LEN * MAX_LEN;
-        const eps = MAX_LEN_SQ / 10;
+        const eps = MAX_LEN_SQ / 15;
 
         if (e === n) return;
 
@@ -83,7 +83,7 @@ export class Relaxer {
     }
 
     public e2eInteract(e: Point, n: Point, k: number) {
-        const MAX_LEN = 2;
+        const MAX_LEN = 1;
         const MAX_LEN_SQ = MAX_LEN * MAX_LEN;
         const eps = MAX_LEN_SQ / 10;
 

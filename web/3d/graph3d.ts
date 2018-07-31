@@ -2,9 +2,11 @@
 import "../assets/img/robot.jpg"
 import "../assets/sprites/sprite1.png"
 import "../assets/sprites/sprite2.png"
-import "../assets/sprites/sprite3.png"
-import "../assets/sprites/sprite3.png"
-import "../assets/sprites/sprite4.png"
+
+// import "../assets/sprites/sprite3.png"
+import "../assets/sprites/glasses.png"
+import "../assets/sprites/glasses2.png"
+
 import "../assets/sprites/sprite5.png"
 
 import "../assets/sprites/sprite6.png"
@@ -12,11 +14,11 @@ import "../assets/sprites/sprite7.png"
 import "../assets/sprites/sprite8.png"
 
 
-import * as THREE from 'three-full'
+import * as THREE from 'three'
 import { SimpleScene } from './scene3d';
 
 import { Relaxer, EdgesCollection, NodesCollection, Point, Edge } from './relaxer';
-import { Vector3 } from 'three-full';
+import { Vector3 } from 'three';
 
 export class Lib {
     public static lineColors = [
@@ -49,7 +51,7 @@ export class Lib {
         side: THREE.DoubleSide, vertexColors: THREE.VertexColors
     });
 
-    
+
 }
 
 export class ObjWrapper implements Point {
@@ -85,7 +87,7 @@ class EdgeWrapper implements Edge {
 export class P3dScene extends SimpleScene implements EdgesCollection, NodesCollection {
     //   a:  THREE.FogExp2;
     relaxer: Relaxer;
-    private nodes: ObjWrapper[]  ;
+    private nodes: ObjWrapper[];
     private edges: EdgeWrapper[];
     private names2mesh: { [nodeName: string]: ObjWrapper } = {};
 
@@ -110,48 +112,81 @@ export class P3dScene extends SimpleScene implements EdgesCollection, NodesColle
 
         //nothing to add.. a plane .. might be?
 
-
         this.nodes = [];
-        // this.nodes.push(this.addSprie('assets/img/robot.jpg'));
-        // this.nodes.push(this.addSprie('assets/img/robot.jpg'));
-        for(let x=0; x<10; x++){
-            this.nodes.push(this.addSprie('assets/img/sprite1.png'));
-            this.nodes.push(this.addSprie('assets/img/sprite2.png'));
-            this.nodes.push(this.addSprie('assets/img/sprite5.png'));
-            this.nodes.push(this.addSprie('assets/img/sprite6.png'));
-            this.nodes.push(this.addSprie('assets/img/sprite7.png'));
-            this.nodes.push(this.addSprie('assets/img/sprite8.png'));
-
-            this.nodes.push(this.addSprie('assets/img/sprite3.png'));
-
-            this.nodes.push(this.addSprie('assets/img/sprite3.png'));
-
-            this.nodes.push(this.addSprie('assets/img/sprite3.png'));
+        this.edges = [];
+        let linkNodes=(a, b)=>{
+            if (a != b) {
+                let line = this.makeConnector(a, b);
+                // this.scene.add(line);
+                let ew = new EdgeWrapper(a, b);
+                ew.line = line;
+                this.edges.push(ew);
+            }
         }
         
-         
+        // this.nodes.push(this.addSprie('assets/img/robot.jpg'));
+        // this.nodes.push(this.addSprie('assets/img/robot.jpg'));
+        let R = 6;
+        let k = 1.1;
 
-        this.nodes.push(this.addSprie('assets/img/sprite3.png'));
-         
+        let center = new ObjWrapper(this.pointLight);
+        this.nodes.push(center)
+        let addFace= (name1, name2)=>{
+            let face = this.addSprie(name1, R);
+            let g =  this.addSprie(name2, R * k);
+            this.nodes.push(face);
+            this.nodes.push(g);
+            linkNodes(face, g);
+            linkNodes(center, face);
+        }
+        for (let x = 0; x < 20; x++) {
+            let  sprite2name='assets/img/glasses2.png';
+            addFace('assets/img/sprite1.png', sprite2name);
+            addFace('assets/img/sprite2.png', sprite2name);
+            addFace('assets/img/sprite5.png', sprite2name);
+            addFace('assets/img/sprite6.png', sprite2name);
+            addFace('assets/img/sprite7.png', sprite2name);
+            addFace('assets/img/sprite8.png', sprite2name);
+            // this.nodes.push(this.addSprie('assets/img/sprite1.png', R));
+            // this.nodes.push(this.addSprie('assets/img/sprite2.png', R));
+            // this.nodes.push(this.addSprie('assets/img/sprite5.png', R));
+            // this.nodes.push(this.addSprie('assets/img/sprite6.png', R));
+            // this.nodes.push(this.addSprie('assets/img/sprite7.png', R));
+            // this.nodes.push(this.addSprie('assets/img/sprite8.png', R));
+
+            // this.nodes.push(this.addSprie('assets/img/glasses.png', R * k));
+            // this.nodes.push(this.addSprie('assets/img/glasses2.png', R * k));
+            // this.nodes.push(this.addSprie('assets/img/glasses.png', R * k));
+            // this.nodes.push(this.addSprie('assets/img/glasses2.png', R * k));
+
+
+        }
+
+
+       
+        
+ 
+
 
 
     }
 
-    private addSprie(name: string):ObjWrapper {
-        const R = 6;
+    private addSprie(name: string, len: number): ObjWrapper {
+        const R = len;
         const R2 = R / 2;
         const spriteMap = new THREE.TextureLoader().load(name);
-        const spriteMaterial = new THREE.MeshLambertMaterial({ map: spriteMap, transparent:true });
+        const spriteMaterial = new THREE.MeshLambertMaterial({ map: spriteMap, transparent: true });
         // const sprite = new THREE.Sprite(spriteMaterial);
         // this.scene.add(sprite);
         let pos = new THREE.Vector3(Math.random() * R - R2, Math.random() * R - R2, Math.random() * R - R2);
-       
+        pos.setLength(R2);
+
         // // sprite.scale.set(3,3,0.01);
         // return sprite;
-        let plane
-        var planeGeometry = new THREE.PlaneGeometry(0, 0, 10, 12);
+
+        var planeGeometry = new THREE.PlaneGeometry(0, 0, 20, 20);
         // var planeMaterial = new THREE.MeshBasicMaterial(spriteMaterial);
-        plane = new THREE.Mesh(planeGeometry, spriteMaterial);
+        let plane = new THREE.Mesh(planeGeometry, spriteMaterial);
         plane.rotation.x = -Math.PI / 2;
         plane.position.set(pos.x, pos.y, pos.z);
 
@@ -164,8 +199,10 @@ export class P3dScene extends SimpleScene implements EdgesCollection, NodesColle
         const R = 6;
         const R2 = R / 2;
         const spriteMap = new THREE.TextureLoader().load(name);
-        const spriteMaterial = new THREE.SpriteMaterial({ map: spriteMap, color: 0xffffff, lights: true, fog: true,
-            side: THREE.FrontSide });
+        const spriteMaterial = new THREE.SpriteMaterial({
+            map: spriteMap, color: 0xffffff, lights: true, fog: true,
+            side: THREE.FrontSide
+        });
         const sprite = new THREE.Sprite(spriteMaterial);
         this.scene.add(sprite);
         let pos = new THREE.Vector3(Math.random() * R - R2, Math.random() * R - R2, Math.random() * R - R2);
@@ -237,9 +274,12 @@ export class P3dScene extends SimpleScene implements EdgesCollection, NodesColle
 
         // let min = this.listNodes[0].pos.clone();
         // let max = this.listNodes[0].pos.clone();
-
-        for (let e of this.nodes) {            
-            e.obj.rotation.setFromRotationMatrix( this.camera.matrix );
+        this.controls.target.x = this.pointLight.position.x;
+        this.controls.target.y = this.pointLight.position.y;
+        this.controls.target.z = this.pointLight.position.z;
+        //, this.pointLight.pos.y, this.pointLight.pos.z);
+        for (let e of this.nodes) {
+            e.obj.rotation.setFromRotationMatrix(this.camera.matrix);
         }
         // for (let e of this.edges) {
         //     let position: THREE.BufferAttribute = (e.line.geometry as THREE.BufferGeometry).attributes['position'] as THREE.BufferAttribute;
@@ -264,7 +304,7 @@ export class P3dScene extends SimpleScene implements EdgesCollection, NodesColle
         //     let fov = (<THREE.PerspectiveCamera>this.camera).getEffectiveFOV();
         //     (this.scene.fog as any).far = fov * 0.8;//size.length();
 
-            this.controls.update();
+        this.controls.update();
         // }
 
 
@@ -276,7 +316,7 @@ export class P3dScene extends SimpleScene implements EdgesCollection, NodesColle
 
     private makeConnector(a: ObjWrapper, b: ObjWrapper): THREE.Line {
 
-
+        if (a == b) return;
         let geometry = new THREE.BufferGeometry();
 
         let positions = [];
@@ -295,12 +335,12 @@ export class P3dScene extends SimpleScene implements EdgesCollection, NodesColle
     }
 
 
-  
+
 
 
     public render(): void {
 
-        // this.relaxer.relax(this, this);
+        this.relaxer.relax(this, this);
         this.updateMesh();
 
         this.renderer.render(this.scene, this.camera);

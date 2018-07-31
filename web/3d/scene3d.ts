@@ -8,6 +8,7 @@ export abstract class SimpleScene {
 
     container: HTMLElement;
     private light1: THREE.Light;
+    pointLight: THREE.Light;
 
     controls: THREE.OrbitControls;
     postprocessing: any;
@@ -81,6 +82,7 @@ export abstract class SimpleScene {
             let light0 = new THREE.PointLight(0xffffff, 1.6)
             light0.position.set(0, 0, 0)
             this.scene.add(light0);
+            this.pointLight=light0;
 
         }
         this.light1 = new THREE.DirectionalLight(0x0000ff, 0.9)
@@ -96,9 +98,9 @@ export abstract class SimpleScene {
         // create the camera
         this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-        this.camera.position.x = 5
-        this.camera.position.y = 5
-        this.camera.position.z = 5
+        this.camera.position.x = 3
+        this.camera.position.y = 4
+        this.camera.position.z = 3
 
         this.camera.lookAt(this.scene.position);
 
