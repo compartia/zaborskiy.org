@@ -65,7 +65,8 @@ module.exports = {
             {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
-                    devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    // devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    'style-loader',
                     'css-loader',
                     'sass-loader',
                 ],
@@ -119,12 +120,12 @@ module.exports = {
             to: 'bower_components/webcomponentsjs/[name].[ext]'
         }]),
 
-        new MiniCssExtractPlugin({
-            // Options similar to the same options in webpackOptions.output
-            // both options are optional
-            filename: devMode ? '[name].css' : '[name].[hash].css',
-            chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
-        }),
+        // new MiniCssExtractPlugin({
+        //     // Options similar to the same options in webpackOptions.output
+        //     // both options are optional
+        //     filename: devMode ? '[name].css' : '[name].css',
+        //     chunkFilename: devMode ? '[id].css' : '[id].css',
+        // }),
 
         BrowserSyncPluginConfig,
 
