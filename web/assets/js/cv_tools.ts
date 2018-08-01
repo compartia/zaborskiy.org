@@ -1,4 +1,6 @@
-function collectAllSkills() {
+import { artem_zaborskiy_cv } from "./cv";
+
+export  function collectAllSkills() {
 	var az_skills = new Array();
 
 	for (var i = 0; i < artem_zaborskiy_cv.positions.length; i++) {
@@ -14,14 +16,14 @@ function collectAllSkills() {
 	return az_skills;
 }
 
-function calculateDurations() {
+export function calculateDurations() {
 	var start = new Date();
 	var years = (1000 * 60 * 60 * 24 * 365.0);
 	var totalDuration = Math.abs((start.getTime() - artem_zaborskiy_cv.start)) / years;
 
 	for (var i = 0; i < artem_zaborskiy_cv.positions.length; i++) {
 
-		var pos = artem_zaborskiy_cv.positions[i];
+		let pos:any = artem_zaborskiy_cv.positions[i];
 
 		var timeDiff = Math.abs(pos.start - pos.stop) / years;
 		pos.duration = Math.round(timeDiff * 12);

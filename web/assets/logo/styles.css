@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "zaborskiyorg-logo";
-  src:url(".fonts/zaborskiyorg-logo.eot");
+  src:url("fonts/zaborskiyorg-logo.eot");
   src:url("fonts/zaborskiyorg-logo.eot?#iefix") format("embedded-opentype"),
     url("fonts/zaborskiyorg-logo.woff") format("woff"),
     url("fonts/zaborskiyorg-logo.ttf") format("truetype"),

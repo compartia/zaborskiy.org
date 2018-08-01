@@ -103,6 +103,10 @@ aside{
     .img-wrapper{
         width: auto;
         margin-left: -$content-padding;
+
+        img{
+            width: 100%;
+        }
     }
 
     .substep .img-wrapper{
