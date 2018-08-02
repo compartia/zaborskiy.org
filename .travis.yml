@@ -6,3 +6,8 @@ before_script:
   - npm install -g bower
 
 
+env:
+  - NODE_ENV=production
+
+script:
+  npm build
