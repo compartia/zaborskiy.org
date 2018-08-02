@@ -2,7 +2,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as request from 'request';
-// const  request = require('request');
+ 
  
 /* Download required markdowns */
 
