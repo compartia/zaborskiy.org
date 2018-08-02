@@ -22,6 +22,6 @@
         "polymer-redux": ["types/polymer-redux"]
       }
     },
-    "include": ["./web", "./types/*"]
+    "include": ["./web", "./types/*", "make_pages.ts"]
   }
   
