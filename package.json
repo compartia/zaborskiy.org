@@ -4,7 +4,7 @@
  "description": "Art Zaborkiy web site",
  "main": "webpack.config.js",
  "scripts": {
-  "postinstall": "ts-node --skip-project make_pages.ts && webpack --config webpack.config.js",
+  "postinstall": "./node_modules/.bin/ts-node --skip-project make_pages.ts && webpack --config webpack.config.js",
   "test": "npm run build",
   "build": "export NODE_ENV=production && webpack --config webpack.config.js",
   "demo": "webpack-dev-server --config webpack.config.js",
