@@ -1,14 +1,13 @@
 const path = require('path');
 const fs = require('fs');
-var request = require('sync-request');
+var request = require('request');
 /* Download required markdowns */
 
 
 function getPage(url, name) {
     console.log("get " + `${url}/${name}`);
     let dest = "./temp/";
-    let body = request('GET', `${url}/${name}`);//
-    fs.writeFileSync(path.join(dest, name), body.getBody());
+    request.get(`${url}/${name}`).pipe(fs.createWriteStream(path.join(dest, name)));    
 }
 
 function downloadWebPages() {

@@ -32,7 +32,6 @@
   "postprocessing": "^4.8.2",
   "sass-loader": "^6.0.6",
   "style-loader": "^0.21.0",
-  "sync-request": "^6.0.0",
   "three": "^0.94.0",
   "three-full": "^8.0.0",
   "ts-loader": "^4.4.2",
