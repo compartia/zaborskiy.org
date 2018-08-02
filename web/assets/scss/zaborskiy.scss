@@ -6,22 +6,22 @@
 @import "../logo/styles.css";
 //@import "const";
 
-@import "bower_components/bootstrap/scss/mixins";
+@import "../../../node_modules/bootstrap/scss/_mixins";
 //
 //// Reset and dependencies
-@import "bower_components/bootstrap/scss/normalize";
-@import "bower_components/bootstrap/scss/print";
+@import "../../../node_modules/bootstrap/scss/normalize";
+@import "../../../node_modules/bootstrap/scss/print";
 
 
 
-@import "bower_components/bootstrap/scss/reboot";
-@import "bower_components/bootstrap/scss/type";
-@import "bower_components/bootstrap/scss/images";
+@import "../../../node_modules/bootstrap/scss/reboot";
+@import "../../../node_modules/bootstrap/scss/type";
+@import "../../../node_modules/bootstrap/scss/images";
 //@import "../bower_components/bootstrap/scss/code";
-@import "bower_components/bootstrap/scss/grid";
+@import "../../../node_modules/bootstrap/scss/grid";
 //@import "../bower_components/bootstrap/scss/tables";
-@import "bower_components/bootstrap/scss/forms";
-@import "bower_components/bootstrap/scss/buttons";
+@import "../../../node_modules/bootstrap/scss/forms";
+@import "../../../node_modules/bootstrap/scss/buttons";
 
 
 @mixin gradient($from-color, $to-color) {
