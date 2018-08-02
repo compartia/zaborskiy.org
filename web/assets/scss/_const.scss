@@ -5,12 +5,14 @@ $bgDefTransparency: 0.4;
 $iconSize: 3rem;
 $rowHeight: 18rem;
 
-$palette-color-1:lighten(desaturate(#F8FFE8,60%),5%);
-$palette-color-2:#222222;
-$palette-color-3:desaturate(#84ad8d, 16%);
-$palette-color-4:#81abbd;
-$palette-color-5:desaturate(#572e58, 20%);
-$palette-color-6:#cf4359;
+$base-color: #0f1de2;
+$palette-color-1:#fefefe;
+
+$palette-color-2: darken($base-color, 40%);
+$palette-color-3: desaturate(darken($base-color, 10%) , 10%);
+$palette-color-4: lighten($base-color, 20%);
+$palette-color-5: desaturate($base-color, 20%);
+$palette-color-6: $base-color;
 
 $palette-color-1t: rgba($palette-color-1, $bgDefTransparency);
 $palette-color-2t: rgba($palette-color-2, 0.6);

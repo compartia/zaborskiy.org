@@ -1,20 +1,58 @@
 @import "zaborskiy";
 
-
 $numeration-size: $padding-base*8;
 
-
+ 
 BODY {
     color: $text-color;
     counter-reset: chapter;
+    // @extend .roboto;     
+}
+
+
+h1, h2, h3, h4, h5{
     @extend .roboto;
 }
+
+p{
+    font-family: "Forum",serif;
+    // padding: 0 $content-padding;
+}
+
+.container{    
+    background: white;
+    padding: $content-padding;
+    
+}
+
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    @extend .roboto;
+     
+    li{
+        marker: none;
+        margin-left: $content-padding;
+    }
+}
+
+footer{
+    padding-top: $content-padding*4;
+}
+
+blockquote {
+    border-left: 2px solid $palette-color-4;
+    font-size: 100%; 
+    padding-left: $padding-base;
+}
+ 
 
 code{
     color: $palette-color-4d;
     background: $palette-color-1;
 }
-
+ 
 pre{
     font-family:Liberation Mono,Consolas,Monaco,Lucida Console, DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace!important;
     padding: 10px;
@@ -23,100 +61,50 @@ pre{
     border-color: $palette-color-4!important;
     background: fade($palette-color-4, 10%)!important;
 }
+ 
+   
+h3 {
+    padding-top: 20px;
+    font-size: 200%;
+    font-weight: 300;
 
-.output{
-    background: none!important;
-    border-color: lightgray!important;
+    // margin-top: -0.33em;
+    color: $palette-color-5;
+    @extend .roboto;
 }
+// .substep{
+//     &::before{
+//         content: counter(chapter) "." counter(section) " ";
+//         counter-increment: section;
+//         text-align: right;
+//         float: left;
+//         width: $numeration-size;
+//         margin-left: -$numeration-size;
+//         padding-right: $padding-base;
+//     }
+//     &::before, h3 {
 
-section{
-    padding-top: 5* $padding-base;
-    padding-top: 3* $padding-base;
-}
+//         font-size: 200%;
+//         font-weight: 300;
 
-.prettyprint{
-    color: $palette-color-2;
-}
+//         // margin-top: -0.33em;
+//         color: $palette-color-5;
+//         @extend .roboto;
+//     }
 
-.sidenote, aside{
-    float: right;
-    color: $palette-color-3d;
-    margin-left: 2*$padding-base;
-    margin-right: -$content-padding;
-    border-left: 4px solid $palette-color-2;
-    padding: $padding-base;
-
-    background-color: $palette-color-1;
-
-
-}
-
-.sidenote{
-     width: 40%;
-}
-aside{
-    width: 40%;
-}
-.gallery{
-    list-style: none;
-}
-
-.substep{
-    &::before{
-        content: counter(chapter) "." counter(section) " ";
-        counter-increment: section;
-        text-align: right;
-        float: left;
-        width: $numeration-size;
-        margin-left: -$numeration-size;
-        padding-right: $padding-base;
-    }
-    &::before, h3 {
-
-        font-size: 200%;
-        font-weight: 300;
-
-        // margin-top: -0.33em;
-        color: $palette-color-5;
-        @extend .roboto;
-    }
-
-    margin-left:  $numeration-size - $content-padding;
-    margin-bottom: $padding-base*2;
-}
-.reset-chapter {
-	counter-reset: chapter;
-}
-
-.img-wrapper, .tutorial h1{
+//     margin-left:  $numeration-size - $content-padding;
+//     margin-bottom: $padding-base*2;
+// }
+ 
+ h1{
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     vertical-align: bottom;
 }
 
-.tutorial.container-fluid{
-    p{
-        max-width: inherit;
-    }
-
-    .img-wrapper{
-        width: auto;
-        margin-left: -$content-padding;
-
-        img{
-            width: 100%;
-        }
-    }
-
-    .substep .img-wrapper{
-        width: auto;
-        margin-left: -$numeration-size;
-        margin-right: -$content-padding;
-    }
-}
-
-.tutorial{
+ 
+.container{
 
     background: $palette-color-1;
     padding: $content-padding;
@@ -131,21 +119,21 @@ aside{
         margin: 0;
         padding: 0;
         margin-bottom: $padding-base;
-        margin-top: $padding-base;
+        margin-top: $padding-base*2;
     }
 
 
     h1{
-        background:  $palette-color-5;
+        color:  $palette-color-5;
 
-        text-align: center;
+        // text-align: center;
 
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
         vertical-align: bottom;
 
-        color: $palette-color-1;
+     
         text-transform: none;
         letter-spacing: 0;
         font-size: 350%;
@@ -154,6 +142,7 @@ aside{
         margin-bottom: 2*$content-padding;
         font-weight: 300;
         @extend .roboto;
+        @extend .nice-caption;
 
 
         small{
@@ -174,7 +163,7 @@ aside{
     }
 
 
-    ul.plain{
+    ul{
         line-height: 1;
         padding-top:  $padding-base!important;
         padding-bottom: $padding-base!important;
@@ -253,7 +242,7 @@ aside{
 
 
         line-height: 0.8;
-        margin-bottom: 4* $padding-base;
+        margin-bottom: 1* $padding-base;
 
         small{
             display: block;
@@ -264,6 +253,12 @@ aside{
             letter-spacing: 0;
         }
 
+        &:after{
+            content: "";
+            clear: both;
+            display: block; position: relative;
+        }
+        
       //deprecated
         &:before{
             float: left;
@@ -281,12 +276,14 @@ aside{
 
             margin-right: $padding-base;
             margin-bottom: $padding-base;
-            display: inline-block;
+           
 
             content: counter(chapter);
             background-color: $palette-color-5;
             color: $palette-color-1;
         }
+
+       
     }
 }
 
