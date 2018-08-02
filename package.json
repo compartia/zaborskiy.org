@@ -5,7 +5,7 @@
  "main": "webpack.config.js",
  "scripts": {
   "postinstall": "cd ./web/assets/scss && bower install && cd ../../../ && node make_pages.js && webpack --config webpack.config.js",
-  "test": "echo \"Error: no test specified\" && exit 1",
+  "test": "echo \"Error: no test specified\" ",
   "build": "export NODE_ENV=production && webpack --config webpack.config.js",
   "demo": "webpack-dev-server --config webpack.config.js",
   "start": "node server.js"
